@@ -1,3 +1,18 @@
 [submodule "client/Assets/Scripts/submodule/mvc"]
 	path = client/Assets/Scripts/submodule/mvc
 	url = https://github.com/luzexi/Unity3DMVC.git
+[submodule "client/Assets/Scripts/submodule/media"]
+	path = client/Assets/Scripts/submodule/media
+	url = https://github.com/luzexi/Unity3DMedia.git
+[submodule "client/Assets/Scripts/submodule/http"]
+	path = client/Assets/Scripts/submodule/http
+	url = https://github.com/luzexi/Unity3DNetwork-http.git
+[submodule "client/Assets/Scripts/submodule/resMgr"]
+	path = client/Assets/Scripts/submodule/resMgr
+	url = https://github.com/luzexi/Unity3DGameResource.git
+[submodule "client/Assets/Scripts/submodule/notification"]
+	path = client/Assets/Scripts/submodule/notification
+	url = https://github.com/luzexi/Unity3DPushMessage.git
+[submodule "client/Assets/Scripts/submodule/defineTool"]
+	path = client/Assets/Scripts/submodule/defineTool
+	url = https://github.com/luzexi/Unity3DDefineTool.git
