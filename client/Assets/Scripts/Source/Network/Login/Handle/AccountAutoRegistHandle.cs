@@ -16,13 +16,13 @@ using Game.Resource;
 /// <summary>
 /// 自动注册请求应答句柄
 /// </summary>
-public class AccountAutoRegistHandle : HTTPHandleBase
+public class AccountAutoRegistHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.AUTO_REGIST_REQ;
     }
@@ -32,7 +32,7 @@ public class AccountAutoRegistHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         AccountAutoRegistPktAck ack = (AccountAutoRegistPktAck)packet;
         GAME_LOG.LOG("code :" + ack.m_iErrorCode);
@@ -45,7 +45,7 @@ public class AccountAutoRegistHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         GAME_DEFINE.s_strToken = ack.m_strToken;
@@ -59,6 +59,6 @@ public class AccountAutoRegistHandle : HTTPHandleBase
         SendAgent.SendVersionReq();
         //SendAgent.SendPlayerInfoGetPktReq(GAME_SETTING.s_iUID);
 
-        return true;
+        return;
     }
 }

@@ -13,7 +13,7 @@ using Game.Network;
 /// <summary>
 /// 支付验证请求
 /// </summary>
-public class PayIOSVerifyPktReq : HTTPPacketBase
+public class PayIOSVerifyPktReq : HTTPPacketRequest
 {
     public int m_iPID;  //角色ID
     public int m_iPayID;    //支付订单号
@@ -25,17 +25,17 @@ public class PayIOSVerifyPktReq : HTTPPacketBase
     }
 
 
-    /// <summary>
-    /// 获取请求
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "pid=" + this.m_iPID + "&pay_id=" + this.m_iPayID + "&verify=" + this.m_strVerify;
+    // /// <summary>
+    // /// 获取请求
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "pid=" + this.m_iPID + "&pay_id=" + this.m_iPayID + "&verify=" + this.m_strVerify;
 
-        req = PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     req = PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 
 }

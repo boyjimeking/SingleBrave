@@ -16,14 +16,14 @@ using Game.Network;
 /// <summary>
 /// PVP战斗开始句柄
 /// </summary>
-public class PVPBattleStartHandle : HTTPHandleBase
+public class PVPBattleStartHandle
 {
 
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PVP_BATTLE_START_REQ;
     }
@@ -33,7 +33,7 @@ public class PVPBattleStartHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PVPBattleStartPktAck ack = (PVPBattleStartPktAck)packet;
 
@@ -42,7 +42,7 @@ public class PVPBattleStartHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iBattleID = ack.m_iBattleID;
@@ -102,6 +102,6 @@ public class PVPBattleStartHandle : HTTPHandleBase
         gui.SetBattleTargetHero(ack.m_vecHeros, vecEquip);
         gui.Show();
 
-        return true;
+        return;
     }
 }

@@ -10,13 +10,13 @@ using Game.Network;
 //  2014-2-8
 
 //竞技场详细信息获取请求应答句柄
-public class PVPDetailGetHandle : HTTPHandleBase
+public class PVPDetailGetHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PVP_DETAIL_GET_REQ;
     }
@@ -26,7 +26,7 @@ public class PVPDetailGetHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PVPDetailGetPktAck ack = (PVPDetailGetPktAck)packet;
 
@@ -38,7 +38,7 @@ public class PVPDetailGetHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         GUIArenaBattleIntelligence tmp = GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ARENABATTLEINTELLIGENCE) as GUIArenaBattleIntelligence;
@@ -77,7 +77,7 @@ public class PVPDetailGetHandle : HTTPHandleBase
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ARENA).Hiden();
         tmp.Show();
 
-        return true;
+        return;
     }
 }
 

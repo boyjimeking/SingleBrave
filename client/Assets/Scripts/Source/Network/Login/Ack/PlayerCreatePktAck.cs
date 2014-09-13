@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeTitans.JSon;
+
 using Game.Network;
 
 //  PlayerCreatePktAck.cs
@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 创建玩家应答数据包
 /// </summary>
-public class PlayerCreatePktAck : HTTPPacketBase
+public class PlayerCreatePktAck : HTTPPacketAck
 {
 
     //public int m_iWorld;   //用户开启世界//
@@ -49,69 +49,69 @@ public class PlayerCreatePktAck : HTTPPacketBase
     public int m_iFriendApplyCount;//好友申请总数
     public int m_iFriendGiftCount;//好友礼物总数
 
-    public PlayerCreatePktAck()
-    {
-        this.m_strAction = PACKET_DEFINE.CREATE_PLAY_REQ;
-    }
+    // public PlayerCreatePktAck()
+    // {
+    //     this.m_strAction = PACKET_DEFINE.CREATE_PLAY_REQ;
+    // }
 }
 
 
-/// <summary>
-/// 创建玩家应答数据包工厂类
-/// </summary>
-public class PlayerCreatePktAckFactory : HTTPPacketFactory
-{
+// /// <summary>
+// /// 创建玩家应答数据包工厂类
+// /// </summary>
+// public class PlayerCreatePktAckFactory : HTTPPacketFactory
+// {
 
-    /// <summary>
-    /// 获取数据包Action
-    /// </summary>
-    /// <returns></returns>
-    public override string GetPacketAction()
-    {
-        return PACKET_DEFINE.CREATE_PLAY_REQ;
-    }
+//     /// <summary>
+//     /// 获取数据包Action
+//     /// </summary>
+//     /// <returns></returns>
+//     public override string GetPacketAction()
+//     {
+//         return PACKET_DEFINE.CREATE_PLAY_REQ;
+//     }
 
-    /// <summary>
-    /// 创建数据包
-    /// </summary>
-    /// <param name="json"></param>
-    /// <returns></returns>
-    public override HTTPPacketBase Create(IJSonObject json)
-    {
-        PlayerCreatePktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerCreatePktAck>(json);
+//     /// <summary>
+//     /// 创建数据包
+//     /// </summary>
+//     /// <param name="json"></param>
+//     /// <returns></returns>
+//     public override HTTPPacketRequest Create(IJSonObject json)
+//     {
+//         PlayerCreatePktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerCreatePktAck>(json);
 
-        if (pkt.m_iErrorCode != 0)
-        {
-            return pkt;
-        }
+//         if (pkt.m_iErrorCode != 0)
+//         {
+//             return pkt;
+//         }
 
-        IJSonObject data = json["data"]["player"];
-        pkt.m_iUid = data["uid"].Int32Value;
-        pkt.m_iPlayerId = data["id"].Int32Value;
-        pkt.m_strUserName = data["nickname"].StringValue;
-        pkt.m_iLevel = data["lv"].Int32Value;
-        pkt.m_iCurrentExp = data["exp"].Int32Value;
-        pkt.m_iStrength = data["strength"].Int32Value;
-        pkt.m_iDiamond = data["diamond"].Int32Value;
-        pkt.m_iGold = data["gold"].Int32Value;
-        pkt.m_iFarmPoint = data["farm_point"].Int32Value;
-        pkt.m_iMaxHeroCount = data["max_hero"].Int32Value;
-        pkt.m_iMaxItem = data["max_item"].Int32Value;
-        pkt.m_iFriendPoint = data["friend_point"].Int32Value;
-        pkt.m_iSportPoint = data["sport_point"].Int32Value;
-        pkt.m_iCurrentTeam = data["curr_team"].Int32Value;
-        pkt.m_iCreateTime = data["create_time"].Int32Value;
-        pkt.m_lstWantItems.Add(data["want_item1"].Int32Value);
-        pkt.m_lstWantItems.Add(data["want_item2"].Int32Value);
-        pkt.m_lstWantItems.Add(data["want_item3"].Int32Value);
-        pkt.m_strSignature = data["signature"].StringValue;
-        pkt.m_strZhaoDaiId = data["zhaodaiid"].StringValue;
-        pkt.m_iGuideStep = data["newbie_step"].Int32Value;
-        pkt.m_iLoginTimes = data["login_times"].Int32Value;
-        pkt.m_iMailCounts = json["data"]["mail_count"].Int32Value;
-        pkt.m_iStrengthTime = data["strength_up_time"].Int32Value;
-        pkt.m_iSportTime = data["sport_up_time"].Int32Value;
+//         IJSonObject data = json["data"]["player"];
+//         pkt.m_iUid = data["uid"].Int32Value;
+//         pkt.m_iPlayerId = data["id"].Int32Value;
+//         pkt.m_strUserName = data["nickname"].StringValue;
+//         pkt.m_iLevel = data["lv"].Int32Value;
+//         pkt.m_iCurrentExp = data["exp"].Int32Value;
+//         pkt.m_iStrength = data["strength"].Int32Value;
+//         pkt.m_iDiamond = data["diamond"].Int32Value;
+//         pkt.m_iGold = data["gold"].Int32Value;
+//         pkt.m_iFarmPoint = data["farm_point"].Int32Value;
+//         pkt.m_iMaxHeroCount = data["max_hero"].Int32Value;
+//         pkt.m_iMaxItem = data["max_item"].Int32Value;
+//         pkt.m_iFriendPoint = data["friend_point"].Int32Value;
+//         pkt.m_iSportPoint = data["sport_point"].Int32Value;
+//         pkt.m_iCurrentTeam = data["curr_team"].Int32Value;
+//         pkt.m_iCreateTime = data["create_time"].Int32Value;
+//         pkt.m_lstWantItems.Add(data["want_item1"].Int32Value);
+//         pkt.m_lstWantItems.Add(data["want_item2"].Int32Value);
+//         pkt.m_lstWantItems.Add(data["want_item3"].Int32Value);
+//         pkt.m_strSignature = data["signature"].StringValue;
+//         pkt.m_strZhaoDaiId = data["zhaodaiid"].StringValue;
+//         pkt.m_iGuideStep = data["newbie_step"].Int32Value;
+//         pkt.m_iLoginTimes = data["login_times"].Int32Value;
+//         pkt.m_iMailCounts = json["data"]["mail_count"].Int32Value;
+//         pkt.m_iStrengthTime = data["strength_up_time"].Int32Value;
+//         pkt.m_iSportTime = data["sport_up_time"].Int32Value;
 
-        return pkt;
-    }
-}
+//         return pkt;
+//     }
+// }

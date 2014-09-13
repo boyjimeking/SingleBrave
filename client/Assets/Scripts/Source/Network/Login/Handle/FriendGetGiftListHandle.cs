@@ -12,13 +12,13 @@ using UnityEngine;
 /// <summary>
 /// 好友申请列表句柄
 /// </summary>
-public class FriendGetGiftListHandle : HTTPHandleBase
+public class FriendGetGiftListHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIEND_GETGIFTLIST_REQ;
     }
@@ -28,7 +28,7 @@ public class FriendGetGiftListHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendGetGiftListPktAck ack = (FriendGetGiftListPktAck)packet;
 

@@ -13,7 +13,7 @@ using Game.Network;
 /// <summary>
 /// 英雄图鉴信息请求
 /// </summary>
-public class HeroBookPktReq : HTTPPacketBase
+public class HeroBookPktReq : HTTPPacketRequest
 {
     public int m_iPid;  //玩家ID
 
@@ -23,17 +23,17 @@ public class HeroBookPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.HERO_BOOK_REQ;
     }
 
-    /// <summary>
-    /// 获取需求
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "pid=" + this.m_iPid;
+    // /// <summary>
+    // /// 获取需求
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "pid=" + this.m_iPid;
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 
 }

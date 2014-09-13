@@ -15,13 +15,13 @@ using UnityEngine;
 /// <summary>
 /// 帐号IOSPP助手登录句柄
 /// </summary>
-public class AccountIOSPPLoginHandle : HTTPHandleBase
+public class AccountIOSPPLoginHandle
 {
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACCOUNT_IOS_PP_LOGIN;
     }
@@ -31,7 +31,7 @@ public class AccountIOSPPLoginHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         AccountLoginIOSPPPktAck ack = packet as AccountLoginIOSPPPktAck;
 

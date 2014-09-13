@@ -8,13 +8,13 @@ using Game.Base;
 //商城钻石价格句柄
 //Author sunyi
 //2014-02-28
-public class StoreDiamonGetHandle : HTTPHandleBase
+public class StoreDiamonGetHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.STORE_DIAMOND_GET_REQ;
     }
@@ -24,7 +24,7 @@ public class StoreDiamonGetHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         StoreDiamonGetPktAck ack = (StoreDiamonGetPktAck)packet;
 
@@ -36,7 +36,7 @@ public class StoreDiamonGetHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetStoreDiamondProperty().ClearAll();
@@ -55,7 +55,7 @@ public class StoreDiamonGetHandle : HTTPHandleBase
         gem.SetLastGuiId(GUI_DEFINE.GUIID_STORE);
         gem.Show();
 
-        return true;
+        return;
     }
 }
 

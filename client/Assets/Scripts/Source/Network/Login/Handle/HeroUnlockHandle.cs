@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-17
 
 //英雄j解锁请求应答句柄
-public class HeroUnlockHandle : HTTPHandleBase
+public class HeroUnlockHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.HERO_UNLOCK_REQ;
     }
@@ -26,7 +26,7 @@ public class HeroUnlockHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroUnlockPktAck ack = (HeroUnlockPktAck)packet;
 

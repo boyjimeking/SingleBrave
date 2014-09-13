@@ -13,13 +13,13 @@ using Game.Network;
 /// <summary>
 /// 获取玩家信息请求应答句柄
 /// </summary>
-public class PlayerInfoGetHandle : HTTPHandleBase
+public class PlayerInfoGetHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.GET_PLAYINFO_REQ;
     }
@@ -29,7 +29,7 @@ public class PlayerInfoGetHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerInfoGetPktAck ack = (PlayerInfoGetPktAck)packet;
         GAME_LOG.LOG("code :" + ack.m_iErrorCode);
@@ -44,13 +44,13 @@ public class PlayerInfoGetHandle : HTTPHandleBase
             choose.Show();
             //GUIRoleCreate gui = (GUIRoleCreate)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ROLE_CREATE);
             //gui.Show();
-            return false;
+            return;
         }
 
         if (ack.m_iErrorCode < 0)
         {
             GAME_LOG.ERROR(ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         //存储角色数据
@@ -81,6 +81,6 @@ public class PlayerInfoGetHandle : HTTPHandleBase
 
         SendAgent.SendPlayerHeroInfoGetPktReq(ack.m_iPlayerId);
 
-        return true;
+        return;
     }
 }

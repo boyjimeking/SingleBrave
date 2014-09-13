@@ -8,13 +8,13 @@ using Game.Base;
 //战绩信息请求句柄
 //Author sunyi
 //2014-02-28
-public class PlayerBattleRecordHandle : HTTPHandleBase
+public class PlayerBattleRecordHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLE_RECORD_GET_REQ;
     }
@@ -24,7 +24,7 @@ public class PlayerBattleRecordHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerBattleRecordGetPktAck ack = (PlayerBattleRecordGetPktAck)packet;
 
@@ -36,7 +36,7 @@ public class PlayerBattleRecordHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBattleRecordProperty().Clear();
@@ -52,7 +52,7 @@ public class PlayerBattleRecordHandle : HTTPHandleBase
         GUIBattleRecord record = (GUIBattleRecord)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BATTLERECORD);
         record.Show();
 
-        return true;
+        return;
     }
 }
 

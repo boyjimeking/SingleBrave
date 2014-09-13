@@ -11,13 +11,13 @@ using UnityEngine;
 //  2013-12-17
 
 //金钱召唤请求应答句柄
-public class MoneySummonHandle : HTTPHandleBase
+public class MoneySummonHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.MONEY_SUMMON_REQ;
     }
@@ -27,7 +27,7 @@ public class MoneySummonHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         MoneySummonPktAck ack = (MoneySummonPktAck)packet;
 
@@ -39,7 +39,7 @@ public class MoneySummonHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamond;
@@ -75,7 +75,7 @@ public class MoneySummonHandle : HTTPHandleBase
         //tmp.ShowWithColliderBack(tmp2.Show, hero);
 
 
-        return true;
+        return;
     }
 }
 

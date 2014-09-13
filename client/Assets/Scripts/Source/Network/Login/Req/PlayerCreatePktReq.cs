@@ -9,7 +9,7 @@ using Game.Network;
 /// <summary>
 /// 创建玩家信息请求包
 /// </summary>
-public class PlayerCreatePktReq : HTTPPacketBase
+public class PlayerCreatePktReq : HTTPPacketRequest
 {
     public int m_strUID;  //用户UID
     public string m_strNickName;  //用好昵称
@@ -22,16 +22,16 @@ public class PlayerCreatePktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.CREATE_PLAY_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = string.Format("uid={0}&nickname={1}&select_hero_index={2}&deviceID={3}&channel={4}", m_strUID, m_strNickName, m_iSelectHeroIndex,this.m_strDeviceID , this.m_strChannel);
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = string.Format("uid={0}&nickname={1}&select_hero_index={2}&deviceID={3}&channel={4}", m_strUID, m_strNickName, m_iSelectHeroIndex,this.m_strDeviceID , this.m_strChannel);
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

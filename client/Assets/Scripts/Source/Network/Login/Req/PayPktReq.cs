@@ -12,7 +12,7 @@ using Game.Network;
 /// <summary>
 /// 支付请求数据包
 /// </summary>
-public class PayPktReq : HTTPPacketBase
+public class PayPktReq : HTTPPacketRequest
 {
     public int m_iPID;  //角色ID
     public int m_iGoodID;    //商品ID
@@ -23,12 +23,12 @@ public class PayPktReq : HTTPPacketBase
     }
 
 
-    public override string GetRequire()
-    {
-        string req = "pid=" + this.m_iPID + "&good_id=" + this.m_iGoodID;
+    // public override string GetRequire()
+    // {
+    //     string req = "pid=" + this.m_iPID + "&good_id=" + this.m_iGoodID;
 
-        req = PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     req = PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

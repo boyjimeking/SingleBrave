@@ -11,13 +11,13 @@ using Game.Network;
 /// <summary>
 /// 好友查找句柄
 /// </summary>
-public class FriendFindHandle : HTTPHandleBase
+public class FriendFindHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIEND_FIND_REQ;
     }
@@ -27,7 +27,7 @@ public class FriendFindHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendFindPktAck ack = (FriendFindPktAck)packet;
 

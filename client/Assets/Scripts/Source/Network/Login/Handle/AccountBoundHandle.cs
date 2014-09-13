@@ -15,13 +15,13 @@ using Game.Resource;
 /// <summary>
 /// 帐号绑定句柄
 /// </summary>
-public class AccountBoundHandle : HTTPHandleBase
+public class AccountBoundHandle
 {
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACCOUNT_BOUND_REQ;
     }
@@ -31,7 +31,7 @@ public class AccountBoundHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         AccountBoundPktAck ack = packet as AccountBoundPktAck;
 
@@ -40,7 +40,7 @@ public class AccountBoundHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         GUIAccount gui = GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ACCOUNT) as GUIAccount;
@@ -63,7 +63,7 @@ public class AccountBoundHandle : HTTPHandleBase
             gui.HidenImmediately();
         }
 
-        return true;
+        return;
     }
 
 }

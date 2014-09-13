@@ -15,13 +15,13 @@ using Game.Network;
 /// <summary>
 /// IOS PP助手支付验证句柄
 /// </summary>
-public class PayIOSPPVerifyHandle : HTTPHandleBase
+public class PayIOSPPVerifyHandle
 {
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PAY_IOS_PP_VERIFY;
     }
@@ -31,7 +31,7 @@ public class PayIOSPPVerifyHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PayIOSPPVerifyPktAck ack = packet as PayIOSPPVerifyPktAck;
 
@@ -44,7 +44,7 @@ public class PayIOSPPVerifyHandle : HTTPHandleBase
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
 
-            return false;
+            return;
         }
 
         if (ack.m_iResult == 2)
@@ -54,14 +54,14 @@ public class PayIOSPPVerifyHandle : HTTPHandleBase
             if (tmp != null) //开始重新发送
                 tmp.m_eState = PlatformPPIOS.PayState.ReStart;
 
-            return false;
+            return;
         }
 
         if (ack.m_iResult != 1)
         {
             GUI_FUNCTION.MESSAGEL(null, "支付验证失败,请与客服联系");
 
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamond;
@@ -73,13 +73,13 @@ public class PayIOSPPVerifyHandle : HTTPHandleBase
         if (tmp!=null)  //发送成功
             tmp.m_eState = PlatformPPIOS.PayState.Sucess;
 
-        return true;
+        return;
     }
 
     /// <summary>
     /// 重新发送
     /// </summary>
-    private void ReSend()
+    private static void ReSend()
     {
         SendAgent.SendPayIOSVerify(Role.role.GetBaseProperty().m_iPlayerId, Role.role.GetPayProperty().m_iPayID, Role.role.GetPayProperty().m_strVerify);
     }

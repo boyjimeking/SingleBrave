@@ -10,13 +10,13 @@ using Game.Network;
 //  2014-2-8
 
 //竞技场基本信息获取请求应答句柄
-public class PVPInfoGetHandle : HTTPHandleBase
+public class PVPInfoGetHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PVP_INFO_GET_REQ;
     }
@@ -26,7 +26,7 @@ public class PVPInfoGetHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PVPInfoGetPktAck ack = (PVPInfoGetPktAck)packet;
 
@@ -36,7 +36,7 @@ public class PVPInfoGetHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iPVPExp = ack.m_iPVP_point;
@@ -49,7 +49,7 @@ public class PVPInfoGetHandle : HTTPHandleBase
 
         SendAgent.SendFriendFightReq(Role.role.GetBaseProperty().m_iPlayerId);
 
-        return true;
+        return;
     }
 }
 

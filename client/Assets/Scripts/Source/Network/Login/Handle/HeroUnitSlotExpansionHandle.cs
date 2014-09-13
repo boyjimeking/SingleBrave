@@ -8,13 +8,13 @@ using Game.Network;
 //单位槽扩张句柄
 //Author sunyi
 //2013-12-27
-public class HeroUnitSlotExpansionHandle : HTTPHandleBase
+public class HeroUnitSlotExpansionHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.UNIT_EXPANSION_REQ;
     }
@@ -24,7 +24,7 @@ public class HeroUnitSlotExpansionHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroUnitSlotExpansionPktAck ack = (HeroUnitSlotExpansionPktAck)packet;
 
@@ -36,7 +36,7 @@ public class HeroUnitSlotExpansionHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamondCount;
@@ -51,7 +51,7 @@ public class HeroUnitSlotExpansionHandle : HTTPHandleBase
         GUIStore store = (GUIStore)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_STORE);
         store.Show();
 
-        return true;
+        return;
     }
 }
 

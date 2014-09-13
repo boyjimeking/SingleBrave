@@ -13,7 +13,7 @@ using Game.Network;
 /// <summary>
 /// 战斗关卡结束句柄
 /// </summary>
-public class BattleGateEndHandle : HTTPHandleBase
+public class BattleGateEndHandle
 {
     private List<int> m_lstNewHero = new List<int>();//新英雄列表
 
@@ -21,7 +21,7 @@ public class BattleGateEndHandle : HTTPHandleBase
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLE_GATE_END_REQ;
     }
@@ -31,7 +31,7 @@ public class BattleGateEndHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         BattleGateEndPktAck ack = (BattleGateEndPktAck)packet;
         

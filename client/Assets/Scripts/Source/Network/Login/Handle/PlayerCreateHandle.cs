@@ -13,13 +13,13 @@ using Game.Network;
 /// <summary>
 /// 创建玩家信息请求应答句柄
 /// </summary>
-public class PlayerCreateHandle : HTTPHandleBase
+public class PlayerCreateHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.CREATE_PLAY_REQ;
     }
@@ -29,7 +29,7 @@ public class PlayerCreateHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerCreatePktAck ack = (PlayerCreatePktAck)packet;
         GAME_LOG.LOG("code :" + ack.m_iErrorCode);
@@ -40,7 +40,7 @@ public class PlayerCreateHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ROLE_CREATE).Hiden();
@@ -75,6 +75,6 @@ public class PlayerCreateHandle : HTTPHandleBase
         SendAgent.SendPlayerHeroInfoGetPktReq(Role.role.GetBaseProperty().m_iPlayerId);
 
         GAME_SETTING.SaveNewDungeonOfNewArea(false);//开启玩家第一次进入区域时显示new的动画特效
-        return true;
+        return;
     }
 }

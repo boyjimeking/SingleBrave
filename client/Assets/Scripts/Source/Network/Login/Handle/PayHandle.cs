@@ -13,14 +13,14 @@ using Game.Network;
 /// <summary>
 /// 支付句柄
 /// </summary>
-class PayHandle : HTTPHandleBase
+class PayHandle
 {
 
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PAY_REQ;
     }
@@ -30,7 +30,7 @@ class PayHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
 
         PayPktAck ack = packet as PayPktAck;
@@ -40,7 +40,7 @@ class PayHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetPayProperty().m_iPayID = ack.m_iPayID;
@@ -53,7 +53,7 @@ class PayHandle : HTTPHandleBase
 
         PlatformManager.GetInstance().ShowPayment(ack.m_iPayID, ack.m_iGoodID , ack.m_iPayNum , ack.m_strType_ID , ack.m_iPrice);
 
-        return true;
+        return;
     }
 
 }

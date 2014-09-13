@@ -13,7 +13,7 @@ using Game.Network;
 /// <summary>
 /// 活动战斗开始
 /// </summary>
-public class ActivityBattleStartPktReq : HTTPPacketBase
+public class ActivityBattleStartPktReq : HTTPPacketRequest
 {
     public int m_iPid;  //玩家ID
     public int m_iFubenID;   //副本ID
@@ -24,16 +24,16 @@ public class ActivityBattleStartPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.ACTIVITY_BATTLE_START_REQ;
     }
 
-    /// <summary>
-    /// 获取请求
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "pid=" + this.m_iPid + "&fuben_id=" + this.m_iFubenID + "&gate_index=" + this.m_iGateIndex;
+    // /// <summary>
+    // /// 获取请求
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "pid=" + this.m_iPid + "&fuben_id=" + this.m_iFubenID + "&gate_index=" + this.m_iGateIndex;
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 自动注册请求包
 /// </summary>
-public class AccountAutoRegistPacketReq : HTTPPacketBase
+public class AccountAutoRegistPacketReq : HTTPPacketRequest
 {
 
     public AccountAutoRegistPacketReq()
@@ -19,13 +19,13 @@ public class AccountAutoRegistPacketReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.AUTO_REGIST_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        return "";
-    }
+//    /// <summary>
+//    /// 获取请求参数
+//    /// </summary>
+//    /// <returns></returns>
+//    public override string GetRequire()
+//    {
+//        return "";
+//    }
 
 }

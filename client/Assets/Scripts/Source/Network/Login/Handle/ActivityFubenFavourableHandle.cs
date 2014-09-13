@@ -8,13 +8,13 @@ using Game.Base;
 //获取活动副本优惠类型
 //Author sunyi
 //2014-1-10
-public class ActivityFubenFavourableHandle : HTTPHandleBase
+public class ActivityFubenFavourableHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACTIVITY_FUBEN_FAVOURABLE_REQ;
     }
@@ -24,7 +24,7 @@ public class ActivityFubenFavourableHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ActivityFubenFavourablePktAck ack = (ActivityFubenFavourablePktAck)packet;
 

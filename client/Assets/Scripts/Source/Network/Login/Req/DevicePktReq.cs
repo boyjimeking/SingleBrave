@@ -12,7 +12,7 @@ using Game.Network;
 /// <summary>
 /// 设备号请求
 /// </summary>
-public class DevicePktReq : HTTPPacketBase
+public class DevicePktReq : HTTPPacketRequest
 {
 
     public DevicePktReq()

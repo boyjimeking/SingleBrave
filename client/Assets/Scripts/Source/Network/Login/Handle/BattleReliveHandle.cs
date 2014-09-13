@@ -16,14 +16,14 @@ using Game.Network;
 /// <summary>
 /// 战斗复活句柄
 /// </summary>
-public class BattleReliveHandle : HTTPHandleBase
+public class BattleReliveHandle
 {
 
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLE_RELIVE_REQ;
     }
@@ -33,7 +33,7 @@ public class BattleReliveHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         BattleRelivePktAck ack = packet as BattleRelivePktAck;
 

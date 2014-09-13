@@ -18,13 +18,13 @@ using Game.Base;
 /// <summary>
 /// PVP战斗结束
 /// </summary>
-public class PVPBattleEndHandle : HTTPHandleBase
+public class PVPBattleEndHandle
 {
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PVP_BATTLE_END_REQ;
     }
@@ -34,7 +34,7 @@ public class PVPBattleEndHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PVPBattleEndPktAck ack = (PVPBattleEndPktAck)packet;
 
@@ -43,7 +43,7 @@ public class PVPBattleEndHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         int expOld = Role.role.GetBaseProperty().m_iPVPExp;
@@ -150,6 +150,6 @@ public class PVPBattleEndHandle : HTTPHandleBase
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMEBOTTOM).Hiden();
         arenaResult.Show();
 
-        return true;
+        return;
     }
 }

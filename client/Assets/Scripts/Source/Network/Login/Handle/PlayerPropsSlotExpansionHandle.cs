@@ -6,13 +6,13 @@ using Game.Base;
 using Game.Network;
 
 
-public class PlayerPropsSlotExpansionHandle : HTTPHandleBase
+public class PlayerPropsSlotExpansionHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PROPS_EXPANSION_REQ;
     }
@@ -22,7 +22,7 @@ public class PlayerPropsSlotExpansionHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerPropsSlotExpansionPktAck ack = (PlayerPropsSlotExpansionPktAck)packet;
 
@@ -34,7 +34,7 @@ public class PlayerPropsSlotExpansionHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamondCount;
@@ -49,7 +49,7 @@ public class PlayerPropsSlotExpansionHandle : HTTPHandleBase
         GUIStore store = (GUIStore)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_STORE);
         store.Show();
 
-        return true;
+        return;
     }
 }
 

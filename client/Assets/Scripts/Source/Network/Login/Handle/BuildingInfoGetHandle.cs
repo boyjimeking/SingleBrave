@@ -13,13 +13,13 @@ using Game.Network;
 /// <summary>
 /// 获取建筑信息请求应答句柄
 /// </summary>
-public class BuildingInfoGetHandle : HTTPHandleBase
+public class BuildingInfoGetHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.GET_BUILDING_GET_REQ;
     }
@@ -29,7 +29,7 @@ public class BuildingInfoGetHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         BuildingInfoGetPktAck ack = (BuildingInfoGetPktAck)packet;
         GAME_LOG.LOG("code :" + ack.m_iErrorCode);

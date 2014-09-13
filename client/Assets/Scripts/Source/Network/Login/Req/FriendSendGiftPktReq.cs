@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 赠送好友礼物协议
 /// </summary>
-public class FriendSendGiftPktReq : HTTPPacketBase
+public class FriendSendGiftPktReq : HTTPPacketRequest
 {
     public int m_iPID;  //玩家ID
     public List<FriendSendData> m_lstFriendSendData;
@@ -21,27 +21,27 @@ public class FriendSendGiftPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.FRIEND_SENDGIFT_REQ;
     }
 
-    /// <summary>
-    /// 获取数据
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string reqStr = "pid=" + m_iPID;
-        reqStr += "&sendinfo=";
-        for (int i = 0; i < m_lstFriendSendData.Count; i++)
-        {
-            reqStr += m_lstFriendSendData[i].m_iFriendID + ":" + m_lstFriendSendData[i].m_iGiftID;
+    // /// <summary>
+    // /// 获取数据
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string reqStr = "pid=" + m_iPID;
+    //     reqStr += "&sendinfo=";
+    //     for (int i = 0; i < m_lstFriendSendData.Count; i++)
+    //     {
+    //         reqStr += m_lstFriendSendData[i].m_iFriendID + ":" + m_lstFriendSendData[i].m_iGiftID;
 
-            if (i < (m_lstFriendSendData.Count - 1))
-            {
-                reqStr += "|";
-            }
-        }
+    //         if (i < (m_lstFriendSendData.Count - 1))
+    //         {
+    //             reqStr += "|";
+    //         }
+    //     }
 
-        PACKET_HEAD.PACKET_REQ_END(ref reqStr);
+    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
 
-        return reqStr;
-    }
+    //     return reqStr;
+    // }
 
 }

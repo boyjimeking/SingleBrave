@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 游戏测试数据包
 /// </summary>
-public class GameTestPktReq : HTTPPacketBase
+public class GameTestPktReq : HTTPPacketRequest
 {
     public GameTestPktReq()
     {

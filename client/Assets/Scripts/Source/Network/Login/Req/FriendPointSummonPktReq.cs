@@ -9,7 +9,7 @@ using Game.Network;
 /// <summary>
 /// 友情点召唤
 /// </summary>
-public class FriendPointSummonPktReq : HTTPPacketBase
+public class FriendPointSummonPktReq : HTTPPacketRequest
 {
     public int m_iPID;  //用户Pid
 
@@ -18,16 +18,16 @@ public class FriendPointSummonPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.FRIENDPOINT_SUMMON_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = string.Format("pid={0}", m_iPID);
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = string.Format("pid={0}", m_iPID);
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

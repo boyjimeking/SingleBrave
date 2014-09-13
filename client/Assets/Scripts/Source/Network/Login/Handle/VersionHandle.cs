@@ -14,13 +14,13 @@ using Game.Network;
 /// <summary>
 /// 版本句柄
 /// </summary>
-public class VersionHandle : HTTPHandleBase
+public class VersionHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.VERSION_REQ;
     }
@@ -30,7 +30,7 @@ public class VersionHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         VersionAckPkt pkt = (VersionAckPkt)packet;
 
@@ -39,7 +39,7 @@ public class VersionHandle : HTTPHandleBase
         if (pkt.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, pkt.m_strErrorDes);
-            return false;
+            return;
         }
 
         //记录资源地址
@@ -55,7 +55,7 @@ public class VersionHandle : HTTPHandleBase
         if (pkt.m_iVersion != GAME_SETTING.VERSION)
         {
             PlatformManager.GetInstance().UpdateVersion(pkt.m_strVersionPath);
-            return true;
+            return;
         }
 
         //GAME_DEFINE.RESOURCE_GUI_PATH = "gui";
@@ -71,7 +71,7 @@ public class VersionHandle : HTTPHandleBase
 		Debug.Log (GAME_DEFINE.RES_PATH);
         ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RES_PATH, 0, -1, "res",null, Game.Resource.RESOURCE_TYPE.WEB_TEXT_STR, Game.Resource.ENCRYPT_TYPE.NORMAL, DownLoadCallBack2);
 
-        return true;
+        return;
     }
 
 
@@ -80,7 +80,7 @@ public class VersionHandle : HTTPHandleBase
     /// </summary>
     /// <param name="resName"></param>
     /// <param name="asset"></param>
-    private void DownLoadCallBack2(string resName, object asset, object[] arg)
+    private static void DownLoadCallBack2(string resName, object asset, object[] arg)
     {
         Debug.Log("ok 2" + resName);
     }
@@ -90,7 +90,7 @@ public class VersionHandle : HTTPHandleBase
     /// </summary>
     /// <param name="resName"></param>
     /// <param name="asset"></param>
-    private void DownLoadCallBack3(string resName, object asset, object[] arg)
+    private static void DownLoadCallBack3(string resName, object asset, object[] arg)
     {
         Debug.Log("ok 3" + resName);
 

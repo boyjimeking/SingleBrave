@@ -35,7 +35,7 @@ public class SessionManager : Singleton<SessionManager>
     public SessionManager()
     {
         this.m_vecSession = new HTTPSession[(int)SESSION_DEFINE.MAX];
-        this.m_vecSession[(int)SESSION_DEFINE.LOGIN_SESSION] = new HTTPSession(GAME_SETTING.SESSION_LOGIN_PATH, new HTTPDispatchFactory<LoginDispatch>());
+        this.m_vecSession[(int)SESSION_DEFINE.LOGIN_SESSION] = new HTTPSession(GAME_SETTING.SESSION_LOGIN_PATH);
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class SessionManager : Singleton<SessionManager>
     /// </summary>
     /// <param name="index"></param>
     /// <param name="packet"></param>
-    public void Send(SESSION_DEFINE index, HTTPPacketBase packet)
+    public void Send(SESSION_DEFINE index, HTTPPacketRequest packet)
     {
         if (this.m_vecSession.Length <= (int)index)
         {
@@ -81,7 +81,7 @@ public class SessionManager : Singleton<SessionManager>
     /// </summary>
     /// <param name="index"></param>
     /// <param name="packet"></param>
-    public void SendReady(SESSION_DEFINE index, HTTPPacketBase packet)
+    public void SendReady(SESSION_DEFINE index, HTTPPacketRequest packet)
     {
         if (this.m_vecSession.Length <= (int)index)
         {

@@ -16,14 +16,14 @@ using Game.Base;
 /// <summary>
 /// 战斗关卡失败句柄
 /// </summary>
-public class BattleGateFailHandle :HTTPHandleBase
+public class BattleGateFailHandle
 {
 
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLE_GATE_FAIL_REQ;
     }
@@ -33,7 +33,7 @@ public class BattleGateFailHandle :HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         BattleGateFailPktAck ack = packet as BattleGateFailPktAck;
 

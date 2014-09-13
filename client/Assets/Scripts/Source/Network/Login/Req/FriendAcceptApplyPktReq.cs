@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 接受好友申请协议
 /// </summary>
-public class FriendAcceptApplyPktReq : HTTPPacketBase
+public class FriendAcceptApplyPktReq : HTTPPacketRequest
 {
     public int m_iPID;  //玩家ID
     public int m_iFriendPID;
@@ -21,18 +21,18 @@ public class FriendAcceptApplyPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.FRIEND_ACCEPTAPPLY_REQ;
     }
 
-    /// <summary>
-    /// 获取数据
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "pid=" + m_iPID;
-        req += "&fid=" + m_iFriendPID;
+    // /// <summary>
+    // /// 获取数据
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "pid=" + m_iPID;
+    //     req += "&fid=" + m_iFriendPID;
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 
 }

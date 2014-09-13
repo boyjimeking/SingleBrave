@@ -14,13 +14,13 @@ using Game.Network;
 /// <summary>
 /// 副本剧情设置句柄
 /// </summary>
-public class FubenStoryHandle : HTTPHandleBase
+public class FubenStoryHandle
 {
     /// <summary>
     /// 获取动作
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FUBEN_STORY_REQ;
     }
@@ -30,7 +30,7 @@ public class FubenStoryHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FubenStoryPktAck ack = packet as FubenStoryPktAck;
 

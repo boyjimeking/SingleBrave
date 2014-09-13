@@ -13,14 +13,14 @@ using Game.Network;
 /// <summary>
 /// 支付验证句柄
 /// </summary>
-public class PayIOSVerifyHandle : HTTPHandleBase
+public class PayIOSVerifyHandle
 {
 
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PAY_IOS_VERIFY;
     }
@@ -30,7 +30,7 @@ public class PayIOSVerifyHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PayIOSVerifyPktAck ack = packet as PayIOSVerifyPktAck;
 
@@ -38,19 +38,19 @@ public class PayIOSVerifyHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         if (ack.m_iResult == 2)
         {
             GUI_FUNCTION.MESSAGEM(ReSend, "验证超时,点击后重新验证");
-            return false;
+            return;
         }
 
         if (ack.m_iResult != 1)
         {
             GUI_FUNCTION.MESSAGEL(null, "支付验证失败,请与客服联系");
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamond;
@@ -59,14 +59,14 @@ public class PayIOSVerifyHandle : HTTPHandleBase
 
         GUI_FUNCTION.MESSAGES("恭喜您充值成功");
 
-        return true;
+        return;
     }
 
 
     /// <summary>
     /// 重新发送
     /// </summary>
-    private void ReSend()
+    private static void ReSend()
     {
         SendAgent.SendPayIOSVerify(Role.role.GetBaseProperty().m_iPlayerId, Role.role.GetPayProperty().m_iPayID, Role.role.GetPayProperty().m_strVerify);
     }

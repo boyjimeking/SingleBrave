@@ -10,7 +10,7 @@ using Game.Network;
 /// <summary>
 /// 竞技场基本信息获取
 /// </summary>
-public class PVPWeekRankGetPktReq : HTTPPacketBase
+public class PVPWeekRankGetPktReq : HTTPPacketRequest
 {
     public int m_iPid;  //Pid
 
@@ -19,16 +19,16 @@ public class PVPWeekRankGetPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.PVP_WEEK_RANK_GET_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = string.Format("pid={0}", m_iPid.ToString());
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = string.Format("pid={0}", m_iPid.ToString());
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

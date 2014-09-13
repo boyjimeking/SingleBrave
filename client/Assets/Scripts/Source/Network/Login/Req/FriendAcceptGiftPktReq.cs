@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 接受好友礼物协议
 /// </summary>
-public class FriendAcceptGiftPktReq : HTTPPacketBase
+public class FriendAcceptGiftPktReq : HTTPPacketRequest
 {  
     public int m_iPID;  //玩家ID
     public int[] m_vecWantsGift;    //想要的礼物
@@ -23,32 +23,32 @@ public class FriendAcceptGiftPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.FRIEND_ACCEPTGIFT_REQ;
     }
 
-    /// <summary>
-    /// 获取数据
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string reqStr = "pid=" + m_iPID;
-        reqStr += "&wantsGift=" + this.m_vecWantsGift[0];
-        for (int i = 1; i<this.m_vecWantsGift.Length ; i++  )
-        {
-            reqStr += "|" + this.m_vecWantsGift[i];
-        }
-        reqStr += "&gifts=";
-        for (int i = 0; i < m_lstFriendGifts.Count; i++)
-        {
-            reqStr += m_lstFriendGifts[i];
+    // /// <summary>
+    // /// 获取数据
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string reqStr = "pid=" + m_iPID;
+    //     reqStr += "&wantsGift=" + this.m_vecWantsGift[0];
+    //     for (int i = 1; i<this.m_vecWantsGift.Length ; i++  )
+    //     {
+    //         reqStr += "|" + this.m_vecWantsGift[i];
+    //     }
+    //     reqStr += "&gifts=";
+    //     for (int i = 0; i < m_lstFriendGifts.Count; i++)
+    //     {
+    //         reqStr += m_lstFriendGifts[i];
 
-            if (i < (m_lstFriendGifts.Count - 1))
-            {
-                reqStr += "|";
-            }
-        }
+    //         if (i < (m_lstFriendGifts.Count - 1))
+    //         {
+    //             reqStr += "|";
+    //         }
+    //     }
 
-        PACKET_HEAD.PACKET_REQ_END(ref reqStr);
+    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
 
-        return reqStr;
-    }
+    //     return reqStr;
+    // }
 
 }

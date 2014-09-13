@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-17
 
 //物品编辑请求应答句柄
-public class BattleItemEditHandle : HTTPHandleBase
+public class BattleItemEditHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLE_ITEM_EDIT_REQ;
     }
@@ -26,7 +26,7 @@ public class BattleItemEditHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         BattleItemEditPktAck ack = (BattleItemEditPktAck)packet;
 

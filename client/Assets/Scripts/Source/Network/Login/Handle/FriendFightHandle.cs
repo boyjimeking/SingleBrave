@@ -8,13 +8,13 @@ using Game.Network;
 //获取战友信息请求句柄
 //Author sunyi
 //2013-12-23
-public class FriendFightHandle : HTTPHandleBase
+public class FriendFightHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIEND_FIGHT_REQ;
     }
@@ -24,7 +24,7 @@ public class FriendFightHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendFightPktAck ack = (FriendFightPktAck)packet;
 

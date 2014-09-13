@@ -10,7 +10,7 @@ using Game.Network;
 /// <summary>
 /// 建筑升级信息请求包
 /// </summary>
-public class BuildingUpdatePktReq : HTTPPacketBase
+public class BuildingUpdatePktReq : HTTPPacketRequest
 {
     public int m_iPID;  //用户Pid
     public List<int> m_lstBuildType;  //建筑类型ID
@@ -23,28 +23,28 @@ public class BuildingUpdatePktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.BUILDING_UPDATE_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string data = string.Empty;
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string data = string.Empty;
 
-        for (int i = 0; i < m_lstBuildType.Count; i++)
-        {
-            data += m_lstBuildType[i] + ":" + m_lstBuildLevel[i] + ":" + m_lstBuildFarmPoint[i] + "|";
-        }
-        if (data.EndsWith("|"))
-        {
-            data = data.Remove(data.Length - 1);
-        }
+    //     for (int i = 0; i < m_lstBuildType.Count; i++)
+    //     {
+    //         data += m_lstBuildType[i] + ":" + m_lstBuildLevel[i] + ":" + m_lstBuildFarmPoint[i] + "|";
+    //     }
+    //     if (data.EndsWith("|"))
+    //     {
+    //         data = data.Remove(data.Length - 1);
+    //     }
 
-        string req = string.Format("pid={0}&build_infos={1}&farmpoint={2}",
-            m_iPID, data, m_iFarmPoint);
+    //     string req = string.Format("pid={0}&build_infos={1}&farmpoint={2}",
+    //         m_iPID, data, m_iFarmPoint);
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

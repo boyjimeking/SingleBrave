@@ -8,13 +8,13 @@ using Game.Network;
 //竞技点恢复句柄类
 //Author sunyi
 //2013-12-27
-public class PlayerSportPointRecoverHandle : HTTPHandleBase
+public class PlayerSportPointRecoverHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLEPOING_RECOVER_REQ;
     }
@@ -24,7 +24,7 @@ public class PlayerSportPointRecoverHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerSportPointRecoverPktAck ack = (PlayerSportPointRecoverPktAck)packet;
 
@@ -36,7 +36,7 @@ public class PlayerSportPointRecoverHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamondCount;
@@ -51,7 +51,7 @@ public class PlayerSportPointRecoverHandle : HTTPHandleBase
 
         GUIStore store = (GUIStore)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_STORE);
         store.Show();
-        return true;
+        return;
     }
 }
 

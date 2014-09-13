@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-23
 
 //获取物品请求应答句柄
-public class PlayerSignatureUpdateHandle : HTTPHandleBase
+public class PlayerSignatureUpdateHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.SIGN_UPDATE_REQ;
     }
@@ -26,7 +26,7 @@ public class PlayerSignatureUpdateHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerSignatureUpdatePktAck ack = (PlayerSignatureUpdatePktAck)packet;
 
@@ -38,12 +38,12 @@ public class PlayerSignatureUpdateHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_strSignature = ack.m_strSign;
 
-        return true;
+        return;
     }
 }
 

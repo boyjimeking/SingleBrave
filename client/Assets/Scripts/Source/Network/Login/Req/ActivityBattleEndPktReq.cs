@@ -15,7 +15,7 @@ using Game.Base;
 /// <summary>
 /// 活动战斗结束请求
 /// </summary>
-public class ActivityBattleEndPktReq :HTTPPacketBase
+public class ActivityBattleEndPktReq :HTTPPacketRequest
 {
     public int m_iPid;  //玩家ID
     public int m_iBattleID; //战斗ID
@@ -45,51 +45,51 @@ public class ActivityBattleEndPktReq :HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.ACTIVITY_BATTLE_END_REQ;
     }
 
-    /// <summary>
-    /// 获取请求
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "";
+    // /// <summary>
+    // /// 获取请求
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "";
 
-        req = "pid=" + this.m_iPid + "&battle_id=" + this.m_iBattleID + "&fuben_id=" + this.m_iFubenID + "&gate_index=" + this.m_iGateIndex;
-        req += "&gold=" + this.m_iGold + "&farmpoint=" + this.m_iFarm + "&friendbattle_id=" + this.m_iFriendBattleID;
+    //     req = "pid=" + this.m_iPid + "&battle_id=" + this.m_iBattleID + "&fuben_id=" + this.m_iFubenID + "&gate_index=" + this.m_iGateIndex;
+    //     req += "&gold=" + this.m_iGold + "&farmpoint=" + this.m_iFarm + "&friendbattle_id=" + this.m_iFriendBattleID;
 
-        //统计信息
-        req += "&max_shuijing=" + this.m_iRecordMaxShuijingNum + "&total_shuijing=" + this.m_iTotalShuijingNum + "&max_xin=" + this.m_iRecordMaxXinNum + "&total_xin=" + this.m_iTotalXinNum +
-            "&round_max_hurt=" + this.m_iRoundMaxHurt + "&round_spark_num=" + this.m_iRoundMaxSparkNum + "&total_spark_num=" + this.m_iTotalSparkNum + "&total_skill_num=" + this.m_iTotalSkillNum +
-            "&total_box_monster=" + this.m_iTotalBoxMonster;
+    //     //统计信息
+    //     req += "&max_shuijing=" + this.m_iRecordMaxShuijingNum + "&total_shuijing=" + this.m_iTotalShuijingNum + "&max_xin=" + this.m_iRecordMaxXinNum + "&total_xin=" + this.m_iTotalXinNum +
+    //         "&round_max_hurt=" + this.m_iRoundMaxHurt + "&round_spark_num=" + this.m_iRoundMaxSparkNum + "&total_spark_num=" + this.m_iTotalSparkNum + "&total_skill_num=" + this.m_iTotalSkillNum +
+    //         "&total_box_monster=" + this.m_iTotalBoxMonster;
 
-        req += "&heros=";
-        UnityEngine.Debug.Log("heros " + this.m_lstHero.Count);
-        if (this.m_lstHero != null && this.m_lstHero.Count > 0)
-        {
-            req += this.m_lstHero[0];
-            for (int i = 1; i < this.m_lstHero.Count; i++)
-            {
-                req += "|" + this.m_lstHero[i];
-            }
-        }
+    //     req += "&heros=";
+    //     UnityEngine.Debug.Log("heros " + this.m_lstHero.Count);
+    //     if (this.m_lstHero != null && this.m_lstHero.Count > 0)
+    //     {
+    //         req += this.m_lstHero[0];
+    //         for (int i = 1; i < this.m_lstHero.Count; i++)
+    //         {
+    //             req += "|" + this.m_lstHero[i];
+    //         }
+    //     }
 
-        req += "&items=";
-        if ( this.m_lstItem != null && this.m_lstItem.Count > 0)
-        {
-            req += this.m_lstItem[0] + ":" + this.m_lstItemNum[0];
-            for (int i = 1; i < this.m_lstItem.Count; i++)
-            {
-                req += "|" + this.m_lstItem[i] + ":" + this.m_lstItemNum[i];
-            }
-        }
+    //     req += "&items=";
+    //     if ( this.m_lstItem != null && this.m_lstItem.Count > 0)
+    //     {
+    //         req += this.m_lstItem[0] + ":" + this.m_lstItemNum[0];
+    //         for (int i = 1; i < this.m_lstItem.Count; i++)
+    //         {
+    //             req += "|" + this.m_lstItem[i] + ":" + this.m_lstItemNum[i];
+    //         }
+    //     }
 
-        req += "&readyitem=" + this.m_vecConsume[0];
-        for (int i = 1; i < this.m_vecConsume.Length; i++)
-        {
-            req += "|" + this.m_vecConsume[i];
-        }
+    //     req += "&readyitem=" + this.m_vecConsume[0];
+    //     for (int i = 1; i < this.m_vecConsume.Length; i++)
+    //     {
+    //         req += "|" + this.m_vecConsume[i];
+    //     }
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

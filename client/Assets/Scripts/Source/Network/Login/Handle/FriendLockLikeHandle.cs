@@ -11,13 +11,13 @@ using Game.Network;
 /// <summary>
 /// 好友喜欢锁定句柄
 /// </summary>
-public class FriendLockLikeHandle : HTTPHandleBase
+public class FriendLockLikeHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIEND_LOCKLIKE_REQ;
     }
@@ -27,7 +27,7 @@ public class FriendLockLikeHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendLockLikePktAck ack = (FriendLockLikePktAck)packet;
 

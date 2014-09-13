@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-17
 
 //英雄出售请求应答句柄
-public class HeroSellHandle : HTTPHandleBase
+public class HeroSellHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.HERO_SELL_REQ;
     }
@@ -26,7 +26,7 @@ public class HeroSellHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroSellPktAck ack = (HeroSellPktAck)packet;
 

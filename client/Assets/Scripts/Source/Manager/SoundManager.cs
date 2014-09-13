@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Game.Base;
 using Game.Resource;
-using Game.Base;
 using UnityEngine;
 
 
@@ -74,259 +73,259 @@ public class SOUND_DEFINE
     public const string SE_BATTLE_PVP_JOIN = "SD_SE14竞技场开战";    //竞技场开始
 }
 
-/// <summary>
-/// 声音管理类
-/// </summary>
-public class SoundManager : Singleton<SoundManager>
-{
-    private string AUDIO_PATH = "ROOT/CAMERA";   //聆听者地址
-
-    private AudioListener m_cAudioListener; //聆听者
-    private AudioSource m_cAudioSource; //声音源
-    private AudioSource m_cAudioSourceTime;  //UI音乐
-
-    //临时
-    private AudioClip m_cReadyAudio;    //准备播放的背景音乐
-    private float m_fStartTime; //准备开始背景音乐时间
-    private const float BG_FADEOUT_TIME = 0.5F;   //fadeout时间
-    private const float BG_FADEIN_TIME = 0.5F;   //fadein时间
-    private SOUND_STATE m_eState;   //状态
-
-    private enum SOUND_STATE
-    { 
-        NONE = 0,   //无
-        START =1,  //开始
-        BG_OLD_START,   //旧音乐处理开始
-        BG_OLD, //旧音乐处理
-        BG_OLD_END, //旧音乐处理结束
-        BG_NEW_START,   //新音乐处理开始
-        BG_NEW, //新音乐处理
-        BG_NEW_END, //新音乐处理结束
-        END,    //结束
-    }
-
-    public SoundManager()
-    {
-        this.m_eState = SOUND_STATE.NONE;
-    }
-
-    /// <summary>
-    /// 初始化
-    /// </summary>
-    public void Inititalize()
-    {
-        this.m_cAudioListener = GameObject.Find(AUDIO_PATH).GetComponent<AudioListener>();
-        AudioSource[] sous = this.m_cAudioListener.GetComponents<AudioSource>();
-        m_cAudioSource = sous[0];
-        m_cAudioSourceTime = sous[1];
-    }
-
-    /// <summary>
-    /// 设置背景音乐音量
-    /// </summary>
-    /// <param name="volume"></param>
-    public void SetBGMVolume(float volume)
-    {
-        this.m_cAudioSource.volume = volume;
-        m_cAudioSourceTime.volume = volume;
-    }
-
-    /// <summary>
-    /// 连续播放短促音乐
-    /// </summary>
-    /// <param name="snd"></param>
-    public void PlaySoundContinue(string snd)
-    {
-
-        if (this.m_cAudioSourceTime.clip != null && this.m_cAudioSourceTime.clip.name == snd)
-        {
-
-            if (!this.m_cAudioSourceTime.isPlaying)
-            {
-                   this.m_cAudioSourceTime.Play();
-            }
-            return;
-        }
-        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
-
-        if (clip == null)
-            return;
-
-        //clip
-        this.m_cAudioSourceTime.clip = clip;
-        this.m_cAudioSourceTime.volume = GAME_SETTING.s_fBGM_Volume;
-        this.m_cAudioSourceTime.loop = true;
-        this.m_cAudioSourceTime.Play();
-
-    }
-
-    /// <summary>
-    /// 停止播放
-    /// </summary>
-    public void StopSoundContinue()
-    {
-        if (this.m_cAudioSourceTime != null)
-        {
-            this.m_cAudioSourceTime.Stop();
-        }
-    }
-
-    /// <summary>
-    /// 播放背景音乐
-    /// </summary>
-    /// <param name="snd"></param>
-    public void PlayBGM(string snd)
-    {
-        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
-
-        if (clip == null)
-            return;
-
-        this.m_cReadyAudio = clip;
-
-        if (this.m_cAudioSource.clip != null && this.m_cReadyAudio != null && this.m_cAudioSource.clip.name != this.m_cReadyAudio.name)
-        {
-            this.m_eState = SOUND_STATE.START;
-        }
-    }
-
-    /// <summary>
-    /// 播放背景音乐
-    /// </summary>
-    /// <param name="clip"></param>
-    public void PlayBGM(AudioClip clip)
-    {
-        if (clip == null)
-            return;
-
-        //clip
-        this.m_cAudioSource.clip = clip;
-        this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume;
-        this.m_cAudioSource.loop = true;
-        this.m_cAudioSource.Play();
-    }
-
-    /// <summary>
-    /// 播放音乐接连上一次
-    /// </summary>
-    /// <param name="snd"></param>
-    public void PlaySound(string snd)
-    {
-        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
-
-        if (clip == null)
-            return;
-
-        //clip
-        this.m_cAudioSource.PlayOneShot(clip, GAME_SETTING.s_fSE_Volume);
-    }
-
-    /// <summary>
-    /// 连续播放短促音乐
-    /// </summary>
-    /// <param name="snd"></param>
-    public void PlaySound2(string snd)
-    {
-        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
-
-        if (clip == null)
-            return;
-
-        //clip
-        this.m_cAudioSourceTime.clip = clip;
-        this.m_cAudioSourceTime.volume = GAME_SETTING.s_fBGM_Volume;
-        this.m_cAudioSourceTime.loop = false;
-        this.m_cAudioSourceTime.Play();
-
-    }
-
-    /// <summary>
-    /// 播放音乐
-    /// </summary>
-    /// <param name="snd"></param>
-    public void PlaySound(AudioClip clip )
-    {
-        if (clip == null)
-            return;
-
-        this.m_cAudioSource.PlayOneShot(clip, GAME_SETTING.s_fSE_Volume);
-    }
-
-    /// <summary>
-    /// 停止背景音乐
-    /// </summary>
-    public void StopBGM()
-    { 
-        if( this.m_cAudioSource != null)
-        {
-            this.m_cAudioSource.Stop();
-        }
-    }
-
-    /// <summary>
-    /// 更新
-    /// </summary>
-    public void Update()
-    {
-        switch (this.m_eState)
-        { 
-            case SOUND_STATE.START:
-                this.m_eState++;
-                break;
-            case SOUND_STATE.BG_OLD_START:
-                this.m_fStartTime = GAME_TIME.TIME_APP();
-                if (this.m_cAudioSource.clip == null)
-                {
-                    this.m_eState = SOUND_STATE.BG_NEW_START;
-                    break;
-                }
-                this.m_eState++;
-                break;
-            case SOUND_STATE.BG_OLD:
-                float dis = GAME_TIME.TIME_APP() - this.m_fStartTime;
-                float rate = dis / BG_FADEOUT_TIME;
-                if (rate >= 1f)
-                {
-                    this.m_cAudioSource.volume = 0;
-                    this.m_eState++;
-                }
-                else
-                {
-                    this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume * (1-rate);
-                }
-                break;
-            case SOUND_STATE.BG_OLD_END:
-                this.m_eState++;
-                break;
-            case SOUND_STATE.BG_NEW_START:
-                this.m_fStartTime = GAME_TIME.TIME_APP();
-                this.m_cAudioSource.clip = this.m_cReadyAudio;
-                this.m_cAudioSource.volume = 0;
-                this.m_cAudioSource.loop = true;
-                this.m_cAudioSource.Play();
-                this.m_eState++;
-                break;
-            case SOUND_STATE.BG_NEW:
-                dis = GAME_TIME.TIME_APP() - this.m_fStartTime;
-                rate = dis / BG_FADEIN_TIME;
-                if (rate >= 1f)
-                {
-                    this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume;
-                    this.m_eState++;
-                }
-                else
-                {
-                    this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume * rate;
-                }
-                break;
-            case SOUND_STATE.BG_NEW_END:
-                this.m_eState++;
-                break;
-            case SOUND_STATE.END:
-                this.m_eState++;
-                break;
-        }
-
-    }
-
-}
+///// <summary>
+///// 声音管理类
+///// </summary>
+//public class SoundManager : Singleton<SoundManager>
+//{
+//    private string AUDIO_PATH = "ROOT/CAMERA";   //聆听者地址
+//
+//    private AudioListener m_cAudioListener; //聆听者
+//    private AudioSource m_cAudioSource; //声音源
+//    private AudioSource m_cAudioSourceTime;  //UI音乐
+//
+//    //临时
+//    private AudioClip m_cReadyAudio;    //准备播放的背景音乐
+//    private float m_fStartTime; //准备开始背景音乐时间
+//    private const float BG_FADEOUT_TIME = 0.5F;   //fadeout时间
+//    private const float BG_FADEIN_TIME = 0.5F;   //fadein时间
+//    private SOUND_STATE m_eState;   //状态
+//
+//    private enum SOUND_STATE
+//    { 
+//        NONE = 0,   //无
+//        START =1,  //开始
+//        BG_OLD_START,   //旧音乐处理开始
+//        BG_OLD, //旧音乐处理
+//        BG_OLD_END, //旧音乐处理结束
+//        BG_NEW_START,   //新音乐处理开始
+//        BG_NEW, //新音乐处理
+//        BG_NEW_END, //新音乐处理结束
+//        END,    //结束
+//    }
+//
+//    public SoundManager()
+//    {
+//        this.m_eState = SOUND_STATE.NONE;
+//    }
+//
+//    /// <summary>
+//    /// 初始化
+//    /// </summary>
+//    public void Inititalize()
+//    {
+//        this.m_cAudioListener = GameObject.Find(AUDIO_PATH).GetComponent<AudioListener>();
+//        AudioSource[] sous = this.m_cAudioListener.GetComponents<AudioSource>();
+//        m_cAudioSource = sous[0];
+//        m_cAudioSourceTime = sous[1];
+//    }
+//
+//    /// <summary>
+//    /// 设置背景音乐音量
+//    /// </summary>
+//    /// <param name="volume"></param>
+//    public void SetBGMVolume(float volume)
+//    {
+//        this.m_cAudioSource.volume = volume;
+//        m_cAudioSourceTime.volume = volume;
+//    }
+//
+//    /// <summary>
+//    /// 连续播放短促音乐
+//    /// </summary>
+//    /// <param name="snd"></param>
+//    public void PlaySoundContinue(string snd)
+//    {
+//
+//        if (this.m_cAudioSourceTime.clip != null && this.m_cAudioSourceTime.clip.name == snd)
+//        {
+//
+//            if (!this.m_cAudioSourceTime.isPlaying)
+//            {
+//                   this.m_cAudioSourceTime.Play();
+//            }
+//            return;
+//        }
+//        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
+//
+//        if (clip == null)
+//            return;
+//
+//        //clip
+//        this.m_cAudioSourceTime.clip = clip;
+//        this.m_cAudioSourceTime.volume = GAME_SETTING.s_fBGM_Volume;
+//        this.m_cAudioSourceTime.loop = true;
+//        this.m_cAudioSourceTime.Play();
+//
+//    }
+//
+//    /// <summary>
+//    /// 停止播放
+//    /// </summary>
+//    public void StopSoundContinue()
+//    {
+//        if (this.m_cAudioSourceTime != null)
+//        {
+//            this.m_cAudioSourceTime.Stop();
+//        }
+//    }
+//
+//    /// <summary>
+//    /// 播放背景音乐
+//    /// </summary>
+//    /// <param name="snd"></param>
+//    public void PlayBGM(string snd)
+//    {
+//        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
+//
+//        if (clip == null)
+//            return;
+//
+//        this.m_cReadyAudio = clip;
+//
+//        if (this.m_cAudioSource.clip != null && this.m_cReadyAudio != null && this.m_cAudioSource.clip.name != this.m_cReadyAudio.name)
+//        {
+//            this.m_eState = SOUND_STATE.START;
+//        }
+//    }
+//
+//    /// <summary>
+//    /// 播放背景音乐
+//    /// </summary>
+//    /// <param name="clip"></param>
+//    public void PlayBGM(AudioClip clip)
+//    {
+//        if (clip == null)
+//            return;
+//
+//        //clip
+//        this.m_cAudioSource.clip = clip;
+//        this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume;
+//        this.m_cAudioSource.loop = true;
+//        this.m_cAudioSource.Play();
+//    }
+//
+//    /// <summary>
+//    /// 播放音乐接连上一次
+//    /// </summary>
+//    /// <param name="snd"></param>
+//    public void PlaySound(string snd)
+//    {
+//        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
+//
+//        if (clip == null)
+//            return;
+//
+//        //clip
+//        this.m_cAudioSource.PlayOneShot(clip, GAME_SETTING.s_fSE_Volume);
+//    }
+//
+//    /// <summary>
+//    /// 连续播放短促音乐
+//    /// </summary>
+//    /// <param name="snd"></param>
+//    public void PlaySound2(string snd)
+//    {
+//        AudioClip clip = UnityEngine.Resources.Load(snd) as AudioClip;
+//
+//        if (clip == null)
+//            return;
+//
+//        //clip
+//        this.m_cAudioSourceTime.clip = clip;
+//        this.m_cAudioSourceTime.volume = GAME_SETTING.s_fBGM_Volume;
+//        this.m_cAudioSourceTime.loop = false;
+//        this.m_cAudioSourceTime.Play();
+//
+//    }
+//
+//    /// <summary>
+//    /// 播放音乐
+//    /// </summary>
+//    /// <param name="snd"></param>
+//    public void PlaySound(AudioClip clip )
+//    {
+//        if (clip == null)
+//            return;
+//
+//        this.m_cAudioSource.PlayOneShot(clip, GAME_SETTING.s_fSE_Volume);
+//    }
+//
+//    /// <summary>
+//    /// 停止背景音乐
+//    /// </summary>
+//    public void StopBGM()
+//    { 
+//        if( this.m_cAudioSource != null)
+//        {
+//            this.m_cAudioSource.Stop();
+//        }
+//    }
+//
+//    /// <summary>
+//    /// 更新
+//    /// </summary>
+//    public void Update()
+//    {
+//        switch (this.m_eState)
+//        { 
+//            case SOUND_STATE.START:
+//                this.m_eState++;
+//                break;
+//            case SOUND_STATE.BG_OLD_START:
+//                this.m_fStartTime = GAME_TIME.TIME_APP();
+//                if (this.m_cAudioSource.clip == null)
+//                {
+//                    this.m_eState = SOUND_STATE.BG_NEW_START;
+//                    break;
+//                }
+//                this.m_eState++;
+//                break;
+//            case SOUND_STATE.BG_OLD:
+//                float dis = GAME_TIME.TIME_APP() - this.m_fStartTime;
+//                float rate = dis / BG_FADEOUT_TIME;
+//                if (rate >= 1f)
+//                {
+//                    this.m_cAudioSource.volume = 0;
+//                    this.m_eState++;
+//                }
+//                else
+//                {
+//                    this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume * (1-rate);
+//                }
+//                break;
+//            case SOUND_STATE.BG_OLD_END:
+//                this.m_eState++;
+//                break;
+//            case SOUND_STATE.BG_NEW_START:
+//                this.m_fStartTime = GAME_TIME.TIME_APP();
+//                this.m_cAudioSource.clip = this.m_cReadyAudio;
+//                this.m_cAudioSource.volume = 0;
+//                this.m_cAudioSource.loop = true;
+//                this.m_cAudioSource.Play();
+//                this.m_eState++;
+//                break;
+//            case SOUND_STATE.BG_NEW:
+//                dis = GAME_TIME.TIME_APP() - this.m_fStartTime;
+//                rate = dis / BG_FADEIN_TIME;
+//                if (rate >= 1f)
+//                {
+//                    this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume;
+//                    this.m_eState++;
+//                }
+//                else
+//                {
+//                    this.m_cAudioSource.volume = GAME_SETTING.s_fBGM_Volume * rate;
+//                }
+//                break;
+//            case SOUND_STATE.BG_NEW_END:
+//                this.m_eState++;
+//                break;
+//            case SOUND_STATE.END:
+//                this.m_eState++;
+//                break;
+//        }
+//
+//    }
+//
+//}

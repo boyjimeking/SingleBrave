@@ -12,13 +12,13 @@ using UnityEngine;
 /// <summary>
 /// 英雄升级句柄
 /// </summary>
-public class HeroEvolutionHandle : HTTPHandleBase
+public class HeroEvolutionHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.HERO_EVOLUTION_REQ;
     }
@@ -28,7 +28,7 @@ public class HeroEvolutionHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroEvolutionPktAck ack = (HeroEvolutionPktAck)packet;
 

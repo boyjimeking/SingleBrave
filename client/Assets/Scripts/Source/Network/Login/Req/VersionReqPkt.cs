@@ -14,20 +14,20 @@ using Game.Network;
 /// <summary>
 /// 版本请求数据包
 /// </summary>
-public class VersionReqPkt : HTTPPacketBase
+public class VersionReqPkt : HTTPPacketRequest
 {
     public VersionReqPkt()
     {
         this.m_strAction = PACKET_DEFINE.VERSION_REQ;
     }
 
-    /// <summary>
-    /// 获取请求
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "" + DateTime.Now.Ticks;
-        return req;
-    }
+    // /// <summary>
+    // /// 获取请求
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "" + DateTime.Now.Ticks;
+    //     return req;
+    // }
 }

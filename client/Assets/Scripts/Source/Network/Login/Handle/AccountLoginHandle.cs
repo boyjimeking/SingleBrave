@@ -16,13 +16,13 @@ using Game.Resource;
 /// <summary>
 /// 帐号登录请求应答句柄
 /// </summary>
-public class AccountLoginHandle : HTTPHandleBase
+public class AccountLoginHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACCOUNT_LOGIN_REQ;
     }
@@ -32,7 +32,7 @@ public class AccountLoginHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         AccountLoginPktAck ack = (AccountLoginPktAck)packet;
         GAME_LOG.LOG("code :" + ack.m_iErrorCode);

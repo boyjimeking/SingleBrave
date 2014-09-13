@@ -11,13 +11,13 @@ using Game.Network;
 /// <summary>
 /// 英雄升级句柄
 /// </summary>
-public class HeroUpgradeHandle : HTTPHandleBase
+public class HeroUpgradeHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.HERO_UPGRADE_REQ;
     }
@@ -27,7 +27,7 @@ public class HeroUpgradeHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroUpgradePktAck ack = (HeroUpgradePktAck)packet;
 

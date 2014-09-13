@@ -11,13 +11,13 @@ using Game.Network;
 /// <summary>
 /// 英雄升级句柄
 /// </summary>
-public class TeamEditorHandle : HTTPHandleBase
+public class TeamEditorHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.TEAM_EDITOR_REQ;
     }
@@ -27,7 +27,7 @@ public class TeamEditorHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         TeamEditorPktAck ack = (TeamEditorPktAck)packet;
 
@@ -36,11 +36,11 @@ public class TeamEditorHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         SessionManager.GetInstance().CallBack();
 
-        return true;
+        return;
     }
 }

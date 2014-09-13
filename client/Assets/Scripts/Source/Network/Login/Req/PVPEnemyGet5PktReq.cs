@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 竞技场排名信息获取
 /// </summary>
-public class PVPEnemyGet5PktReq : HTTPPacketBase
+public class PVPEnemyGet5PktReq : HTTPPacketRequest
 {
     public int m_iPid;  //Pid
 
@@ -20,16 +20,16 @@ public class PVPEnemyGet5PktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.PVP_ENEMY_GET_5_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = string.Format("pid={0}", m_iPid.ToString());
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = string.Format("pid={0}", m_iPid.ToString());
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

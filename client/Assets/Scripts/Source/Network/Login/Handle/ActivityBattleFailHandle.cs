@@ -16,13 +16,13 @@ using UnityEngine;
 /// <summary>
 /// 活动战斗失败句柄
 /// </summary>
-public class ActivityBattleFailHandle : HTTPHandleBase
+public class ActivityBattleFailHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACTIVITY_BATTLE_FAIL_REQ;
     }
@@ -32,7 +32,7 @@ public class ActivityBattleFailHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ActivityBattleFailPktAck ack = packet as ActivityBattleFailPktAck;
 

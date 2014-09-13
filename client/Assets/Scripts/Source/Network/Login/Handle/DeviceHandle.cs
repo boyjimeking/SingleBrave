@@ -12,19 +12,19 @@ using Game.Network;
 /// <summary>
 /// 设备号句柄
 /// </summary>
-public class DeviceHandle : HTTPHandleBase
+public class DeviceHandle
 {
 
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.DEVICE_REQ;
     }
 
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         DevicePktAck ack = packet as DevicePktAck;
 

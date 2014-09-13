@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 好友礼物列表获取协议
 /// </summary>
-public class FriendGetGiftListPktReq : HTTPPacketBase
+public class FriendGetGiftListPktReq : HTTPPacketRequest
 { 
     public int m_iPID;  //玩家ID
       
@@ -20,17 +20,17 @@ public class FriendGetGiftListPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.FRIEND_GETGIFTLIST_REQ;
     }
 
-    /// <summary>
-    /// 获取数据
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string reqStr = "pid=" + m_iPID;
+    // /// <summary>
+    // /// 获取数据
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string reqStr = "pid=" + m_iPID;
 
-        PACKET_HEAD.PACKET_REQ_END(ref reqStr);
+    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
 
-        return reqStr;
-    }
+    //     return reqStr;
+    // }
 
 }

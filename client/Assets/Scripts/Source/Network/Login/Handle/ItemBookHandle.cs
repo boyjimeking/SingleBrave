@@ -15,7 +15,7 @@ using Game.Network;
 /// <summary>
 /// 物品图鉴句柄
 /// </summary>
-public class ItemBookHandle : HTTPHandleBase
+public class ItemBookHandle
 {
     public ItemBookHandle()
     { 
@@ -26,7 +26,7 @@ public class ItemBookHandle : HTTPHandleBase
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ITEM_BOOK_REQ;
     }
@@ -36,14 +36,14 @@ public class ItemBookHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ItemBookPktAck ack = (ItemBookPktAck)packet;
 
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         foreach (int item in ack.m_lstItem)
@@ -53,6 +53,6 @@ public class ItemBookHandle : HTTPHandleBase
 
         SendAgent.SendActivityFubenFavourableEeq(Role.role.GetBaseProperty().m_iPlayerId);
 
-        return true;
+        return;
     }
 }

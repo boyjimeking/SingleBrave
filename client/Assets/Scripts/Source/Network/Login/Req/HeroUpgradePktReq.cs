@@ -12,7 +12,7 @@ using Game.Network;
 /// <summary>
 /// 英雄升级数据包
 /// </summary>
-public class HeroUpgradePktReq : HTTPPacketBase
+public class HeroUpgradePktReq : HTTPPacketRequest
 {
     public int m_iPID;  //玩家ID
     public int m_iHeroID;   //英雄ID//
@@ -24,27 +24,27 @@ public class HeroUpgradePktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.HERO_UPGRADE_REQ;
     }
 
-    /// <summary>
-    /// 获取数据
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string reqStr = "pid=" + m_iPID + "&";
-        reqStr += "hero_id=" + m_iHeroID + "&";
-        reqStr += "sacrifice=";
-        for (int i = 0; i < m_iCostHeroIDs.Count; i++)
-        {
-            reqStr += m_iCostHeroIDs[i].ToString();
+    // /// <summary>
+    // /// 获取数据
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string reqStr = "pid=" + m_iPID + "&";
+    //     reqStr += "hero_id=" + m_iHeroID + "&";
+    //     reqStr += "sacrifice=";
+    //     for (int i = 0; i < m_iCostHeroIDs.Count; i++)
+    //     {
+    //         reqStr += m_iCostHeroIDs[i].ToString();
 
-            if (0 < (m_iCostHeroIDs.Count - 1))
-            {
-                reqStr += "|";
-            }
-        }
+    //         if (0 < (m_iCostHeroIDs.Count - 1))
+    //         {
+    //             reqStr += "|";
+    //         }
+    //     }
 
-        PACKET_HEAD.PACKET_REQ_END(ref reqStr);
+    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
 
-        return reqStr;
-    }
+    //     return reqStr;
+    // }
 }

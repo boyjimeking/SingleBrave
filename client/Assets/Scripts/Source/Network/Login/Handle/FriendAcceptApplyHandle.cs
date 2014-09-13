@@ -11,13 +11,13 @@ using Game.Network;
 /// <summary>
 /// 好友申请列表句柄
 /// </summary>
-public class FriendAcceptApplyHandle : HTTPHandleBase
+public class FriendAcceptApplyHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIEND_ACCEPTAPPLY_REQ;
     }
@@ -27,7 +27,7 @@ public class FriendAcceptApplyHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendAcceptApplyPktAck ack = (FriendAcceptApplyPktAck)packet;
 

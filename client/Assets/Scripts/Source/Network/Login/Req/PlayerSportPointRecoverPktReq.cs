@@ -7,7 +7,7 @@ using Game.Network;
 //竞技点恢复请求类
 //Author Sunyi
 //2013-12-27
-public class PlayerSportPointRecoverPktReq : HTTPPacketBase
+public class PlayerSportPointRecoverPktReq : HTTPPacketRequest
 {
     public int m_iPid;
 
@@ -16,17 +16,17 @@ public class PlayerSportPointRecoverPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.BATTLEPOING_RECOVER_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = string.Format("pid={0}", this.m_iPid);
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = string.Format("pid={0}", this.m_iPid);
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }
 

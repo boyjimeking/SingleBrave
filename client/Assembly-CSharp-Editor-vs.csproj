@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1887B57A-5D11-6EFE-16A7-270C91EDB642}</ProjectGuid>
+	<ProjectGuid>{2FC59FCE-BCB1-13D3-FB79-5DD1AF79A2AF}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -108,6 +108,7 @@
      <Compile Include="Assets\Scripts\Source\Editor\BUILD_EDITOR.cs" />
      <Compile Include="Assets\Scripts\Source\Editor\ResourceExport.cs" />
      <Compile Include="Assets\Scripts\Source\Editor\SyncSublimeText2.cs" />
+     <Compile Include="Assets\Scripts\submodule\defineTool\Editor\DEFINE_TOOL.cs" />
      <Compile Include="Assets\iTweenEditor\Editor\iTweenEventDataEditor.cs" />
      <Compile Include="Assets\iTweenEditor\Editor\iTweenPathEditor.cs" />
      <None Include="Assets\ResourcesWWW\TABLE_物品.csv.txt" />
@@ -300,26 +301,23 @@
      <None Include="Assets\_BF\GUI\GUIHeroDetail\heroDetail.txt" />
      <None Include="Assets\_BF\GUI\GUIHeroIntelligence\heroIntelligence.txt" />
      <None Include="Assets\ResourcesWWW\TABLE_活动敌人队列.csv.txt" />
- <Reference Include="CodeTitans.JSon">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/CodeTitans.JSon.dll</HintPath>
- </Reference>
  <Reference Include="GameBase">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/GameBase.dll</HintPath>
- </Reference>
- <Reference Include="HTTPNetwork">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/HTTPNetwork.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/GameBase.dll</HintPath>
  </Reference>
  <Reference Include="I18N.CJK">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.CJK.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.CJK.dll</HintPath>
  </Reference>
  <Reference Include="I18N">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.dll</HintPath>
  </Reference>
  <Reference Include="I18N.Other">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.Other.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.Other.dll</HintPath>
  </Reference>
  <Reference Include="I18N.West">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.West.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.West.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/submodule/mvc/Model/LitJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -327,7 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{5205093D-16C5-39DB-7B5E-0C558FDD7A69}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+      <Project>{A2859A56-AB4A-51F9-60BB-1B6FC96E8C70}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

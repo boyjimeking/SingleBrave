@@ -9,13 +9,13 @@ using Game.Base;
 //接收系统礼物句柄类
 //Author sunyi
 //2014-1-20
-public class PlayerReceiveSystemMailHandle : HTTPHandleBase
+public class PlayerReceiveSystemMailHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PLAYER_RECEIVE_SYSTEM_MAIL_REQ;
     }
@@ -25,7 +25,7 @@ public class PlayerReceiveSystemMailHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerReceiveSystemMailPktAck ack = (PlayerReceiveSystemMailPktAck)packet;
 
@@ -37,7 +37,7 @@ public class PlayerReceiveSystemMailHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_cGiftMail.m_iDiamond;
@@ -66,7 +66,7 @@ public class PlayerReceiveSystemMailHandle : HTTPHandleBase
         top.UpdateGold();
         top.UpdateFarmPiont();
 
-        return true;
+        return;
     }
 }
 

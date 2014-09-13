@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-23
 
 //物品出售请求应答句柄
-public class ItemSellHandle : HTTPHandleBase
+public class ItemSellHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ITEM_SELL_REQ;
     }
@@ -26,7 +26,7 @@ public class ItemSellHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ItemSellPktAck ack = (ItemSellPktAck)packet;
 
@@ -38,16 +38,16 @@ public class ItemSellHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         GUI_FUNCTION.MESSAGEM(MessageCallBack, "获得" + (ack.m_iGold - Role.role.GetBaseProperty().m_iGold) + "金币");
         Role.role.GetBaseProperty().m_iGold = ack.m_iGold;  //更新出售回来的金钱，服务器返回全量
         Role.role.GetItemProperty().UpdateItemByID(ack.m_iItemID, ack.m_iItemNum);
-        return true;
+        return;
     }
 
-    private void MessageCallBack()
+    private static void MessageCallBack()
     {
         GUIBackFrameTop guitop = GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP) as GUIBackFrameTop;
         guitop.UpdateGold();

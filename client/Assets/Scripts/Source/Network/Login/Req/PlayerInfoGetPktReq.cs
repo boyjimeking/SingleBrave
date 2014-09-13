@@ -9,7 +9,7 @@ using Game.Network;
 /// <summary>
 /// 获取玩家信息请求包
 /// </summary>
-public class PlayerInfoGetPktReq : HTTPPacketBase
+public class PlayerInfoGetPktReq : HTTPPacketRequest
 {
     public int m_iUID;  //用户UID
 
@@ -18,16 +18,16 @@ public class PlayerInfoGetPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.GET_PLAYINFO_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "uid=" + this.m_iUID;
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "uid=" + this.m_iUID;
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

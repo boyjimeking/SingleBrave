@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-17
 
 //友情点召唤请求应答句柄
-public class FriendPointSummonHandle : HTTPHandleBase
+public class FriendPointSummonHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIENDPOINT_SUMMON_REQ;
     }
@@ -26,7 +26,7 @@ public class FriendPointSummonHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendPointSummonPktAck ack = (FriendPointSummonPktAck)packet;
 

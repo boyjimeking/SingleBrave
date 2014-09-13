@@ -12,13 +12,13 @@ using Game.Network;
 /// <summary>
 /// 战斗关卡开始句柄
 /// </summary>
-public class BattleGateStartHandle : HTTPHandleBase
+public class BattleGateStartHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.BATTLE_GATE_START_REQ;
     }
@@ -28,7 +28,7 @@ public class BattleGateStartHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         //this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMEBOTTOM).Hiden();
         //this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).HidenImmediately();

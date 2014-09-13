@@ -10,13 +10,13 @@ using Game.Network;
 //2013-12-11
 
 //获取玩家英雄列表请求应答句柄
-public class PlayerHeroInfoHandle : HTTPHandleBase
+public class PlayerHeroInfoHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.GET_PALYERHEROINFO_REQ;
     }
@@ -26,7 +26,7 @@ public class PlayerHeroInfoHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerHeroInfoPktAck ack = (PlayerHeroInfoPktAck)packet;
 
@@ -36,7 +36,7 @@ public class PlayerHeroInfoHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         for (int i = 0; i < ack.heros.Count; i++)
@@ -61,7 +61,7 @@ public class PlayerHeroInfoHandle : HTTPHandleBase
 
         SendAgent.SendTeamInfoGetPktReq(Role.role.GetBaseProperty().m_iPlayerId);
 
-        return true;
+        return;
     }
 }
 

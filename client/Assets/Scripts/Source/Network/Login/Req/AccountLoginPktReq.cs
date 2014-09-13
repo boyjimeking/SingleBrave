@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 帐号登录请求包
 /// </summary>
-public class AccountLoginPktReq : HTTPPacketBase
+public class AccountLoginPktReq : HTTPPacketRequest
 {
     public string m_strUserName;    //帐号
     public string m_strPassword;    //密码
@@ -21,13 +21,13 @@ public class AccountLoginPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.ACCOUNT_LOGIN_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        return "username="+this.m_strUserName+"&password=" + this.m_strPassword;
-    }
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     return "username="+this.m_strUserName+"&password=" + this.m_strPassword;
+    // }
 
 }

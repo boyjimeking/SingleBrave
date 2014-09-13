@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5205093D-16C5-39DB-7B5E-0C558FDD7A69}</ProjectGuid>
+	<ProjectGuid>{A2859A56-AB4A-51F9-60BB-1B6FC96E8C70}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -645,7 +645,6 @@
      <Compile Include="Assets\Scripts\Source\Role\RoleBaseProperty.cs" />
      <Compile Include="Assets\Scripts\Source\Role\StoreDiamondProperty.cs" />
      <Compile Include="Assets\Scripts\Source\Role\TeamProperty.cs" />
-     <Compile Include="Assets\Scripts\Source\Scene\CScene.cs" />
      <Compile Include="Assets\Scripts\Source\Scene\GameScene.cs" />
      <Compile Include="Assets\Scripts\Source\Scene\LoadingScene.cs" />
      <Compile Include="Assets\Scripts\Source\Scene\LoginScene.cs" />
@@ -752,17 +751,60 @@
      <Compile Include="Assets\Scripts\Source\Util\CXML.cs" />
      <Compile Include="Assets\Scripts\Source\Util\GAME_UTILI.cs" />
      <Compile Include="Assets\Scripts\Source\Util\TABLE_READER.cs" />
-     <Compile Include="Assets\Scripts\Source\WWW\AsyncLoader.cs" />
-     <Compile Include="Assets\Scripts\Source\WWW\LoadPackage.cs" />
-     <Compile Include="Assets\Scripts\Source\WWW\ResourcesLoadManager.cs" />
-     <Compile Include="Assets\Scripts\Source\WWW\ResourcesManager.cs" />
-     <Compile Include="Assets\Scripts\Source\WWW\ResourcesTool.cs" />
      <Compile Include="Assets\Scripts\Source\WebView\WebViewAndroidInterface.cs" />
      <Compile Include="Assets\Scripts\Source\WebView\WebViewBehavior.cs" />
      <Compile Include="Assets\Scripts\Source\WebView\WebViewIOSInterface.cs" />
      <Compile Include="Assets\Scripts\Source\WebView\WebViewInterface.cs" />
      <Compile Include="Assets\Scripts\Source\WebView\WebViewNullInterface.cs" />
      <Compile Include="Assets\Scripts\Source\_TestScripts\TestWWW.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\HTTPLoader.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\HTTPPacketAck.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\HTTPPacketRequest.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\HTTPSession.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\HttpDummySession.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\IHttpSession.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\JsonPacker.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\BoxingPacker.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\CompiledPacker.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\Compiler\EmitExtensions.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\Compiler\PackILGenerator.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\Compiler\Variable.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\Compiler\VariableType.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\CustomPacker.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\MsgPackReader.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\MsgPackWriter.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\ObjectPacker.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\ReflectionCache.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\ReflectionCacheEntry.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\MsgPack\TypePrefixes.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\NetQueue.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\ReflectionCache.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\ReflectionCacheEntry.cs" />
+     <Compile Include="Assets\Scripts\submodule\http\SimpleJSON.cs" />
+     <Compile Include="Assets\Scripts\submodule\media\Unity3DMedia\Unity3DMedia\AssemblyInfo.cs" />
+     <Compile Include="Assets\Scripts\submodule\media\Unity3DMedia\Unity3DMedia\AudioPlayer.cs" />
+     <Compile Include="Assets\Scripts\submodule\media\Unity3DMedia\Unity3DMedia\MediaMgr.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Controller\CScene.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Controller\GUILAYER.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Controller\INPUT_INFO.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Controller\SimpleJSON.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Controller\UIControllerBase.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Controller\UIEvent.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Model\Model.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Model\ModelMgr.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Table\CTable.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\Table\TableMgr.cs" />
+     <Compile Include="Assets\Scripts\submodule\mvc\View\UIViewBase.cs" />
+     <Compile Include="Assets\Scripts\submodule\notification\U3DPushMessageLibrary\U3DPushMessageLibrary\AssemblyInfo.cs" />
+     <Compile Include="Assets\Scripts\submodule\notification\U3DPushMessageLibrary\U3DPushMessageLibrary\PushMsg.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\AsyncLoader.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\CFile.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\LoadPackage.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\MgrLoad.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\MgrRequest.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\ResourceMgr.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\ResourceRequireData.cs" />
+     <Compile Include="Assets\Scripts\submodule\resMgr\Unity3DGameResource\ResourcesTool.cs" />
      <Compile Include="Assets\_BF\Battle\Effect\EffectAni.cs" />
      <Compile Include="Assets\_BF\Battle\Effect\EffectAnimation.cs" />
      <Compile Include="Assets\_BF\Battle\Effect\EffectAutoDestory.cs" />
@@ -971,26 +1013,23 @@
      <None Include="Assets\_BF\GUI\GUIHeroDetail\heroDetail.txt" />
      <None Include="Assets\_BF\GUI\GUIHeroIntelligence\heroIntelligence.txt" />
      <None Include="Assets\ResourcesWWW\TABLE_活动敌人队列.csv.txt" />
- <Reference Include="CodeTitans.JSon">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/CodeTitans.JSon.dll</HintPath>
- </Reference>
  <Reference Include="GameBase">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/GameBase.dll</HintPath>
- </Reference>
- <Reference Include="HTTPNetwork">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/HTTPNetwork.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/GameBase.dll</HintPath>
  </Reference>
  <Reference Include="I18N.CJK">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.CJK.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.CJK.dll</HintPath>
  </Reference>
  <Reference Include="I18N">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.dll</HintPath>
  </Reference>
  <Reference Include="I18N.Other">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.Other.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.Other.dll</HintPath>
  </Reference>
  <Reference Include="I18N.West">
- <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.West.dll</HintPath>
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/Source/Lib/I18N.West.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>/Users/luzexi/Desktop/Work/Project/SingleBrave/client/Assets/Scripts/submodule/mvc/Model/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

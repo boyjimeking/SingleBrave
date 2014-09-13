@@ -9,13 +9,13 @@ using Game.Base;
 //获取系统邮件数据句柄类
 //Author sunyi
 //2014-1-17
-public class PlayerGetSystemMailHandle : HTTPHandleBase
+public class PlayerGetSystemMailHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.PLAYER_GET_SYSTEM_MAIL_REQ;
     }
@@ -25,7 +25,7 @@ public class PlayerGetSystemMailHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerGetSystemMailPktAck ack = (PlayerGetSystemMailPktAck)packet;
 
@@ -37,7 +37,7 @@ public class PlayerGetSystemMailHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetMailProperty().ClearMails();
@@ -54,7 +54,7 @@ public class PlayerGetSystemMailHandle : HTTPHandleBase
         mail.Show();
 
 
-        return true;
+        return;
     }
 }
 

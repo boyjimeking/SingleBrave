@@ -11,13 +11,13 @@ using UnityEngine;
 //  2013-12-24
 
 //物品采集请求应答句柄
-public class ItemCollectHandle : HTTPHandleBase
+public class ItemCollectHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ITEM_COLLECT_REQ;
     }
@@ -27,7 +27,7 @@ public class ItemCollectHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ItemCollectPktAck ack = (ItemCollectPktAck)packet;
 
@@ -39,7 +39,7 @@ public class ItemCollectHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         //返回Code 0表示成功
@@ -90,6 +90,6 @@ public class ItemCollectHandle : HTTPHandleBase
 
         SessionManager.GetInstance().CallBack();
 
-        return true;
+        return;
     }
 }

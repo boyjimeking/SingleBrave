@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeTitans.JSon;
+
 using Game.Network;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ using UnityEngine;
 /// <summary>
 /// 竞技场排名信息获得
 /// </summary>
-public class PVPBattleRankGetPktAck : HTTPPacketBase
+public class PVPBattleRankGetPktAck : HTTPPacketAck
 {
     public List<PVPItem> AllRank = new List<PVPItem>();  //所有排名
     public List<PVPItem> FriendRank = new List<PVPItem>();//好友排名
@@ -38,96 +38,96 @@ public class PVPBattleRankGetPktAck : HTTPPacketBase
         public int m_iLoseNumForWeek;
     }
 
-    public PVPBattleRankGetPktAck()
-    {
-        this.m_strAction = PACKET_DEFINE.PVP_BATTLE_RANK_REQ;
-    }
+    // public PVPBattleRankGetPktAck()
+    // {
+    //     this.m_strAction = PACKET_DEFINE.PVP_BATTLE_RANK_REQ;
+    // }
 }
 
 
-/// <summary>
-/// 竞技场基本信息获得数据包工厂类
-/// </summary>
-public class PVPBattleRankGetPktAckAckFactory : HTTPPacketFactory
-{
+// /// <summary>
+// /// 竞技场基本信息获得数据包工厂类
+// /// </summary>
+// public class PVPBattleRankGetPktAckAckFactory : HTTPPacketFactory
+// {
 
-    /// <summary>
-    /// 获取数据包Action
-    /// </summary>
-    /// <returns></returns>
-    public override string GetPacketAction()
-    {
-        return PACKET_DEFINE.PVP_BATTLE_RANK_REQ;
-    }
+//     /// <summary>
+//     /// 获取数据包Action
+//     /// </summary>
+//     /// <returns></returns>
+//     public override string GetPacketAction()
+//     {
+//         return PACKET_DEFINE.PVP_BATTLE_RANK_REQ;
+//     }
 
-    /// <summary>
-    /// 创建数据包
-    /// </summary>
-    /// <param name="json"></param>
-    /// <returns></returns>
-    public override HTTPPacketBase Create(IJSonObject json)
-    {
-        PVPBattleRankGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PVPBattleRankGetPktAck>(json);
+//     /// <summary>
+//     /// 创建数据包
+//     /// </summary>
+//     /// <param name="json"></param>
+//     /// <returns></returns>
+//     public override HTTPPacketRequest Create(IJSonObject json)
+//     {
+//         PVPBattleRankGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PVPBattleRankGetPktAck>(json);
 
-        if (pkt.m_iErrorCode != 0)
-        {
-            return pkt;
-        }
+//         if (pkt.m_iErrorCode != 0)
+//         {
+//             return pkt;
+//         }
 
-        IJSonObject data = json["data"];
+//         IJSonObject data = json["data"];
 
-        IEnumerable<IJSonObject> allrank = data["rank"].ArrayItems;
-        IEnumerable<IJSonObject> friendrank = data["rankFriend"].ArrayItems;
-        IEnumerable<IJSonObject> weekrank = data["rankWeek"].ArrayItems;
-        pkt.m_iMyRankAll = data["playerRank"].Int32Value;
-        pkt.m_iMyRankFriend = data["friendRank"].Int32Value;
-        pkt.m_iMyRankWeek = data["weekRank"].Int32Value;
+//         IEnumerable<IJSonObject> allrank = data["rank"].ArrayItems;
+//         IEnumerable<IJSonObject> friendrank = data["rankFriend"].ArrayItems;
+//         IEnumerable<IJSonObject> weekrank = data["rankWeek"].ArrayItems;
+//         pkt.m_iMyRankAll = data["playerRank"].Int32Value;
+//         pkt.m_iMyRankFriend = data["friendRank"].Int32Value;
+//         pkt.m_iMyRankWeek = data["weekRank"].Int32Value;
 
-        //所有排行
-        foreach (IJSonObject item in allrank)
-        {
-            PVPBattleRankGetPktAck.PVPItem tmp = new PVPBattleRankGetPktAck.PVPItem();
-            tmp.m_strName = item["name"].StringValue;
-            tmp.m_iHeroTableID = item["hero_id"].Int32Value;
-            tmp.m_iHeroLv = item["lv"].Int32Value;
-            tmp.m_iPoint = item["pvp_point"].Int32Value;
-            tmp.m_iWinNum = item["win_num"].Int32Value;
-            tmp.m_iLoseNum = item["lose_num"].Int32Value;
+//         //所有排行
+//         foreach (IJSonObject item in allrank)
+//         {
+//             PVPBattleRankGetPktAck.PVPItem tmp = new PVPBattleRankGetPktAck.PVPItem();
+//             tmp.m_strName = item["name"].StringValue;
+//             tmp.m_iHeroTableID = item["hero_id"].Int32Value;
+//             tmp.m_iHeroLv = item["lv"].Int32Value;
+//             tmp.m_iPoint = item["pvp_point"].Int32Value;
+//             tmp.m_iWinNum = item["win_num"].Int32Value;
+//             tmp.m_iLoseNum = item["lose_num"].Int32Value;
 
-            pkt.AllRank.Add(tmp);
-        }
+//             pkt.AllRank.Add(tmp);
+//         }
 
-        //好友排行
-        foreach (IJSonObject item in friendrank)
-        {
-            PVPBattleRankGetPktAck.PVPItem tmp = new PVPBattleRankGetPktAck.PVPItem();
-            tmp.m_strName = item["name"].StringValue;
-            tmp.m_iHeroTableID = item["hero_id"].Int32Value;
-            tmp.m_iHeroLv = item["lv"].Int32Value;
-            tmp.m_iPoint = item["pvp_point"].Int32Value;
-            tmp.m_iWinNum = item["win_num"].Int32Value;
-            tmp.m_iLoseNum = item["lose_num"].Int32Value;
+//         //好友排行
+//         foreach (IJSonObject item in friendrank)
+//         {
+//             PVPBattleRankGetPktAck.PVPItem tmp = new PVPBattleRankGetPktAck.PVPItem();
+//             tmp.m_strName = item["name"].StringValue;
+//             tmp.m_iHeroTableID = item["hero_id"].Int32Value;
+//             tmp.m_iHeroLv = item["lv"].Int32Value;
+//             tmp.m_iPoint = item["pvp_point"].Int32Value;
+//             tmp.m_iWinNum = item["win_num"].Int32Value;
+//             tmp.m_iLoseNum = item["lose_num"].Int32Value;
 
-            pkt.FriendRank.Add(tmp);
-        }
+//             pkt.FriendRank.Add(tmp);
+//         }
 
-        //周排行
-        foreach (IJSonObject item in weekrank)
-        {
-            PVPBattleRankGetPktAck.PVPItem tmp = new PVPBattleRankGetPktAck.PVPItem();
-            tmp.m_strName = item["name"].StringValue;
-            tmp.m_iHeroTableID = item["hero_id"].Int32Value;
-            tmp.m_iHeroLv = item["lv"].Int32Value;
-            tmp.m_iPoint = item["pvp_weekpoint"].Int32Value;
-            tmp.m_iWinNum = item["win_num"].Int32Value;
-            tmp.m_iLoseNum = item["lose_num"].Int32Value;
-            tmp.m_iPointForWeek = item["pvp_point"].Int32Value;
-            tmp.m_iWinNumForWeek = item["week_win_num"].Int32Value;
-            tmp.m_iLoseNumForWeek = item["week_lose_num"].Int32Value;
+//         //周排行
+//         foreach (IJSonObject item in weekrank)
+//         {
+//             PVPBattleRankGetPktAck.PVPItem tmp = new PVPBattleRankGetPktAck.PVPItem();
+//             tmp.m_strName = item["name"].StringValue;
+//             tmp.m_iHeroTableID = item["hero_id"].Int32Value;
+//             tmp.m_iHeroLv = item["lv"].Int32Value;
+//             tmp.m_iPoint = item["pvp_weekpoint"].Int32Value;
+//             tmp.m_iWinNum = item["win_num"].Int32Value;
+//             tmp.m_iLoseNum = item["lose_num"].Int32Value;
+//             tmp.m_iPointForWeek = item["pvp_point"].Int32Value;
+//             tmp.m_iWinNumForWeek = item["week_win_num"].Int32Value;
+//             tmp.m_iLoseNumForWeek = item["week_lose_num"].Int32Value;
 
-            pkt.WeekRank.Add(tmp);
-        }
+//             pkt.WeekRank.Add(tmp);
+//         }
 
-        return pkt;
-    }
-}
+//         return pkt;
+//     }
+// }

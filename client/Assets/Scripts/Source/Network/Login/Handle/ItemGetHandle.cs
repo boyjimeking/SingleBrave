@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-23
 
 //获取物品请求应答句柄
-public class ItemGetHandle : HTTPHandleBase
+public class ItemGetHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ITEM_GET_REQ;
     }
@@ -26,7 +26,7 @@ public class ItemGetHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ItemGetPktAck ack = (ItemGetPktAck)packet;
 
@@ -36,7 +36,7 @@ public class ItemGetHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         foreach (var q in ack.m_lstItems)
@@ -49,7 +49,7 @@ public class ItemGetHandle : HTTPHandleBase
 
         SendAgent.SendBattleItemGet(Role.role.GetBaseProperty().m_iPlayerId);
 
-        return true;
+        return;
     }
 }
 

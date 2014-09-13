@@ -12,19 +12,19 @@ using Game.Network;
 /// <summary>
 /// 获取当前任务信息请求句柄
 /// </summary>
-public class PlayerTaskInfoHandle : HTTPHandleBase
+public class PlayerTaskInfoHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.GET_PLAYERTASKINFO_REQ;
     }
 
 
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerTaskInfoPktAck ack = (PlayerTaskInfoPktAck)packet;
         GAME_LOG.LOG("code :" + ack.m_iErrorCode);
@@ -33,7 +33,7 @@ public class PlayerTaskInfoHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         for (int i = 0; i < ack.lstTasks.Count; i++)
@@ -55,7 +55,7 @@ public class PlayerTaskInfoHandle : HTTPHandleBase
 
         SendAgent.SendBuildInfoGetPktReq(Role.role.GetBaseProperty().m_iPlayerId);
 
-        return true;
+        return;
     }
 }
 

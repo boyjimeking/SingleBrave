@@ -14,7 +14,7 @@ using Game.Network;
 /// <summary>
 /// 活动战斗结束句柄
 /// </summary>
-public class ActivityBattleEndHandle : HTTPHandleBase
+public class ActivityBattleEndHandle
 {
     private List<int> m_lstNewHero = new List<int>();//新英雄列表
 
@@ -22,7 +22,7 @@ public class ActivityBattleEndHandle : HTTPHandleBase
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACTIVITY_BATTLE_END_REQ;
     }
@@ -32,7 +32,7 @@ public class ActivityBattleEndHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ActivityBattleEndPktAck ack = (ActivityBattleEndPktAck)packet;
 

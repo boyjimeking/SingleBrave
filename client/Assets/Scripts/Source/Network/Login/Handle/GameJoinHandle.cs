@@ -14,14 +14,14 @@ using Game.Network;
 /// <summary>
 /// 游戏加入句柄
 /// </summary>
-public class GameJoinHandle : HTTPHandleBase
+public class GameJoinHandle
 {
 
     /// <summary>
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.GAME_JOIN_REQ;
     }
@@ -32,7 +32,7 @@ public class GameJoinHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         GameJoinPktAck ack = (GameJoinPktAck)packet;
 

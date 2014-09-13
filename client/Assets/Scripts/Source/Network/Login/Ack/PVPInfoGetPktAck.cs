@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeTitans.JSon;
+
 using Game.Network;
 
 //  PVPInfoGetPktAck.cs
@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 竞技场基本信息获得
 /// </summary>
-public class PVPInfoGetPktAck : HTTPPacketBase
+public class PVPInfoGetPktAck : HTTPPacketAck
 {
     public int m_iPVP_point;
     public int m_iPVP_WeekPoint;
@@ -21,52 +21,52 @@ public class PVPInfoGetPktAck : HTTPPacketBase
     public int m_iPVPWeekRank;
     public int m_iPVPMaxExp;
 
-    public PVPInfoGetPktAck()
-    {
-        this.m_strAction = PACKET_DEFINE.PVP_INFO_GET_REQ;
-    }
+    // public PVPInfoGetPktAck()
+    // {
+    //     this.m_strAction = PACKET_DEFINE.PVP_INFO_GET_REQ;
+    // }
 }
 
 
-/// <summary>
-/// 竞技场基本信息获得数据包工厂类
-/// </summary>
-public class PVPInfoGetPktAckFactory : HTTPPacketFactory
-{
+// /// <summary>
+// /// 竞技场基本信息获得数据包工厂类
+// /// </summary>
+// public class PVPInfoGetPktAckFactory : HTTPPacketFactory
+// {
 
-    /// <summary>
-    /// 获取数据包Action
-    /// </summary>
-    /// <returns></returns>
-    public override string GetPacketAction()
-    {
-        return PACKET_DEFINE.PVP_INFO_GET_REQ;
-    }
+//     /// <summary>
+//     /// 获取数据包Action
+//     /// </summary>
+//     /// <returns></returns>
+//     public override string GetPacketAction()
+//     {
+//         return PACKET_DEFINE.PVP_INFO_GET_REQ;
+//     }
 
-    /// <summary>
-    /// 创建数据包
-    /// </summary>
-    /// <param name="json"></param>
-    /// <returns></returns>
-    public override HTTPPacketBase Create(IJSonObject json)
-    {
-        PVPInfoGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PVPInfoGetPktAck>(json);
+//     /// <summary>
+//     /// 创建数据包
+//     /// </summary>
+//     /// <param name="json"></param>
+//     /// <returns></returns>
+//     public override HTTPPacketRequest Create(IJSonObject json)
+//     {
+//         PVPInfoGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PVPInfoGetPktAck>(json);
 
-        if (pkt.m_iErrorCode != 0)
-        {
-            return pkt;
-        }
+//         if (pkt.m_iErrorCode != 0)
+//         {
+//             return pkt;
+//         }
 
-        IJSonObject data = json["data"];
+//         IJSonObject data = json["data"];
 
-        pkt.m_iPVP_point = data["pvp_point"].Int32Value;
-        pkt.m_iPVP_WeekPoint = data["pvp_week_point"].Int32Value;
-        pkt.m_iPVPwin_num = data["win_num"].Int32Value;
-        pkt.m_iPVPlose_num = data["lose_num"].Int32Value;
-        pkt.m_iPVPRank = data["whole_rank"].Int32Value;
-        pkt.m_iPVPWeekRank = data["week_rank"].Int32Value;
-        pkt.m_iPVPMaxExp=data["pvp_max_point"].Int32Value;
+//         pkt.m_iPVP_point = data["pvp_point"].Int32Value;
+//         pkt.m_iPVP_WeekPoint = data["pvp_week_point"].Int32Value;
+//         pkt.m_iPVPwin_num = data["win_num"].Int32Value;
+//         pkt.m_iPVPlose_num = data["lose_num"].Int32Value;
+//         pkt.m_iPVPRank = data["whole_rank"].Int32Value;
+//         pkt.m_iPVPWeekRank = data["week_rank"].Int32Value;
+//         pkt.m_iPVPMaxExp=data["pvp_max_point"].Int32Value;
 
-        return pkt;
-    }
-}
+//         return pkt;
+//     }
+// }

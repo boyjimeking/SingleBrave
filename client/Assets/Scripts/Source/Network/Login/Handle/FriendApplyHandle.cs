@@ -11,7 +11,7 @@ using Game.Network;
 /// <summary>
 /// 请求句柄
 /// </summary>
-public class FriendApplyHandle : HTTPHandleBase
+public class FriendApplyHandle
 {
     public static Action<bool> CallBack;
 
@@ -19,7 +19,7 @@ public class FriendApplyHandle : HTTPHandleBase
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.FRIEND_APPLY_REQ;
     }
@@ -29,7 +29,7 @@ public class FriendApplyHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         FriendApplyPktAck ack = (FriendApplyPktAck)packet;
 

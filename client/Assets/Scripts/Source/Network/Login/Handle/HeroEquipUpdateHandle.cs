@@ -10,13 +10,13 @@ using Game.Network;
 //  2013-12-20
 
 //英雄装备更新请求应答句柄
-public class HeroEquipUpdateHandle : HTTPHandleBase
+public class HeroEquipUpdateHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.HERO_EQUIP_UPDATE_REQ;
     }
@@ -26,7 +26,7 @@ public class HeroEquipUpdateHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroEquipUpdatePktAck ack = (HeroEquipUpdatePktAck)packet;
 

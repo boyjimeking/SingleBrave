@@ -8,13 +8,13 @@ using Game.Network;
 //体力恢复句柄
 //Author sunyi
 //2013-12-27
-public class PlayerStrengthRecoverHandle : HTTPHandleBase
+public class PlayerStrengthRecoverHandle
 {
     /// <summary>
     /// 获取Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.STRENGTH_RECOVER_REQ;
     }
@@ -24,7 +24,7 @@ public class PlayerStrengthRecoverHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         PlayerStrengthRecoverPktAck ack = (PlayerStrengthRecoverPktAck)packet;
 
@@ -36,7 +36,7 @@ public class PlayerStrengthRecoverHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamondCount;
@@ -54,7 +54,7 @@ public class PlayerStrengthRecoverHandle : HTTPHandleBase
             GUIStore store = (GUIStore)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_STORE);
             store.Show();
         }
-        return true;
+        return;
     }
 }
 

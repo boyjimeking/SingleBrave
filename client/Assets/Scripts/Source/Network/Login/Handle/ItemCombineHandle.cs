@@ -11,13 +11,13 @@ using UnityEngine;
 //  2013-12-24
 
 //物品合成请求应答句柄
-public class ItemCombineHandle : HTTPHandleBase
+public class ItemCombineHandle
 {
     /// <summary>
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ITEM_COMBINED_REQ;
     }
@@ -27,7 +27,7 @@ public class ItemCombineHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ItemCombinePktAck ack = (ItemCombinePktAck)packet;
 
@@ -39,7 +39,7 @@ public class ItemCombineHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         //返回Code 0表示成功
@@ -88,6 +88,6 @@ public class ItemCombineHandle : HTTPHandleBase
 
         SessionManager.GetInstance().CallBack();
 
-        return true;
+        return;
     }
 }

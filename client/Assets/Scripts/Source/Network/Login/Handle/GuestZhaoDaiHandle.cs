@@ -10,7 +10,7 @@ using Game.Network;
 //2013-12-11
 
 //招待请求应答句柄
-public class GuestZhaoDaiHandle : HTTPHandleBase
+public class GuestZhaoDaiHandle
 {
     public static Action CallBack;
     
@@ -18,7 +18,7 @@ public class GuestZhaoDaiHandle : HTTPHandleBase
     /// 获得Action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.GUEST_ZHAODAI_REQ;
     }
@@ -28,7 +28,7 @@ public class GuestZhaoDaiHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         GuestZhaoDaiPktAck ack = (GuestZhaoDaiPktAck)packet;
 

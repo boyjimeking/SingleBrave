@@ -15,13 +15,13 @@ using Game.Network;
 /// <summary>
 /// 活动战斗开始句柄
 /// </summary>
-public class ActivityBattleStartHandle : HTTPHandleBase
+public class ActivityBattleStartHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.ACTIVITY_BATTLE_START_REQ;
     }
@@ -31,7 +31,7 @@ public class ActivityBattleStartHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         ActivityBattleStartPktAck ack = (ActivityBattleStartPktAck)packet;
 

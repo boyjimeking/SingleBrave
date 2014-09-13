@@ -10,7 +10,7 @@ using System.Collections.Generic;
 /// <summary>
 /// 招待请求
 /// </summary>
-public class GuestZhaoDaiPktReq : HTTPPacketBase
+public class GuestZhaoDaiPktReq : HTTPPacketRequest
 {
     public string m_strZhaoDaiId; //招待ID
     public int m_iPid;  //Pid
@@ -20,16 +20,16 @@ public class GuestZhaoDaiPktReq : HTTPPacketBase
         this.m_strAction = PACKET_DEFINE.GUEST_ZHAODAI_REQ;
     }
 
-    /// <summary>
-    /// 获取请求参数
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = string.Format("pid={0}&zdid={1}", m_iPid.ToString(), m_strZhaoDaiId);
+    // /// <summary>
+    // /// 获取请求参数
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = string.Format("pid={0}&zdid={1}", m_iPid.ToString(), m_strZhaoDaiId);
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeTitans.JSon;
+
 using Game.Network;
 using System.Security.Cryptography;
 using System.Text;
@@ -106,52 +106,52 @@ public class PACKET_DEFINE
 
 
 
-/// <summary>
-/// 打包工具
-/// </summary>
-public class PACKET_HEAD
-{
-    public static T PACKET_ACK_HEAD<T>(IJSonObject json) where T : HTTPPacketBase, new()
-    {
-        T t = new T();
-        t.m_iErrorCode = json["code"].Int32Value;
-        t.m_strErrorDes = json["desc"].StringValue;
-        t.m_lServerTime = json["time"].Int32Value;
-        GAME_DEFINE.m_lServerTime = t.m_lServerTime;
-        //服务器时间精确到秒
-        GAME_DEFINE.m_lTimeSpan = DateTime.Now.Ticks / 10000000 - t.m_lServerTime;
-        return t;
-    }
-
-    /// <summary>
-    /// 数据包后结尾数据打包
-    /// </summary>
-    /// <param name="req"></param>
-    /// <returns></returns>
-    public static string PACKET_REQ_END( ref string req)
-    {
-        string[] arg = req.Split('&');
-        string res = GAME_DEFINE.SERVER_KEY + GAME_DEFINE.m_lServerTime + GAME_DEFINE.s_strToken+ "";
-        for (int i = 0; i < arg.Length; i++)
-        {
-            string[] tmp_arg = arg[i].Split('=');
-            if (tmp_arg.Length == 2)
-            {
-                res += tmp_arg[1];
-            }
-        }
-
-        UnityEngine.Debug.Log("md5 " + res);
-
-        MD5 md5 = new MD5CryptoServiceProvider();
-        byte[] buff = Encoding.UTF8.GetBytes(res);
-        byte[] op = md5.ComputeHash(buff);
-        string md5Str = BitConverter.ToString(op).Replace("-", "");
-
-        req += "&token=" + GAME_DEFINE.s_strToken + "&server_time=" + GAME_DEFINE.m_lServerTime + "&MD5=" + md5Str;
-
-        UnityEngine.Debug.Log(req);
-
-        return req;
-    }
-}
+///// <summary>
+///// 打包工具
+///// </summary>
+//public class PACKET_HEAD
+//{
+//    public static T PACKET_ACK_HEAD<T>(IJSonObject json) where T : HTTPPacketRequest, new()
+//    {
+//        T t = new T();
+//        t.m_iErrorCode = json["code"].Int32Value;
+//        t.m_strErrorDes = json["desc"].StringValue;
+//        t.m_lServerTime = json["time"].Int32Value;
+//        GAME_DEFINE.m_lServerTime = t.m_lServerTime;
+//        //服务器时间精确到秒
+//        GAME_DEFINE.m_lTimeSpan = DateTime.Now.Ticks / 10000000 - t.m_lServerTime;
+//        return t;
+//    }
+//
+//    /// <summary>
+//    /// 数据包后结尾数据打包
+//    /// </summary>
+//    /// <param name="req"></param>
+//    /// <returns></returns>
+//    public static string PACKET_REQ_END( ref string req)
+//    {
+//        string[] arg = req.Split('&');
+//        string res = GAME_DEFINE.SERVER_KEY + GAME_DEFINE.m_lServerTime + GAME_DEFINE.s_strToken+ "";
+//        for (int i = 0; i < arg.Length; i++)
+//        {
+//            string[] tmp_arg = arg[i].Split('=');
+//            if (tmp_arg.Length == 2)
+//            {
+//                res += tmp_arg[1];
+//            }
+//        }
+//
+//        UnityEngine.Debug.Log("md5 " + res);
+//
+//        MD5 md5 = new MD5CryptoServiceProvider();
+//        byte[] buff = Encoding.UTF8.GetBytes(res);
+//        byte[] op = md5.ComputeHash(buff);
+//        string md5Str = BitConverter.ToString(op).Replace("-", "");
+//
+//        req += "&token=" + GAME_DEFINE.s_strToken + "&server_time=" + GAME_DEFINE.m_lServerTime + "&MD5=" + md5Str;
+//
+//        UnityEngine.Debug.Log(req);
+//
+//        return req;
+//    }
+//}

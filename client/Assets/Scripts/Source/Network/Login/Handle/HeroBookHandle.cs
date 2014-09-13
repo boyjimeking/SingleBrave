@@ -14,13 +14,13 @@ using Game.Network;
 /// <summary>
 /// 英雄图鉴句柄
 /// </summary>
-public class HeroBookHandle : HTTPHandleBase
+public class HeroBookHandle
 {
     /// <summary>
     /// 获取action
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.HERO_BOOK_REQ;
     }
@@ -30,7 +30,7 @@ public class HeroBookHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         HeroBookPktAck ack = (HeroBookPktAck)packet;
 

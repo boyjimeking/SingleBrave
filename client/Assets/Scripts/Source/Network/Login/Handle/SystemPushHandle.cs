@@ -10,7 +10,7 @@ using Game.Base;
 /// <summary>
 /// 系统推送句柄
 /// </summary>
-public class SystemPushHandle : HTTPHandleBase
+public class SystemPushHandle
 {
     public SystemPushHandle()
         : base()
@@ -22,7 +22,7 @@ public class SystemPushHandle : HTTPHandleBase
     /// 获取ACTION
     /// </summary>
     /// <returns></returns>
-    public override string GetAction()
+    public static string GetAction()
     {
         return PACKET_DEFINE.SYSTEM_PUSH_REQ;
     }
@@ -32,7 +32,7 @@ public class SystemPushHandle : HTTPHandleBase
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public override bool Excute(HTTPPacketBase packet)
+    public static void Excute(HTTPPacketRequest packet)
     {
         SystemPushPktAck ack = packet as SystemPushPktAck;
 
@@ -41,7 +41,7 @@ public class SystemPushHandle : HTTPHandleBase
         if (ack.m_iErrorCode != 0)
         {
             GUI_FUNCTION.MESSAGEM(null, ack.m_strErrorDes);
-            return false;
+            return;
         }
 
         //更新top显示
@@ -95,7 +95,7 @@ public class SystemPushHandle : HTTPHandleBase
             bottom.SetFriendApllyNumber(Role.role.GetBaseProperty().m_iFriendApplyCount + Role.role.GetBaseProperty().m_iFriendGiftCount);
         }
 
-        return true;
+        return;
     }
 
 }

@@ -14,7 +14,7 @@ using Game.Network;
 /// <summary>
 /// 副本剧情请求
 /// </summary>
-public class FubenStoryPktReq : HTTPPacketBase
+public class FubenStoryPktReq : HTTPPacketRequest
 {
     public int m_iPID;  //玩家ID
     public int m_iWorldID;  //世界ID
@@ -28,16 +28,16 @@ public class FubenStoryPktReq : HTTPPacketBase
     }
 
 
-    /// <summary>
-    /// 获取请求
-    /// </summary>
-    /// <returns></returns>
-    public override string GetRequire()
-    {
-        string req = "pid=" + this.m_iPID + "&world_id=" + this.m_iWorldID + "&area_index=" + this.m_iAreaIndex + "&fuben_index=" + this.m_iFubenIndex + "&gate_index=" + this.m_iGateIndex;
+    // /// <summary>
+    // /// 获取请求
+    // /// </summary>
+    // /// <returns></returns>
+    // public override string GetRequire()
+    // {
+    //     string req = "pid=" + this.m_iPID + "&world_id=" + this.m_iWorldID + "&area_index=" + this.m_iAreaIndex + "&fuben_index=" + this.m_iFubenIndex + "&gate_index=" + this.m_iGateIndex;
 
-        PACKET_HEAD.PACKET_REQ_END(ref req);
+    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-        return req;
-    }
+    //     return req;
+    // }
 }
