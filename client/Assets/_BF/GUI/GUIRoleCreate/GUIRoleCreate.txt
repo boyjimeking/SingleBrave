@@ -1,0 +1,20 @@
+{"frames": {
+
+"icon_shaizi.png":
+{
+	"frame": {"x":2,"y":2,"w":54,"h":55},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":55},
+	"sourceSize": {"w":54,"h":55}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIRoleCreate.png",
+	"format": "RGBA8888",
+	"size": {"w":64,"h":64},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:dbbb5c3a8cd5e6e73c27828b4cb26c19$"
+}
+}

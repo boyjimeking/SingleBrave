@@ -1,0 +1,188 @@
+{"frames": {
+
+"BattleRecordSlide_Bg.png":
+{
+	"frame": {"x":2,"y":2,"w":12,"h":425},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":425},
+	"sourceSize": {"w":12,"h":425}
+},
+"BattleRecordSlider.png":
+{
+	"frame": {"x":16,"y":2,"w":6,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":131},
+	"sourceSize": {"w":6,"h":131}
+},
+"btn_ExchangeCode.png":
+{
+	"frame": {"x":24,"y":2,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_ExchangeCode1.png":
+{
+	"frame": {"x":205,"y":2,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_ExchangeCode2.png":
+{
+	"frame": {"x":386,"y":2,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Help.png":
+{
+	"frame": {"x":567,"y":2,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Help1.png":
+{
+	"frame": {"x":748,"y":2,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_HeroAtals.png":
+{
+	"frame": {"x":2,"y":429,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_HeroAtals1.png":
+{
+	"frame": {"x":183,"y":429,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_PlayerIntelligence.png":
+{
+	"frame": {"x":364,"y":429,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_PlayerIntelligence1.png":
+{
+	"frame": {"x":545,"y":429,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_PropsAtals.png":
+{
+	"frame": {"x":726,"y":429,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_PropsAtals1.png":
+{
+	"frame": {"x":2,"y":579,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Publish.png":
+{
+	"frame": {"x":183,"y":579,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_Reward.png":
+{
+	"frame": {"x":369,"y":579,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Reward1.png":
+{
+	"frame": {"x":550,"y":579,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Setting.png":
+{
+	"frame": {"x":731,"y":579,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Setting1.png":
+{
+	"frame": {"x":2,"y":729,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Team.png":
+{
+	"frame": {"x":183,"y":729,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Team1.png":
+{
+	"frame": {"x":364,"y":729,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Tedian.png":
+{
+	"frame": {"x":545,"y":729,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+},
+"btn_Tedian1.png":
+{
+	"frame": {"x":726,"y":729,"w":179,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":148},
+	"sourceSize": {"w":179,"h":148}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "menu.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:41b58a64757015fbe0e2419ed26aa445$"
+}
+}

@@ -1,0 +1,36 @@
+{"frames": {
+
+"FriendSkill.png":
+{
+	"frame": {"x":2,"y":2,"w":132,"h":27},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":27},
+	"sourceSize": {"w":132,"h":27}
+},
+"LeaderSkill.png":
+{
+	"frame": {"x":136,"y":2,"w":132,"h":27},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":27},
+	"sourceSize": {"w":132,"h":27}
+},
+"text.png":
+{
+	"frame": {"x":2,"y":31,"w":435,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":435,"h":32},
+	"sourceSize": {"w":435,"h":32}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "heroIntelligence.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0fb94ce78d59a0acf24746b38030a894$"
+}
+}

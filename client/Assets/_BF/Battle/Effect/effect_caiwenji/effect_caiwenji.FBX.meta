@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 4b427b853b2e358479fe42d4cac226ef
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: effect_caiwenji_1
+    100004: effect_caiwenji_10
+    100006: effect_caiwenji_11
+    100008: effect_caiwenji_2
+    100010: effect_caiwenji_3
+    100012: effect_caiwenji_4
+    100014: effect_caiwenji_5
+    100016: effect_caiwenji_6
+    100018: effect_caiwenji_7
+    100020: effect_caiwenji_8
+    100022: effect_caiwenji_9
+    100024: effect_caiwenji_ground
+    400000: //RootNode
+    400002: effect_caiwenji_1
+    400004: effect_caiwenji_10
+    400006: effect_caiwenji_11
+    400008: effect_caiwenji_2
+    400010: effect_caiwenji_3
+    400012: effect_caiwenji_4
+    400014: effect_caiwenji_5
+    400016: effect_caiwenji_6
+    400018: effect_caiwenji_7
+    400020: effect_caiwenji_8
+    400022: effect_caiwenji_9
+    400024: effect_caiwenji_ground
+    2300000: effect_caiwenji_1
+    2300002: effect_caiwenji_10
+    2300004: effect_caiwenji_11
+    2300006: effect_caiwenji_2
+    2300008: effect_caiwenji_3
+    2300010: effect_caiwenji_4
+    2300012: effect_caiwenji_5
+    2300014: effect_caiwenji_6
+    2300016: effect_caiwenji_7
+    2300018: effect_caiwenji_8
+    2300020: effect_caiwenji_9
+    2300022: effect_caiwenji_ground
+    3300000: effect_caiwenji_1
+    3300002: effect_caiwenji_10
+    3300004: effect_caiwenji_11
+    3300006: effect_caiwenji_2
+    3300008: effect_caiwenji_3
+    3300010: effect_caiwenji_4
+    3300012: effect_caiwenji_5
+    3300014: effect_caiwenji_6
+    3300016: effect_caiwenji_7
+    3300018: effect_caiwenji_8
+    3300020: effect_caiwenji_9
+    3300022: effect_caiwenji_ground
+    4300000: effect_caiwenji_1
+    4300002: effect_caiwenji_5
+    4300004: effect_caiwenji_7
+    4300006: effect_caiwenji_2
+    4300008: effect_caiwenji_3
+    4300010: effect_caiwenji_4
+    4300012: effect_caiwenji_6
+    4300014: effect_caiwenji_9
+    4300016: effect_caiwenji_8
+    4300018: effect_caiwenji_ground
+    4300020: effect_caiwenji_10
+    4300022: effect_caiwenji_11
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

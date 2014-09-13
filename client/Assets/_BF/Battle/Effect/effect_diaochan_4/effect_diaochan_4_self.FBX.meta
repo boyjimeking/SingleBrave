@@ -1,0 +1,272 @@
+fileFormatVersion: 2
+guid: 9f8258d8d9800a3489279e9f1eeaea28
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: effect_diaochan_4_self_1
+    100004: effect_diaochan_4_self_2
+    100006: effect_diaochan_4_self_1_1
+    100008: effect_diaochan_4_self_1_2
+    100010: effect_diaochan_4_self_2_1
+    100012: effect_diaochan_4_self_2_2
+    100014: arm1_L_Bone004
+    100016: arm1_r_Bone004
+    100018: arm_L_Bone005
+    100020: arm_r_Bone005
+    100022: Bone003
+    100024: Bone007
+    100026: Bone007 1
+    100028: Bone010
+    100030: Bone014
+    100032: Bone014 1
+    100034: Bone016
+    100036: Bone016 1
+    100038: Bone018
+    100040: Bone018 1
+    100042: Bone021
+    100044: Bone021 1
+    100046: Bone024
+    100048: Bone024 1
+    100050: Bone027
+    100052: Bone027 1
+    100054: Bone029
+    100056: Bone031
+    100058: Bone031 1
+    100060: box01
+    100062: box02
+    100064: Camera001
+    100066: diaochan_hair_model
+    100068: diaochan_head_model
+    100070: diaochan_jie_model
+    100072: diaochan_model
+    100074: effect_diaochan_4_1
+    100076: effect_diaochan_4_1_2
+    100078: effect_diaochan_4_2
+    100080: effect_diaochan_4_2_2
+    100082: effect_diaochan_4_lizi_target_1
+    100084: effect_diaochan_4_lizi_target_2
+    100086: foot_L_Bone017
+    100088: foot_r_Bone017
+    100090: hair_Bone008
+    100092: hair_Bone009
+    100094: hair_L_Bone022
+    100096: hair_L_Bone023
+    100098: hair_r_Bone022
+    100100: hair_r_Bone023
+    100102: hand_L_Bone006
+    100104: hand_r_Bone006
+    100106: head_Bone002
+    100108: hua_model
+    100110: leg1_L_Bone015
+    100112: leg1_r_Bone015
+    100114: leg_L_Bone016
+    100116: leg_r_Bone016
+    100118: piaodai_Bone028
+    100120: piaodai_L_Bone025
+    100122: piaodai_L_Bone026
+    100124: piaodai_r_Bone025
+    100126: piaodai_r_Bone026
+    100128: qun_L_Bone019
+    100130: qun_L_Bone020
+    100132: qun_r_Bone019
+    100134: qun_r_Bone020
+    100136: qundai1_L_Bone015
+    100138: qundai1_r_Bone015
+    100140: qundai_L_Bone011
+    100142: qundai_L_Bone012
+    100144: qundai_L_Bone013
+    100146: qundai_r_Bone011
+    100148: qundai_r_Bone012
+    100150: qundai_r_Bone013
+    100152: shanzi_L_Bone030
+    100154: shanzi_L_model
+    100156: shanzi_r_Bone030
+    100158: shanzi_r_model
+    100160: xiong_Bone001
+    400000: //RootNode
+    400002: effect_diaochan_4_self_1
+    400004: effect_diaochan_4_self_2
+    400006: effect_diaochan_4_self_1_1
+    400008: effect_diaochan_4_self_1_2
+    400010: effect_diaochan_4_self_2_1
+    400012: effect_diaochan_4_self_2_2
+    400014: arm1_L_Bone004
+    400016: arm1_r_Bone004
+    400018: arm_L_Bone005
+    400020: arm_r_Bone005
+    400022: Bone003
+    400024: Bone007
+    400026: Bone007 1
+    400028: Bone010
+    400030: Bone014
+    400032: Bone014 1
+    400034: Bone016
+    400036: Bone016 1
+    400038: Bone018
+    400040: Bone018 1
+    400042: Bone021
+    400044: Bone021 1
+    400046: Bone024
+    400048: Bone024 1
+    400050: Bone027
+    400052: Bone027 1
+    400054: Bone029
+    400056: Bone031
+    400058: Bone031 1
+    400060: box01
+    400062: box02
+    400064: Camera001
+    400066: diaochan_hair_model
+    400068: diaochan_head_model
+    400070: diaochan_jie_model
+    400072: diaochan_model
+    400074: effect_diaochan_4_1
+    400076: effect_diaochan_4_1_2
+    400078: effect_diaochan_4_2
+    400080: effect_diaochan_4_2_2
+    400082: effect_diaochan_4_lizi_target_1
+    400084: effect_diaochan_4_lizi_target_2
+    400086: foot_L_Bone017
+    400088: foot_r_Bone017
+    400090: hair_Bone008
+    400092: hair_Bone009
+    400094: hair_L_Bone022
+    400096: hair_L_Bone023
+    400098: hair_r_Bone022
+    400100: hair_r_Bone023
+    400102: hand_L_Bone006
+    400104: hand_r_Bone006
+    400106: head_Bone002
+    400108: hua_model
+    400110: leg1_L_Bone015
+    400112: leg1_r_Bone015
+    400114: leg_L_Bone016
+    400116: leg_r_Bone016
+    400118: piaodai_Bone028
+    400120: piaodai_L_Bone025
+    400122: piaodai_L_Bone026
+    400124: piaodai_r_Bone025
+    400126: piaodai_r_Bone026
+    400128: qun_L_Bone019
+    400130: qun_L_Bone020
+    400132: qun_r_Bone019
+    400134: qun_r_Bone020
+    400136: qundai1_L_Bone015
+    400138: qundai1_r_Bone015
+    400140: qundai_L_Bone011
+    400142: qundai_L_Bone012
+    400144: qundai_L_Bone013
+    400146: qundai_r_Bone011
+    400148: qundai_r_Bone012
+    400150: qundai_r_Bone013
+    400152: shanzi_L_Bone030
+    400154: shanzi_L_model
+    400156: shanzi_r_Bone030
+    400158: shanzi_r_model
+    400160: xiong_Bone001
+    2300000: effect_diaochan_4_self_1
+    2300002: effect_diaochan_4_self_2
+    2300004: effect_diaochan_4_self_1_1
+    2300006: effect_diaochan_4_self_1_2
+    2300008: effect_diaochan_4_self_2_1
+    2300010: effect_diaochan_4_self_2_2
+    2300012: box01
+    2300014: box02
+    2300016: effect_diaochan_4_lizi_target_1
+    2300018: effect_diaochan_4_lizi_target_2
+    3300000: effect_diaochan_4_self_1
+    3300002: effect_diaochan_4_self_2
+    3300004: effect_diaochan_4_self_1_1
+    3300006: effect_diaochan_4_self_1_2
+    3300008: effect_diaochan_4_self_2_1
+    3300010: effect_diaochan_4_self_2_2
+    3300012: box01
+    3300014: box02
+    3300016: effect_diaochan_4_lizi_target_1
+    3300018: effect_diaochan_4_lizi_target_2
+    4300000: effect_diaochan_4_self_2
+    4300002: effect_diaochan_4_self_1
+    4300004: effect_diaochan_4_self_1_2
+    4300006: effect_diaochan_4_self_1_1
+    4300008: effect_diaochan_4_self_2_2
+    4300010: effect_diaochan_4_self_2_1
+    4300012: box01
+    4300014: box02
+    4300016: diaochan_model
+    4300018: diaochan_head_model
+    4300020: diaochan_jie_model
+    4300022: diaochan_hair_model
+    4300024: hua_model
+    4300026: shanzi_r_model
+    4300028: shanzi_L_model
+    4300030: effect_diaochan_4_lizi_target_2
+    4300032: effect_diaochan_4_lizi_target_1
+    4300034: effect_diaochan_4_1
+    4300036: effect_diaochan_4_2_2
+    4300038: effect_diaochan_4_2
+    4300040: effect_diaochan_4_1_2
+    9500000: //RootNode
+    13700000: diaochan_hair_model
+    13700002: diaochan_head_model
+    13700004: diaochan_jie_model
+    13700006: diaochan_model
+    13700008: effect_diaochan_4_1
+    13700010: effect_diaochan_4_1_2
+    13700012: effect_diaochan_4_2
+    13700014: effect_diaochan_4_2_2
+    13700016: hua_model
+    13700018: shanzi_L_model
+    13700020: shanzi_r_model
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

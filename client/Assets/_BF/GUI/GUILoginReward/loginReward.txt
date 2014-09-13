@@ -1,0 +1,92 @@
+{"frames": {
+
+"BG_Black.png":
+{
+	"frame": {"x":2,"y":2,"w":109,"h":101},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":109,"h":101},
+	"sourceSize": {"w":109,"h":101}
+},
+"Select.png":
+{
+	"frame": {"x":113,"y":2,"w":123,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":123,"h":120},
+	"sourceSize": {"w":123,"h":120}
+},
+"diamond88.png":
+{
+	"frame": {"x":238,"y":2,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":88},
+	"sourceSize": {"w":88,"h":88}
+},
+"friendpoint88.png":
+{
+	"frame": {"x":328,"y":2,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":88},
+	"sourceSize": {"w":88,"h":88}
+},
+"gold88.png":
+{
+	"frame": {"x":418,"y":2,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":88},
+	"sourceSize": {"w":88,"h":88}
+},
+"love88.png":
+{
+	"frame": {"x":2,"y":124,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":88},
+	"sourceSize": {"w":88,"h":88}
+},
+"received.png":
+{
+	"frame": {"x":92,"y":124,"w":104,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":72},
+	"sourceSize": {"w":104,"h":72}
+},
+"soul88.png":
+{
+	"frame": {"x":198,"y":124,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":88},
+	"sourceSize": {"w":88,"h":88}
+},
+"text_loginReward.png":
+{
+	"frame": {"x":2,"y":214,"w":448,"h":138},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":448,"h":138},
+	"sourceSize": {"w":448,"h":138}
+},
+"yuanqi88.png":
+{
+	"frame": {"x":2,"y":354,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":88},
+	"sourceSize": {"w":88,"h":88}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "loginReward.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ecd5005e785c836b3facbc7b887cd1ee$"
+}
+}

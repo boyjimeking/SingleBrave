@@ -1,0 +1,60 @@
+{"frames": {
+
+"btn_edit.png":
+{
+	"frame": {"x":2,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_edit_b.png":
+{
+	"frame": {"x":257,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_preview.png":
+{
+	"frame": {"x":2,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_preview_b.png":
+{
+	"frame": {"x":257,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_sell.png":
+{
+	"frame": {"x":2,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_sell_b.png":
+{
+	"frame": {"x":257,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIPropsWare.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7f2cc66cae90d43b0ddc6db0c77b5828$"
+}
+}

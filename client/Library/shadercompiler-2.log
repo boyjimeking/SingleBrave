@@ -1,0 +1,32 @@
+Base path: /Applications/Unity/Unity.app/Contents
+Pipe name: \\.\pipe\UnityShaderCompiler-2--1335607296
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=9 type=0 insize=959 outsize=1007 kw=SHADOWS_DEPTH ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=959 outsize=7 kw=SHADOWS_DEPTH ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=959 outsize=7 kw=SHADOWS_CUBE ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=1007 outsize=3175 kw=SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=1007 outsize=3695 kw=SHADOWS_SPLIT_SPHERES SHADOWS_NONATIVE ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1007 outsize=3666 kw=SHADOWS_SPLIT_SPHERES SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=1007 outsize=6 kw=SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=1007 outsize=7 kw=SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=1007 outsize=6 kw=SHADOWS_SPLIT_SPHERES SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1518 outsize=799 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=1518 outsize=1779 kw=SOFTPARTICLES_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=1518 outsize=7 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=1518 outsize=6 kw=SOFTPARTICLES_ON ok=1
+End of pipe
+
+Quitting shader compiler process

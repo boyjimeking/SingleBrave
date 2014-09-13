@@ -1,0 +1,60 @@
+{
+    "folders": [
+        {
+            "file_include_patterns": [
+				"*.cs",
+				"*.js",
+				"*.txt",
+				"*.shader",
+				"*.json",
+				"*.mm",
+				"*.m"
+            ],
+            "path": "/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/"
+        },
+        {
+            "file_include_patterns": [
+				"*.cs",
+				"*.js",
+				"*.txt",
+				"*.shader",
+				"*.json",
+				"*.mm",
+				"*.m"
+            ],
+            "path": "/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/NGUI/"
+        },
+        {
+            "file_include_patterns": [
+				"*.cs",
+				"*.js",
+				"*.txt",
+				"*.shader",
+				"*.json",
+				"*.mm",
+				"*.m"
+            ],
+            "path": "/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Plugins/"
+        }
+    ],
+
+    "settings": {
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
+        "default_encoding": "UTF-8 with BOM",
+        "default_line_ending": "windows",
+        "completesharp_assemblies": [
+			"/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll",
+			"/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/../Library/ScriptAssemblies/Assembly-CSharp.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/../Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/CodeTitans.JSon.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/GameBase.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/HTTPNetwork.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.CJK.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.Other.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.West.dll",
+			"/Users/luzexi/Desktop/Work/Project/SingleBrave/linbingdouzheClient/Assets/Scripts/Source/Lib/I18N.dll"
+        ]
+    }
+}

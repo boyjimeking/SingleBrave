@@ -1,0 +1,20 @@
+{"frames": {
+
+"The-small-window.png":
+{
+	"frame": {"x":2,"y":2,"w":490,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":490,"h":80},
+	"sourceSize": {"w":490,"h":80}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "guibattlemenucel.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:edea8470bfe73e2520794a6640efdccc$"
+}
+}

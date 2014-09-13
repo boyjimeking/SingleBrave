@@ -1,0 +1,68 @@
+{"frames": {
+
+"Daily_Exp.png":
+{
+	"frame": {"x":2,"y":2,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+},
+"Friday.png":
+{
+	"frame": {"x":2,"y":216,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+},
+"Monday.png":
+{
+	"frame": {"x":2,"y":430,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+},
+"Thursday.png":
+{
+	"frame": {"x":2,"y":644,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+},
+"Tuesday.png":
+{
+	"frame": {"x":2,"y":858,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+},
+"Wednesday.png":
+{
+	"frame": {"x":2,"y":1072,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+},
+"Weeken.png":
+{
+	"frame": {"x":2,"y":1286,"w":634,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":634,"h":212},
+	"sourceSize": {"w":634,"h":212}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "espDungeon.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:85d84200d7639222398c9f187cfb249d$"
+}
+}

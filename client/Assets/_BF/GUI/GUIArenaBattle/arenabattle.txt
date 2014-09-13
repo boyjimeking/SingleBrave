@@ -1,0 +1,124 @@
+{"frames": {
+
+"BBskill.png":
+{
+	"frame": {"x":180,"y":231,"w":49,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":49,"h":12},
+	"sourceSize": {"w":49,"h":12}
+},
+"HP.png":
+{
+	"frame": {"x":1,"y":245,"w":20,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":9},
+	"sourceSize": {"w":20,"h":9}
+},
+"RoleBg.png":
+{
+	"frame": {"x":95,"y":1,"w":203,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":82},
+	"sourceSize": {"w":203,"h":82}
+},
+"RoleBgGray.png":
+{
+	"frame": {"x":89,"y":122,"w":287,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":287,"h":82},
+	"sourceSize": {"w":287,"h":82}
+},
+"Slide_Bg.png":
+{
+	"frame": {"x":180,"y":244,"w":178,"h":11},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":11},
+	"sourceSize": {"w":178,"h":11}
+},
+"Slide_Frame.png":
+{
+	"frame": {"x":1,"y":211,"w":194,"h":19},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":19},
+	"sourceSize": {"w":194,"h":19}
+},
+"VS.png":
+{
+	"frame": {"x":1,"y":1,"w":93,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":93,"h":120},
+	"sourceSize": {"w":93,"h":120}
+},
+"White.png":
+{
+	"frame": {"x":1,"y":231,"w":178,"h":13},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":13},
+	"sourceSize": {"w":178,"h":13}
+},
+"blue.png":
+{
+	"frame": {"x":221,"y":205,"w":24,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":12},
+	"sourceSize": {"w":24,"h":12}
+},
+"green.png":
+{
+	"frame": {"x":196,"y":218,"w":24,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":12},
+	"sourceSize": {"w":24,"h":12}
+},
+"iconBg.png":
+{
+	"frame": {"x":1,"y":122,"w":87,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":87,"h":88},
+	"sourceSize": {"w":87,"h":88}
+},
+"red.png":
+{
+	"frame": {"x":196,"y":205,"w":24,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":12},
+	"sourceSize": {"w":24,"h":12}
+},
+"text_down.png":
+{
+	"frame": {"x":377,"y":1,"w":78,"h":59},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":78,"h":59},
+	"sourceSize": {"w":78,"h":59}
+},
+"yellow.png":
+{
+	"frame": {"x":221,"y":218,"w":24,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":12},
+	"sourceSize": {"w":24,"h":12}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "arenabattle.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:516113548a466f68219a7816153b1801$"
+}
+}

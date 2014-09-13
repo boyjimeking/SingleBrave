@@ -1,0 +1,36 @@
+{"frames": {
+
+"btn_Revive.png":
+{
+	"frame": {"x":1,"y":1,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Revive1.png":
+{
+	"frame": {"x":1,"y":83,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"diamond.png":
+{
+	"frame": {"x":205,"y":1,"w":28,"h":30},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":30},
+	"sourceSize": {"w":28,"h":30}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIBattleRevive.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:eb2b77afb14b17403240fe271d98e9be$"
+}
+}

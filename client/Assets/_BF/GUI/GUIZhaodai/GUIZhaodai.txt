@@ -1,0 +1,108 @@
+{"frames": {
+
+"BG_Table.png":
+{
+	"frame": {"x":2,"y":2,"w":527,"h":544},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":527,"h":544},
+	"sourceSize": {"w":527,"h":544}
+},
+"Bg_Item.png":
+{
+	"frame": {"x":531,"y":2,"w":457,"h":2},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":457,"h":2},
+	"sourceSize": {"w":457,"h":2}
+},
+"btn_Change_Create.png":
+{
+	"frame": {"x":717,"y":330,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_Change_Create_B.png":
+{
+	"frame": {"x":531,"y":330,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_Change_Use.png":
+{
+	"frame": {"x":717,"y":255,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_Change_Use_B.png":
+{
+	"frame": {"x":531,"y":255,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_Create.png":
+{
+	"frame": {"x":736,"y":172,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Create_B.png":
+{
+	"frame": {"x":531,"y":172,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Input.png":
+{
+	"frame": {"x":736,"y":89,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Input_B.png":
+{
+	"frame": {"x":531,"y":89,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Skip.png":
+{
+	"frame": {"x":736,"y":6,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Skip_B.png":
+{
+	"frame": {"x":531,"y":6,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIZhaoDai.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e3ff8e8dbf6ad833ec2a72624ae4ee3c$"
+}
+}

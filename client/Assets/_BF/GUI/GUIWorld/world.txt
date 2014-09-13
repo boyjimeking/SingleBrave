@@ -1,0 +1,52 @@
+{"frames": {
+
+"back_btn1.png":
+{
+	"frame": {"x":736,"y":2,"w":128,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":80},
+	"sourceSize": {"w":128,"h":80}
+},
+"back_btn2.png":
+{
+	"frame": {"x":644,"y":94,"w":128,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":80},
+	"sourceSize": {"w":128,"h":80}
+},
+"challeng_item_list_frame.png":
+{
+	"frame": {"x":2,"y":2,"w":640,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":236},
+	"sourceSize": {"w":640,"h":236}
+},
+"gate_vortex.png":
+{
+	"frame": {"x":644,"y":2,"w":90,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
+	"sourceSize": {"w":90,"h":90}
+},
+"gate_vortex_text.png":
+{
+	"frame": {"x":644,"y":176,"w":56,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":32},
+	"sourceSize": {"w":56,"h":32}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "world.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1e880884bc6c692aab2d849728c26b8f$"
+}
+}

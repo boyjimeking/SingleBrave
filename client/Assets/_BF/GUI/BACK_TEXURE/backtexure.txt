@@ -1,0 +1,20 @@
+{"frames": {
+
+"black.png":
+{
+	"frame": {"x":2,"y":2,"w":4,"h":4},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
+	"sourceSize": {"w":4,"h":4}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "backtexure.png",
+	"format": "RGB888",
+	"size": {"w":8,"h":8},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2bb19c792ecf6352528bd58ce97df301$"
+}
+}

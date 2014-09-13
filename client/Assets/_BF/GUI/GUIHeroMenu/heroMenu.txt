@@ -1,0 +1,108 @@
+{"frames": {
+
+"btn_EquipPreview.png":
+{
+	"frame": {"x":2,"y":742,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_EquipPreview1.png":
+{
+	"frame": {"x":257,"y":594,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_EquipSale.png":
+{
+	"frame": {"x":2,"y":594,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_EquipSale1.png":
+{
+	"frame": {"x":257,"y":446,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_Evolution.png":
+{
+	"frame": {"x":2,"y":446,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_Evolution1.png":
+{
+	"frame": {"x":257,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_HeroEquip.png":
+{
+	"frame": {"x":2,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_HeroEquip1.png":
+{
+	"frame": {"x":257,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_Strong.png":
+{
+	"frame": {"x":2,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_Strong1.png":
+{
+	"frame": {"x":257,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_TeamGroup.png":
+{
+	"frame": {"x":2,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_TeamGroup1.png":
+{
+	"frame": {"x":257,"y":742,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "heroMenu.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c2a9d19fbe40fcf9f0a0e78fc35b43c4$"
+}
+}

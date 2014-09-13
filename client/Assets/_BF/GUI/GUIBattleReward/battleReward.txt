@@ -1,0 +1,44 @@
+{"frames": {
+
+"The-small-arrow.png":
+{
+	"frame": {"x":2,"y":2,"w":239,"h":55},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":239,"h":55},
+	"sourceSize": {"w":239,"h":55}
+},
+"blue-bar.png":
+{
+	"frame": {"x":243,"y":2,"w":45,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":22},
+	"sourceSize": {"w":45,"h":22}
+},
+"frame.png":
+{
+	"frame": {"x":2,"y":59,"w":376,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":376,"h":28},
+	"sourceSize": {"w":376,"h":28}
+},
+"grey-bar-bg.png":
+{
+	"frame": {"x":2,"y":89,"w":370,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":370,"h":22},
+	"sourceSize": {"w":370,"h":22}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "battleReward.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:76feed9cbe3f0b468d251c1f5bfd00b7$"
+}
+}

@@ -1,0 +1,92 @@
+{"frames": {
+
+"bg.png":
+{
+	"frame": {"x":2,"y":2,"w":640,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":105},
+	"sourceSize": {"w":640,"h":105}
+},
+"bgGray.png":
+{
+	"frame": {"x":2,"y":109,"w":99,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":98},
+	"sourceSize": {"w":99,"h":98}
+},
+"btn_Change.png":
+{
+	"frame": {"x":513,"y":109,"w":104,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":73},
+	"sourceSize": {"w":104,"h":73}
+},
+"btn_Sale.png":
+{
+	"frame": {"x":308,"y":109,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_Sale2.png":
+{
+	"frame": {"x":103,"y":109,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_cancle.png":
+{
+	"frame": {"x":289,"y":192,"w":184,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":62},
+	"sourceSize": {"w":184,"h":62}
+},
+"btn_cancle1.jpg":
+{
+	"frame": {"x":103,"y":192,"w":184,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":62},
+	"sourceSize": {"w":184,"h":62}
+},
+"heroBar.png":
+{
+	"frame": {"x":2,"y":209,"w":96,"h":39},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":39},
+	"sourceSize": {"w":96,"h":39}
+},
+"tips.png":
+{
+	"frame": {"x":475,"y":192,"w":65,"h":57},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":57},
+	"sourceSize": {"w":65,"h":57}
+},
+"unit_common_plate.png":
+{
+	"frame": {"x":542,"y":184,"w":216,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":216,"h":70},
+	"sourceSize": {"w":216,"h":70}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIHeroSell.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2ef72a333445b9abb619145e0b462d2c$"
+}
+}

@@ -1,0 +1,100 @@
+{"frames": {
+
+"BG_number.png":
+{
+	"frame": {"x":2,"y":742,"w":65,"h":57},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":57},
+	"sourceSize": {"w":65,"h":57}
+},
+"Btn_Coming.png":
+{
+	"frame": {"x":2,"y":446,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendApply.png":
+{
+	"frame": {"x":257,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendApply1.png":
+{
+	"frame": {"x":2,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendChat.png":
+{
+	"frame": {"x":257,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendGift.png":
+{
+	"frame": {"x":2,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendGift1.png":
+{
+	"frame": {"x":257,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendList.png":
+{
+	"frame": {"x":2,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendList1.png":
+{
+	"frame": {"x":257,"y":594,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendSearch.png":
+{
+	"frame": {"x":2,"y":594,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"Btn_FriendSearch1.png":
+{
+	"frame": {"x":257,"y":446,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIFriendMenu.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0e0c34b18b9fadd78268f97bf6a64e93$"
+}
+}

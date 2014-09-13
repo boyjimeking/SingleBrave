@@ -1,0 +1,60 @@
+{"frames": {
+
+"Btn_Apply.png":
+{
+	"frame": {"x":584,"y":83,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"Btn_Apply1.png":
+{
+	"frame": {"x":618,"y":1,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"arena_footer.png":
+{
+	"frame": {"x":1,"y":189,"w":616,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":616,"h":45},
+	"sourceSize": {"w":616,"h":45}
+},
+"arena_header.png":
+{
+	"frame": {"x":1,"y":1,"w":616,"h":77},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":616,"h":77},
+	"sourceSize": {"w":616,"h":77}
+},
+"black_bg.png":
+{
+	"frame": {"x":553,"y":79,"w":30,"h":30},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":30},
+	"sourceSize": {"w":30,"h":30}
+},
+"playerinfo_comment_area.png":
+{
+	"frame": {"x":1,"y":79,"w":551,"h":109},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":551,"h":109},
+	"sourceSize": {"w":551,"h":109}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIBattleFriendApply.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:732705a9c595653c23327e216666e46a$"
+}
+}

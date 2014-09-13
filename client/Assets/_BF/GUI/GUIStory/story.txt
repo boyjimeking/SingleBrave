@@ -1,0 +1,20 @@
+{"frames": {
+
+"arrow_right2.png":
+{
+	"frame": {"x":2,"y":2,"w":42,"h":44},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":44},
+	"sourceSize": {"w":42,"h":44}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "story.png",
+	"format": "RGBA8888",
+	"size": {"w":64,"h":64},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d4f67d7987ef6340cccb6aaa2c7b8647$"
+}
+}

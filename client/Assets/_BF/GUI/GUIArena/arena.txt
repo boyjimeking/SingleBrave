@@ -1,0 +1,300 @@
+{"frames": {
+
+"Btn_Apply.png":
+{
+	"frame": {"x":620,"y":131,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"Btn_Apply1.png":
+{
+	"frame": {"x":620,"y":48,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"Btn_Back.png":
+{
+	"frame": {"x":207,"y":414,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"Btn_Back1.png":
+{
+	"frame": {"x":2,"y":414,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"arena_footer.png":
+{
+	"frame": {"x":2,"y":101,"w":616,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":616,"h":45},
+	"sourceSize": {"w":616,"h":45}
+},
+"arena_header.png":
+{
+	"frame": {"x":2,"y":22,"w":616,"h":77},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":616,"h":77},
+	"sourceSize": {"w":616,"h":77}
+},
+"arena_record.png":
+{
+	"frame": {"x":956,"y":340,"w":51,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":24},
+	"sourceSize": {"w":51,"h":24}
+},
+"arena_window.png":
+{
+	"frame": {"x":2,"y":12,"w":640,"h":8},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":8},
+	"sourceSize": {"w":640,"h":8}
+},
+"arena_window_w.png":
+{
+	"frame": {"x":2,"y":2,"w":640,"h":8},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":8},
+	"sourceSize": {"w":640,"h":8}
+},
+"bg_jin.png":
+{
+	"frame": {"x":2,"y":685,"w":99,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":99},
+	"sourceSize": {"w":99,"h":99}
+},
+"bg_tong.png":
+{
+	"frame": {"x":2,"y":685,"w":99,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":99},
+	"sourceSize": {"w":99,"h":99}
+},
+"bg_yin.png":
+{
+	"frame": {"x":2,"y":786,"w":99,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":99},
+	"sourceSize": {"w":99,"h":99}
+},
+"black_bg.png":
+{
+	"frame": {"x":825,"y":129,"w":30,"h":30},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":30},
+	"sourceSize": {"w":30,"h":30}
+},
+"btn_Join.png":
+{
+	"frame": {"x":2,"y":288,"w":423,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":423,"h":124},
+	"sourceSize": {"w":423,"h":124}
+},
+"btn_Join1.png":
+{
+	"frame": {"x":571,"y":214,"w":423,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":423,"h":124},
+	"sourceSize": {"w":423,"h":124}
+},
+"btn_TeamGroup.png":
+{
+	"frame": {"x":751,"y":340,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_TeamGroup1.png":
+{
+	"frame": {"x":546,"y":340,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_battlerecor.png":
+{
+	"frame": {"x":207,"y":497,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_battlerecor1.png":
+{
+	"frame": {"x":2,"y":497,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_paihang.png":
+{
+	"frame": {"x":751,"y":423,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_paihang1.png":
+{
+	"frame": {"x":546,"y":423,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_paihang_s.png":
+{
+	"frame": {"x":875,"y":2,"w":147,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":147,"h":63},
+	"sourceSize": {"w":147,"h":63}
+},
+"btn_paihang_s1.png":
+{
+	"frame": {"x":867,"y":67,"w":147,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":147,"h":63},
+	"sourceSize": {"w":147,"h":63}
+},
+"btn_reward.png":
+{
+	"frame": {"x":2,"y":887,"w":147,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":147,"h":63},
+	"sourceSize": {"w":147,"h":63}
+},
+"btn_reward1.png":
+{
+	"frame": {"x":857,"y":132,"w":147,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":147,"h":63},
+	"sourceSize": {"w":147,"h":63}
+},
+"coper.png":
+{
+	"frame": {"x":825,"y":102,"w":40,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":25},
+	"sourceSize": {"w":40,"h":25}
+},
+"frame.png":
+{
+	"frame": {"x":2,"y":148,"w":567,"h":138},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":567,"h":138},
+	"sourceSize": {"w":567,"h":138}
+},
+"gold.png":
+{
+	"frame": {"x":825,"y":48,"w":40,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":25},
+	"sourceSize": {"w":40,"h":25}
+},
+"jin.png":
+{
+	"frame": {"x":427,"y":314,"w":117,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":117,"h":108},
+	"sourceSize": {"w":117,"h":108}
+},
+"silver.png":
+{
+	"frame": {"x":825,"y":75,"w":40,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":25},
+	"sourceSize": {"w":40,"h":25}
+},
+"text-score.png":
+{
+	"frame": {"x":644,"y":2,"w":229,"h":44},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":229,"h":44},
+	"sourceSize": {"w":229,"h":44}
+},
+"text_guanwei.png":
+{
+	"frame": {"x":2,"y":952,"w":98,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":24},
+	"sourceSize": {"w":98,"h":24}
+},
+"text_jiangpin.png":
+{
+	"frame": {"x":956,"y":366,"w":50,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":24},
+	"sourceSize": {"w":50,"h":24}
+},
+"text_paiming.png":
+{
+	"frame": {"x":427,"y":288,"w":121,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":24},
+	"sourceSize": {"w":121,"h":24}
+},
+"tong.png":
+{
+	"frame": {"x":412,"y":424,"w":117,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":117,"h":107},
+	"sourceSize": {"w":117,"h":107}
+},
+"yin.png":
+{
+	"frame": {"x":2,"y":580,"w":117,"h":103},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":117,"h":103},
+	"sourceSize": {"w":117,"h":103}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "arena.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ee643bbaba758a5c0b9aa4d31f5291ef$"
+}
+}

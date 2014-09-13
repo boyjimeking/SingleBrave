@@ -1,0 +1,36 @@
+{"frames": {
+
+"BG_Õ½ÓÑÑ¡Ôñ.png":
+{
+	"frame": {"x":2,"y":2,"w":614,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":614,"h":125},
+	"sourceSize": {"w":614,"h":125}
+},
+"System-display-box-bg.png":
+{
+	"frame": {"x":2,"y":129,"w":640,"h":57},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":57},
+	"sourceSize": {"w":640,"h":57}
+},
+"text_friend.png":
+{
+	"frame": {"x":2,"y":188,"w":100,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":24},
+	"sourceSize": {"w":100,"h":24}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "friendFight.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:843abe769d4f13165647736f14d0fa9a$"
+}
+}

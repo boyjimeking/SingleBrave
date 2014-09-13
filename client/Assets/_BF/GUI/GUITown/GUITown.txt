@@ -1,0 +1,180 @@
+{"frames": {
+
+"BG_equip.png":
+{
+	"frame": {"x":2,"y":2,"w":640,"h":153},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":153},
+	"sourceSize": {"w":640,"h":153}
+},
+"BG_sale.png":
+{
+	"frame": {"x":2,"y":157,"w":640,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":105},
+	"sourceSize": {"w":640,"h":105}
+},
+"BG_saleFrame.png":
+{
+	"frame": {"x":2,"y":391,"w":612,"h":303},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":612,"h":303},
+	"sourceSize": {"w":612,"h":303}
+},
+"E.png":
+{
+	"frame": {"x":980,"y":2,"w":20,"h":23},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":23},
+	"sourceSize": {"w":20,"h":23}
+},
+"EQUIPT.png":
+{
+	"frame": {"x":849,"y":2,"w":129,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":37},
+	"sourceSize": {"w":129,"h":37}
+},
+"EquipmentStrengthen.png":
+{
+	"frame": {"x":849,"y":41,"w":129,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":37},
+	"sourceSize": {"w":129,"h":37}
+},
+"ItemFrameBG.png":
+{
+	"frame": {"x":2,"y":264,"w":614,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":614,"h":125},
+	"sourceSize": {"w":614,"h":125}
+},
+"PropsWare.png":
+{
+	"frame": {"x":849,"y":119,"w":129,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":37},
+	"sourceSize": {"w":129,"h":37}
+},
+"RECONCILE.png":
+{
+	"frame": {"x":849,"y":80,"w":129,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":37},
+	"sourceSize": {"w":129,"h":37}
+},
+"btn_full.png":
+{
+	"frame": {"x":616,"y":417,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_ok.png":
+{
+	"frame": {"x":618,"y":334,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_remove.png":
+{
+	"frame": {"x":849,"y":158,"w":120,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":99},
+	"sourceSize": {"w":120,"h":99}
+},
+"btn_reset.png":
+{
+	"frame": {"x":644,"y":251,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_sale.png":
+{
+	"frame": {"x":644,"y":168,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_shengcheng.png":
+{
+	"frame": {"x":644,"y":2,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_tiaohe.png":
+{
+	"frame": {"x":644,"y":85,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"icon_Showcase.png":
+{
+	"frame": {"x":823,"y":359,"w":89,"h":47},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":47},
+	"sourceSize": {"w":89,"h":47}
+},
+"messagebox.png":
+{
+	"frame": {"x":2,"y":696,"w":567,"h":285},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":567,"h":285},
+	"sourceSize": {"w":567,"h":285}
+},
+"new_icon.png":
+{
+	"frame": {"x":950,"y":259,"w":63,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":24},
+	"sourceSize": {"w":63,"h":24}
+},
+"noitem.png":
+{
+	"frame": {"x":849,"y":259,"w":99,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":98},
+	"sourceSize": {"w":99,"h":98}
+},
+"text_sucaibuzu.png":
+{
+	"frame": {"x":2,"y":983,"w":98,"h":27},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":27},
+	"sourceSize": {"w":98,"h":27}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUITown.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:84d259d10fbc8cd3c4e2a1ba150a476f$"
+}
+}

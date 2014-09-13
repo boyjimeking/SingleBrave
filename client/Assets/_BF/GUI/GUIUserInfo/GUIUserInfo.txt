@@ -1,0 +1,100 @@
+{"frames": {
+
+"btn_accountmgr.png":
+{
+	"frame": {"x":580,"y":168,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_accountmgr1.png":
+{
+	"frame": {"x":580,"y":243,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_edit.png":
+{
+	"frame": {"x":657,"y":85,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_edit2.png":
+{
+	"frame": {"x":657,"y":2,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_playerIntelligence.png":
+{
+	"frame": {"x":766,"y":168,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_playerIntelligence1.png":
+{
+	"frame": {"x":766,"y":243,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"btn_ppUserCenter.png":
+{
+	"frame": {"x":862,"y":56,"w":138,"h":52},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":138,"h":52},
+	"sourceSize": {"w":138,"h":52}
+},
+"btn_ppUserCenter1.png":
+{
+	"frame": {"x":862,"y":2,"w":138,"h":52},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":138,"h":52},
+	"sourceSize": {"w":138,"h":52}
+},
+"playerinfo_comment_area.png":
+{
+	"frame": {"x":2,"y":379,"w":551,"h":109},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":551,"h":109},
+	"sourceSize": {"w":551,"h":109}
+},
+"playerinfo_player_area.png":
+{
+	"frame": {"x":2,"y":2,"w":576,"h":375},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":576,"h":375},
+	"sourceSize": {"w":576,"h":375}
+},
+"sys_win_base.png":
+{
+	"frame": {"x":555,"y":379,"w":100,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
+	"sourceSize": {"w":100,"h":100}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIUserInfo.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:61f02ea267dbf30570a0c6d689830b3f$"
+}
+}

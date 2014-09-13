@@ -1,0 +1,172 @@
+{"frames": {
+
+"EXP-BAR-frame.png":
+{
+	"frame": {"x":620,"y":2,"w":377,"h":27},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":377,"h":27},
+	"sourceSize": {"w":377,"h":27}
+},
+"Leader2.png":
+{
+	"frame": {"x":258,"y":38,"w":281,"h":144},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":281,"h":144},
+	"sourceSize": {"w":281,"h":144}
+},
+"Line.png":
+{
+	"frame": {"x":541,"y":51,"w":340,"h":23},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":340,"h":23},
+	"sourceSize": {"w":340,"h":23}
+},
+"VS.png":
+{
+	"frame": {"x":258,"y":184,"w":193,"h":171},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":171},
+	"sourceSize": {"w":193,"h":171}
+},
+"back.png":
+{
+	"frame": {"x":703,"y":76,"w":101,"h":101},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":101},
+	"sourceSize": {"w":101,"h":101}
+},
+"exp-bar-BG.png":
+{
+	"frame": {"x":620,"y":31,"w":347,"h":18},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":347,"h":18},
+	"sourceSize": {"w":347,"h":18}
+},
+"expbar.png":
+{
+	"frame": {"x":883,"y":51,"w":45,"h":19},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":19},
+	"sourceSize": {"w":45,"h":19}
+},
+"icon_gold.png":
+{
+	"frame": {"x":453,"y":245,"w":57,"h":43},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":43},
+	"sourceSize": {"w":57,"h":43}
+},
+"leader.png":
+{
+	"frame": {"x":258,"y":357,"w":174,"h":144},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":174,"h":144},
+	"sourceSize": {"w":174,"h":144}
+},
+"leader_back.png":
+{
+	"frame": {"x":541,"y":76,"w":160,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":131},
+	"sourceSize": {"w":160,"h":131}
+},
+"team_frame.png":
+{
+	"frame": {"x":2,"y":38,"w":132,"h":441},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":441},
+	"sourceSize": {"w":132,"h":441}
+},
+"team_frame_back.png":
+{
+	"frame": {"x":136,"y":38,"w":120,"h":428},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":428},
+	"sourceSize": {"w":120,"h":428}
+},
+"text_dead.png":
+{
+	"frame": {"x":453,"y":184,"w":78,"h":59},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":78,"h":59},
+	"sourceSize": {"w":78,"h":59}
+},
+"text_hurt.png":
+{
+	"frame": {"x":533,"y":209,"w":162,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":162,"h":26},
+	"sourceSize": {"w":162,"h":26}
+},
+"text_name.png":
+{
+	"frame": {"x":703,"y":179,"w":111,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":111,"h":28},
+	"sourceSize": {"w":111,"h":28}
+},
+"text_nextexp.png":
+{
+	"frame": {"x":533,"y":237,"w":163,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":163,"h":24},
+	"sourceSize": {"w":163,"h":24}
+},
+"text_point.png":
+{
+	"frame": {"x":698,"y":209,"w":135,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":135,"h":28},
+	"sourceSize": {"w":135,"h":28}
+},
+"text_restHP.png":
+{
+	"frame": {"x":2,"y":481,"w":139,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":139,"h":28},
+	"sourceSize": {"w":139,"h":28}
+},
+"text_score.png":
+{
+	"frame": {"x":806,"y":76,"w":56,"h":27},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":27},
+	"sourceSize": {"w":56,"h":27}
+},
+"zhou.png":
+{
+	"frame": {"x":2,"y":2,"w":616,"h":34},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":616,"h":34},
+	"sourceSize": {"w":616,"h":34}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIArenaBattleResult.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:322c111b3765636e86491c86643be90f$"
+}
+}

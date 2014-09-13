@@ -1,0 +1,116 @@
+{"frames": {
+
+"ArrowRight_1.png":
+{
+	"frame": {"x":64,"y":454,"w":60,"h":44},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":44},
+	"sourceSize": {"w":60,"h":44}
+},
+"ArrowRight_2.png":
+{
+	"frame": {"x":2,"y":454,"w":60,"h":44},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":44},
+	"sourceSize": {"w":60,"h":44}
+},
+"ArrowRight_3.png":
+{
+	"frame": {"x":126,"y":451,"w":60,"h":44},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":44},
+	"sourceSize": {"w":60,"h":44}
+},
+"HeroProperty.png":
+{
+	"frame": {"x":2,"y":239,"w":118,"h":213},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":118,"h":213},
+	"sourceSize": {"w":118,"h":213}
+},
+"Stage_S.png":
+{
+	"frame": {"x":626,"y":157,"w":149,"h":76},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":149,"h":76},
+	"sourceSize": {"w":149,"h":76}
+},
+"bg.png":
+{
+	"frame": {"x":122,"y":239,"w":640,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":105},
+	"sourceSize": {"w":640,"h":105}
+},
+"btn_evolution.png":
+{
+	"frame": {"x":777,"y":157,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"btn_evolution1.png":
+{
+	"frame": {"x":764,"y":74,"w":203,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":203,"h":81},
+	"sourceSize": {"w":203,"h":81}
+},
+"price.png":
+{
+	"frame": {"x":764,"y":2,"w":218,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":218,"h":70},
+	"sourceSize": {"w":218,"h":70}
+},
+"secrite.png":
+{
+	"frame": {"x":122,"y":346,"w":103,"h":103},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":103,"h":103},
+	"sourceSize": {"w":103,"h":103}
+},
+"sucai.png":
+{
+	"frame": {"x":2,"y":2,"w":622,"h":235},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":622,"h":235},
+	"sourceSize": {"w":622,"h":235}
+},
+"text_evolution.png":
+{
+	"frame": {"x":188,"y":451,"w":118,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":118,"h":32},
+	"sourceSize": {"w":118,"h":32}
+},
+"zhezhao.png":
+{
+	"frame": {"x":227,"y":346,"w":99,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":98},
+	"sourceSize": {"w":99,"h":98}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "evolution.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bbc59cb36bfb6e903f4a9a425efe1780$"
+}
+}

@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: 6823f9481e5987a4f8e9e54c0386cb79
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: GUI_chaojuemengjiang_1
+    100004: GUI_chaojuemengjiang_1_ad
+    100006: GUI_chaojuemengjiang_2
+    100008: GUI_chaojuemengjiang_2_ad
+    100010: GUI_chaojuemengjiang_3
+    100012: GUI_chaojuemengjiang_3_ad
+    100014: GUI_chaojuemengjiang_4
+    100016: GUI_chaojuemengjiang_4_ad
+    100018: GUI_chaojuemengjiang_5
+    100020: GUI_chaojuemengjiang_5_ad
+    100022: GUI_chaojuemengjiang_6
+    100024: GUI_chaojuemengjiang_6_ad
+    100026: GUI_chaojuemengjiang_7
+    100028: GUI_chaojuemengjiang_7_ad
+    100030: GUI_chaojuemengjiang_guang
+    400000: //RootNode
+    400002: GUI_chaojuemengjiang_1
+    400004: GUI_chaojuemengjiang_1_ad
+    400006: GUI_chaojuemengjiang_2
+    400008: GUI_chaojuemengjiang_2_ad
+    400010: GUI_chaojuemengjiang_3
+    400012: GUI_chaojuemengjiang_3_ad
+    400014: GUI_chaojuemengjiang_4
+    400016: GUI_chaojuemengjiang_4_ad
+    400018: GUI_chaojuemengjiang_5
+    400020: GUI_chaojuemengjiang_5_ad
+    400022: GUI_chaojuemengjiang_6
+    400024: GUI_chaojuemengjiang_6_ad
+    400026: GUI_chaojuemengjiang_7
+    400028: GUI_chaojuemengjiang_7_ad
+    400030: GUI_chaojuemengjiang_guang
+    2300000: GUI_chaojuemengjiang_1
+    2300002: GUI_chaojuemengjiang_1_ad
+    2300004: GUI_chaojuemengjiang_2
+    2300006: GUI_chaojuemengjiang_2_ad
+    2300008: GUI_chaojuemengjiang_3
+    2300010: GUI_chaojuemengjiang_3_ad
+    2300012: GUI_chaojuemengjiang_4
+    2300014: GUI_chaojuemengjiang_4_ad
+    2300016: GUI_chaojuemengjiang_5
+    2300018: GUI_chaojuemengjiang_5_ad
+    2300020: GUI_chaojuemengjiang_6
+    2300022: GUI_chaojuemengjiang_6_ad
+    2300024: GUI_chaojuemengjiang_7
+    2300026: GUI_chaojuemengjiang_7_ad
+    2300028: GUI_chaojuemengjiang_guang
+    3300000: GUI_chaojuemengjiang_1
+    3300002: GUI_chaojuemengjiang_1_ad
+    3300004: GUI_chaojuemengjiang_2
+    3300006: GUI_chaojuemengjiang_2_ad
+    3300008: GUI_chaojuemengjiang_3
+    3300010: GUI_chaojuemengjiang_3_ad
+    3300012: GUI_chaojuemengjiang_4
+    3300014: GUI_chaojuemengjiang_4_ad
+    3300016: GUI_chaojuemengjiang_5
+    3300018: GUI_chaojuemengjiang_5_ad
+    3300020: GUI_chaojuemengjiang_6
+    3300022: GUI_chaojuemengjiang_6_ad
+    3300024: GUI_chaojuemengjiang_7
+    3300026: GUI_chaojuemengjiang_7_ad
+    3300028: GUI_chaojuemengjiang_guang
+    4300000: GUI_chaojuemengjiang_2
+    4300002: GUI_chaojuemengjiang_2_ad
+    4300004: GUI_chaojuemengjiang_3
+    4300006: GUI_chaojuemengjiang_3_ad
+    4300008: GUI_chaojuemengjiang_4
+    4300010: GUI_chaojuemengjiang_4_ad
+    4300012: GUI_chaojuemengjiang_5
+    4300014: GUI_chaojuemengjiang_5_ad
+    4300016: GUI_chaojuemengjiang_6
+    4300018: GUI_chaojuemengjiang_6_ad
+    4300020: GUI_chaojuemengjiang_7
+    4300022: GUI_chaojuemengjiang_7_ad
+    4300024: GUI_chaojuemengjiang_1
+    4300026: GUI_chaojuemengjiang_1_ad
+    4300028: GUI_chaojuemengjiang_guang
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

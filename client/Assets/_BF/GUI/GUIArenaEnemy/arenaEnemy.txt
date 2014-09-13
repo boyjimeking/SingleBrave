@@ -1,0 +1,84 @@
+{"frames": {
+
+"BG_PlayerInfo.png":
+{
+	"frame": {"x":2,"y":2,"w":622,"h":176},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":622,"h":176},
+	"sourceSize": {"w":622,"h":176}
+},
+"BG_rivalIntelligence.png":
+{
+	"frame": {"x":2,"y":180,"w":614,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":614,"h":125},
+	"sourceSize": {"w":614,"h":125}
+},
+"btn_Battle.png":
+{
+	"frame": {"x":626,"y":31,"w":113,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":88},
+	"sourceSize": {"w":113,"h":88}
+},
+"btn_Battle1.png":
+{
+	"frame": {"x":844,"y":2,"w":113,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":88},
+	"sourceSize": {"w":113,"h":88}
+},
+"text_AllScore.png":
+{
+	"frame": {"x":741,"y":57,"w":72,"h":23},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":23},
+	"sourceSize": {"w":72,"h":23}
+},
+"text_nextGuanwei.png":
+{
+	"frame": {"x":626,"y":2,"w":216,"h":27},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":216,"h":27},
+	"sourceSize": {"w":216,"h":27}
+},
+"text_ranking.png":
+{
+	"frame": {"x":959,"y":2,"w":57,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":26},
+	"sourceSize": {"w":57,"h":26}
+},
+"text_weekRanking.png":
+{
+	"frame": {"x":741,"y":31,"w":76,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":24},
+	"sourceSize": {"w":76,"h":24}
+},
+"text_weekScore.png":
+{
+	"frame": {"x":741,"y":82,"w":72,"h":23},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":23},
+	"sourceSize": {"w":72,"h":23}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "arenaEnemy.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0ba9a5c5256c33ad95ea0f506e39f255$"
+}
+}

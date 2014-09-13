@@ -1,0 +1,36 @@
+{"frames": {
+
+"Btn_help.png":
+{
+	"frame": {"x":800,"y":2,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"Btn_help1.png":
+{
+	"frame": {"x":614,"y":2,"w":184,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":73},
+	"sourceSize": {"w":184,"h":73}
+},
+"frame1.png":
+{
+	"frame": {"x":2,"y":2,"w":610,"h":112},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":610,"h":112},
+	"sourceSize": {"w":610,"h":112}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIHelp.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0d57c714a1e4234d467ef21156e3967d$"
+}
+}

@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 07b16d7a060ae1a4fa4a9a2bf301cf91
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: effect_xiahouyuan_1_1
+    100004: effect_xiahouyuan_1_2
+    100006: effect_xiahouyuan_1_3
+    100008: effect_xiahouyuan_1_4
+    100010: effect_xiahouyuan_1_5
+    100012: effect_xiahouyuan_1_6
+    100014: effect_xiahouyuan_2_1
+    100016: effect_xiahouyuan_2_2
+    100018: effect_xiahouyuan_2_3
+    100020: effect_xiahouyuan_2_4
+    100022: effect_xiahouyuan_2_5
+    100024: effect_xiahouyuan_2_6
+    400000: //RootNode
+    400002: effect_xiahouyuan_1_1
+    400004: effect_xiahouyuan_1_2
+    400006: effect_xiahouyuan_1_3
+    400008: effect_xiahouyuan_1_4
+    400010: effect_xiahouyuan_1_5
+    400012: effect_xiahouyuan_1_6
+    400014: effect_xiahouyuan_2_1
+    400016: effect_xiahouyuan_2_2
+    400018: effect_xiahouyuan_2_3
+    400020: effect_xiahouyuan_2_4
+    400022: effect_xiahouyuan_2_5
+    400024: effect_xiahouyuan_2_6
+    2300000: effect_xiahouyuan_1_1
+    2300002: effect_xiahouyuan_1_2
+    2300004: effect_xiahouyuan_1_3
+    2300006: effect_xiahouyuan_1_4
+    2300008: effect_xiahouyuan_1_5
+    2300010: effect_xiahouyuan_1_6
+    2300012: effect_xiahouyuan_2_1
+    2300014: effect_xiahouyuan_2_2
+    2300016: effect_xiahouyuan_2_3
+    2300018: effect_xiahouyuan_2_4
+    2300020: effect_xiahouyuan_2_5
+    2300022: effect_xiahouyuan_2_6
+    3300000: effect_xiahouyuan_1_1
+    3300002: effect_xiahouyuan_1_2
+    3300004: effect_xiahouyuan_1_3
+    3300006: effect_xiahouyuan_1_4
+    3300008: effect_xiahouyuan_1_5
+    3300010: effect_xiahouyuan_1_6
+    3300012: effect_xiahouyuan_2_1
+    3300014: effect_xiahouyuan_2_2
+    3300016: effect_xiahouyuan_2_3
+    3300018: effect_xiahouyuan_2_4
+    3300020: effect_xiahouyuan_2_5
+    3300022: effect_xiahouyuan_2_6
+    4300000: effect_xiahouyuan_1_1
+    4300002: effect_xiahouyuan_1_2
+    4300004: effect_xiahouyuan_1_3
+    4300006: effect_xiahouyuan_1_4
+    4300008: effect_xiahouyuan_1_5
+    4300010: effect_xiahouyuan_1_6
+    4300012: effect_xiahouyuan_2_1
+    4300014: effect_xiahouyuan_2_2
+    4300016: effect_xiahouyuan_2_3
+    4300018: effect_xiahouyuan_2_4
+    4300020: effect_xiahouyuan_2_5
+    4300022: effect_xiahouyuan_2_6
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

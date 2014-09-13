@@ -1,0 +1,131 @@
+fileFormatVersion: 2
+guid: cfa642576babaa140a373a47cedfb0d7
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: effect_arenafight_1
+    100002: effect_arenafight_2
+    100004: effect_arenafight_3
+    100006: effect_arenafight_4
+    100008: effect_arenafight_5
+    100010: effect_arenafight_5 1
+    100012: effect_arenafight_6
+    100014: //RootNode
+    100016: effect_arenafight_xian_1
+    100018: effect_arenafight_xian_1_2
+    100020: effect_arenafight_xian_2
+    100022: effect_arenafight_xian_2_2
+    100024: effect_arenafight_7
+    100026: effect_arenafight_6_ad
+    100028: effect_arenafight_7_ad
+    400000: effect_arenafight_1
+    400002: effect_arenafight_2
+    400004: effect_arenafight_3
+    400006: effect_arenafight_4
+    400008: effect_arenafight_5
+    400010: effect_arenafight_5 1
+    400012: effect_arenafight_6
+    400014: //RootNode
+    400016: effect_arenafight_xian_1
+    400018: effect_arenafight_xian_1_2
+    400020: effect_arenafight_xian_2
+    400022: effect_arenafight_xian_2_2
+    400024: effect_arenafight_7
+    400026: effect_arenafight_6_ad
+    400028: effect_arenafight_7_ad
+    2300000: effect_arenafight_1
+    2300002: effect_arenafight_2
+    2300004: effect_arenafight_3
+    2300006: effect_arenafight_4
+    2300008: effect_arenafight_5
+    2300010: effect_arenafight_5 1
+    2300012: effect_arenafight_6
+    2300014: effect_arenafight_xian_1
+    2300016: effect_arenafight_xian_1_2
+    2300018: effect_arenafight_xian_2
+    2300020: effect_arenafight_xian_2_2
+    2300022: effect_arenafight_7
+    2300024: effect_arenafight_6_ad
+    2300026: effect_arenafight_7_ad
+    3300000: effect_arenafight_1
+    3300002: effect_arenafight_2
+    3300004: effect_arenafight_3
+    3300006: effect_arenafight_4
+    3300008: effect_arenafight_5
+    3300010: effect_arenafight_5 1
+    3300012: effect_arenafight_6
+    3300014: effect_arenafight_xian_1
+    3300016: effect_arenafight_xian_1_2
+    3300018: effect_arenafight_xian_2
+    3300020: effect_arenafight_xian_2_2
+    3300022: effect_arenafight_7
+    3300024: effect_arenafight_6_ad
+    3300026: effect_arenafight_7_ad
+    4300000: effect_arenafight_1
+    4300002: effect_arenafight_2
+    4300004: effect_arenafight_3
+    4300006: effect_arenafight_4
+    4300008: effect_arenafight_xian_1
+    4300010: effect_arenafight_xian_2
+    4300012: effect_arenafight_5
+    4300014: effect_arenafight_xian_2_2
+    4300016: effect_arenafight_xian_1_2
+    4300018: effect_arenafight_5
+    4300020: effect_arenafight_6
+    4300022: effect_arenafight_7
+    4300024: effect_arenafight_6_ad
+    4300026: effect_arenafight_7_ad
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

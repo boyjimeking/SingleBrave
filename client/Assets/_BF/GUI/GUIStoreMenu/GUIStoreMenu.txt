@@ -1,0 +1,92 @@
+{"frames": {
+
+"btn_goumai.png":
+{
+	"frame": {"x":2,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_goumai1.png":
+{
+	"frame": {"x":257,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_jingjidian.png":
+{
+	"frame": {"x":2,"y":150,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_jingjidian1.png":
+{
+	"frame": {"x":257,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_strength.png":
+{
+	"frame": {"x":2,"y":2,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_strength1.png":
+{
+	"frame": {"x":257,"y":594,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_unit.png":
+{
+	"frame": {"x":2,"y":594,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_unit1.png":
+{
+	"frame": {"x":257,"y":446,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_wupinlan.png":
+{
+	"frame": {"x":2,"y":446,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+},
+"btn_wupinlan1.png":
+{
+	"frame": {"x":257,"y":298,"w":253,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":146},
+	"sourceSize": {"w":253,"h":146}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GUIStoreMenu.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:33c3398d2dc97cc985e16200c2ed5beb$"
+}
+}
