@@ -1,0 +1,3 @@
+[submodule "client/Assets/Scripts/submodule/mvc"]
+	path = client/Assets/Scripts/submodule/mvc
+	url = https://github.com/luzexi/Unity3DMVC.git
