@@ -41,10 +41,6 @@ public class GUIManager
         GUIBackFrameBottom guiBackBottom = new GUIBackFrameBottom(this);
         AddGUI(guiBackBottom);
 
-        GUITittle guiTittle = new GUITittle(this);
-        guiTittle.Initialize();
-        AddGUI(guiTittle);
-
         GUIWorld guiWord = new GUIWorld(this);
         AddGUI(guiWord);
 

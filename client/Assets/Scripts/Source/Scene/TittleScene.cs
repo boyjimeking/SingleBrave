@@ -22,24 +22,8 @@ public class TittleScene : CScene
     /// </summary>
     public override void OnEnter()
     {
-
-        if (!GAME_SETTING.GAME_JOIN)
-        {
-            //GAME_SETTING.GAME_JOIN = true;
-            //GAME_SETTING.SaveGAME_JOIN();
-            if (string.IsNullOrEmpty(GAME_SETTING.DEVICE_ID))
-            {
-                SendAgent.SendGetDeviceID();
-            }
-            else
-            {
-                SendAgent.SendGameJoin(PlatformManager.GetInstance().GetDeviceID(), PlatformManager.GetInstance().GetChannelName());
-            }
-        }
-
         base.OnEnter();
-        GUITittle guitittle = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
-        guitittle.Show();
+		GUITittle.sInstance.Show();
     }
 
     /// <summary>
@@ -47,11 +31,7 @@ public class TittleScene : CScene
     /// </summary>
     public override void OnExit()
     {
-        GUITittle guitittle = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
-        guitittle.Destory();
-
-        GUIAccount guiAccount = (GUIAccount)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ACCOUNT);
-        guiAccount.Destory();
+		GUITittle.sInstance.Hiden();
 
         base.OnExit();
     }

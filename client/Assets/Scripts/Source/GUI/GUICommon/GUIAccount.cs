@@ -118,8 +118,8 @@ public class GUIAccount : GUIBase
         base.ShowImmediately();
         CreateGUI();
 
-        GUITittle title = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
-        title.SetButtons(true);
+//        GUITittle title = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
+//        title.SetButtons(true);
 
         if (GAME_SETTING.s_strUserName != "")
         {
@@ -154,8 +154,8 @@ public class GUIAccount : GUIBase
         GUI_FUNCTION.AYSNCLOADING_HIDEN();
         CTween.TweenPosition(this.m_cGUIObject, GAME_DEFINE.FADEIN_GUI_TIME, GAME_DEFINE.FADEOUT_GUI_TIME, Vector3.zero, new Vector3(640, 0, 0) , Destory);
   //      SetLocalPos(Vector3.one * 0xFFFFF);
-        GUITittle title = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
-        title.SetButtons(false);
+//        GUITittle title = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
+//        title.SetButtons(false);
     }
 
     /// <summary>
@@ -166,8 +166,8 @@ public class GUIAccount : GUIBase
         base.HidenImmediately();
         //SetLocalPos(Vector3.one * 0xFFFFF);
         Destory();
-        GUITittle title = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
-        title.SetButtons(false);
+//        GUITittle title = (GUITittle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_TITTLE);
+//        title.SetButtons(false);
     }
 
     /// <summary>

@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
         CameraManager.GetInstance().Initialize();
         this.m_cGUIManager.Initialize();
         PlatformManager.GetInstance().Init();
+		CScene.Switch<TittleScene>();
     }
 
     /// <summary>

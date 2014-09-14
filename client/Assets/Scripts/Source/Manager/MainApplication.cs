@@ -85,7 +85,7 @@ public class MainApplication : MonoBehaviour
         Caching.maximumAvailableDiskSpace = 800 * 1024 * 1024;  //800兆最大
         this.m_cFPS = GUI_FINDATION.FIND_GAME_OBJECT("ROOT/ANCHOR_CENTER/BLACK_LEFT/FPS").GetComponent<UILabel>();
         this.m_cFPS.enabled = false;
-#if !GAME_TEST
+#if GAME_TEST
         this.m_cFPS.enabled = true;
         this.m_fFPSStartTime = Time.realtimeSinceStartup;
         this.m_iFrameCount = Time.frameCount;
@@ -99,7 +99,7 @@ public class MainApplication : MonoBehaviour
     /// </summary>
     void Update()
     {
-#if !GAME_TEST
+#if GAME_TEST
         float disTime = Time.realtimeSinceStartup - this.m_fFPSStartTime;
         if (disTime > FPS_TIME)
         {
@@ -137,7 +137,7 @@ public class MainApplication : MonoBehaviour
     /// </summary>
     void OnGUI()
     {
-#if !GAME_TEST
+#if GAME_TEST
         if (GUI.Button(new Rect(0, 0, 100, 30), "Clear Setting"))
         {
             GAME_SETTING.ClearSetting();
