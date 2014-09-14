@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using Game.Resource;
 using Game.Gfx;
+using Game.Media;
 using Game.Base;
 
 /// <summary>
@@ -224,12 +225,12 @@ public class GUIHeroUpgradeResult : GUIBase
         GUI_FUNCTION.AYSNCLOADING_SHOW();
 
         //加载GUI主资源
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         //3d对象资源
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HERO_UPGRADE);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HERO_UPGRADE);
         //加载强化英雄模型和特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, m_cHeroSelf.m_strModel);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, GetEffectSelf(m_cHeroSelf));
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + m_cHeroSelf.m_strModel);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + GetEffectSelf(m_cHeroSelf));
         //加载强化牺牲素材英雄模型和特效
         foreach (Hero hero in m_lstDeleteHeros)
         {
@@ -238,23 +239,23 @@ public class GUIHeroUpgradeResult : GUIBase
                 Debug.LogError("Null");
                 continue;
             }
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, hero.m_strModel);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, GetEffectHero(hero));
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + hero.m_strModel);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + GetEffectHero(hero));
         }
         //升级英雄魔法底盘
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_DI_SELF);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, GetEffectSuccessType(m_eSuccedType));
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_DI_SELF);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + GetEffectSuccessType(m_eSuccedType));
         //加载等级提升特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_LEVEL_UP_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_LEVEL_UP_EFFECT);
         //加载技能提升特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_SKILL_UP_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_SKILL_UP_EFFECT);
 
     }
 
     // 隐藏
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         base.Hiden();
         CameraManager.GetInstance().HidenUIHeroUpgradeCamera();
@@ -337,7 +338,7 @@ public class GUIHeroUpgradeResult : GUIBase
         if (m_cGUIObject == null)
         {
             //GUI资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //跳过按钮
@@ -376,7 +377,7 @@ public class GUIHeroUpgradeResult : GUIBase
             this.m_cLbHeroText = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(m_cGUIObject, LAB_HEROTEXT);
             //3D场景
             this.m_cSceneRoot = GUI_FINDATION.FIND_GAME_OBJECT(HERO_3D_ROOT);
-            this.m_cHeroUpgrade = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HERO_UPGRADE)) as GameObject;
+            this.m_cHeroUpgrade = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HERO_UPGRADE)) as GameObject;
             this.m_cHeroUpgrade.transform.parent = this.m_cSceneRoot.transform;
             this.m_cHeroUpgrade.transform.localScale = Vector3.one;
             this.m_cHeroUpgrade.transform.localPosition = Vector3.zero;
@@ -414,7 +415,7 @@ public class GUIHeroUpgradeResult : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -455,9 +456,10 @@ public class GUIHeroUpgradeResult : GUIBase
                 //开启强化面板
                 this.m_cHeroResult.SetActive(true);   //强化面板
                 //音效
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_EVO_HERO);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_EVO_HERO);
+//                MediaMgr.PlaySound2(SOUND_DEFINE.SE_EVO_HERO);
                 //加载强化英雄模型
-                GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(m_cHeroSelf.m_strModel)) as GameObject;
+                GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(m_cHeroSelf.m_strModel)) as GameObject;
                 objSelf.transform.parent = m_cHeroPos.transform;
                 objSelf.transform.localPosition = Vector3.zero;
                 objSelf.transform.localScale = Vector3.one;
@@ -471,8 +473,8 @@ public class GUIHeroUpgradeResult : GUIBase
                     Hero hero = m_lstDeleteHeros[i];
                     //加载
                     GameObject objPos = GUI_FINDATION.GET_GAME_OBJECT(m_cHeroResultTeam, HERO_OBJPOS + (i + 1));
-                    GameObject objHero = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(hero.m_strModel)) as GameObject;
-                    GameObject objEffect = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GetEffectHero(hero))) as GameObject;
+                    GameObject objHero = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(hero.m_strModel)) as GameObject;
+                    GameObject objEffect = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(GetEffectHero(hero))) as GameObject;
                     //模型
                     objHero.transform.parent = objPos.transform;
                     objHero.transform.localPosition = Vector3.zero;
@@ -486,7 +488,7 @@ public class GUIHeroUpgradeResult : GUIBase
                     m_lstEffectHeros.Add(objEffect);
                 }
                 //强化英雄特效
-                m_cEffectSelfHero = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GetEffectSelf(m_cHeroSelf))) as GameObject;
+                m_cEffectSelfHero = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(GetEffectSelf(m_cHeroSelf))) as GameObject;
                 m_cEffectSelfHero.transform.parent = m_cHeroResult.transform;
                 m_cEffectSelfHero.transform.localPosition = Vector3.zero;
                 m_cEffectSelfHero.transform.localScale = Vector3.one;
@@ -515,11 +517,11 @@ public class GUIHeroUpgradeResult : GUIBase
                 break;
             case State.AfterModelShowBegin:
                 //成功类型特效
-                m_cEffectSuccee = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GetEffectSuccessType(m_eSuccedType))) as GameObject;
+                m_cEffectSuccee = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(GetEffectSuccessType(m_eSuccedType))) as GameObject;
                 m_cEffectSuccee.transform.parent = m_cSceneRoot.transform;
                 m_cEffectSuccee.transform.localPosition = Vector3.zero;
                 //魔法底盘
-                m_cEffectModelPan = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_DI_SELF)) as GameObject;
+                m_cEffectModelPan = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_DI_SELF)) as GameObject;
                 m_cEffectModelPan.transform.parent = m_cHeroAfterPos.transform;
                 m_cEffectModelPan.transform.position = m_cGfxSelf.GetPos();
                 m_cEffectModelPan.transform.localScale = Vector3.one;
@@ -609,13 +611,15 @@ public class GUIHeroUpgradeResult : GUIBase
                 break;
             case State.ExpSlideIng:
                 //数字跳动音效
-                SoundManager.GetInstance().PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
+				MediaMgr.sInstance.PlayENV(SOUND_DEFINE.SE_NUM_JUMP);
+//                MediaMgr.PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
                 dis = GAME_TIME.TIME_FIXED() - m_fDis;
                 SetExpBar(dis / SLIDE_RUN_TIME);
                 if (dis >= SLIDE_RUN_TIME)
                 {
                     //数字跳动音效关闭
-                    SoundManager.GetInstance().StopSoundContinue();
+					MediaMgr.sInstance.StopENV();
+//                    MediaMgr.StopSoundContinue();
                     SetExpBar(1);
                     this.m_eState++;
                 }
@@ -628,11 +632,12 @@ public class GUIHeroUpgradeResult : GUIBase
                 if (m_lstUpgradeProcess[m_iLevelRunNum].m_iLv != m_lstUpgradeProcess[m_iLevelRunNum + 1].m_iLv)
                 {
                     //升级音效
-                    SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_UPGRADE);
+					MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_UPGRADE);
+//                    MediaMgr.PlaySound2(SOUND_DEFINE.SE_UPGRADE);
                     //设置显示数字
                     SetFirstProcessText(true, false);
                     //加载等级提升特效
-                    this.m_cEffectLevelupEffect = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_LEVEL_UP_EFFECT)) as GameObject;
+                    this.m_cEffectLevelupEffect = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_LEVEL_UP_EFFECT)) as GameObject;
                     this.m_cEffectLevelupEffect.transform.parent = this.m_cSceneRoot.transform;
                     this.m_cEffectLevelupEffect.transform.localScale = Vector3.one;
                     this.m_cEffectLevelupEffect.transform.localPosition = Vector3.zero;
@@ -664,11 +669,12 @@ public class GUIHeroUpgradeResult : GUIBase
                     if (this.m_bSkillShow)
                     {
                         //升级音效
-                        SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_UPGRADE);
+						MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_UPGRADE);
+//                        MediaMgr.PlaySound2(SOUND_DEFINE.SE_UPGRADE);
                         //设置显示数字
                         SetFirstProcessText(true, true);
                         //加载技能提升特效
-                        this.m_cEffectSkillUpEffect = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_SKILL_UP_EFFECT)) as GameObject;
+                        this.m_cEffectSkillUpEffect = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_SKILL_UP_EFFECT)) as GameObject;
                         this.m_cEffectSkillUpEffect.transform.parent = this.m_cSceneRoot.transform;
                         this.m_cEffectSkillUpEffect.transform.localScale = Vector3.one;
                         this.m_cEffectSkillUpEffect.transform.localPosition = Vector3.zero;
@@ -775,7 +781,8 @@ public class GUIHeroUpgradeResult : GUIBase
                 SetExpBar(1);
             }
 
-            SoundManager.GetInstance().StopSoundContinue();
+			MediaMgr.sInstance.StopENV();
+//            MediaMgr.StopSoundContinue();
         }
     }
 

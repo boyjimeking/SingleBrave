@@ -21,7 +21,7 @@ public class LeaderSkillTableManager : Singleton<LeaderSkillTableManager>
     {
 #if GAME_TEST_LOAD
         //队长技能表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.LEADER_SKILL_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.LEADER_SKILL_PATH) as string);
 #endif
     }
 

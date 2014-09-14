@@ -32,15 +32,15 @@ public class SystemPushHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         SystemPushPktAck ack = packet as SystemPushPktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEM(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEM(null, ack.header.desc);
             return;
         }
 

@@ -16,7 +16,7 @@ using Game.Network;
 /// </summary>
 public class ActivityBattleEndHandle
 {
-    private List<int> m_lstNewHero = new List<int>();//新英雄列表
+    private static List<int> m_lstNewHero = new List<int>();//新英雄列表
 
     /// <summary>
     /// 获取action
@@ -32,16 +32,16 @@ public class ActivityBattleEndHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         ActivityBattleEndPktAck ack = (ActivityBattleEndPktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GAME_LOG.ERROR("error code desc :" + ack.m_strErrorDes);
-            return false;
+            GAME_LOG.ERROR("error code desc :" + ack.header.desc);
+            
         }
 
         int tmpLevel = Role.role.GetBaseProperty().m_iLevel;
@@ -166,15 +166,15 @@ public class ActivityBattleEndHandle
         //if (gateTable.ID == GUIDE_FUNCTION.GATE_ID1)
         //{
         //    GUIDE_FUNCTION.SHOW_STORY(1, story_callback);
-        //    return true;
+        //    
         //}
         
         gui.Show();
-        this.m_lstNewHero.Clear();
+        m_lstNewHero.Clear();
 
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
 
-        return true;
+        
     }
 
 
@@ -185,7 +185,7 @@ public class ActivityBattleEndHandle
     {
         GUIBattleReward gui = (GUIBattleReward)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BATTLE_REWARD);
         gui.Show();
-        this.m_lstNewHero.Clear();
+        m_lstNewHero.Clear();
 
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
     }

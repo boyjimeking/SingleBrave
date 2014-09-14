@@ -39,7 +39,7 @@ public class PlayerGetSystemMailPktAck : HTTPPacketAck
 //     public override HTTPPacketRequest Create(CodeTitans.JSon.IJSonObject json)
 //     {
 //         PlayerGetSystemMailPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerGetSystemMailPktAck>(json);
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

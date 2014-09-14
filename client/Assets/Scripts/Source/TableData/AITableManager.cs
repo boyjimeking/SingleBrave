@@ -24,7 +24,7 @@ public class AITableManager : Singleton<AITableManager>
     {
 #if GAME_TEST_LOAD
         //副本表
-        Load((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.AI_TABLE_PATH));
+        Load((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.AI_TABLE_PATH));
 #endif
     }
 

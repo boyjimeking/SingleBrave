@@ -34,7 +34,7 @@ public class GUIPropsPreviewDetail
     {
         this.m_cProp = item;
 
-        this.m_cMain = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+		this.m_cMain = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
         this.m_cMain.transform.parent = parent.transform;
         this.m_cMain.transform.localScale = Vector3.one;
         this.m_cMain.transform.localPosition = Vector3.zero;

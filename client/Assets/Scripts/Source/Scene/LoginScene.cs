@@ -12,10 +12,9 @@ using System.Text;
 /// <summary>
 /// 登录场景
 /// </summary>
-public class LoginScene : SceneBase
+public class LoginScene : CScene
 {
     public LoginScene()
-        : base(SCENE.SCENE_LOGIN)
     { 
         //
     }
@@ -34,15 +33,6 @@ public class LoginScene : SceneBase
     public override void OnExit()
     {
         base.OnExit();
-    }
-
-    /// <summary>
-    /// 逻辑更新场景
-    /// </summary>
-    /// <returns></returns>
-    public override bool Update()
-    {
-        return base.Update();
     }
 
 }

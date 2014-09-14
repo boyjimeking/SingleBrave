@@ -27,19 +27,19 @@ public class HeroUpgradeHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         HeroUpgradePktAck ack = (HeroUpgradePktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
 
             GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_MENU).Show();
 
-            return false;
+            
         }
 
         //更新金钱
@@ -73,6 +73,6 @@ public class HeroUpgradeHandle
         gui_upgradeHeroResult.SetShowData(afterHero, deleteHeros, ack.m_iSuccessType, ack.m_upgradeProcess);
         gui_upgradeHeroResult.Show();
 
-        return true;
+        
     }
 }

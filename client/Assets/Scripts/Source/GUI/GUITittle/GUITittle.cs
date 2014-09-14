@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 //  GUITittle.cs
 //  Author: Lu Zexi
@@ -77,7 +78,7 @@ public class GUITittle : GUIBase
         this.m_bIsShowAcountPanel = false;
 
         AudioClip clip = Resources.Load(SOUND_DEFINE.BGM_MAIN) as AudioClip;
-        SoundManager.GetInstance().PlayBGM(clip);
+        MediaMgr.sInstance.PlayBGM(clip);
 
         SetLocalPos(Vector3.zero);
     }
@@ -112,7 +113,7 @@ public class GUITittle : GUIBase
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
             Debug.Log("in");
-            SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_TITTLE_JOIN_IN);
+            MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_TITTLE_JOIN_IN);
             PlatformManager.GetInstance().Login();
             //SendAgent.SendVersionReq();
             //if (string.IsNullOrEmpty(GAME_SETTING.s_strUserName) || string.IsNullOrEmpty(GAME_SETTING.s_strPassWord))

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Game.Media;
 using Game.Resource;
 using UnityEngine;
 
@@ -126,8 +127,8 @@ public class GUIArenaFightReady : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_ITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_ITEM);
         }
         else
         {
@@ -146,7 +147,7 @@ public class GUIArenaFightReady : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -171,7 +172,7 @@ public class GUIArenaFightReady : GUIBase
 
             m_cListView = GUI_FINDATION.GET_GAME_OBJECT(this.m_cMainPanel, LISTVIEW);
 
-            this.Res_Item = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM);
+            this.Res_Item = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM);
 
         }
 
@@ -240,7 +241,7 @@ public class GUIArenaFightReady : GUIBase
         CTween.TweenPosition(this.m_cMainPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 33, 0), new Vector3(640, 33, 0));
         CTween.TweenPosition(this.m_cTopPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-420, 270, 0), Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
     }
 
     /// <summary>
@@ -317,7 +318,7 @@ public class GUIArenaFightReady : GUIBase
             Role.role.GetBaseProperty().m_strEnemyName = m_lstEnemyDatas[index].m_strName; //挑战的对手玩家用户名
             Role.role.GetBaseProperty().m_iEnemyPVPEXP = m_lstEnemyDatas[index].m_iPVP_point;  //t挑战对手玩家竞技点
 
-            SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_BATTLE_PVP_JOIN);
+            MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_PVP_JOIN);
 
             SendAgent.SendPVPBattleStart(Role.role.GetBaseProperty().m_iPlayerId, m_iSelectId);
 
@@ -366,7 +367,7 @@ public class GUIArenaFightReady : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

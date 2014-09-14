@@ -82,7 +82,7 @@
 //        {
 //            //实例化GameObject
 //            //Main主资源
-//            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN)) as GameObject;
+//            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN)) as GameObject;
 //            this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
 //            this.m_cGUIObject.transform.localScale = Vector3.one;
 //            //滑出动画panel
@@ -302,7 +302,7 @@
 
 //    public GUIFriendGiftBItem()
 //    {
-//        m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_PATH, RES_ITEM)) as GameObject;
+//        m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_GUI_PATH, RES_ITEM)) as GameObject;
 //        m_cBtnGive = GUI_FINDATION.GET_GAME_OBJECT(this.m_cItem, BTN_GIVE);
 //        m_cLbName = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cItem, LB_NAME);
 

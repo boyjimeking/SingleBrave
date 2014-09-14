@@ -151,11 +151,11 @@ class GUIHeroEvolution : GUIBase
 
         Hero selectHero = Role.role.GetHeroProperty().GetHero(m_selectID);
         HeroTable htNext = HeroTableManager.GetInstance().GetHeroTable(selectHero.m_iEvolutionID);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HERO_JINHUA);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, selectHero.m_strModel);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, htNext.Modle);
-        //ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, "");
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HERO_JINHUA);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + selectHero.m_strModel);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + htNext.Modle);
+        //ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH, "");
 
     }
 
@@ -206,7 +206,7 @@ class GUIHeroEvolution : GUIBase
             m_gfxSelf.Destory();
         }
 
-        GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(selectHero.m_strModel)) as GameObject;
+        GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(selectHero.m_strModel)) as GameObject;
         objSelf.transform.parent = m_cHeroBeforePos.transform;
         objSelf.transform.localPosition = new Vector3(0, 0, 0);
         objSelf.transform.localScale = Vector3.one;
@@ -238,7 +238,7 @@ class GUIHeroEvolution : GUIBase
             }
         }
 
-        GameObject objNext = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(htNext.Modle)) as GameObject;
+        GameObject objNext = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(htNext.Modle)) as GameObject;
         objNext.transform.parent = m_cHeroEndPos.transform;
         objNext.transform.localPosition = new Vector3(0, 0, 0);
         objNext.transform.localScale = Vector3.one;
@@ -488,7 +488,7 @@ class GUIHeroEvolution : GUIBase
         CameraManager.GetInstance().ShowUIHeroEvolutionCamera();
         if (m_cGUIObject == null)
         {
-            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -538,7 +538,7 @@ class GUIHeroEvolution : GUIBase
             }
 
             m_cHeroPlane = GUI_FINDATION.FIND_GAME_OBJECT(HERO_EVOLUTION);
-            m_cHeroJinHua = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HERO_JINHUA)) as GameObject;
+            m_cHeroJinHua = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HERO_JINHUA)) as GameObject;
             m_cHeroJinHua.transform.parent = m_cHeroPlane.transform;
             m_cHeroJinHua.transform.localPosition = Vector3.zero;
             m_cHeroJinHua.transform.localScale = Vector3.one;
@@ -580,7 +580,7 @@ class GUIHeroEvolution : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

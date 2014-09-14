@@ -9,6 +9,7 @@ using System.Text;
 using UnityEngine;
 using Game.Resource;
 using Game.Base;
+using Game.Media;
 
 //竞技场战斗结果GUI
 public class GUIArenaBattleResult : GUIBase
@@ -317,12 +318,12 @@ public class GUIArenaBattleResult : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, GAME_DEFINE.RES_VERSION, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_EFFECT_BONUS_GET);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_EFFECT_LOSE);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_EFFECT_RANK_DOWN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_EFFECT_RANK_UP);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_EFFECT_WIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_EFFECT_BONUS_GET);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_EFFECT_LOSE);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_EFFECT_RANK_DOWN);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_EFFECT_RANK_UP);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_EFFECT_WIN);
         }
         else
         {
@@ -342,7 +343,7 @@ public class GUIArenaBattleResult : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -400,11 +401,11 @@ public class GUIArenaBattleResult : GUIBase
 
             this.m_cEffectParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGuiEffect, EFFECT_CENTER_ANCHOR);
 
-            this.m_cEffectWin = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_WIN);
-            this.m_cEffectLose = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_LOSE);
-            this.m_cEffectRankDown = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_RANK_DOWN);
-            this.m_cEffectRankUp = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_RANK_UP);
-            this.m_cEffectBonusGet = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_BONUS_GET);
+            this.m_cEffectWin = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_WIN);
+			this.m_cEffectLose = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_LOSE);
+			this.m_cEffectRankDown = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_RANK_DOWN);
+			this.m_cEffectRankUp = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_RANK_UP);
+			this.m_cEffectBonusGet = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_BONUS_GET);
 
             m_cPanZhanji = GUI_FINDATION.GET_GAME_OBJECT(this.m_cPanScore, PAN_ZHANJI);
             m_cLbZhanji = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cPanZhanji, LB_ZHANJI);
@@ -443,7 +444,7 @@ public class GUIArenaBattleResult : GUIBase
         CTween.TweenPosition(this.m_cPanInfo, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, -125, 0), new Vector3(640, -125, 0));
         CTween.TweenPosition(this.m_cPanCancel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 275, 0), new Vector3(-430, 275, 0), Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
     }
 
     /// <summary>
@@ -539,7 +540,7 @@ public class GUIArenaBattleResult : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -632,7 +633,8 @@ public class GUIArenaBattleResult : GUIBase
                     this.SHOW_COST_TIME = SHORTTIME;
 
                 //数字跳动音效
-                SoundManager.GetInstance().PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
+				MediaMgr.sInstance.PlayENV(SOUND_DEFINE.SE_NUM_JUMP);
+                //MediaMgr.PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
 
                 float disNum = GAME_TIME.TIME_FIXED() - m_fDis;
                 this.m_cLbLineLeftNo1.text = ((int)(disNum / NUM_UP_TIME * m_iEnemyHPSum)).ToString();
@@ -640,7 +642,8 @@ public class GUIArenaBattleResult : GUIBase
                 if (disNum > SHOW_COST_TIME)
                 {
                     //数字跳动音效关闭
-                    SoundManager.GetInstance().StopSoundContinue();
+					MediaMgr.sInstance.StopENV();
+//                    MediaMgr.StopSoundContinue();
 
                     this.m_cLbLineLeftNo1.text = ((int)m_iEnemyHPSum).ToString();
                     this.m_cLbLineRightNo1.text = ((int)m_iMyHPSum).ToString();
@@ -698,7 +701,8 @@ public class GUIArenaBattleResult : GUIBase
                     this.SHOW_COST_TIME = SHORTTIME;
 
                 //数字跳动音效
-                SoundManager.GetInstance().PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
+				MediaMgr.sInstance.PlayENV(SOUND_DEFINE.SE_NUM_JUMP);
+//                MediaMgr.PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
 
                 float disNum2 = GAME_TIME.TIME_FIXED() - m_fDis;
                 this.m_cLbLineLeftNo2.text = ((int)(disNum2 / NUM_UP_TIME * m_iEnemyDamageSum)).ToString();
@@ -706,7 +710,8 @@ public class GUIArenaBattleResult : GUIBase
                 if (disNum2 > SHOW_COST_TIME)
                 {
                     //数字跳动音效关闭
-                    SoundManager.GetInstance().StopSoundContinue();
+                    //MediaMgr.StopSoundContinue();
+					MediaMgr.sInstance.StopENV();
 
                     this.m_cLbLineLeftNo2.text = ((int)m_iEnemyDamageSum).ToString();
                     this.m_cLbLineRightNo2.text = ((int)m_iMyDamageSum).ToString();
@@ -888,7 +893,8 @@ public class GUIArenaBattleResult : GUIBase
             case State.SlideRunIng:
 
                 //数字跳动音效
-                SoundManager.GetInstance().PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
+				MediaMgr.sInstance.PlayENV(SOUND_DEFINE.SE_NUM_JUMP);
+//                MediaMgr.PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
 
                 float ffdis = GAME_TIME.TIME_FIXED() - m_fDis;
                 float pp = (ffdis / SLIDE_TIME);
@@ -910,7 +916,8 @@ public class GUIArenaBattleResult : GUIBase
                 if (ffdis > SHOW_COST_TIME)
                 {
                     //数字跳动音效关闭
-                    SoundManager.GetInstance().StopSoundContinue();
+					MediaMgr.sInstance.StopENV();
+//                    MediaMgr.StopSoundContinue();
 
                     this.m_cSlideExp.fillAmount = this.m_lstSlideDatas[m_iNext].m_iEnd / distan;
                     this.m_cLbPoint.text = (int)(this.m_lstSlideDatas[m_iNext].m_iMin2 + this.m_cSlideExp.fillAmount * distan + 0.5f) + " #f4af21]积分";
@@ -929,7 +936,8 @@ public class GUIArenaBattleResult : GUIBase
                 {
                     CameraManager.GetInstance().ShowGUIEffectCamera();
                     //官位上升音效
-                    SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_NAME_DOWN);
+					MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_NAME_DOWN);
+//                    MediaMgr.PlaySound2(SOUND_DEFINE.SE_NAME_DOWN);
                     //官位降级
                     this.m_cEffectRankDownObj = GameObject.Instantiate(this.m_cEffectRankDown) as GameObject;
                     this.m_cEffectRankDownObj.transform.parent = this.m_cEffectParent.transform;
@@ -944,7 +952,8 @@ public class GUIArenaBattleResult : GUIBase
                 {
                     CameraManager.GetInstance().ShowGUIEffectCamera();
                     //官位上升音效
-                    SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_NAME_UP);
+					MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_NAME_UP);
+//                    MediaMgr.PlaySound2(SOUND_DEFINE.SE_NAME_UP);
                     //官位上升
                     this.m_cEffectRankUpObj = GameObject.Instantiate(this.m_cEffectRankUp) as GameObject;
                     this.m_cEffectRankUpObj.transform.parent = this.m_cEffectParent.transform;

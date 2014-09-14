@@ -42,7 +42,7 @@ public class PlayerBattleRecordGetPktAck : HTTPPacketAck
 //     public override HTTPPacketRequest Create(CodeTitans.JSon.IJSonObject json)
 //     {
 //         PlayerBattleRecordGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerBattleRecordGetPktAck>(json);
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

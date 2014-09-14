@@ -33,16 +33,16 @@ public class BattleGateFailHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         BattleGateFailPktAck ack = packet as BattleGateFailPktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
 
@@ -124,7 +124,7 @@ public class BattleGateFailHandle
         if (WorldManager.s_iCurrentWorldId == 1 && WorldManager.s_iCurrentAreaIndex == 0 && WorldManager.s_iCurrentDungeonIndex == 0)
         {
             GUIDE_FUNCTION.SHOW_STORY(GUIDE_FUNCTION.STORY_SECOND_FIGHT_END, story_callback);
-            return true;
+            
         }
 
         GUIArea area = (GUIArea)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_AREA);
@@ -132,13 +132,13 @@ public class BattleGateFailHandle
 
         area.Show();
 
-        return true;
+        
     }
 
     /// <summary>
     /// 剧情回调
     /// </summary>
-    private void story_callback()
+    private static void story_callback()
     {
         GUIArea area = (GUIArea)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_AREA);
         area.ResetCurrentAreaId();

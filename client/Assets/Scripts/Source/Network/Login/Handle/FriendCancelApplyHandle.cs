@@ -27,7 +27,7 @@ public class FriendCancelApplyHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FriendCancelApplyPktAck ack = (FriendCancelApplyPktAck)packet;
 
@@ -35,15 +35,15 @@ public class FriendCancelApplyHandle
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         Role.role.GetFriendProperty().RemoveFriendApply(gui_friendApply.m_cFirend.m_iID);
         gui_friendApply.Show();
 
-        return true;
+        
     }
 }

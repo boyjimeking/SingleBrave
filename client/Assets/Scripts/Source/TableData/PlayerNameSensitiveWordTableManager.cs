@@ -18,7 +18,7 @@ public class PlayerNameSensitiveWordTableManager : Singleton<PlayerNameSensitive
     {
 #if GAME_TEST_LOAD
         //加载玩家名称敏感词汇表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.SENSITIVE_WORD) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.SENSITIVE_WORD) as string);
 #endif
     }
 

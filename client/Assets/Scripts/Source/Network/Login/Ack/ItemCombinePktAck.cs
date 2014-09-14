@@ -57,7 +57,7 @@ public class ItemCombinePktAck : HTTPPacketAck
 //     {
 //         ItemCombinePktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<ItemCombinePktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

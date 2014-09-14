@@ -24,23 +24,23 @@ public class DeviceHandle
         return PACKET_DEFINE.DEVICE_REQ;
     }
 
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         DevicePktAck ack = packet as DevicePktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (packet.m_iErrorCode != 0)
+        if (packet.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, packet.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, packet.header.desc);
+            
         }
 
         GAME_SETTING.DEVICE_ID = ack.m_strDeviceID;
         GAME_SETTING.SaveGAME_JOIN();
         SendAgent.SendGameJoin(PlatformManager.GetInstance().GetDeviceID(), PlatformManager.GetInstance().GetChannelName());
 
-        return true;
+        
 
     }
 }

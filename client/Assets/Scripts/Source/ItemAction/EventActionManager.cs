@@ -21,7 +21,7 @@ public class EventActionManager : Singleton<EventActionManager>
     public EventActionManager()
     {
 #if GAME_TEST_LOAD
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ITEM_EVENT_ACTION) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ITEM_EVENT_ACTION) as string);
 #endif
     }
 

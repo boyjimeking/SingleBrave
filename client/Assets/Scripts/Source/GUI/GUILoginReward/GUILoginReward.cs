@@ -43,8 +43,8 @@ public class GUILoginReward : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_ITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_ITEM);
         }
         else
         {
@@ -62,12 +62,12 @@ public class GUILoginReward : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
             this.m_cItemParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, ITEM_PARENT);
-            this.m_cItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM);
+            this.m_cItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM);
 
             GUIComponentEvent clickEvent = this.m_cGUIObject.AddComponent<GUIComponentEvent>();
             clickEvent.AddIntputDelegate(ClickEvent);
@@ -87,7 +87,7 @@ public class GUILoginReward : GUIBase
     {
         base.Hiden();
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //SetLocalPos(Vector3.one * 0xFFFF);
         Destory();
@@ -118,7 +118,7 @@ public class GUILoginReward : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

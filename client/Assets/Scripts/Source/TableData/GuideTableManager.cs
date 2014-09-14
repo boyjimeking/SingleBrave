@@ -23,7 +23,7 @@ public class GuideTableManager : Singleton<GuideTableManager>
     {
 #if GAME_TEST_LOAD
         //新手引导
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.GUIDE_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.GUIDE_PATH) as string);
 #endif
     }
 

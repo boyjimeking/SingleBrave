@@ -21,7 +21,7 @@ public class GateTableManager : Singleton<GateTableManager>
     {
 #if GAME_TEST_LOAD
         //关卡表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.GATE_TABLE_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.GATE_TABLE_PATH) as string);
 #endif
     }
 

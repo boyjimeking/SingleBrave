@@ -6,6 +6,7 @@ using UnityEngine;
 using Game.Base;
 using Game.Gfx;
 using Game.Resource;
+using Game.Media;
 
 
 
@@ -102,7 +103,8 @@ public class GUIActivityBattle : GUIBattle
         ActivityMonsterTeamTable teamTable = ActivityTableManager.GetInstance().GetMonsterTeamTable(this.m_iGateID, orderID, this.m_lstMonsterOrder);
 
         //背景音乐
-        SoundManager.GetInstance().PlayBGM(this.m_cGateTable.BGSound);
+		MediaMgr.sInstance.PlayBGM(this.m_cGateTable.BGSound);
+//        MediaMgr.PlayBGM(this.m_cGateTable.BGSound);
 
         this.m_lstMonsterOrder.Add(teamTable.OrderID);
 
@@ -234,7 +236,8 @@ public class GUIActivityBattle : GUIBattle
 
         if (this.m_bBoss)
         {
-            SoundManager.GetInstance().PlayBGM(teamTable.BGSound);
+			MediaMgr.sInstance.PlayBGM(teamTable.BGSound);
+//            MediaMgr.PlayBGM(teamTable.BGSound);
         }
         Debug.Log("下一层");
 
@@ -278,6 +281,7 @@ public class GUIActivityBattle : GUIBattle
     {
         base.Hiden();
         //背景音乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
+		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
+//        MediaMgr.PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
     }
 }

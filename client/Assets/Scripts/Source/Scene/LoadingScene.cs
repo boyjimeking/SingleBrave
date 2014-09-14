@@ -13,10 +13,9 @@ using Game.Resource;
 /// <summary>
 /// 加载场景
 /// </summary>
-public class LoadingScene : SceneBase
+public class LoadingScene : CScene
 {
     public LoadingScene()
-        :base(SCENE.SCENE_LOADING)
     { 
     }
 

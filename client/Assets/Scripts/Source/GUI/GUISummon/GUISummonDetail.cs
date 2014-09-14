@@ -71,7 +71,7 @@ public class GUISummonDetail : GUIBase
 
         //if (this.m_cGUIObject == null)
         //{
-        //    ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+        //    ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
         //}
 
         InitGUI();
@@ -90,7 +90,7 @@ public class GUISummonDetail : GUIBase
         {
             //实例化GameObject
             //召唤主资源
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //返回按钮
@@ -184,7 +184,7 @@ public class GUISummonDetail : GUIBase
     public override void Hiden()
     {
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //base.Hiden();
 
@@ -200,7 +200,7 @@ public class GUISummonDetail : GUIBase
     /// </summary>
     public override void HidenImmediately()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //SetLocalPos(Vector3.one * 0xFFFF);
         Destory();
@@ -219,7 +219,7 @@ public class GUISummonDetail : GUIBase
         //        this.m_eLoadingState++;
         //        return false;
         //    case LOADING_STATE.LOADING:
-        //        if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+        //        if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
         //        {
         //            this.m_eLoadingState++;
         //        }
@@ -309,7 +309,7 @@ public class GUISummonDetail : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_UNITSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -326,7 +326,7 @@ public class GUISummonDetail : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HERO_MENU).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);

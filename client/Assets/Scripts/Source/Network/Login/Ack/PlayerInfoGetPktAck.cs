@@ -80,7 +80,7 @@ public class PlayerInfoGetPktAck : HTTPPacketAck
 //     {
 //         PlayerInfoGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerInfoGetPktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

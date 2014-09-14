@@ -40,7 +40,7 @@ public class PlayerStrengthRecoverPktAck : HTTPPacketAck
 //     public override HTTPPacketRequest Create(CodeTitans.JSon.IJSonObject json)
 //     {
 //         PlayerStrengthRecoverPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerStrengthRecoverPktAck>(json);
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -141,13 +141,13 @@ public class GUIHeroDetail : GUIBase
 
         this.m_eLoadingState = LOADING_STATE.NONE;
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, this.m_cCurHero.m_strAvatarA);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + this.m_cCurHero.m_strAvatarA);
 
         if (this.m_cGUIObject == null)
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
         else
         {
@@ -163,8 +163,8 @@ public class GUIHeroDetail : GUIBase
     public override void Hiden()
     {
 
-        ResourcesManager.GetInstance().UnloadResource(this.m_cCurHero.m_strAvatarA);
-        ResourcesManager.GetInstance().UnloadResource(RES_MAIN);
+        ResourceMgr.UnloadResource(this.m_cCurHero.m_strAvatarA);
+        ResourceMgr.UnloadResource(RES_MAIN);
 
         //base.Hiden();
 
@@ -247,7 +247,7 @@ public class GUIHeroDetail : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -291,7 +291,7 @@ public class GUIHeroDetail : GUIBase
 
         this.m_cTexHero = GUI_FINDATION.GET_OBJ_COMPONENT<UITexture>(this.m_cGUIObject, TEXTURE_HERO);
 
-        Texture tex = ResourcesManager.GetInstance().Load(this.m_cCurHero.m_strAvatarA) as Texture;
+        Texture tex = ResourceMgr.LoadAsset(this.m_cCurHero.m_strAvatarA) as Texture;
         m_cTexHero.mainTexture = tex;
       
 
@@ -336,7 +336,7 @@ public class GUIHeroDetail : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

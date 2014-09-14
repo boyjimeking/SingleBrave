@@ -18,7 +18,7 @@ public class PlayerNameTableManager : Singleton<PlayerNameTableManager>
     {
 #if GAME_TEST_LOAD
         //加载玩家名称表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.PLAYER_NAME) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.PLAYER_NAME) as string);
 #endif
     }
 

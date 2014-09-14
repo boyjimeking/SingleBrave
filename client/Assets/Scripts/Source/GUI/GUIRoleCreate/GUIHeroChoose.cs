@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Game.Resource;
 using Game.Gfx;
+using Game.Media;
 
 //角色选择
 //Author:Sunyi
@@ -65,13 +66,13 @@ public class GUIHeroChoose : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_HERO_CREATE);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_HERO_CREATE);
             for (int i = 0; i < GAME_DEFINE.m_vecSelectHero.Length; i++)
             {
                 HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(GAME_DEFINE.m_vecSelectHero[i]);
-                ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, heroTable.AvatorARes);
-                ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, heroTable.Modle);
+                ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + heroTable.AvatorARes);
+                ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + heroTable.Modle);
             }
         }
         else
@@ -92,7 +93,7 @@ public class GUIHeroChoose : GUIBase
         this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Hiden();
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -107,7 +108,7 @@ public class GUIHeroChoose : GUIBase
             this.m_cSceneRoot = GUI_FINDATION.FIND_GAME_OBJECT(HERO_CHOOSE);
             this.m_cStayPos = GUI_FINDATION.GET_GAME_OBJECT(this.m_cSceneRoot, HERO_POS);
 
-            this.m_cHeroCreate = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HERO_CREATE)) as GameObject;
+            this.m_cHeroCreate = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HERO_CREATE)) as GameObject;
             this.m_cHeroCreate.transform.parent = this.m_cSceneRoot.transform;
             this.m_cHeroCreate.transform.localPosition = Vector3.zero;
             this.m_cHeroCreate.transform.localScale = Vector3.one;
@@ -140,7 +141,7 @@ public class GUIHeroChoose : GUIBase
             HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(GAME_DEFINE.m_vecSelectHero[i]);
 
             //将内存中的模型加载出来
-            GameObject heroObj = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(heroTable.Modle)) as GameObject;
+            GameObject heroObj = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(heroTable.Modle)) as GameObject;
             heroObj.transform.parent = this.m_cStayPos.transform;
             heroObj.transform.localScale = Vector3.one;
             heroObj.transform.localPosition = new Vector3(-4 + 4 * i, 0, 0);
@@ -176,7 +177,7 @@ public class GUIHeroChoose : GUIBase
                 break;
         }
 
-        Texture heroBg = (Texture)ResourcesManager.GetInstance().Load(curHeroTable.AvatorARes);
+        Texture heroBg = (Texture)ResourceMgr.LoadAsset(curHeroTable.AvatorARes);
 
         this.m_cModelBGMaterial.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", heroBg);
 
@@ -193,7 +194,7 @@ public class GUIHeroChoose : GUIBase
         base.Hiden();
 
         CameraManager.GetInstance().HidenUIHeroChooseCamera();
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //SetLocalPos(Vector3.one * 0XFFFF);
         Destory();
@@ -265,7 +266,7 @@ public class GUIHeroChoose : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -334,7 +335,8 @@ public class GUIHeroChoose : GUIBase
             if (this.m_bIsDrag)
             {
                 //翻页音效
-                SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SLIDE);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
+//                MediaMgr.PlaySound(SOUND_DEFINE.SE_SLIDE);
 
                 if (m_bIsRight)
                 {
@@ -426,7 +428,7 @@ public class GUIHeroChoose : GUIBase
         TweenPosition.Begin(this.m_lstModels[this.m_iSelectHeroIndex], 0.4f, new Vector3(0, 0, 0), new Vector3(-4, 0, 0));
         this.m_iSelectHeroIndex = nextIndex;
         HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(GAME_DEFINE.m_vecSelectHero[this.m_iSelectHeroIndex]);
-        Texture heroBg = (Texture)ResourcesManager.GetInstance().Load(heroTable.AvatorARes);
+        Texture heroBg = (Texture)ResourceMgr.LoadAsset(heroTable.AvatorARes);
         this.m_cModelBGMaterial.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", heroBg);
         ResetNameAndDesc();
     }
@@ -440,7 +442,7 @@ public class GUIHeroChoose : GUIBase
         TweenPosition.Begin(this.m_lstModels[this.m_iSelectHeroIndex], 0.4f, new Vector3(0, 0, 0), new Vector3(4, 0, 0));
         this.m_iSelectHeroIndex = nextIndex;
         HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(GAME_DEFINE.m_vecSelectHero[this.m_iSelectHeroIndex]);
-        Texture heroBg = (Texture)ResourcesManager.GetInstance().Load(heroTable.AvatorARes);
+        Texture heroBg = (Texture)ResourceMgr.LoadAsset(heroTable.AvatorARes);
         this.m_cModelBGMaterial.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", heroBg);
         ResetNameAndDesc();
     }

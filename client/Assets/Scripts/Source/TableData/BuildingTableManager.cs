@@ -26,25 +26,25 @@ public class BuildingTableManager : Singleton<BuildingTableManager>
     {
 #if GAME_TEST_LOAD
         //建筑表
-        LoadTextBuilding((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_PATH));
+        LoadTextBuilding((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_PATH));
 
         //建筑川表
-        LoadTextChuan(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_CHUAN_PATH) as string);
+        LoadTextChuan(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_CHUAN_PATH) as string);
 
         //建筑装备表
-        LoadTextEquip(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_EQUIP_PATH) as string);
+        LoadTextEquip(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_EQUIP_PATH) as string);
 
         //建筑物品表
-        LoadTextItem(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_ITEM_PATH) as string);
+        LoadTextItem(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_ITEM_PATH) as string);
 
         //建筑林表
-        LoadTextLin(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_LIN_PATH) as string);
+        LoadTextLin(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_LIN_PATH) as string);
 
         //建筑山表
-        LoadTextShan(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_SHAN_PATH) as string);
+        LoadTextShan(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_SHAN_PATH) as string);
 
         //建筑田表
-        LoadTextTian(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_TIAN_PATH) as string);
+        LoadTextTian(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BUILDING_TIAN_PATH) as string);
 #endif
     }
 

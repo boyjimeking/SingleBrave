@@ -30,16 +30,16 @@ public class FubenStoryHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FubenStoryPktAck ack = packet as FubenStoryPktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEM(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEM(null, ack.header.desc);
+            
         }
 
         AreaTable areaTabe = WorldManager.GetArea(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
@@ -47,6 +47,6 @@ public class FubenStoryHandle
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Hiden();
         GUI_FUNCTION.SHOW_STORY(dungeonTable.StoryID, GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_AREA).Show);
 
-        return true;
+        
     }
 }

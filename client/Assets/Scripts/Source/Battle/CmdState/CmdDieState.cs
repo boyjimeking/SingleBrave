@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Resource;
+using Game.Media;
 using Game.Gfx;
 
 
@@ -36,7 +38,7 @@ public class CmdDieState : CmdStateBase
     /// <returns></returns>
     public override bool OnEnter()
     {
-        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_DEAD);
+		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.SE_BATTLE_DEAD);
         this.m_cControl.Die();
         return base.OnEnter();
     }

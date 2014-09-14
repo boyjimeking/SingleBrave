@@ -75,8 +75,8 @@ public class GUIFriendInfo : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, FriendPanel.RES_FRIENDPANEL);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + FriendPanel.RES_FRIENDPANEL);
         }
         else
         {
@@ -96,7 +96,7 @@ public class GUIFriendInfo : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -150,7 +150,7 @@ public class GUIFriendInfo : GUIBase
     {
         //base.Hiden();
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
 
         GUI_FUNCTION.AYSNCLOADING_HIDEN();
 
@@ -172,7 +172,7 @@ public class GUIFriendInfo : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -337,7 +337,7 @@ public class FriendPanel
     //构造//
     public FriendPanel()
     {
-        m_cFriendPanel = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_FRIENDPANEL)) as GameObject;
+		m_cFriendPanel = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_FRIENDPANEL)) as GameObject;
 
         m_spItemBorder = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cFriendPanel, INFO_MONSTER_ITEMBORDER);
         m_spItemFrame = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cFriendPanel, INFO_MONSTER_ITEMFRAME);

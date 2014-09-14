@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Game.Resource;
 using Game.Base;
+using Game.Media;
 
 
 
@@ -104,13 +105,13 @@ public class GUIArea : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_AREAITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_EFFECT_GUI_NEW_AREA_EXPOSE);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_NEW_AREA);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_GUI_AREA1);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_GUI_AREA2);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_GUI_AREA3);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_AREAITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_EFFECT_GUI_NEW_AREA_EXPOSE);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_NEW_AREA);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_GUI_AREA1);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_GUI_AREA2);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_GUI_AREA3);
         }
         else
         {
@@ -127,11 +128,11 @@ public class GUIArea : GUIBase
         GUI_FUNCTION.AYSNCLOADING_HIDEN();
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
-            this.m_cSprNewArea = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_NEW_AREA);
+			this.m_cSprNewArea = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_NEW_AREA);
 
             this.m_cGuiEffect = GUI_FINDATION.FIND_GAME_OBJECT(GUI_EFFECT);
 
@@ -151,7 +152,7 @@ public class GUIArea : GUIBase
             GUIComponentEvent guiFubenEvent = this.m_cFuben_Button.AddComponent<GUIComponentEvent>();
             guiFubenEvent.AddIntputDelegate(OnClickFubenButton);
 
-            this.m_cDungeonItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_AREAITEM);
+			this.m_cDungeonItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_AREAITEM);
 
             this.m_cSprArrowLeft = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(this.m_cGUIObject, SPR_ARROW_LEFT);
             this.m_cSprArrowRight = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(this.m_cGUIObject, SPR_ARROW_RIGHT);
@@ -173,7 +174,7 @@ public class GUIArea : GUIBase
 
 
         //播放主题乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_MAIN);
+        MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
 
         this.m_bIsNeedToShowNew = true;
 
@@ -291,7 +292,7 @@ public class GUIArea : GUIBase
         this.m_lstMovePanel.Clear();
         SetLocalPos(Vector3.one * 0XFFFF);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         Destory();
     }
@@ -355,7 +356,7 @@ public class GUIArea : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -412,7 +413,7 @@ public class GUIArea : GUIBase
         bool isNewDungeon = false;
 
         UITexture bgTex = GUI_FINDATION.GET_OBJ_COMPONENT<UITexture>(areaPanel, AREA_BG);
-        Texture text = (Texture)ResourcesManager.GetInstance().Load(this.m_lstArea[areaIndex].BgName);
+		Texture text = (Texture)ResourceMgr.LoadAsset(this.m_lstArea[areaIndex].BgName);
         bgTex.mainTexture = text;
         GameObject lstParent = GUI_FINDATION.GET_GAME_OBJECT(areaPanel, LST_PARENT);
         List<DungeonTable> lstDungeon = this.m_lstDungeonsAll[areaIndex];
@@ -493,7 +494,7 @@ public class GUIArea : GUIBase
                         {
                             if (this.m_cEffectNew == null)
                             {
-                                this.m_cEffectNew = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_GUI_NEW_AREA_EXPOSE)) as GameObject;
+							this.m_cEffectNew = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_GUI_NEW_AREA_EXPOSE)) as GameObject;
                             }
                             m_cEffectNew.transform.parent = this.m_cEffectParent.transform;
                             m_cEffectNew.transform.localScale = new Vector3(80, 80, 80);
@@ -507,7 +508,7 @@ public class GUIArea : GUIBase
                         }
                         else if (!GAME_SETTING.s_bNewDungeonOfNewArea)
                         {
-                            this.m_cEffectNew = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EFFECT_GUI_NEW_AREA_EXPOSE)) as GameObject;
+						this.m_cEffectNew = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_EFFECT_GUI_NEW_AREA_EXPOSE)) as GameObject;
                             m_cEffectNew.transform.parent = this.m_cEffectParent.transform;
                             m_cEffectNew.transform.localScale = new Vector3(80, 80, 80);
                             m_cEffectNew.transform.localPosition = this.m_cSprNew.transform.localPosition;
@@ -723,7 +724,7 @@ public class GUIArea : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_UNITSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -743,7 +744,7 @@ public class GUIArea : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HERO_MENU).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -771,7 +772,7 @@ public class GUIArea : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_PROPSSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -790,7 +791,7 @@ public class GUIArea : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
 
                 SessionManager.GetInstance().SetCallBack(() =>
@@ -990,7 +991,7 @@ public class GUIArea : GUIBase
             Vector3 vec3 = this.m_lstMovePanel[i].transform.localPosition;
             if (this.m_lstMovePanel[i].transform.localPosition.x + this.m_cAreaPanelParent.transform.localPosition.x + 1 > 640)
             {
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
 
                 Vector3 vec = this.m_lstMovePanel[i].transform.localPosition;
                 this.m_lstMovePanel[i].transform.localPosition = new Vector3(vec.x - 3 * 640, 0, 0);
@@ -1015,7 +1016,7 @@ public class GUIArea : GUIBase
             Vector3 vec3 = this.m_lstMovePanel[i].transform.localPosition;
             if (this.m_lstMovePanel[i].transform.localPosition.x + this.m_cAreaPanelParent.transform.localPosition.x - 1 < -640)
             {
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
 
                 Vector3 vec = this.m_lstMovePanel[i].transform.localPosition;
                 this.m_lstMovePanel[i].transform.localPosition = new Vector3(vec.x + 3 * 640, 0, 0);
@@ -1064,7 +1065,7 @@ public class GUIArea : GUIBase
             }
         }
         UITexture bgTex = GUI_FINDATION.GET_OBJ_COMPONENT<UITexture>(areaPanel, AREA_BG);
-        Texture text = (Texture)ResourcesManager.GetInstance().Load(this.m_lstArea[index].BgName);
+		Texture text = (Texture)ResourceMgr.LoadAsset(this.m_lstArea[index].BgName);
         bgTex.mainTexture = text;
         List<DungeonTable> lstDungeon = this.m_lstDungeonsAll[index];
         int newDungeonIndex = 0;

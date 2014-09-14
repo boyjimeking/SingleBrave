@@ -32,16 +32,16 @@ public class ActivityBattleFailHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         ActivityBattleFailPktAck ack = packet as ActivityBattleFailPktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
 
@@ -116,7 +116,7 @@ public class ActivityBattleFailHandle
             Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriend[i]);
         }
 
-        return false;
+        
     }
 
 }

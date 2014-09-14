@@ -40,7 +40,7 @@ public class PlayerPropsSlotExpansionPktAck : HTTPPacketAck
 //     public override HTTPPacketRequest Create(CodeTitans.JSon.IJSonObject json)
 //     {
 //         PlayerPropsSlotExpansionPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerPropsSlotExpansionPktAck>(json);
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

@@ -22,7 +22,7 @@ public class HeroGrowTableManager : Singleton<HeroGrowTableManager>
     {
 #if GAME_TEST_LOAD
         //英雄表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_GROW_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_GROW_PATH) as string);
 #endif
     }
 

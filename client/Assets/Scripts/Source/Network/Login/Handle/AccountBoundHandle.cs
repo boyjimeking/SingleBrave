@@ -31,15 +31,15 @@ public class AccountBoundHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         AccountBoundPktAck ack = packet as AccountBoundPktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
             return;
         }
 
@@ -54,7 +54,7 @@ public class AccountBoundHandle
 
         GUI_FUNCTION.MESSAGES("帐号绑定成功");
 
-        if (GameManager.GetInstance().GetSceneManager().GetCurScene().GetSceneID() == SCENE.SCENE_GAME)
+        if (CScene.Is(typeof(GameScene)))
         {
             gui.Hiden();
         }

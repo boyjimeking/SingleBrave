@@ -75,7 +75,7 @@ public class GUIBackFrameTop : GUIBase
         {
 
             //主资源
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_BACKFRAMETOP) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_BACKFRAMETOP) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //名称

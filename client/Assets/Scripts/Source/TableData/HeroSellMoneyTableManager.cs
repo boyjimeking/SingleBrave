@@ -18,7 +18,7 @@ public class HeroSellMoneyTableManager : Singleton<HeroSellMoneyTableManager>
     public HeroSellMoneyTableManager()
     {
 #if GAME_TEST_LOAD
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_SELL_MONEY_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_SELL_MONEY_PATH) as string);
 #endif
     }
 

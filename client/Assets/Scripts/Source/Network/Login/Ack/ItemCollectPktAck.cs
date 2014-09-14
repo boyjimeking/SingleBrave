@@ -71,7 +71,7 @@ public class ItemCollectPktAck : HTTPPacketAck
 //     {
 //         ItemCollectPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<ItemCollectPktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

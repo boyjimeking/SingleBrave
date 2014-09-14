@@ -89,8 +89,8 @@ public class GUIEquipmentHouse : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_LISTITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_LISTITEM);
         }
         else
         {
@@ -110,7 +110,7 @@ public class GUIEquipmentHouse : GUIBase
         if (this.m_cGUIObject == null)
         {
 
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -126,7 +126,7 @@ public class GUIEquipmentHouse : GUIBase
             this.m_cTopPanel = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, PANEL_TOPPANEL);
             this.m_cTopPanel.transform.localPosition = new Vector3(-420, 270, 0);
 
-            this.m_cItemSourse = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_LISTITEM);
+			this.m_cItemSourse = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_LISTITEM);
 
         }
 
@@ -338,7 +338,7 @@ public class GUIEquipmentHouse : GUIBase
         CTween.TweenPosition(this.m_cMainPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 0, 0), new Vector3(640, 0, 0));
         CTween.TweenPosition(this.m_cTopPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-420, 270, 0),Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
     }
 
     private void HidenNotSend()
@@ -347,7 +347,7 @@ public class GUIEquipmentHouse : GUIBase
 
         CTween.TweenPosition(this.m_cMainPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 0, 0), new Vector3(640, 0, 0));
         CTween.TweenPosition(this.m_cTopPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-420, 270, 0),Destory);
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
     }
 
     /// <summary>
@@ -385,7 +385,7 @@ public class GUIEquipmentHouse : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -413,7 +413,7 @@ public class GUIEquipmentHouse : GUIBase
 
             Hiden();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_TOWN).Show);
             }

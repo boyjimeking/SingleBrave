@@ -4,6 +4,7 @@ using UnityEngine;
 using Game.Resource;
 using Game.Gfx;
 using Game.Base;
+using Game.Media;
 
 public class GUIBattleNewHeroShow : GUIBase
 {
@@ -105,20 +106,20 @@ public class GUIBattleNewHeroShow : GUIBase
         
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, MODEL_BG);        //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_2);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_3);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_4);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_5);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_MOFA_SELF);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_5_BLACK);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + MODEL_BG);        //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_2);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_3);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_4);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_5);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_MOFA_SELF);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_5_BLACK);  //加载特效
 
         HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(m_iReusltHero.m_iTableID);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, heroTable.AvatorARes);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, heroTable.Modle);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + heroTable.AvatorARes);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + heroTable.Modle);
 
         this.m_eLoadingState = LOADING_STATE.START;
     }
@@ -136,7 +137,7 @@ public class GUIBattleNewHeroShow : GUIBase
         {
             //实例化GameObject
             //召唤主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             this.m_cGUIObject.AddComponent<GUIComponentEvent>().AddIntputDelegate(ShowNext);
@@ -148,7 +149,7 @@ public class GUIBattleNewHeroShow : GUIBase
             this.m_cDoorBg = GUI_FINDATION.GET_GAME_OBJECT(this.m_cSceneRoot, DOOR_BG);
             this.m_cZhaoHuanBg = GUI_FINDATION.GET_GAME_OBJECT(this.m_cSceneRoot, ZhaoHuan_BG);
 
-            this.m_cModelBg = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(MODEL_BG)) as GameObject;
+			this.m_cModelBg = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(MODEL_BG)) as GameObject;
             this.m_cModelBg.transform.parent = this.m_cSceneRoot.transform;
             this.m_cModelBg.transform.localScale = Vector3.one;
             this.m_cModelBg.transform.localPosition = Vector3.zero;
@@ -188,7 +189,7 @@ public class GUIBattleNewHeroShow : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -222,20 +223,20 @@ public class GUIBattleNewHeroShow : GUIBase
                 CameraManager.GetInstance().ShowUIHeroZhaoHuan2Camera();
                 //3D模型的背景特效
                 HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(m_iReusltHero.m_iTableID);
-                Texture heroBg = (Texture)ResourcesManager.GetInstance().Load(heroTable.AvatorARes);
+                Texture heroBg = (Texture)ResourceMgr.LoadAsset(heroTable.AvatorARes);
 
                 this.m_cModelMaterial1.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", heroBg);
                 this.m_cModelMaterial2.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", heroBg);
                 this.m_cModelMaterial3.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", heroBg);
                 //将内存中的模型加载出来
-                GameObject heroObj = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(heroTable.Modle)) as GameObject;
+                GameObject heroObj = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(heroTable.Modle)) as GameObject;
                 heroObj.transform.parent = this.m_cStayPos.transform;
                 heroObj.transform.localScale = Vector3.one;
                 heroObj.transform.localPosition = Vector3.zero;
                 this.m_cGfxHero = new GfxObject(heroObj);
                 heroObj.SetActive(true);
                 //英雄底盘
-                this.m_cMofaSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_MOFA_SELF)) as GameObject;
+			this.m_cMofaSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_MOFA_SELF)) as GameObject;
                 this.m_cMofaSelf.transform.parent = this.m_cStayPos.transform;
                 this.m_cMofaSelf.transform.localScale = Vector3.one;
                 this.m_cMofaSelf.transform.localPosition = Vector3.zero;
@@ -246,7 +247,7 @@ public class GUIBattleNewHeroShow : GUIBase
                     case 1:
                     case 2:
                         //1星2星显示猛将特效
-                        this.m_cEffectStar2 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_2)) as GameObject;
+				this.m_cEffectStar2 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_2)) as GameObject;
                         this.m_cEffectStar2.transform.parent = this.m_cSceneRoot.transform;
                         this.m_cEffectStar2.transform.localPosition = Vector3.zero;
                         this.m_cEffectStar2.transform.localScale = Vector3.one;
@@ -261,11 +262,12 @@ public class GUIBattleNewHeroShow : GUIBase
                         }
 
                         //音效
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_2);
+						MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_2);
+//                        MediaMgr.PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_2);
                         break;
                     case 3:
                         //3星显示超猛将特效
-                        this.m_cEffectStar3 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_3)) as GameObject;
+                        this.m_cEffectStar3 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_3)) as GameObject;
                         this.m_cEffectStar3.transform.parent = this.m_cSceneRoot.transform;
                         this.m_cEffectStar3.transform.localPosition = Vector3.zero;
                         this.m_cEffectStar3.transform.localScale = Vector3.one;
@@ -280,11 +282,12 @@ public class GUIBattleNewHeroShow : GUIBase
                         }
 
                         //音效
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_3);
+						MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_3);
+//                        MediaMgr.PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_3);
                         break;
                     case 4:
                         //4星显示超绝猛将特效
-                        this.m_cEffectStar4 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_4)) as GameObject;
+                        this.m_cEffectStar4 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_4)) as GameObject;
                         this.m_cEffectStar4.transform.parent = this.m_cSceneRoot.transform;
                         this.m_cEffectStar4.transform.localPosition = Vector3.zero;
                         this.m_cEffectStar4.transform.localScale = Vector3.one;
@@ -299,11 +302,12 @@ public class GUIBattleNewHeroShow : GUIBase
                         }
 
                         //音效
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_4);
+						MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_4);
+//                        MediaMgr.PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_4);
                         break;
                     case 5:
                         //5星显示无双猛将特效
-                        this.m_cEffectStar5 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_5)) as GameObject;
+                        this.m_cEffectStar5 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_5)) as GameObject;
                         this.m_cEffectStar5.transform.parent = this.m_cSceneRoot.transform;
                         this.m_cEffectStar5.transform.localPosition = Vector3.zero;
                         this.m_cEffectStar5.transform.localScale = Vector3.one;
@@ -318,10 +322,11 @@ public class GUIBattleNewHeroShow : GUIBase
                         }
 
                         //音效
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_5);
+						MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_5);
+//                        MediaMgr.PlaySound(SOUND_DEFINE.SE_SUMMON_STAR_5);
 
                         //5星背景特效
-                        this.m_cEffectStar5Black = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_5_BLACK)) as GameObject;
+                        this.m_cEffectStar5Black = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_5_BLACK)) as GameObject;
                         this.m_cEffectStar5Black.transform.parent = this.m_cSceneRoot.transform;
                         this.m_cEffectStar5Black.transform.localPosition = Vector3.zero;
                         this.m_cEffectStar5Black.transform.localScale = Vector3.one;

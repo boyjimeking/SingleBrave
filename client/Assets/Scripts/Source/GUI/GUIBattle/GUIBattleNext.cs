@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Game.Resource;
 using Game.Base;
+using Game.Media;
 
 
 
@@ -117,7 +118,8 @@ public class GUIBattleNext : GUIBase
         this.m_fProcessStartTime = GAME_TIME.TIME_FIXED();
         this.m_fWaitStartTime = 0;
         //音效
-        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_NEXT_PROCESS);
+		MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_NEXT_PROCESS);
+//        MediaMgr.PlaySound(SOUND_DEFINE.SE_BATTLE_NEXT_PROCESS);
     }
 
     /// <summary>
@@ -137,7 +139,7 @@ public class GUIBattleNext : GUIBase
         GUI_FUNCTION.AYSNCLOADING_HIDEN();
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GUI_FINDATION.FIND_GAME_OBJECT(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -199,7 +201,7 @@ public class GUIBattleNext : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

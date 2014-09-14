@@ -46,7 +46,7 @@ public class FriendAcceptApplyPktAck : HTTPPacketAck
 //     {
 //         FriendAcceptApplyPktAck ack = PACKET_HEAD.PACKET_ACK_HEAD<FriendAcceptApplyPktAck>(json);
 
-//         if (ack.m_iErrorCode != 0)
+//         if (ack.header.code != 0)
 //         {
 //             return ack;
 //         }

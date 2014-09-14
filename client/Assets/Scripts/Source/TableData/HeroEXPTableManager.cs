@@ -19,7 +19,7 @@ public class HeroEXPTableManager : Singleton<HeroEXPTableManager>
     {
 #if GAME_TEST_LOAD
         //英雄成长经验曲线表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_EXP_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_EXP_PATH) as string);
 #endif
     }
 

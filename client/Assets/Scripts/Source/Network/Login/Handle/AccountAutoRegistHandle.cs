@@ -32,19 +32,19 @@ public class AccountAutoRegistHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         AccountAutoRegistPktAck ack = (AccountAutoRegistPktAck)packet;
-        GAME_LOG.LOG("code :" + ack.m_iErrorCode);
-        GAME_LOG.LOG("desc :" + ack.m_strErrorDes);
+        GAME_LOG.LOG("code :" + ack.header.code);
+        GAME_LOG.LOG("desc :" + ack.header.desc);
         GAME_LOG.LOG("data userName : " + ack.m_strUsrName);
         GAME_LOG.LOG("data password : " + ack.m_strPassword);
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
             return;
         }
 

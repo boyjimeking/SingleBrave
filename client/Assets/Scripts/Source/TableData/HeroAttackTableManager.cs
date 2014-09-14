@@ -22,7 +22,7 @@ public class HeroAttackTableManager : Singleton<HeroAttackTableManager>
         this.m_lstAttack = new List<HeroAttackTable>();
 #if GAME_TEST_LOAD
         //英雄攻击表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_ATTACK_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_ATTACK_PATH) as string);
 #endif
     }
 

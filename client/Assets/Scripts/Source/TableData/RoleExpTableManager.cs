@@ -22,7 +22,7 @@ public class RoleExpTableManager : Singleton<RoleExpTableManager>
     {
 #if GAME_TEST_LOAD
         //角色经验表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ROLE_EXP_TABLE_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ROLE_EXP_TABLE_PATH) as string);
 #endif
     }
 

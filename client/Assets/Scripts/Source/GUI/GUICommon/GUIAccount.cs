@@ -234,7 +234,7 @@ public class GUIAccount : GUIBase
         if (yes)
         {
             GAME_SETTING.ClearAccount();
-            GameManager.GetInstance().GetSceneManager().ChangeTittle();
+			CScene.Switch<TittleScene>();
         }
     }
 

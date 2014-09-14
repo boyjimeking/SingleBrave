@@ -22,7 +22,7 @@ public class ItemCompositeTableManager : Singleton<ItemCompositeTableManager>
     {
 #if GAME_TEST_LOAD
         //物品合成表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ITEM_COMPOSITE_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ITEM_COMPOSITE_PATH) as string);
 #endif
     }
 

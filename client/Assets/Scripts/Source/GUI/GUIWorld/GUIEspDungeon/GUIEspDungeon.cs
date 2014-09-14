@@ -5,6 +5,7 @@ using System.Text;
 
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 //特殊副本页面
 //Author:Sunyi
@@ -51,8 +52,8 @@ public class GUIEspDungeon : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_DUNGEONITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_DUNGEONITEM);
         }
         else
         {
@@ -72,7 +73,7 @@ public class GUIEspDungeon : GUIBase
         if (this.m_cGUIObject == null)
         {
 
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -88,12 +89,12 @@ public class GUIEspDungeon : GUIBase
 
             this.m_cListItemParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, LISTPARENT);
 
-            this.m_cDungeonItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DUNGEONITEM);
+			this.m_cDungeonItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DUNGEONITEM);
 
         }
 
         //播放特殊副本界面
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
+        MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
 
         this.m_cListView.transform.localPosition = new Vector3(0, -13, 0);
         UIPanel panel = GUI_FINDATION.GET_OBJ_COMPONENT<UIPanel>(this.m_cGUIObject, LISTVIEW);
@@ -230,7 +231,7 @@ public class GUIEspDungeon : GUIBase
             this.m_lstActivityDungeon.Clear();
         }
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         Destory();
     }
@@ -319,7 +320,7 @@ public class GUIEspDungeon : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_UNITSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -338,7 +339,7 @@ public class GUIEspDungeon : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HERO_MENU).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -366,7 +367,7 @@ public class GUIEspDungeon : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_PROPSSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -383,7 +384,7 @@ public class GUIEspDungeon : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
 
                 SessionManager.GetInstance().SetCallBack(() =>
@@ -559,7 +560,7 @@ public class GUIEspDungeon : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

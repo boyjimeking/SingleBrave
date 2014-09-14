@@ -18,7 +18,7 @@ public class ArenaBattleRecordTableManager : Singleton<ArenaBattleRecordTableMan
     {
 #if GAME_TEST_LOAD
         //加载竞技场战绩
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ARENA_BATTLE_RECORD) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ARENA_BATTLE_RECORD) as string);
 #endif
     }
 

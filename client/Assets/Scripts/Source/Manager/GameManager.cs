@@ -15,12 +15,10 @@ using Game.Base;
 public class GameManager : Singleton<GameManager>
 {
     private GUIManager m_cGUIManager;   //GUI管理
-    private SceneManager m_cSceneManager;   //场景管理
 
     public GameManager()
     {
         this.m_cGUIManager = new GUIManager();
-        this.m_cSceneManager = new SceneManager();
     }
 
     /// <summary>
@@ -33,24 +31,13 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
-    /// 获取场景管理类
-    /// </summary>
-    /// <returns></returns>
-    public SceneManager GetSceneManager()
-    {
-        return this.m_cSceneManager;
-    }
-
-    /// <summary>
     /// 初始化
     /// </summary>
     public void Initialize()
     {
         GAME_SETTING.LoadSetting();
         CameraManager.GetInstance().Initialize();
-        SoundManager.GetInstance().Inititalize();
         this.m_cGUIManager.Initialize();
-        this.m_cSceneManager.ChangeTittle();
         PlatformManager.GetInstance().Init();
     }
 
@@ -60,10 +47,6 @@ public class GameManager : Singleton<GameManager>
     public void Update()
     {
         this.m_cGUIManager.Update();
-        this.m_cSceneManager.Update();
-        SessionManager.GetInstance().Update();
-        SoundManager.GetInstance().Update();
-        ResourcesManager.GetInstance().Update();
     }
 
     /// <summary>
@@ -91,7 +74,7 @@ public class GameManager : Singleton<GameManager>
         this.m_cGUIManager.Destory();
         CTween.GetInstance().Destory();
         CameraManager.GetInstance().Destory();
-        ResourcesManager.GetInstance().Destory();
+        ResourceMgr.Destory();
     }
 
     /// <summary>

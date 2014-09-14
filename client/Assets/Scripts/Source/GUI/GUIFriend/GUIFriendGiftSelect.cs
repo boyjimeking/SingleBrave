@@ -42,8 +42,8 @@ public class GUIFriendGiftSelect : GUIFriendGiftSelectBase
 
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_PROPSITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN_BASE);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_PROPSITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN_BASE);
         }
     }
 
@@ -98,7 +98,7 @@ public class GUIFriendGiftSelect : GUIFriendGiftSelectBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -117,7 +117,7 @@ public class GUIFriendGiftSelect : GUIFriendGiftSelectBase
     /// </summary>
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         Destory();
     }
 

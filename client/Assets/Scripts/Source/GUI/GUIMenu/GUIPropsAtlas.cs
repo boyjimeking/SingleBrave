@@ -95,9 +95,9 @@ public class GUIPropsAtlas : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_ITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, GUIPropsPreviewDetail.RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_ITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + GUIPropsPreviewDetail.RES_MAIN);
            
         }
         else
@@ -119,7 +119,7 @@ public class GUIPropsAtlas : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //滑出动画panel
@@ -135,7 +135,7 @@ public class GUIPropsAtlas : GUIBase
             //table
             m_cTable = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, RES_TABLE);
             //英雄Item
-            m_cItemAtlasItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM);
+            m_cItemAtlasItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM);
             //背景遮罩
             m_cBack = GUI_FINDATION.GET_GAME_OBJECT(m_cGUIObject, RES_BLACK);
             m_cBack.AddComponent<GUIComponentEvent>().AddIntputDelegate(BlackClick);
@@ -194,7 +194,7 @@ public class GUIPropsAtlas : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -252,7 +252,7 @@ public class GUIPropsAtlas : GUIBase
         CTween.TweenPosition(this.m_cPanSlide, GAME_DEFINE.FADEIN_GUI_TIME, Vector3.zero, new Vector3(640, 0, 0));
         CTween.TweenPosition(this.m_cPanCancel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-540, 270, 0) , Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
     }
 
     /// <summary>

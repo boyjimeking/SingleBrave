@@ -78,11 +78,11 @@ public class GUIFriendList : GUIBase
     {
         this.m_eLoadingState = LOADING_STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, FriendListItem.RES_ITEM);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, FriendListItem.RES_PREVIEWITEM);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + FriendListItem.RES_ITEM);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + FriendListItem.RES_PREVIEWITEM);
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
     }
 
@@ -97,7 +97,7 @@ public class GUIFriendList : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //滑出动画panel
@@ -137,7 +137,7 @@ public class GUIFriendList : GUIBase
 
         GUI_FUNCTION.LOCKPANEL_AUTO_HIDEN();
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
 
         CTween.TweenPosition(this.m_cPanSlide, GAME_DEFINE.FADEIN_GUI_TIME, Vector3.zero, new Vector3(640, 0, 0));
         CTween.TweenPosition(this.m_cBtnCancel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-540, 270, 0),Destory);
@@ -156,7 +156,7 @@ public class GUIFriendList : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -295,7 +295,7 @@ public class FriendListItem
 
     public FriendListItem()
     {
-        m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM)) as GameObject;
+		m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM)) as GameObject;
         m_cMonster = GUI_FINDATION.GET_GAME_OBJECT(m_cItem,RES_MONSTERITEM);
         m_labLastTime = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(m_cMonster, LAB_LASTTIME);
         m_labSign = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(m_cMonster, LAB_SIGN);
@@ -306,7 +306,7 @@ public class FriendListItem
         m_spBorder = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cMonster, SP_BORDER);
         m_spMonster = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cMonster, SP_MONSTER);
         m_spFrame = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cMonster, SP_FRAME);
-        m_cPreviewItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_PREVIEWITEM);
+		m_cPreviewItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_PREVIEWITEM);
     }
 
     //设置人物属性//

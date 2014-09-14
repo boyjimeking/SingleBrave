@@ -40,7 +40,7 @@ public class HeroUnitSlotExpansionPktAck : HTTPPacketAck
 //     public override HTTPPacketRequest Create(CodeTitans.JSon.IJSonObject json)
 //     {
 //         HeroUnitSlotExpansionPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<HeroUnitSlotExpansionPktAck>(json);
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

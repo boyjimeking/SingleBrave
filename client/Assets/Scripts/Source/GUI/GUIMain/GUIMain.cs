@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 /// <summary>
 /// 主界面GUI类
@@ -119,7 +120,7 @@ public class GUIMain : GUIBase
         //删除旧加载
         for (int i = 0; i < m_lstResName.Count; i++)
         {
-            ResourcesManager.GetInstance().UnloadResource(m_lstResName[i], m_lstOwners[i]);
+            ResourceMgr.UnloadResource(m_lstResName[i], m_lstOwners[i]);
         }
         this.m_lstResName.Clear();
         this.m_lstOwners.Clear();
@@ -174,7 +175,7 @@ public class GUIMain : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //箱子按钮
@@ -254,7 +255,8 @@ public class GUIMain : GUIBase
         }
 
         //播放主背景音乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_MAIN);
+		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
+//        MediaMgr.PlayBGM(SOUND_DEFINE.BGM_MAIN);
 
         UpdateData();
 
@@ -309,7 +311,7 @@ public class GUIMain : GUIBase
         //        Hero tmphero = Role.role.GetHeroProperty().GetHero(heroid);
         //        if (tmphero != null)
         //        {
-        //            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, tmphero.m_strAvatarL);
+        //            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, tmphero.m_strAvatarL);
         //        }
         //    }
         //}
@@ -318,7 +320,7 @@ public class GUIMain : GUIBase
         //if (this.m_cGUIObject == null)
         //{
         //    //Debug.Log("main show 1");
-        //    ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+        //    ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
         //}
 
         InitGUI();
@@ -344,12 +346,12 @@ public class GUIMain : GUIBase
         //    if (heroid != null && heroid != -1)
         //    {
         //        Hero tmphero = Role.role.GetHeroProperty().GetHero(heroid);
-        //        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, tmphero.m_strAvatarL);
+        //        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH, GAME_DEFINE.RES_VERSION, tmphero.m_strAvatarL);
         //    }
         //}
         //if (this.m_cGUIObject == null)
         //{
-        //    ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+        //    ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
         //}
 
         InitGUIImmediately();
@@ -366,7 +368,7 @@ public class GUIMain : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //箱子按钮
@@ -456,7 +458,7 @@ public class GUIMain : GUIBase
         //CameraManager.GetInstance().HidenGUIEffectCamera();
         //if (null != this.m_cEffectLeader) GameObject.DestroyImmediate(this.m_cEffectLeader);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         base.HidenImmediately();
         //SetLocalPos(Vector3.one * 0xFFFF);
@@ -474,7 +476,7 @@ public class GUIMain : GUIBase
 
         GUI_FUNCTION.LOCKPANEL_AUTO_HIDEN();
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //CTween.TweenAlpha(this.m_cGUIObject, 0, GAME_DEFINE.FADEOUT_GUI_TIME, 1f, 0f);
         //CTween.TweenAlpha(this.m_cPanSlide, 0, GAME_DEFINE.FADEOUT_GUI_TIME, 1f, 0f, Destory);
@@ -495,7 +497,7 @@ public class GUIMain : GUIBase
         //        this.m_eLoadingState++;
         //        return false;
         //    case LOADING_STATE.LOADING:
-        //        if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+        //        if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
         //        {
         //            this.m_eLoadingState++;
         //        }
@@ -733,7 +735,7 @@ public class GUIMain : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_UNITSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -750,7 +752,7 @@ public class GUIMain : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HERO_MENU).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -775,7 +777,7 @@ public class GUIMain : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_PROPSSLOTEXPANSION).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
@@ -792,7 +794,7 @@ public class GUIMain : GUIBase
         {
 
             this.m_cGUIMgr.HidenCurGUI();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
 
                 SessionManager.GetInstance().SetCallBack(() =>
@@ -976,7 +978,8 @@ public class GUIMain : GUIBase
                     //tween 的 xyz位移动画导致 位移对上下的补偿失效 只能自己在update里面实现只单独移动x
                     CTween.TweenPosition(item, 0.3F, new Vector3(m_fdistance, 0F, 0F));  //结束剩余动画
                     //翻页特效
-                    SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+					MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
+//                    MediaMgr.PlaySound2(SOUND_DEFINE.SE_SLIDE);
 
                 });
 
@@ -1138,43 +1141,43 @@ public class GUIMain : GUIBase
         Hero item1 = Role.role.GetHeroProperty().GetHero(arrHeros[0]);
         if (item1 != null)
         {
-            ResourceRequireOwner owner = ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RESOURCE_TEX_PATH + item1.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item1.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
-            {
-                //Debug.Log("load " + str);
-                if (IsShow())
-                {
-                    if (obj != null && obj is Texture)
-                    {
-                        this.m_cTxtureStory1.mainTexture = obj as Texture;
+//            ResourceRequireOwner owner = ResourceMgr.RequestResouce(GAME_DEFINE.RESOURCE_TEX_PATH + item1.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item1.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
+//            {
+//                //Debug.Log("load " + str);
+//                if (IsShow())
+//                {
+//                    if (obj != null && obj is Texture)
+//                    {
+//                        this.m_cTxtureStory1.mainTexture = obj as Texture;
+//
+//                        this.m_cTxtureStory1.enabled = true;
+//                        this.m_cSpStory1Bg.enabled = true;
+//                        this.m_cSpStory1Nature.enabled = true;
+//                        this.m_cSpStory1Back.enabled = false;
+//
+//                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory1Bg, item1.m_eNature);
+//                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory1Nature, item1.m_eNature);
+//                    }
+//                    else
+//                    {
+//                        this.m_cTxtureStory1.enabled = false;
+//                        this.m_cSpStory1Bg.enabled = false;
+//                        this.m_cSpStory1Nature.enabled = false;
+//                        this.m_cSpStory1Back.enabled = true;
+//                        Debug.LogError("none  " + str);
+//                    }
+//                }
+//                else
+//                {
+//                    if (obj != null)
+//                    {
+//                        ResourceMgr.UnRequestAssetBundle(str);
+//                    }
+//                }
+//
+//            }));
 
-                        this.m_cTxtureStory1.enabled = true;
-                        this.m_cSpStory1Bg.enabled = true;
-                        this.m_cSpStory1Nature.enabled = true;
-                        this.m_cSpStory1Back.enabled = false;
-
-                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory1Bg, item1.m_eNature);
-                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory1Nature, item1.m_eNature);
-                    }
-                    else
-                    {
-                        this.m_cTxtureStory1.enabled = false;
-                        this.m_cSpStory1Bg.enabled = false;
-                        this.m_cSpStory1Nature.enabled = false;
-                        this.m_cSpStory1Back.enabled = true;
-                        Debug.LogError("none  " + str);
-                    }
-                }
-                else
-                {
-                    if (obj != null)
-                    {
-                        ResourcesManager.GetInstance().UnloadResource(str);
-                    }
-                }
-
-            }));
-
-            m_lstOwners.Add(owner);
+//            m_lstOwners.Add(owner);
             m_lstResName.Add(item1.m_strAvatarL);
         }
         else
@@ -1188,43 +1191,43 @@ public class GUIMain : GUIBase
         Hero item2 = Role.role.GetHeroProperty().GetHero(arrHeros[1]);
         if (item2 != null)
         {
-            ResourceRequireOwner owner = ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RESOURCE_TEX_PATH + item2.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item2.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
-            {
-                //Debug.Log("load " + str);
-                if (IsShow())
-                {
-                    if (obj != null && obj is Texture)
-                    {
-                        this.m_cTxtureStory2.mainTexture = obj as Texture;
+//            ResourceRequireOwner owner = ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + item2.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item2.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
+//            {
+//                //Debug.Log("load " + str);
+//                if (IsShow())
+//                {
+//                    if (obj != null && obj is Texture)
+//                    {
+//                        this.m_cTxtureStory2.mainTexture = obj as Texture;
+//
+//                        this.m_cTxtureStory2.enabled = true;
+//                        this.m_cSpStory2Bg.enabled = true;
+//                        this.m_cSpStory2Nature.enabled = true;
+//                        this.m_cSpStory2Back.enabled = false;
+//
+//                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory2Bg, item2.m_eNature);
+//                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory2Nature, item2.m_eNature);
+//                    }
+//                    else
+//                    {
+//                        this.m_cTxtureStory2.enabled = false;
+//                        this.m_cSpStory2Bg.enabled = false;
+//                        this.m_cSpStory2Nature.enabled = false;
+//                        this.m_cSpStory2Back.enabled = true;
+//                        Debug.LogError("none  " + str);
+//                    }
+//                }
+//                else
+//                {
+//                    if (obj != null)
+//                    {
+//                        ResourceMgr.UnRequestAssetBundle(str);
+//                    }
+//                }
+//
+//            }));
 
-                        this.m_cTxtureStory2.enabled = true;
-                        this.m_cSpStory2Bg.enabled = true;
-                        this.m_cSpStory2Nature.enabled = true;
-                        this.m_cSpStory2Back.enabled = false;
-
-                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory2Bg, item2.m_eNature);
-                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory2Nature, item2.m_eNature);
-                    }
-                    else
-                    {
-                        this.m_cTxtureStory2.enabled = false;
-                        this.m_cSpStory2Bg.enabled = false;
-                        this.m_cSpStory2Nature.enabled = false;
-                        this.m_cSpStory2Back.enabled = true;
-                        Debug.LogError("none  " + str);
-                    }
-                }
-                else
-                {
-                    if (obj != null)
-                    {
-                        ResourcesManager.GetInstance().UnloadResource(str);
-                    }
-                }
-
-            }));
-
-            m_lstOwners.Add(owner);
+//            m_lstOwners.Add(owner);
             m_lstResName.Add(item2.m_strAvatarL);
 
         }
@@ -1240,43 +1243,43 @@ public class GUIMain : GUIBase
         Hero item3 = Role.role.GetHeroProperty().GetHero(arrHeros[2]);
         if (item3 != null)
         {
-            ResourceRequireOwner owner = ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RESOURCE_TEX_PATH + item3.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item3.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
-            {
-                //Debug.Log("load " + str);
-                if (IsShow())
-                {
-                    if (obj != null && obj is Texture)
-                    {
-                        this.m_cTxtureStory3.mainTexture = obj as Texture;
+//            ResourceRequireOwner owner = ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + item3.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item3.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
+//            {
+//                //Debug.Log("load " + str);
+//                if (IsShow())
+//                {
+//                    if (obj != null && obj is Texture)
+//                    {
+//                        this.m_cTxtureStory3.mainTexture = obj as Texture;
+//
+//                        this.m_cTxtureStory3.enabled = true;
+//                        this.m_cSpStory3Bg.enabled = true;
+//                        this.m_cSpStory3Nature.enabled = true;
+//                        this.m_cSpStory3Back.enabled = false;
+//
+//                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory3Bg, item3.m_eNature);
+//                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory3Nature, item3.m_eNature);
+//                    }
+//                    else
+//                    {
+//                        this.m_cSpStory3Back.enabled = true;
+//                        this.m_cTxtureStory3.enabled = false;
+//                        this.m_cSpStory3Bg.enabled = false;
+//                        this.m_cSpStory3Nature.enabled = false;
+//                        Debug.LogError("none  " + str);
+//                    }
+//                }
+//                else
+//                {
+//                    if (obj != null)
+//                    {
+//                        ResourceMgr.UnRequestAssetBundle(str);
+//                    }
+//                }
+//
+//            }));
 
-                        this.m_cTxtureStory3.enabled = true;
-                        this.m_cSpStory3Bg.enabled = true;
-                        this.m_cSpStory3Nature.enabled = true;
-                        this.m_cSpStory3Back.enabled = false;
-
-                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory3Bg, item3.m_eNature);
-                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory3Nature, item3.m_eNature);
-                    }
-                    else
-                    {
-                        this.m_cSpStory3Back.enabled = true;
-                        this.m_cTxtureStory3.enabled = false;
-                        this.m_cSpStory3Bg.enabled = false;
-                        this.m_cSpStory3Nature.enabled = false;
-                        Debug.LogError("none  " + str);
-                    }
-                }
-                else
-                {
-                    if (obj != null)
-                    {
-                        ResourcesManager.GetInstance().UnloadResource(str);
-                    }
-                }
-
-            }));
-
-            m_lstOwners.Add(owner);
+//            m_lstOwners.Add(owner);
             m_lstResName.Add(item3.m_strAvatarL);
         }
         else
@@ -1292,43 +1295,43 @@ public class GUIMain : GUIBase
         if (item4 != null)
         {
 
-            ResourceRequireOwner owner = ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RESOURCE_TEX_PATH + item4.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item4.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
-            {
-                //Debug.Log("load " + str);
-                if (IsShow())
-                {
-                    if (obj != null && obj is Texture)
-                    {
-                        this.m_cTxtureStory4.mainTexture = obj as Texture;
+//            ResourceRequireOwner owner = ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + item4.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item4.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
+//            {
+//                //Debug.Log("load " + str);
+//                if (IsShow())
+//                {
+//                    if (obj != null && obj is Texture)
+//                    {
+//                        this.m_cTxtureStory4.mainTexture = obj as Texture;
+//
+//                        this.m_cTxtureStory4.enabled = true;
+//                        this.m_cSpStory4Bg.enabled = true;
+//                        this.m_cSpStory4Nature.enabled = true;
+//                        this.m_cSpStory4Back.enabled = false;
+//
+//                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory4Bg, item4.m_eNature);
+//                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory4Nature, item4.m_eNature);
+//                    }
+//                    else
+//                    {
+//                        this.m_cSpStory4Back.enabled = true;
+//                        this.m_cTxtureStory4.enabled = false;
+//                        this.m_cSpStory4Bg.enabled = false;
+//                        this.m_cSpStory4Nature.enabled = false;
+//                        Debug.LogError("none  " + str);
+//                    }
+//                }
+//                else
+//                {
+//                    if (obj != null)
+//                    {
+//                        ResourceMgr.UnRequestAssetBundle(str);
+//                    }
+//                }
+//
+//            }));
 
-                        this.m_cTxtureStory4.enabled = true;
-                        this.m_cSpStory4Bg.enabled = true;
-                        this.m_cSpStory4Nature.enabled = true;
-                        this.m_cSpStory4Back.enabled = false;
-
-                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory4Bg, item4.m_eNature);
-                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory4Nature, item4.m_eNature);
-                    }
-                    else
-                    {
-                        this.m_cSpStory4Back.enabled = true;
-                        this.m_cTxtureStory4.enabled = false;
-                        this.m_cSpStory4Bg.enabled = false;
-                        this.m_cSpStory4Nature.enabled = false;
-                        Debug.LogError("none  " + str);
-                    }
-                }
-                else
-                {
-                    if (obj != null)
-                    {
-                        ResourcesManager.GetInstance().UnloadResource(str);
-                    }
-                }
-
-            }));
-
-            m_lstOwners.Add(owner);
+//            m_lstOwners.Add(owner);
             m_lstResName.Add(item4.m_strAvatarL);
 
         }
@@ -1344,43 +1347,43 @@ public class GUIMain : GUIBase
         Hero item5 = Role.role.GetHeroProperty().GetHero(arrHeros[4]);
         if (item5 != null)
         {
-            ResourceRequireOwner owner = ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RESOURCE_TEX_PATH + item5.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item5.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
-            {
-                //Debug.Log("load " + str);
-                if (IsShow())
-                {
-                    if (obj != null&&obj is Texture)
-                    {
-                        this.m_cTxtureStory5.mainTexture = obj as Texture;
+//            ResourceRequireOwner owner = ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + item5.m_strAvatarL + ".res", 0, GAME_DEFINE.RES_VERSION, item5.m_strAvatarL, null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
+//            {
+//                //Debug.Log("load " + str);
+//                if (IsShow())
+//                {
+//                    if (obj != null&&obj is Texture)
+//                    {
+//                        this.m_cTxtureStory5.mainTexture = obj as Texture;
+//
+//                        this.m_cTxtureStory5.enabled = true;
+//                        this.m_cSpStory5Bg.enabled = true;
+//                        this.m_cSpStory5Nature.enabled = true;
+//                        this.m_cSpStory5Back.enabled = false;
+//
+//                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory5Bg, item5.m_eNature);
+//                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory5Nature, item5.m_eNature);
+//                    }
+//                    else
+//                    {
+//                        this.m_cSpStory5Back.enabled = true;
+//                        this.m_cTxtureStory5.enabled = false;
+//                        this.m_cSpStory5Bg.enabled = false;
+//                        this.m_cSpStory5Nature.enabled = false;
+//                        Debug.LogError("none  " + str);
+//                    }
+//                }
+//                else
+//                {
+//                    if (obj != null)
+//                    {
+//                        ResourceMgr.UnRequestAssetBundle(str);
+//                    }
+//                }
+//
+//            }));
 
-                        this.m_cTxtureStory5.enabled = true;
-                        this.m_cSpStory5Bg.enabled = true;
-                        this.m_cSpStory5Nature.enabled = true;
-                        this.m_cSpStory5Back.enabled = false;
-
-                        GUI_FUNCTION.SET_AVATORL_BG(this.m_cSpStory5Bg, item5.m_eNature);
-                        GUI_FUNCTION.SET_NATUREM(this.m_cSpStory5Nature, item5.m_eNature);
-                    }
-                    else
-                    {
-                        this.m_cSpStory5Back.enabled = true;
-                        this.m_cTxtureStory5.enabled = false;
-                        this.m_cSpStory5Bg.enabled = false;
-                        this.m_cSpStory5Nature.enabled = false;
-                        Debug.LogError("none  " + str);
-                    }
-                }
-                else
-                {
-                    if (obj != null)
-                    {
-                        ResourcesManager.GetInstance().UnloadResource(str);
-                    }
-                }
-
-            }));
-
-            m_lstOwners.Add(owner);
+//            m_lstOwners.Add(owner);
             m_lstResName.Add(item5.m_strAvatarL);
 
         }
@@ -1426,7 +1429,7 @@ public class GUIMain : GUIBase
 
             //if (this.m_cEffectLeader==null)
             //{
-            //    this.m_cEffectLeader = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, EFFECT_LEADER)) as GameObject;
+            //    this.m_cEffectLeader = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, EFFECT_LEADER)) as GameObject;
             //}
 
             //this.m_cEffectLeader.transform.parent = this.m_cEffectParent.transform;

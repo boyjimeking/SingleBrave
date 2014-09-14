@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Game.Resource;
 using Game.Base;
+using Game.Media;
 
 // GUI_ReconceCombineDetail
 // sanvey
@@ -123,8 +124,8 @@ public class GUIReconceCombineDetail : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance()
-                .Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr
+			                                           .LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -153,7 +154,7 @@ public class GUIReconceCombineDetail : GUIBase
             m_cTexRe = GUI_FINDATION.GET_GAME_OBJECT(this.m_cMainPanel, TEX_RE);
             m_cLbBackBtn = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cGUIObject, BTN_BACK_LB);
 
-            this.m_cItemSourse = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_LISTITEM);
+			this.m_cItemSourse = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_LISTITEM);
 
             this.m_cPan = GUI_FINDATION.GET_OBJ_COMPONENT<UIPanel>(this.m_cMainPanel, RES_PANEL);
 
@@ -161,7 +162,7 @@ public class GUIReconceCombineDetail : GUIBase
 
             this.m_cEffectParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGuiEffect, EFFECT_CENTER_ANCHOR);
 
-            this.m_cEffectCombine = (UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_COMBINE);
+			this.m_cEffectCombine = (UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_COMBINE);
         }
 
         if (m_iOldGUIID == GUI_DEFINE.GUIID_RECONCELIHOUSE)  //消耗品合成
@@ -215,9 +216,9 @@ public class GUIReconceCombineDetail : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_LISTITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_COMBINE);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_LISTITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_COMBINE);
         }
         else
         {
@@ -432,7 +433,7 @@ public class GUIReconceCombineDetail : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -571,7 +572,7 @@ public class GUIReconceCombineDetail : GUIBase
                     }
 
                     //播放消耗品合成音效
-                    SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_CONSUME_COMBINE);
+                    MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_CONSUME_COMBINE);
                 }
                 else if (m_iOldGUIID == GUI_DEFINE.GUIID_EQUIPMENTHOUSE)  //装备合成
                 {
@@ -620,7 +621,7 @@ public class GUIReconceCombineDetail : GUIBase
                     Role.role.GetItemProperty().AddItem(newItem);
 
                     //播放装备合成音效
-                    SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_EQUIP_COMBINE);
+                    MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_EQUIP_COMBINE);
                 }
 
                 UpdateShow();

@@ -54,7 +54,7 @@ public class AccountLoginIOSPPPktAck : HTTPPacketAck
 //    {
 //        AccountLoginIOSPPPktAck ack = PACKET_HEAD.PACKET_ACK_HEAD<AccountLoginIOSPPPktAck>(json);
 //
-//        if (ack.m_iErrorCode != 0)
+//        if (ack.header.code != 0)
 //        {
 //            return ack;
 //        }

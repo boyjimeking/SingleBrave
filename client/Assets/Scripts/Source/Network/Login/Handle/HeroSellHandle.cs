@@ -26,19 +26,19 @@ public class HeroSellHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         HeroSellPktAck ack = (HeroSellPktAck)packet;
 
-        GAME_LOG.LOG("code :" + ack.m_iErrorCode);
-        GAME_LOG.LOG("desc :" + ack.m_strErrorDes);
+        GAME_LOG.LOG("code :" + ack.header.code);
+        GAME_LOG.LOG("desc :" + ack.header.desc);
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         //更新出售回来的金钱，服务器返回全量
@@ -54,13 +54,13 @@ public class HeroSellHandle
 
         GUI_FUNCTION.MESSAGEM(MessageOk, "出售获得 " + getMoney + " 金币");
 
-        return true;
+        
     }
 
     /// <summary>
     /// 出售确定
     /// </summary>
-    public void MessageOk()
+    public static void MessageOk()
     {
         GUIHeroSell herosell = GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_HEROSELL) as GUIHeroSell;
 

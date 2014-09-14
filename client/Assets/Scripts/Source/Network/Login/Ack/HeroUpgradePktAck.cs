@@ -74,7 +74,7 @@ public class HeroUpgradePktAck : HTTPPacketAck
 //     {
 //         HeroUpgradePktAck ack = PACKET_HEAD.PACKET_ACK_HEAD<HeroUpgradePktAck>(json);
 
-//         if (ack.m_iErrorCode != 0)
+//         if (ack.header.code != 0)
 //         {
 //             return ack;
 //         }

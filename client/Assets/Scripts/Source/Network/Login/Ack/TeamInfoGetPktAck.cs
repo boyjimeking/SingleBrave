@@ -52,7 +52,7 @@ public class TeamInfoGetPktAck : HTTPPacketAck
 //     {
 //         TeamInfoGetPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<TeamInfoGetPktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

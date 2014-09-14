@@ -62,15 +62,15 @@ public class GUIGuide : GUIBase
         base.Show();
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GUI_FINDATION.FIND_GAME_OBJECT(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localPosition = Vector3.zero;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
             //提示资源
-            this.m_cResTip1 = ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_TIP1) as UnityEngine.Object;
-            this.m_cResTip2 = ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_TIP2) as UnityEngine.Object;
-            this.m_cResTip3 = ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_TIP3) as UnityEngine.Object;
+            this.m_cResTip1 = ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_TIP1) as UnityEngine.Object;
+            this.m_cResTip2 = ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_TIP2) as UnityEngine.Object;
+            this.m_cResTip3 = ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_TIP3) as UnityEngine.Object;
 
             this.m_cParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, GUI_PARENT);
 
@@ -116,7 +116,7 @@ public class GUIGuide : GUIBase
     /// <param name="pos"></param>
     public void SetImg(string path, Vector3 pos)
     {
-        UnityEngine.Object obj = ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, path) as UnityEngine.Object;
+        UnityEngine.Object obj = ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, path) as UnityEngine.Object;
         if (obj != null)
         {
             this.m_cImg.enabled = true;
@@ -286,7 +286,7 @@ public class GUIGuide : GUIBase
     {
         base.Hiden();
         this.m_bNext = false;
-        //ResourcesManager.GetInstance().UnloadUnusedResources();
+        //ResourceMgr.UnloadUnusedResources();
         SetLocalPos(Vector3.one*0xFFFFF);
         //Destory();
     }

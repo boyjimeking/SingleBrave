@@ -33,15 +33,15 @@ public class PVPBattleStartHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         PVPBattleStartPktAck ack = (PVPBattleStartPktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
             return;
         }
 

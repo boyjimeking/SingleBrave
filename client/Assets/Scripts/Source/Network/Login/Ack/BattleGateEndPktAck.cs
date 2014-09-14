@@ -128,7 +128,7 @@ public class BattleGateEndPktAck : HTTPPacketAck
 //    {
 //        BattleGateEndPktAck ack = PACKET_HEAD.PACKET_ACK_HEAD<BattleGateEndPktAck>(json);
 //
-//        if (ack.m_iErrorCode != 0)
+//        if (ack.header.code != 0)
 //        {
 //            return ack;
 //        }

@@ -27,23 +27,23 @@ public class ItemCombineHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         ItemCombinePktAck ack = (ItemCombinePktAck)packet;
 
-        GAME_LOG.LOG("code :" + ack.m_iErrorCode);
-        GAME_LOG.LOG("desc :" + ack.m_strErrorDes);
+        GAME_LOG.LOG("code :" + ack.header.code);
+        GAME_LOG.LOG("desc :" + ack.header.desc);
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
             return;
         }
 
         //返回Code 0表示成功
-        if (ack.m_iErrorCode == 0)
+        if (ack.header.code == 0)
         {
             //清空零时
             Role.role.GetItemProperty().RemoveTmpItem();

@@ -35,7 +35,7 @@ public class BattleHeroGenerator
         HeroAttackTable attackTable = HeroAttackTableManager.GetInstance().GetAttackTable(hero.m_iTableID);
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(hero.m_iBBSkillTableID);
 
-        //GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_MODEL_PATH, heroTable.Modle)) as GameObject;
+        //GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_MODEL_PATH, heroTable.Modle)) as GameObject;
         //go.transform.parent = parent.transform;
         //go.transform.localPosition = startPos.transform.localPosition;
         //go.transform.localScale = startPos.transform.localScale;
@@ -171,12 +171,12 @@ public class BattleHeroGenerator
         battleHero.m_cResAttackSpell = null;
         battleHero.m_cResAttackDaoGuang = null;
         battleHero.m_cResAttackHit = null;
-        //battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.SpellEffect);
-        //battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.DaoGuangEffect);
-        //battleHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.HitEffect);
-        ////battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.SpellEffect);
-        ////battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.DaoGuangEffect);
-        ////battleHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.HitEffect);
+        //battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.SpellEffect);
+        //battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.DaoGuangEffect);
+        //battleHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.HitEffect);
+        ////battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.Load(attackTable.SpellEffect);
+        ////battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.Load(attackTable.DaoGuangEffect);
+        ////battleHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.Load(attackTable.HitEffect);
 
 
         //BB技能
@@ -198,14 +198,14 @@ public class BattleHeroGenerator
             battleHero.m_cResSkillDaoGuang = null;
             battleHero.m_cResSkill = null;
             battleHero.m_cResSkillHit = null;
-            //battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SpellEffect);
-            //battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.DaoGuangEffect);
-            //battleHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SkillEffect);
-            //battleHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.HitEffect);
-            ////battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SpellEffect);
-            ////battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.DaoGuangEffect);
-            ////battleHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SkillEffect);
-            ////battleHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.HitEffect);
+            //battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SpellEffect);
+            //battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.DaoGuangEffect);
+            //battleHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SkillEffect);
+            //battleHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.HitEffect);
+            ////battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.SpellEffect);
+            ////battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.DaoGuangEffect);
+            ////battleHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.SkillEffect);
+            ////battleHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.HitEffect);
         }
 
         //掉落概率加成
@@ -273,7 +273,7 @@ public class BattleHeroGenerator
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(monster.BBSkillID);
         if (bbSkillTable == null) bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(heroTable.BBSkill);
 
-        //GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_MODEL_PATH, heroTable.Modle)) as GameObject;
+        //GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_MODEL_PATH, heroTable.Modle)) as GameObject;
         //go.transform.parent = parent.transform;
         //go.transform.localPosition = startPos.transform.localPosition;
         //go.transform.localScale = startPos.transform.localScale;
@@ -399,12 +399,12 @@ public class BattleHeroGenerator
         battleHero.m_cResAttackSpell = null;
         battleHero.m_cResAttackDaoGuang = null;
         battleHero.m_cResAttackHit = null;
-        //battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.SpellEffect);
-        //battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.DaoGuangEffect);
-        //battleHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.HitEffect);
-        ////battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.SpellEffect);
-        ////battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.DaoGuangEffect);
-        ////battleHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.HitEffect);
+        //battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.SpellEffect);
+        //battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.DaoGuangEffect);
+        //battleHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, attackTable.HitEffect);
+        ////battleHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.Load(attackTable.SpellEffect);
+        ////battleHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.Load(attackTable.DaoGuangEffect);
+        ////battleHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.Load(attackTable.HitEffect);
 
         //BB技能
         if (bbSkillTable != null)
@@ -424,14 +424,14 @@ public class BattleHeroGenerator
             battleHero.m_cResSkillDaoGuang = null;
             battleHero.m_cResSkill = null;
             battleHero.m_cResSkillHit = null;
-            //battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SpellEffect);
-            //battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.DaoGuangEffect);
-            //battleHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SkillEffect);
-            //battleHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.HitEffect);
-            ////battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SpellEffect);
-            ////battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.DaoGuangEffect);
-            ////battleHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SkillEffect);
-            ////battleHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.HitEffect);
+            //battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SpellEffect);
+            //battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.DaoGuangEffect);
+            //battleHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.SkillEffect);
+            //battleHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_EFFECT_PATH, bbSkillTable.HitEffect);
+            ////battleHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.SpellEffect);
+            ////battleHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.DaoGuangEffect);
+            ////battleHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.SkillEffect);
+            ////battleHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.Load(bbSkillTable.HitEffect);
         }
 
         //掉落概率加成
@@ -505,7 +505,7 @@ public class BattleHeroGenerator
     {
         if (bHero == null) return;
 
-        GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(bHero.m_strModel)) as GameObject;
+        GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(bHero.m_strModel)) as GameObject;
         go.transform.parent = parent.transform;
         go.transform.localPosition = startPos.transform.localPosition;
         go.transform.localScale = startPos.transform.localScale;
@@ -516,16 +516,16 @@ public class BattleHeroGenerator
         HeroAttackTable attackTable = HeroAttackTableManager.GetInstance().GetAttackTable(bHero.m_iTableID);
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(bHero.m_iBBSkillTableID);
 
-        bHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.SpellEffect);
-        bHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.DaoGuangEffect);
-        bHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.HitEffect);
+		bHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.SpellEffect);
+		bHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.DaoGuangEffect);
+		bHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.HitEffect);
 
         if (bbSkillTable != null)
         {
-            bHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SpellEffect);
-            bHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.DaoGuangEffect);
-            bHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SkillEffect);
-            bHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.HitEffect);
+			bHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.SpellEffect);
+			bHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.DaoGuangEffect);
+			bHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.SkillEffect);
+			bHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.HitEffect);
         }
 
         ProAIControl ai = new ProAIControl(bHero, gui, bHero.m_cAITable);
@@ -547,21 +547,21 @@ public class BattleHeroGenerator
         HeroAttackTable attackTable = HeroAttackTableManager.GetInstance().GetAttackTable(bHero.m_iTableID);
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(bHero.m_iBBSkillTableID);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, bHero.m_strModel);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + bHero.m_strModel);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, attackTable.SpellEffect);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, attackTable.DaoGuangEffect);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, attackTable.HitEffect);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + attackTable.SpellEffect);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + attackTable.DaoGuangEffect);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + attackTable.HitEffect);
 
         if (bbSkillTable != null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.SpellEffect);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.DaoGuangEffect);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.SkillEffect);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.HitEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.SpellEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.DaoGuangEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.SkillEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.HitEffect);
         }
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH , GAME_DEFINE.RES_VERSION , bHero.m_strAvatorA);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH + bHero.m_strAvatorA);
     }
 
     /// <summary>
@@ -575,21 +575,21 @@ public class BattleHeroGenerator
         HeroAttackTable attackTable = HeroAttackTableManager.GetInstance().GetAttackTable(bHero.m_iTableID);
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(bHero.m_iBBSkillTableID);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, bHero.m_strModel);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + bHero.m_strModel);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, attackTable.SpellEffect);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, attackTable.DaoGuangEffect);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, attackTable.HitEffect);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + attackTable.SpellEffect);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + attackTable.DaoGuangEffect);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + attackTable.HitEffect);
 
         if (bbSkillTable != null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.SpellEffect);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.DaoGuangEffect);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.SkillEffect);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, bbSkillTable.HitEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.SpellEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.DaoGuangEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.SkillEffect);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + bbSkillTable.HitEffect);
         }
 
-        //ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_TEX_PATH, bHero.m_strAvatorA);
+        //ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_TEX_PATH, bHero.m_strAvatorA);
     }
 
     /// <summary>
@@ -605,7 +605,7 @@ public class BattleHeroGenerator
         if (bHero == null) return;
 
         Debug.Log(bHero.m_strModel);
-        GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(bHero.m_strModel)) as GameObject;
+        GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(bHero.m_strModel)) as GameObject;
         go.transform.parent = parent.transform;
         go.transform.localPosition = startPos.transform.localPosition;
         go.transform.localScale = startPos.transform.localScale;
@@ -616,16 +616,16 @@ public class BattleHeroGenerator
         HeroAttackTable attackTable = HeroAttackTableManager.GetInstance().GetAttackTable(bHero.m_iTableID);
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(bHero.m_iBBSkillTableID);
 
-        bHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.SpellEffect);
-        bHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.DaoGuangEffect);
-        bHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.HitEffect);
+        bHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.SpellEffect);
+        bHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.DaoGuangEffect);
+        bHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.HitEffect);
 
         if (bbSkillTable != null)
         {
-            bHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SpellEffect);
-            bHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.DaoGuangEffect);
-            bHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SkillEffect);
-            bHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.HitEffect);
+            bHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.SpellEffect);
+            bHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.DaoGuangEffect);
+            bHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.SkillEffect);
+            bHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.HitEffect);
         }
 
         bHero.m_cUIStartPos = uistartPos.transform.localPosition;
@@ -637,7 +637,7 @@ public class BattleHeroGenerator
         bHero.m_cSEHit2 = Resources.Load(bHero.m_strSEHit2) as AudioClip;
 
         //头像
-        bHero.m_cResAvator = (Texture)ResourcesManager.GetInstance().Load(bHero.m_strAvatorA);
+        bHero.m_cResAvator = (Texture)ResourceMgr.LoadAsset(bHero.m_strAvatorA);
     }
 
     /// <summary>
@@ -653,7 +653,7 @@ public class BattleHeroGenerator
         if (bHero == null) return;
 
         Debug.Log(bHero.m_strModel);
-        GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(bHero.m_strModel)) as GameObject;
+        GameObject go = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(bHero.m_strModel)) as GameObject;
         go.transform.parent = parent.transform;
         go.transform.localPosition = startPos.transform.localPosition;
         go.transform.localScale = startPos.transform.localScale;
@@ -664,16 +664,16 @@ public class BattleHeroGenerator
         HeroAttackTable attackTable = HeroAttackTableManager.GetInstance().GetAttackTable(bHero.m_iTableID);
         BBSkillTable bbSkillTable = BBSkillTableManager.GetInstance().GetBBSkillTable(bHero.m_iBBSkillTableID);
 
-        bHero.m_cResAttackSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.SpellEffect);
-        bHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.DaoGuangEffect);
-        bHero.m_cResAttackHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(attackTable.HitEffect);
+        bHero.m_cResAttackSpell = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.SpellEffect);
+        bHero.m_cResAttackDaoGuang = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.DaoGuangEffect);
+        bHero.m_cResAttackHit = (UnityEngine.Object)ResourceMgr.LoadAsset(attackTable.HitEffect);
 
         if (bbSkillTable != null)
         {
-            bHero.m_cResSklillSpell = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SpellEffect);
-            bHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.DaoGuangEffect);
-            bHero.m_cResSkill = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.SkillEffect);
-            bHero.m_cResSkillHit = (UnityEngine.Object)ResourcesManager.GetInstance().Load(bbSkillTable.HitEffect);
+            bHero.m_cResSklillSpell = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.SpellEffect);
+            bHero.m_cResSkillDaoGuang = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.DaoGuangEffect);
+            bHero.m_cResSkill = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.SkillEffect);
+            bHero.m_cResSkillHit = (UnityEngine.Object)ResourceMgr.LoadAsset(bbSkillTable.HitEffect);
         }
 
         bHero.m_cUIStartPos = uistartPos.transform.localPosition;
@@ -681,11 +681,11 @@ public class BattleHeroGenerator
         bHero.m_cAttackPos = attackPos.transform.localPosition;
 
         //音效
-        bHero.m_cSEHit1 = Resources.Load(bHero.m_strSEHit1) as AudioClip;
-        bHero.m_cSEHit2 = Resources.Load(bHero.m_strSEHit2) as AudioClip;
+        bHero.m_cSEHit1 = ResourceMgr.LoadResource(bHero.m_strSEHit1) as AudioClip;
+		bHero.m_cSEHit2 = ResourceMgr.LoadResource(bHero.m_strSEHit2) as AudioClip;
 
         //头像
-        //bHero.m_cResAvator = (Texture)ResourcesManager.GetInstance().Load(bHero.m_strAvatorA);
+        //bHero.m_cResAvator = (Texture)ResourceMgr.Load(bHero.m_strAvatorA);
     }
 
 }

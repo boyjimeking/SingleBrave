@@ -48,7 +48,7 @@ public class PVPEnemyGet5PktAck : HTTPPacketAck
 //     {
 //         PVPEnemyGet5PktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PVPEnemyGet5PktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

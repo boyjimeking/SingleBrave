@@ -10,11 +10,10 @@ using Game.Resource;
 /// <summary>
 /// 标题场景
 /// </summary>
-public class TittleScene : SceneBase
+public class TittleScene : CScene
 {
     public TittleScene()
-        : base(SCENE.SCENE_TITTLE)
-    { 
+    {
         //
     }
 
@@ -55,15 +54,6 @@ public class TittleScene : SceneBase
         guiAccount.Destory();
 
         base.OnExit();
-    }
-
-    /// <summary>
-    /// 逻辑更新
-    /// </summary>
-    /// <returns></returns>
-    public override bool Update()
-    {
-        return base.Update();
     }
 }
 

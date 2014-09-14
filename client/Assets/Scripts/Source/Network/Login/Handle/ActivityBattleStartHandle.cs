@@ -31,16 +31,16 @@ public class ActivityBattleStartHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         ActivityBattleStartPktAck ack = (ActivityBattleStartPktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GAME_LOG.ERROR("ack error desc : " + ack.m_strErrorDes);
-            return false;
+            GAME_LOG.ERROR("ack error desc : " + ack.header.desc);
+            
         }
 
         Role.role.GetBaseProperty().m_iBattleID = ack.m_iBattleID;
@@ -48,7 +48,7 @@ public class ActivityBattleStartHandle
         //SendAgent.SendBattleGateEndReq(Role.role.GetBaseProperty().m_iPlayerId, WorldManager.s_CurrentWorldId, WorldManager.s_CurrentAreaIndex,
         //        WorldManager.s_CurrentDungeonIndex, WorldManager.s_CurrentGateIndex, 200, 200, null,null,null,
         //        new int[] { 0, 0, 0, 0, 0 });
-        //return true;
+        //
 
         //GameManager.GetInstance().GetGUIManager().Destory();
 
@@ -87,7 +87,7 @@ public class ActivityBattleStartHandle
         gatebattleGui.SetItem(Role.role.GetItemProperty().GetAllBattleItem());
         gatebattleGui.Show();
 
-        return true;
+        
     }
 
 }

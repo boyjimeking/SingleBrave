@@ -9,6 +9,7 @@ using System.Text;
 using UnityEngine;
 using Game.Resource;
 using Game.Base;
+using Game.Media;
 
 /// <summary>
 /// 设施强化GUI
@@ -148,8 +149,8 @@ public class GUIEquipUpgrade : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_LEVEL_UP);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_LEVEL_UP);
         }
         else
         {
@@ -170,7 +171,7 @@ public class GUIEquipUpgrade : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //滑出动画panel
@@ -199,7 +200,7 @@ public class GUIEquipUpgrade : GUIBase
             //3D特效
             this.m_cGuiEffect = GUI_FINDATION.FIND_GAME_OBJECT(GUI_EFFECT);
             this.m_cEffectParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGuiEffect, EFFECT_CENTER_ANCHOR);
-            this.m_cEffectLevelUp = (UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_LEVEL_UP);
+			this.m_cEffectLevelUp = (UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_LEVEL_UP);
 
             //左右导航
             this.m_cSprArrowLeft = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(this.m_cGUIObject, SPR_ARROWLEFT);
@@ -371,7 +372,7 @@ public class GUIEquipUpgrade : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -475,12 +476,12 @@ public class GUIEquipUpgrade : GUIBase
 
                     if (Role.role.GetBaseProperty().m_iFarmPoint <= 0)
                     {
-                        SoundManager.GetInstance().StopSoundContinue();
+						MediaMgr.sInstance.StopENV();
                     }
                     else
                     {
                         //数字跳动音效
-                        SoundManager.GetInstance().PlaySoundContinue(SOUND_DEFINE.SE_NUM_JUMP);
+                        MediaMgr.sInstance.PlayENV(SOUND_DEFINE.SE_NUM_JUMP);
                     }
 
                     if (currentBuilding.m_iExp >= NextDistance)
@@ -505,9 +506,9 @@ public class GUIEquipUpgrade : GUIBase
                         m_bLevelShow = true;
 
                         //数字跳动音效
-                        SoundManager.GetInstance().StopSoundContinue();
+                        MediaMgr.sInstance.StopENV();
                         //升级音效
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_UPGRADE);
+                        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_UPGRADE);
 
 
                         currentBuilding.m_iExp = 0;
@@ -538,7 +539,7 @@ public class GUIEquipUpgrade : GUIBase
         {
             Hiden();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 if (this.m_bIsEquipOrTiaohe)
                 {
@@ -644,7 +645,7 @@ public class GUIEquipUpgrade : GUIBase
                 m_bFirstPress = false;
 
                 //数字跳动音效关闭
-                SoundManager.GetInstance().StopSoundContinue();
+                MediaMgr.sInstance.StopENV();
             }
             else
             {
@@ -744,7 +745,7 @@ public class GUIEquipUpgrade : GUIBase
                 m_bTweening = true;
 
                 //翻页特效
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
 
                 CTween.TweenPosition(this.m_cTable, 0, 0.3F, m_cTable.transform.localPosition, new Vector3(m_fVIndex * 240 + (m_bIsRight ? 240 : -240), 0, 0), TWEEN_LINE_TYPE.ElasticInOut, TweenFinish);  //结束剩余动画
                 m_fVIndex += m_bIsRight ? 1 : -1;

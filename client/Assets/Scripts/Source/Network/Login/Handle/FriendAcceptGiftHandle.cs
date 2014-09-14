@@ -28,16 +28,16 @@ public class FriendAcceptGiftHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FriendAcceptGiftPktAck ack = (FriendAcceptGiftPktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         Role.role.GetBaseProperty().m_iGold = ack.m_iGold;
@@ -66,6 +66,6 @@ public class FriendAcceptGiftHandle
             tmpb.SetFriendApllyNumber(Role.role.GetBaseProperty().m_iFriendApplyCount + Role.role.GetBaseProperty().m_iFriendGiftCount);
         }
 
-        return true;
+        
     }
 }

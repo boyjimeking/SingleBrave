@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Game.Resource;
 using UnityEngine;
 using System.Linq;
+using Game.Media;
 
 //  GUIHeroMenu.cs
 //  Author: Lu Zexi
@@ -119,7 +120,7 @@ public class GUIHeroMenu : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -153,7 +154,8 @@ public class GUIHeroMenu : GUIBase
         }
 
         //播放主背景音乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_MAIN);
+		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
+//        MediaMgr.PlayBGM(SOUND_DEFINE.BGM_MAIN);
 
         this.m_cGUIMgr.SetCurGUIID(this.m_iID);
         SetLocalPos(Vector3.zero);
@@ -196,7 +198,7 @@ public class GUIHeroMenu : GUIBase
     public override void Hiden()
     {
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //base.Hiden();
         GUI_FUNCTION.LOCKPANEL_AUTO_HIDEN();

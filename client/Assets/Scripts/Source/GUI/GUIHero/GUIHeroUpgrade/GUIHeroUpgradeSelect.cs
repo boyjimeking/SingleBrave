@@ -52,12 +52,12 @@ public class GUIHeroUpgradeSelect : GUIHeroSelectBase
     {
         this.m_eLoadingState = LOADING_STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, BTN_NULL);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + BTN_NULL);
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HEROITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HEROSELECT);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HEROITEM);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HEROSELECT);
         }
     }
 
@@ -86,7 +86,7 @@ public class GUIHeroUpgradeSelect : GUIHeroSelectBase
             GUIComponentEvent ce = this.m_cCancelBtn.AddComponent<GUIComponentEvent>();
             ce.AddIntputDelegate(OnCancel);
 
-            m_cUpgradeHeroSelect = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HEROSELECT)) as GameObject;
+            m_cUpgradeHeroSelect = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HEROSELECT)) as GameObject;
 
             m_cBtnOk = GUI_FINDATION.GET_GAME_OBJECT(m_cUpgradeHeroSelect, BTN_OK);
             ce = m_cBtnOk.AddComponent<GUIComponentEvent>();
@@ -137,7 +137,7 @@ public class GUIHeroUpgradeSelect : GUIHeroSelectBase
     //隐藏
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //SetLocalPos(Vector3.one * 0xFFFF);
         base.Hiden();
@@ -166,7 +166,7 @@ public class GUIHeroUpgradeSelect : GUIHeroSelectBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

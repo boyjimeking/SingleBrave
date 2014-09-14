@@ -67,11 +67,11 @@ public class GUIHeroAltasDetail : GUIBase
         this.m_eLoadingState = LOADING_STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
         HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(this.m_iHeroTableId);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, heroTable.Modle);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, "BATTLE_Scene9");
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + heroTable.Modle);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + "BATTLE_Scene9");
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
 
         }
 
@@ -89,7 +89,7 @@ public class GUIHeroAltasDetail : GUIBase
         if (this.m_cGUIObject == null)
         {
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //滑出动画panel
@@ -118,7 +118,7 @@ public class GUIHeroAltasDetail : GUIBase
         //图鉴场景
         this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Hiden();
         CameraManager.GetInstance().ShowUIHeroShowCamera();
-        this.m_cScene = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load("BATTLE_Scene9")) as GameObject;
+        this.m_cScene = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset("BATTLE_Scene9")) as GameObject;
         this.m_cScene.transform.parent = this.m_cSceneRoot.transform;
         this.m_cScene.transform.localScale = Vector3.one;
         this.m_cScene.transform.localPosition = Vector3.zero;
@@ -128,7 +128,7 @@ public class GUIHeroAltasDetail : GUIBase
             ef.SetActive(false);
         }
         HeroTable heroTable = HeroTableManager.GetInstance().GetHeroTable(this.m_iHeroTableId);
-        GameObject heroObj = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(heroTable.Modle)) as GameObject;
+        GameObject heroObj = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(heroTable.Modle)) as GameObject;
         heroObj.transform.parent = this.m_cStayPos.transform;
         heroObj.transform.localScale = Vector3.one * 0.75f;
         heroObj.transform.localPosition = Vector3.zero;
@@ -183,7 +183,7 @@ public class GUIHeroAltasDetail : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

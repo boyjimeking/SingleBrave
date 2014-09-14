@@ -54,10 +54,10 @@ public class GUIHeroSell : GUIHeroSelectBase
 
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HEROSELL);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HEROITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, BTN_NULL);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HEROSELL);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HEROITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + BTN_NULL);
         }
     }
 
@@ -87,7 +87,7 @@ public class GUIHeroSell : GUIHeroSelectBase
             this.m_cUITittle.text = "英雄出售";
 
             //出售信息
-            this.m_cSellInfo = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HEROSELL)) as GameObject;
+            this.m_cSellInfo = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HEROSELL)) as GameObject;
             //出售数量
             this.m_cSellNum = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cSellInfo, LB_SELLNUM);
             //出售金额
@@ -199,7 +199,7 @@ public class GUIHeroSell : GUIHeroSelectBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

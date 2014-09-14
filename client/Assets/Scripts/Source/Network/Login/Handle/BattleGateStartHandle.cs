@@ -28,7 +28,7 @@ public class BattleGateStartHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         //this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMEBOTTOM).Hiden();
         //this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).HidenImmediately();
@@ -41,10 +41,10 @@ public class BattleGateStartHandle
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         AreaTable areaTable = WorldManager.GetArea(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
@@ -65,12 +65,12 @@ public class BattleGateStartHandle
         if (gateTable.ID == GUIDE_FUNCTION.GATE_ID)
         {
             GUIDE_FUNCTION.SHOW_STORY(GUIDE_FUNCTION.STORY_SECOND_FIGHT_START, ShowStoryCallBack);
-            return true;
+            
         }
         else if (gateTable.ID == GUIDE_FUNCTION.GATE_ID1)
         {
             GUIDE_FUNCTION.SHOW_STORY(GUIDE_FUNCTION.STORY_THIRD_FIGHT_START, ShowStoryCallBack1);
-            return true;
+            
         }
 
         ////新手
@@ -122,7 +122,7 @@ public class BattleGateStartHandle
         //    gatebattleGui.Show();
         //    gatebattleGui.m_bLoseShow = false;
         //    gatebattleGui.m_bMenuShow = false;
-        //    return true;
+        //    
         //}
         //else if (gateTable.ID == GUIDE_FUNCTION.GATE_ID1)
         //{
@@ -172,7 +172,7 @@ public class BattleGateStartHandle
         //    gatebattleGui.Show();
         //    gatebattleGui.m_bLoseShow = false;
         //    gatebattleGui.m_bMenuShow = false;
-        //    return true;
+        //    
         //}
         //else
         {
@@ -204,13 +204,13 @@ public class BattleGateStartHandle
             gatebattleGui.Show();
         }
 
-        return true;
+        
     }
 
     /// <summary>
     /// 剧情回调
     /// </summary>
-    private void ShowStoryCallBack()
+    private static void ShowStoryCallBack()
     {
         AreaTable areaTable = WorldManager.GetArea(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
         DungeonTable dungeonTable = WorldManager.GetDungeonTable(areaTable.ID, WorldManager.s_iCurrentDungeonIndex);
@@ -276,7 +276,7 @@ public class BattleGateStartHandle
     /// <summary>
     /// 展示剧情回调
     /// </summary>
-    private void ShowStoryCallBack1()
+    private static void ShowStoryCallBack1()
     {
         AreaTable areaTable = WorldManager.GetArea(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
         DungeonTable dungeonTable = WorldManager.GetDungeonTable(areaTable.ID, WorldManager.s_iCurrentDungeonIndex);

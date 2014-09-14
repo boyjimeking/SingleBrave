@@ -28,19 +28,19 @@ public class GUIBattleItemSelect : GUIItemSelectBase
         this.m_eLoadingState = LOADING_STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, BTN_NULL);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_PROPSITEM);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, GUIGroupsDetail.RES_MAIN);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + BTN_NULL);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_PROPSITEM);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + GUIGroupsDetail.RES_MAIN);
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
     }
 
     public override void Hiden()
     {
         base.Hiden();
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         Destory();
     }
 
@@ -89,7 +89,7 @@ public class GUIBattleItemSelect : GUIItemSelectBase
         }
 
         //加入置空按钮
-        GameObject btnnull = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(BTN_NULL)) as GameObject;
+		GameObject btnnull = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(BTN_NULL)) as GameObject;
         m_cBtnNull = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(btnnull, SP_NULL);
         btnnull.transform.parent = this.m_cListView.transform;
         btnnull.transform.localPosition = Vector3.zero;
@@ -269,7 +269,7 @@ public class GUIBattleItemSelect : GUIItemSelectBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

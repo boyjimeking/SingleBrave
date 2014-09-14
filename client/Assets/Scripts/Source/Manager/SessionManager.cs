@@ -73,7 +73,7 @@ public class SessionManager : Singleton<SessionManager>
         {
             GUI_FUNCTION.LOADING_SHOW();
         }
-        this.m_vecSession[(int)index].Send(packet);
+		this.m_vecSession[(int)index].SendGET<HTTPPacketAck>(packet);
     }
 
     /// <summary>
@@ -88,39 +88,7 @@ public class SessionManager : Singleton<SessionManager>
             GAME_LOG.ERROR("Session index is out of len.");
             return;
         }
-        this.m_vecSession[(int)index].SendReady(packet);
-    }
-
-    /// <summary>
-    /// 刷新数据包
-    /// </summary>
-    public bool Refresh()
-    {
-        bool ok = false;
-        for (int i = 0; i < (int)SESSION_DEFINE.MAX; i++)
-        {
-            if (this.m_vecSession[(int)i].Send())
-            {
-                GUI_FUNCTION.LOADING_SHOW();
-                ok = true;
-            }
-        }
-        return ok;
-    }
-
-    /// <summary>
-    /// 逻辑更新
-    /// </summary>
-    public void Update()
-    {
-        for (int i = 0; i < (int)SESSION_DEFINE.MAX; i++)
-        {
-
-            if (this.m_vecSession[i] != null)
-            {
-                this.m_vecSession[i].Update();
-            }
-        }
+		this.m_vecSession[(int)index].SendGET<HTTPPacketAck>(packet);
     }
 
 }

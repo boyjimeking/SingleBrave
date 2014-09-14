@@ -30,15 +30,15 @@ public class VersionHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         VersionAckPkt pkt = (VersionAckPkt)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (pkt.m_iErrorCode != 0)
+        if (pkt.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, pkt.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, pkt.header.desc);
             return;
         }
 
@@ -65,11 +65,11 @@ public class VersionHandle
         //GAME_DEFINE.RESOURCE_TABLE_PATH = "table";
 
         //加载资源文件
-        ResourcesManager.GetInstance().ClearProgress();
-
-        GameManager.GetInstance().GetSceneManager().ChangeLoading();
+        ResourceMgr.ClearProgress();
+		
+		CScene.Switch<LoadingScene>();
 		Debug.Log (GAME_DEFINE.RES_PATH);
-        ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RES_PATH, 0, -1, "res",null, Game.Resource.RESOURCE_TYPE.WEB_TEXT_STR, Game.Resource.ENCRYPT_TYPE.NORMAL, DownLoadCallBack2);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RES_PATH);
 
         return;
     }

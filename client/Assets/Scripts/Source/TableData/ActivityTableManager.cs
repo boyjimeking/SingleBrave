@@ -26,16 +26,16 @@ public class ActivityTableManager : Singleton<ActivityTableManager>
     {
 #if GAME_TEST_LOAD
         //副本表
-        LoadDungeonTable((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_DUNGEON_PATH));
+        LoadDungeonTable((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_DUNGEON_PATH));
 
         //关卡表
-        LoadGateTable((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_GATE_PATH));
+        LoadGateTable((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_GATE_PATH));
 
         //怪物表
-        LoadMonsterTable((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_MONSTER_PATH));
+        LoadMonsterTable((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_MONSTER_PATH));
 
         //怪物编队表
-        LoadMonsterTeamTable((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_MONSTER_TEAM_PATH));
+        LoadMonsterTeamTable((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_MONSTER_TEAM_PATH));
 #endif
 
     }

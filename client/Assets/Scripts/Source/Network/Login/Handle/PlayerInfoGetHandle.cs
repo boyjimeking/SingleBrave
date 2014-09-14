@@ -29,15 +29,15 @@ public class PlayerInfoGetHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         PlayerInfoGetPktAck ack = (PlayerInfoGetPktAck)packet;
-        GAME_LOG.LOG("code :" + ack.m_iErrorCode);
-        GAME_LOG.LOG("desc :" + ack.m_strErrorDes);
+        GAME_LOG.LOG("code :" + ack.header.code);
+        GAME_LOG.LOG("desc :" + ack.header.desc);
 
         GAME_LOG.LOG("user name: " + ack.m_strUserName);
 
-        if (ack.m_iErrorCode == 1)  //没有玩家，创建玩家
+        if (ack.header.code == 1)  //没有玩家，创建玩家
         {
             GUI_FUNCTION.LOADING_HIDEN();
             GUIHeroChoose choose = (GUIHeroChoose)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_HERO_CHOOSE);
@@ -47,9 +47,9 @@ public class PlayerInfoGetHandle
             return;
         }
 
-        if (ack.m_iErrorCode < 0)
+        if (ack.header.code < 0)
         {
-            GAME_LOG.ERROR(ack.m_strErrorDes);
+            GAME_LOG.ERROR(ack.header.desc);
             return;
         }
 

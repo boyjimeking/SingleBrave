@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 /// <summary>
 /// 好友礼物赠送界面
@@ -105,8 +106,8 @@ class GUIFriendGiftGive : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, GUIFriendGiftGiveItem.RES_GIVEITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + GUIFriendGiftGiveItem.RES_GIVEITEM);
         }
         else
         {
@@ -125,7 +126,7 @@ class GUIFriendGiftGive : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -249,7 +250,7 @@ class GUIFriendGiftGive : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -294,7 +295,7 @@ class GUIFriendGiftGive : GUIBase
 
         SetLocalPos(Vector3.one * 0xFFFF);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
 
     }
 
@@ -652,14 +653,15 @@ class GUIFriendGiftGive : GUIBase
 
                     CTween.TweenPosition(m_cItemTable, 0.4f, new Vector3(m_iIndex * OFFSET_DIS, m_cItemTable.transform.localPosition.y, m_cItemTable.transform.localPosition.z));
                     //翻页特效
-                    SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+//                    MediaMgr.PlaySound2(SOUND_DEFINE.SE_SLIDE);
                 }
                 else
                 {
                     CTween.TweenPosition(m_cItemTable, 0.2f, new Vector3(m_iIndex * OFFSET_DIS, m_cItemTable.transform.localPosition.y, m_cItemTable.transform.localPosition.z));
                     //翻页特效
-                    SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+//                    MediaMgr.PlaySound2(SOUND_DEFINE.SE_SLIDE);
                 }
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
 
  
                 ReflashFriendList();
@@ -750,7 +752,7 @@ public class GUIFriendGiftGiveItem
 
     public GUIFriendGiftGiveItem()
     {
-        m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_GIVEITEM)) as GameObject;
+		m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_GIVEITEM)) as GameObject;
         m_cBtnGive = GUI_FINDATION.GET_GAME_OBJECT(m_cItem, BTN_GIVE);
         m_spMonsterBorder = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cItem, MONSTER_BORDER);
         m_spMonsterFrame = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cItem, MONSTER_FRAME);

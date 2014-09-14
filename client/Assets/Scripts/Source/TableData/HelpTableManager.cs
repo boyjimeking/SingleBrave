@@ -18,9 +18,9 @@ public class HelpTableManager : Singleton<HelpTableManager>
     {
 #if GAME_TEST_LOAD
         //加载帮助类型表
-        LoadHelpTypeText((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HELP_TYPE_PATH) as string);
+        LoadHelpTypeText((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HELP_TYPE_PATH) as string);
         //加载帮助项目表
-        LoadHelpProjectText((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HELP_PROJECT_PATH) as string);
+        LoadHelpProjectText((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HELP_PROJECT_PATH) as string);
 #endif
     }
 

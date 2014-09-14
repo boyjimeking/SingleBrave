@@ -55,8 +55,8 @@ public class GUIArenaBattleIntelligence : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH,RES_ITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_ITEM);
         }
         else
         {
@@ -74,7 +74,7 @@ public class GUIArenaBattleIntelligence : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -91,7 +91,7 @@ public class GUIArenaBattleIntelligence : GUIBase
 
             this.m_cListView = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, LISTVIEW);
 
-            this.m_cItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM);
+            this.m_cItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM);
 
             this.m_cItemParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, ITEM_PARENT);
 
@@ -180,7 +180,7 @@ public class GUIArenaBattleIntelligence : GUIBase
         CTween.TweenPosition(this.m_cBtnBack, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(-250, 420, 0), new Vector3(-640, 420, 0));
         CTween.TweenPosition(this.m_cMainPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 0, 0), new Vector3(640, 0, 0) , Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
     }
 
     /// <summary>
@@ -241,7 +241,7 @@ public class GUIArenaBattleIntelligence : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

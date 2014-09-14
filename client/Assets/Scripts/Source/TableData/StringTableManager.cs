@@ -23,7 +23,7 @@ public class StringTableManager : Singleton<StringTableManager>
 
 #if GAME_TEST_LOAD
         //字符串表
-        Load(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.STRING_TABLE_PATH) as string);
+        Load(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.STRING_TABLE_PATH) as string);
 #endif
     }
 

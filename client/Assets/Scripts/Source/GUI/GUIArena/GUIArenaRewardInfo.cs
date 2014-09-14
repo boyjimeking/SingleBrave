@@ -142,9 +142,9 @@ public class GUIArenaRewardInfo : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_GUANWEI_ITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_WEEK_RANK_ITEM);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_GUANWEI_ITEM);
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_WEEK_RANK_ITEM);
         }
         else
         {
@@ -164,7 +164,7 @@ public class GUIArenaRewardInfo : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load( RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset( RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -186,9 +186,9 @@ public class GUIArenaRewardInfo : GUIBase
             this.m_cGuanweiObjectsParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, GUANWEI_OBJECTS_PARENT);
             this.m_cWeekRankObjectsParent = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, WEEKRANK_OBJECTS_PARENT);
 
-            this.m_cGuanweiItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_GUANWEI_ITEM);
+            this.m_cGuanweiItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_GUANWEI_ITEM);
 
-            this.m_cWeekRankItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_WEEK_RANK_ITEM);
+            this.m_cWeekRankItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_WEEK_RANK_ITEM);
 
             this.m_cArrowLeft = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, ARROW_LEFT_PARENT);
             GUIComponentEvent dragLeftEvent = this.m_cArrowLeft.AddComponent<GUIComponentEvent>();
@@ -251,7 +251,7 @@ public class GUIArenaRewardInfo : GUIBase
         CTween.TweenPosition(this.m_cBtnPlayerRanking, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(200, 430, 0), new Vector3(1000, 430, 0));
         CTween.TweenPosition(this.m_cMainPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 0, 0), new Vector3(640, 0, 0) , Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
     }
 
     /// <summary>
@@ -663,7 +663,7 @@ public class GUIArenaRewardInfo : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

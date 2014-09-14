@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 //商城界面GUIStore.cs
 //Author:SunYi
@@ -49,7 +50,7 @@ public class GUIStore : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -86,7 +87,8 @@ public class GUIStore : GUIBase
         }
 
         //播放主背景音乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_MAIN);
+		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
+//        MediaMgr.PlayBGM(SOUND_DEFINE.BGM_MAIN);
         //GAME_UTILI.EXCUTE_DELAY(GAME_DEFINE.FADEOUT_GUI_TIME, FadeIn);
 
         this.m_cGUIMgr.SetCurGUIID(this.m_iID);
@@ -113,7 +115,7 @@ public class GUIStore : GUIBase
 
         //CTween.TweenPosition(this.m_cTopPanel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-420, 270, 0),Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         Destory();
     }

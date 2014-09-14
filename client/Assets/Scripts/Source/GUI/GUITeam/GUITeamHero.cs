@@ -36,10 +36,10 @@ public class GUITeamHero : GUIHeroSelectBase
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
 
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HEROITEM);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_BtnBack);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, BTN_NULL);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HEROITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_BtnBack);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + BTN_NULL);
         //}
         //else
         //{
@@ -91,7 +91,7 @@ public class GUITeamHero : GUIHeroSelectBase
         int remainCost = maxCost - m_cHeroTeam.GetCostValue();
         if (Role.role.GetHeroProperty().GetHero(m_cHeroTeam.m_vecTeam[selectedPos]) != null)
         {
-            GameObject btnBack = ResourcesManager.GetInstance().Load(RES_BtnBack) as GameObject;
+			GameObject btnBack = ResourceMgr.LoadAsset(RES_BtnBack) as GameObject;
             m_btnBack = GameObject.Instantiate(btnBack) as GameObject;
             m_btnBack.transform.parent = this.m_cIconParent.transform;
             m_btnBack.transform.localPosition = Vector3.zero;
@@ -130,7 +130,7 @@ public class GUITeamHero : GUIHeroSelectBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -151,7 +151,7 @@ public class GUITeamHero : GUIHeroSelectBase
     /// </summary>
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         base.Hiden();
     }

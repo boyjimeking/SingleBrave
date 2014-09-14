@@ -25,13 +25,13 @@ public class MonsterTableManager : Singleton<MonsterTableManager>
     {
 #if GAME_TEST_LOAD
         //怪物表
-        LoadMonsterGateTable(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.MONSTER_TABLE_PATH) as string);
+        LoadMonsterGateTable(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.MONSTER_TABLE_PATH) as string);
 
         //怪物编队表
-        LoadMonsterTeamTable(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.MONSTER_TEAM_TABLE_PATH) as string);
+        LoadMonsterTeamTable(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.MONSTER_TEAM_TABLE_PATH) as string);
 
         //特殊怪物表
-        LoadMonsterBaoxiangTable(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.SP_MONSTER_TABLE_PATH) as string);
+        LoadMonsterBaoxiangTable(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.SP_MONSTER_TABLE_PATH) as string);
 #endif
     }
 

@@ -8,6 +8,7 @@ using UnityEngine;
 using Game.Resource;
 using Game.Gfx;
 using Game.Base;
+using Game.Media;
 
 /// <summary>
 /// 召唤GUI类
@@ -88,7 +89,7 @@ public class GUISummon : GUIBase
 
         //if (this.m_cGUIObject == null)
         //{
-        //    ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+        //    ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
         //}
 
         InitGUI();
@@ -117,7 +118,7 @@ public class GUISummon : GUIBase
     {
         //base.HidenImmediately();
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         SetLocalPos(Vector3.one * 0xFFFF);
 
@@ -137,7 +138,7 @@ public class GUISummon : GUIBase
         {
             //实例化GameObject
             //召唤主资源
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_GUI_CACHE, RES_MAIN) as UnityEngine.Object) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //砖石召唤按钮
@@ -205,7 +206,7 @@ public class GUISummon : GUIBase
         SetSummonInfo();
 
         //播放主背景音乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_MAIN);
+        MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
 
         this.m_cEffectLeft.Play("ArrowLeft", Game.Base.TDAnimationMode.Loop, 0.4F);
         this.m_cEffectRight.Play("ArrowRight", Game.Base.TDAnimationMode.Loop, 0.4F);
@@ -310,7 +311,7 @@ public class GUISummon : GUIBase
     /// </summary>
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         m_bDiamondOrFriend = true;
 
@@ -336,7 +337,7 @@ public class GUISummon : GUIBase
         //        this.m_eLoadingState++;
         //        return false;
         //    case LOADING_STATE.LOADING:
-        //        if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+        //        if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
         //        {
         //            this.m_eLoadingState++;
         //        }

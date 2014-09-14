@@ -21,7 +21,7 @@ public class PVPWeekRankTableManager : Singleton<PVPWeekRankTableManager>
     {
 #if GAME_TEST_LOAD
         //队长技能表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.PVP_WEEK_RANK_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.PVP_WEEK_RANK_PATH) as string);
 #endif
     }
 

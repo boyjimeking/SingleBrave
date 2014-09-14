@@ -28,16 +28,16 @@ public class FriendGetGiftListHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FriendGetGiftListPktAck ack = (FriendGetGiftListPktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         Role.role.GetFriendProperty().RemoveAllGift();
@@ -52,6 +52,6 @@ public class FriendGetGiftListHandle
 
         //SendAgent.SendPVPInfoGetReq(Role.role.GetBaseProperty().m_iPlayerId);
 
-        return true;
+        
     }
 }

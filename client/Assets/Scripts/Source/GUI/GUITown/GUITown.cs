@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Game.Resource;
 using Game.Base;
+using Game.Media;
 
 //村界面类
 //Author:sunyi
@@ -403,13 +404,13 @@ public class GUITown : GUIBase
         if (this.m_cGUIObject == null)
         {
             //Debug.Log(" town show 2");
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, Village_Bg);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + Village_Bg);
 
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_ITEM_MESH);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_JINBI_MESH);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_FARM_MESH);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_DIAMOND_MESH);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_ITEM_MESH);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_JINBI_MESH);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_FARM_MESH);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_DIAMOND_MESH);
         }
         else
         {
@@ -449,7 +450,7 @@ public class GUITown : GUIBase
         if (this.m_cGUIObject == null)
         {
             //Debug.Log(" town show ");
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -492,13 +493,13 @@ public class GUITown : GUIBase
             //this.m_cSpTiaoheWarn = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(this.m_cGUIObject, SP_TIAOHE_WARN);
             //this.m_cSpEquipWarn = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(this.m_cGUIObject, SP_EQUIP_WARN);
 
-            this.m_cResItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM_MESH);
-            this.m_cResGold = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_JINBI_MESH);
-            this.m_cResFarm = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_FARM_MESH);
-            this.m_cResDiamond = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DIAMOND_MESH);
+			this.m_cResItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM_MESH);
+			this.m_cResGold = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_JINBI_MESH);
+			this.m_cResFarm = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_FARM_MESH);
+			this.m_cResDiamond = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DIAMOND_MESH);
 
             this.m_cSceneRoot = GUI_FINDATION.FIND_GAME_OBJECT(SCENE_ROOT);
-            this.m_cVillageBg = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(Village_Bg)) as GameObject;
+			this.m_cVillageBg = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(Village_Bg)) as GameObject;
             this.m_cVillageBg.transform.parent = this.m_cSceneRoot.transform;
             this.m_cVillageBg.transform.localPosition = Vector3.zero;
             this.m_cVillageBg.transform.localScale = Vector3.one;
@@ -513,7 +514,7 @@ public class GUITown : GUIBase
         }
 
         //播放村音效
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_TOWN);
+        MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_TOWN);
 
         //子界面
         m_iCUR_CH_GUI = -1;
@@ -578,7 +579,7 @@ public class GUITown : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -849,7 +850,7 @@ public class GUITown : GUIBase
         {
             SendCollectData();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(GUIPropsWareHouseShow);
             }
@@ -882,7 +883,7 @@ public class GUITown : GUIBase
         {
             SendCollectData();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(GUIEquipUpgradeShow);
             }
@@ -916,7 +917,7 @@ public class GUITown : GUIBase
         {
             SendCollectData();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(GUIReconceliHouse);
             }
@@ -957,7 +958,7 @@ public class GUITown : GUIBase
         {
             SendCollectData();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(GUIEquipmentHouseShow);
             }
@@ -1061,7 +1062,7 @@ public class GUITown : GUIBase
                 Role.role.GetBuildingProperty().GetBuilding(BUILDING_TYPE.CHUAN).m_lCollectTime = DateTime.Now.Ticks / 10000000 - GAME_DEFINE.m_lTimeSpan; //当前时间减去时间戳就是现在服务器的时间
 
                 //采集音效
-                //SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_ITEM_GET);
+                //MediaMgr.PlaySound(SOUND_DEFINE.SE_ITEM_GET);
             }
 
             UpdateClickTimeWhenReShow();
@@ -1140,7 +1141,7 @@ public class GUITown : GUIBase
                 AddCollectData(tmp);
 
                 //采集音效
-                //SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_ITEM_GET);
+                //MediaMgr.PlaySound(SOUND_DEFINE.SE_ITEM_GET);
 
                 //当前时间减去时间戳就是现在服务器的时间
                 Role.role.GetBuildingProperty().GetBuilding(BUILDING_TYPE.LIN).m_lCollectTime = DateTime.Now.Ticks / 10000000 - GAME_DEFINE.m_lTimeSpan;
@@ -1228,7 +1229,7 @@ public class GUITown : GUIBase
                 Role.role.GetBuildingProperty().GetBuilding(BUILDING_TYPE.SHAN).m_lCollectTime = DateTime.Now.Ticks / 10000000 - GAME_DEFINE.m_lTimeSpan;
 
                 //采集音效
-                //SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_ITEM_GET);
+                //MediaMgr.PlaySound(SOUND_DEFINE.SE_ITEM_GET);
             }
 
             UpdateClickTimeWhenReShow();
@@ -1310,7 +1311,7 @@ public class GUITown : GUIBase
                 Role.role.GetBuildingProperty().GetBuilding(BUILDING_TYPE.TIAN).m_lCollectTime = DateTime.Now.Ticks /10000000 - GAME_DEFINE.m_lTimeSpan;
 
                 //采集音效
-                //SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_ITEM_GET);
+                //MediaMgr.PlaySound(SOUND_DEFINE.SE_ITEM_GET);
             }
 
             UpdateClickTimeWhenReShow();
@@ -1329,7 +1330,7 @@ public class GUITown : GUIBase
         {
             this.m_cGUIMgr.HidenCurGUI();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_MAIN).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);

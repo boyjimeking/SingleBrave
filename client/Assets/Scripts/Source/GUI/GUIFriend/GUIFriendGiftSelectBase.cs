@@ -140,7 +140,7 @@ public class GUIFriendGiftSelectBase : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN_BASE)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN_BASE)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -152,7 +152,7 @@ public class GUIFriendGiftSelectBase : GUIBase
 
             this.m_cListView = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, LISTVIEW);
 
-            this.m_cResItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_PROPSITEM);
+            this.m_cResItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_PROPSITEM);
 
             this.m_cUITittle = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cGUIObject, LB_TITLE);
 

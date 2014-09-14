@@ -14,10 +14,9 @@ using Game.Resource;
 /// <summary>
 /// 游戏场景
 /// </summary>
-public class GameScene : SceneBase
+public class GameScene : CScene
 {
     public GameScene()
-        :base(SCENE.SCENE_GAME)
     {
     }
 
@@ -87,18 +86,9 @@ public class GameScene : SceneBase
         GameManager.GetInstance().GetGUIManager().Destory();
         Role.role.Destory();
         GUI_FUNCTION.DESTORY();
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         Resources.UnloadUnusedAssets();
         GC.Collect();
-    }
-
-    /// <summary>
-    /// 逻辑更新事件
-    /// </summary>
-    /// <returns></returns>
-    public override bool Update()
-    {
-        return base.Update();
     }
 
 }

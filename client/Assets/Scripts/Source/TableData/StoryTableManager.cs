@@ -21,7 +21,7 @@ public class StoryTableManager : Singleton<StoryTableManager>
     {
 #if GAME_TEST_LOAD
         //剧情
-        Load(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.STORY_PATH) as string);
+        Load(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.STORY_PATH) as string);
 #endif
     }
 

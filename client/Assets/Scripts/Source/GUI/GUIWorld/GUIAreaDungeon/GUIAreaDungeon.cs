@@ -5,6 +5,7 @@ using System.Text;
 
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 
 
@@ -88,8 +89,8 @@ public class GUIAreaDungeon : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_DUNGEONCELL);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_DUNGEONCELL);
         }
         else
         {
@@ -106,7 +107,7 @@ public class GUIAreaDungeon : GUIBase
         GUI_FUNCTION.AYSNCLOADING_HIDEN();
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -123,7 +124,7 @@ public class GUIAreaDungeon : GUIBase
             GUIComponentEvent guiMainEvent = this.m_cMainButton.AddComponent<GUIComponentEvent>();
             guiMainEvent.AddIntputDelegate(OnClickMainButton);
 
-            this.m_cItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DUNGEONCELL);
+			this.m_cItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DUNGEONCELL);
 
             this.m_cLabGateName = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cGUIObject, LABEL_GATE);
 
@@ -131,7 +132,7 @@ public class GUIAreaDungeon : GUIBase
         }
 
         //播放活动本音效
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
+        MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_ACTIVE);
 
         this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Show();
         this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
@@ -257,7 +258,7 @@ public class GUIAreaDungeon : GUIBase
         CTween.TweenPosition(this.m_cBackParent, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-640, 270, 0) , Destory);
         this.m_bIsCurrentGui = false;
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
     }
 
@@ -549,7 +550,7 @@ public class GUIAreaDungeon : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }

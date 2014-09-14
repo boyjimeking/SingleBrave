@@ -33,21 +33,21 @@ public class BattleReliveHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         BattleRelivePktAck ack = packet as BattleRelivePktAck;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL_(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL_(null, ack.header.desc);
+            
         }
 
         if (!ack.m_bRelive)
         {
-            return false;
+            
         }
 
         Role.role.GetBaseProperty().m_iDiamond = ack.m_iDiamond;
@@ -56,7 +56,7 @@ public class BattleReliveHandle
         gui.Relive();
         gui.Hiden();
 
-        return true;
+        
     }
 
 }

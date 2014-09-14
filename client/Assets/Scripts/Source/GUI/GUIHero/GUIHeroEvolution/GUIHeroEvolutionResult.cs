@@ -10,6 +10,7 @@ using System.Text;
 using Game.Resource;
 using Game.Gfx;
 using Game.Base;
+using Game.Media;
 
 /// <summary>
 /// 进化结果界面
@@ -148,19 +149,19 @@ public class GUIHeroEvolutionResult : GUIBase
 
         GUI_FUNCTION.AYSNCLOADING_SHOW();
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         Hero hero = Role.role.GetHeroProperty().GetHero(m_selectID);
         HeroTable herotable = HeroTableManager.GetInstance().GetHeroTable(m_selectTableID);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HERO_JINHUA);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, hero.m_strModel);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, herotable.Modle);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, GetEffectSelf(herotable));
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HERO_JINHUA);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + hero.m_strModel);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + herotable.Modle);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + GetEffectSelf(herotable));
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_2);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_3);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_4);  //加载特效
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_STAR_5);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_2);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_3);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_4);  //加载特效
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_STAR_5);  //加载特效
 
         for (int i = 0; i < herotable.VecEvolveMat.Length; i++)
         {
@@ -169,17 +170,17 @@ public class GUIHeroEvolutionResult : GUIBase
 
                 HeroTable evolutionTable = HeroTableManager.GetInstance().GetHeroTable(herotable.VecEvolveMat[i]);
 
-                ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, evolutionTable.Modle);
-                ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, GetEffectHero(evolutionTable));
+				ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + evolutionTable.Modle);
+				ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + GetEffectHero(evolutionTable));
             }
         }
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, EFFECT_SELF);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + EFFECT_SELF);
     }
 
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         m_gfxSelf.Destory();
 
@@ -256,7 +257,8 @@ public class GUIHeroEvolutionResult : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            SoundManager.GetInstance().StopSoundContinue();
+			MediaMgr.sInstance.StopENV();
+//            MediaMgr.StopSoundContinue();
             Hiden();
 
             GUIHeroDetail herodetail = this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HERODETAIL) as GUIHeroDetail;
@@ -327,7 +329,7 @@ public class GUIHeroEvolutionResult : GUIBase
         CameraManager.GetInstance().ShowUIHeroEvolutionCamera();
         if (m_cGUIObject == null)
         {
-            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -339,7 +341,7 @@ public class GUIHeroEvolutionResult : GUIBase
             m_cBtnCollider.SetActive(false);
 
             m_cHeroPlane = GUI_FINDATION.FIND_GAME_OBJECT(HERO_EVOLUTION);
-            m_cHeroJinHua = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HERO_JINHUA)) as GameObject;
+            m_cHeroJinHua = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HERO_JINHUA)) as GameObject;
             m_cHeroJinHua.transform.parent = m_cHeroPlane.transform;
             m_cHeroJinHua.transform.localPosition = Vector3.zero;
             m_cHeroJinHua.transform.localScale = Vector3.one;
@@ -372,7 +374,7 @@ public class GUIHeroEvolutionResult : GUIBase
 
         HeroTable herotable = HeroTableManager.GetInstance().GetHeroTable(m_selectTableID);
 
-        GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(herotable.Modle)) as GameObject;
+        GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(herotable.Modle)) as GameObject;
         objSelf.transform.parent = m_cHeroEndPos.transform;
         objSelf.transform.localPosition = Vector3.zero;
         objSelf.transform.localScale = Vector3.one * 1.5f;
@@ -396,8 +398,8 @@ public class GUIHeroEvolutionResult : GUIBase
                 HeroTable evolutionTable = HeroTableManager.GetInstance().GetHeroTable(herotable.VecEvolveMat[i]);
                 //Hero evolutionHero = Role.role.GetHeroProperty().GetHero(hero.m_vecEvolution[i]);
 
-                GameObject objHero = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(evolutionTable.Modle)) as GameObject;
-                GameObject objEffect = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GetEffectHero(herotable))) as GameObject;
+                GameObject objHero = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(evolutionTable.Modle)) as GameObject;
+                GameObject objEffect = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(GetEffectHero(herotable))) as GameObject;
                 objHero.transform.parent = objPos.transform;
                 objHero.transform.localPosition = Vector3.zero;
                 objHero.transform.localScale = Vector3.one;
@@ -411,7 +413,7 @@ public class GUIHeroEvolutionResult : GUIBase
             }
         }
 
-        GameObject objEffectSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GetEffectSelf(herotable))) as GameObject;
+        GameObject objEffectSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(GetEffectSelf(herotable))) as GameObject;
         objEffectSelf.transform.parent = m_cHeroResult.transform;
         objEffectSelf.transform.localPosition = Vector3.zero;
         objEffectSelf.transform.localScale = Vector3.one;
@@ -438,7 +440,7 @@ public class GUIHeroEvolutionResult : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -471,7 +473,8 @@ public class GUIHeroEvolutionResult : GUIBase
                             if (!m_bSoundPlayed)
                             {
                                 //音效
-                                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_EVO_HERO);
+								MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_EVO_HERO);
+//                                MediaMgr.PlaySound2(SOUND_DEFINE.SE_EVO_HERO);
                                 m_bSoundPlayed = true;
                             }
 
@@ -494,18 +497,18 @@ public class GUIHeroEvolutionResult : GUIBase
                                 m_gfxSelf.Destory();
 
                                 m_fStateStartTime = Time.fixedTime;
-                                //m_cSucceed = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_GUI_PATH, m_strSucced)) as GameObject;
+                                //m_cSucceed = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(GAME_DEFINE.RESOURCE_GUI_PATH, m_strSucced)) as GameObject;
                                 //m_cSucceed.transform.parent = m_cHeroMain.transform;
                                 //m_cSucceed.transform.localPosition = Vector3.zero;
 
 
-                                m_cEffectSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_SELF)) as GameObject;
+                                m_cEffectSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_SELF)) as GameObject;
                                 m_cEffectSelf.transform.parent = m_cHeroAfterPos.transform;
                                 m_cEffectSelf.transform.localPosition = Vector3.zero;
                                 m_cEffectSelf.transform.localScale = Vector3.one;
 
                                 Hero hero2 = Role.role.GetHeroProperty().GetHero(m_selectID);
-                                GameObject objSelf2 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(hero2.m_strModel)) as GameObject;
+                                GameObject objSelf2 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(hero2.m_strModel)) as GameObject;
                                 objSelf2.transform.parent = m_cHeroAfterPos.transform;
                                 objSelf2.transform.localPosition = Vector3.zero;
                                 objSelf2.transform.localScale = Vector3.one * 2f;
@@ -581,7 +584,7 @@ public class GUIHeroEvolutionResult : GUIBase
             case 1:
             case 2:
                 //1星2星显示猛将特效
-                this.m_cEffectStar2 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_2)) as GameObject;
+                this.m_cEffectStar2 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_2)) as GameObject;
                 this.m_cEffectStar2.transform.parent = this.m_cHeroPlane.transform;
                 this.m_cEffectStar2.transform.localPosition = Vector3.zero;
                 this.m_cEffectStar2.transform.localScale = Vector3.one;
@@ -595,11 +598,12 @@ public class GUIHeroEvolutionResult : GUIBase
                 }
 
                 //音效
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_2);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_2);
+//                MediaMgr.PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_2);
                 break;
             case 3:
                 //3星显示超猛将特效
-                this.m_cEffectStar3 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_3)) as GameObject;
+                this.m_cEffectStar3 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_3)) as GameObject;
                 this.m_cEffectStar3.transform.parent = this.m_cHeroPlane.transform;
                 this.m_cEffectStar3.transform.localPosition = Vector3.zero;
                 this.m_cEffectStar3.transform.localScale = Vector3.one;
@@ -612,11 +616,12 @@ public class GUIHeroEvolutionResult : GUIBase
                     item.Play("start");
                 }
                 //音效
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_3);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_3);
+//                MediaMgr.PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_3);
                 break;
             case 4:
                 //4星显示超绝猛将特效
-                this.m_cEffectStar4 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_4)) as GameObject;
+                this.m_cEffectStar4 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_4)) as GameObject;
                 this.m_cEffectStar4.transform.parent = this.m_cHeroPlane.transform;
                 this.m_cEffectStar4.transform.localPosition = Vector3.zero;
                 this.m_cEffectStar4.transform.localScale = Vector3.one;
@@ -629,11 +634,12 @@ public class GUIHeroEvolutionResult : GUIBase
                     item.Play("start");
                 }
                 //音效
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_4);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_4);
+//                MediaMgr.PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_4);
                 break;
             case 5:
                 //5星显示无双猛将特效
-                this.m_cEffectStar5 = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(EFFECT_STAR_5)) as GameObject;
+                this.m_cEffectStar5 = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(EFFECT_STAR_5)) as GameObject;
                 this.m_cEffectStar5.transform.parent = this.m_cHeroPlane.transform;
                 this.m_cEffectStar5.transform.localPosition = Vector3.zero;
                 this.m_cEffectStar5.transform.localScale = Vector3.one;
@@ -647,7 +653,8 @@ public class GUIHeroEvolutionResult : GUIBase
                 }
 
                 //音效
-                SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_5);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SUMMON_STAR_5);
+//                MediaMgr.PlaySound2(SOUND_DEFINE.SE_SUMMON_STAR_5);
                 break;
             default:
                 break;

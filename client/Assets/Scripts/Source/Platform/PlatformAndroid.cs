@@ -52,8 +52,7 @@ public class PlatformAndroid : PlatformBase
         //发送数据
         if (!pause)
         {
-            if (Role.role.GetBaseProperty().m_iPlayerId > 0 && GameManager.GetInstance().GetSceneManager().GetCurScene().GetSceneID() == SCENE.SCENE_GAME
-                )
+            if (Role.role.GetBaseProperty().m_iPlayerId > 0 && CScene.Is(typeof(GameScene)))
                 SendAgent.SendSystemPush(Role.role.GetBaseProperty().m_iPlayerId);
         }
     }

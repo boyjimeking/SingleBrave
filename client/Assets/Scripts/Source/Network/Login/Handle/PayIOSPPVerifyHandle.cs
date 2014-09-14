@@ -31,7 +31,7 @@ public class PayIOSPPVerifyHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         PayIOSPPVerifyPktAck ack = packet as PayIOSPPVerifyPktAck;
 
@@ -40,9 +40,9 @@ public class PayIOSPPVerifyHandle
         //设置重新发送状态
         PlatformPPIOS tmp = PlatformManager.GetInstance().Platform as PlatformPPIOS;
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
 
             return;
         }

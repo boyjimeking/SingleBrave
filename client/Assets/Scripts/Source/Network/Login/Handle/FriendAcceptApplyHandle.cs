@@ -27,7 +27,7 @@ public class FriendAcceptApplyHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FriendAcceptApplyPktAck ack = (FriendAcceptApplyPktAck)packet;
 
@@ -35,10 +35,10 @@ public class FriendAcceptApplyHandle
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         //加入我的好友列表
@@ -61,6 +61,6 @@ public class FriendAcceptApplyHandle
 
         gui_friendApply.Show();
 
-        return true;
+        
     }
 }

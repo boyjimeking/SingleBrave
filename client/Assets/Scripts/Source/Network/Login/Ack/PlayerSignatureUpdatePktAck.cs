@@ -46,7 +46,7 @@ public class PlayerSignatureUpdatePktAck : HTTPPacketAck
 //     {
 //         PlayerSignatureUpdatePktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<PlayerSignatureUpdatePktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

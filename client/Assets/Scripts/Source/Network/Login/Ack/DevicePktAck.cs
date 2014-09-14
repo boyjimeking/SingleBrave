@@ -49,7 +49,7 @@ public class DevicePktAck : HTTPPacketAck
 //     {
 //         DevicePktAck packet = PACKET_HEAD.PACKET_ACK_HEAD<DevicePktAck>(json);
 
-//         if (packet.m_iErrorCode != 0)
+//         if (packet.header.code != 0)
 //         {
 //             return packet;
 //         }

@@ -5,6 +5,7 @@ using Game.Base;
 using Game.Gfx;
 using Game.Resource;
 using UnityEngine;
+using Game.Media;
 
 //  BATTLE_UTIL.cs
 //  Author: Lu Zexi
@@ -116,7 +117,7 @@ public class BATTLE_FUNCTION
                 {
                     case BATTLE_BUF.DU: //毒更新
                         hero.DecHP((int)(hero.m_cMaxHP.GetFinalData() * GAME_DEFINE.DEBUFFDuRate));
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_DEC_HP);
+                        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_DEC_HP);
                         gui.GeneratorHurtNum(hero.m_cUIStartPos, (int)(hero.m_cMaxHP.GetFinalData() * GAME_DEFINE.DEBUFFDuRate) , hero);
                         gui.SetUITargetData(hero);
                         gui.SetUIHeroHP(hero);
@@ -148,7 +149,7 @@ public class BATTLE_FUNCTION
 
         recover = Mathf.CeilToInt(recover);
 
-        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_ADD_HP);
+        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_ADD_HP);
         target.AddHP((int)recover);
 
         gui.GeneratorRecoverNum(target.m_cUIStartPos, (int)recover , target);
@@ -216,8 +217,8 @@ public class BATTLE_FUNCTION
         // 属性被相克 hurt =  basehurt*rate*0.5f  //全局判定 排除 光和暗
         // 防御状态 hurt = basehurt*rate*0.25f   //全局判定
 
-        SoundManager.GetInstance().PlaySound(self.m_cSEHit1);
-        SoundManager.GetInstance().PlaySound(self.m_cSEHit2);
+        MediaMgr.sInstance.PlaySE(self.m_cSEHit1);
+        MediaMgr.sInstance.PlaySE(self.m_cSEHit2);
 
         BATTLE_BUF buf = BATTLE_BUF.NONE;
 
@@ -507,8 +508,8 @@ public class BATTLE_FUNCTION
         // 属性被相克 hurt =  basehurt*rate*0.5f  //全局判定 排除 光和暗
         // 防御状态 hurt = basehurt*rate*0.25f   //全局判定
 
-        SoundManager.GetInstance().PlaySound(self.m_cSEHit1);
-        SoundManager.GetInstance().PlaySound(self.m_cSEHit2);
+        MediaMgr.sInstance.PlaySE(self.m_cSEHit1);
+        MediaMgr.sInstance.PlaySE(self.m_cSEHit2);
 
         BATTLE_BUF buf = BATTLE_BUF.NONE;
 

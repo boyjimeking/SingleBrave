@@ -50,7 +50,7 @@ public class AccountBoundPktAck : HTTPPacketAck
 //    {
 //        AccountBoundPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<AccountBoundPktAck>(json);
 //
-//        if (pkt.m_iErrorCode != 0)
+//        if (pkt.header.code != 0)
 //        {
 //            return pkt;
 //        }

@@ -19,7 +19,7 @@ public class AthleticsExpTableManager : Singleton<AthleticsExpTableManager>
     {
 #if GAME_TEST_LOAD
         //竞技场经验列表
-        LoadText((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ALTHLETICSEXP_PATH));
+        LoadText((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ALTHLETICSEXP_PATH));
 #endif
     }
 

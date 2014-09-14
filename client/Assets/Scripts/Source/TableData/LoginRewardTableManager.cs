@@ -18,7 +18,7 @@ public class LoginRewardTableManager : Singleton<LoginRewardTableManager>
     {
 #if GAME_TEST_LOAD
         //加载累计登录奖励表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.LOGIN_REWARD) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.LOGIN_REWARD) as string);
 #endif
     }
 

@@ -78,8 +78,7 @@ public class PlatformForIOS : PlatformBase
                 guiLoading != null && !guiLoading.IsShow() && //加载界面
                 aysncLoading != null && !aysncLoading.IsShow() &&   //加载界面
                 Role.role.GetBaseProperty().m_iPlayerId > 0  &&
-                GameManager.GetInstance().GetSceneManager().GetCurScene()!= null && GameManager.GetInstance().GetSceneManager().GetCurScene().GetSceneID() == SCENE.SCENE_GAME
-                )
+                CScene.Is(typeof(GameScene)))
                 SendAgent.SendSystemPush( Role.role.GetBaseProperty().m_iPlayerId);
         }
     }

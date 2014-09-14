@@ -46,9 +46,9 @@ public class FriendSendGiftPktAck : HTTPPacketAck
 
 //         Debug.Log("FriendSendGiftPktAck");
 
-//         if (ack.m_iErrorCode != 0)
+//         if (ack.header.code != 0)
 //         {
-//             //GAME_LOG.ERROR("Error . code desc " + ack.m_strErrorDes);
+//             //GAME_LOG.ERROR("Error . code desc " + ack.header.desc);
 //             return ack;
 //         }
 

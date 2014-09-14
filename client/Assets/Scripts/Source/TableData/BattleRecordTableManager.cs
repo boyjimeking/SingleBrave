@@ -18,7 +18,7 @@ public class BattleRecordTableManager : Singleton<BattleRecordTableManager>
     {
 #if GAME_TEST_LOAD
         //加载战绩表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BATTLE_RECORD) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BATTLE_RECORD) as string);
 #endif
     }
 

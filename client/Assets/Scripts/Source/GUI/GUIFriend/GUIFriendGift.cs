@@ -73,11 +73,11 @@ public class GUIFriendGift : GUIBase
     {
         this.m_eLoadingState = LOADING_STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, GUIFriendGiftGetItem.RES_ITEM);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + GUIFriendGiftGetItem.RES_ITEM);
 
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
     }
 
@@ -89,7 +89,7 @@ public class GUIFriendGift : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //滑出动画panel
@@ -171,7 +171,7 @@ public class GUIFriendGift : GUIBase
         CTween.TweenPosition(this.m_cPanSlide, GAME_DEFINE.FADEIN_GUI_TIME, Vector3.zero, new Vector3(640, 0, 0));
         CTween.TweenPosition(this.m_cBtnCancel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-540, 270, 0),Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
         base.Hiden();
         Destory();
     }
@@ -189,7 +189,7 @@ public class GUIFriendGift : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -216,7 +216,7 @@ public class GUIFriendGift : GUIBase
 
             Hiden();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_FRIENDMENU).Show);
             }
@@ -439,7 +439,7 @@ public class GUIFriendGiftGetItem
 
     public GUIFriendGiftGetItem()
     {
-        m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_ITEM)) as GameObject;
+		m_cItem = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_ITEM)) as GameObject;
 
         m_cBtnGet = GUI_FINDATION.GET_GAME_OBJECT(m_cItem, BTN_GET);
         m_spMonsterBorder = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cItem, MONSTER_SPBORDER);

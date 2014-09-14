@@ -19,7 +19,7 @@ public class AreaTableManager : Singleton<AreaTableManager>
     {
 #if GAME_TEST_LOAD
         //加载区域表
-        LoadText((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.AREA_TABLE_PATH));
+        LoadText((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.AREA_TABLE_PATH));
 #endif
     }
 

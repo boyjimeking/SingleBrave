@@ -167,8 +167,8 @@ class GUIHeroUpgrade : GUIBase
         GUI_FUNCTION.AYSNCLOADING_SHOW();
 
         Hero self = Role.role.GetHeroProperty().GetHero(m_iSelfID);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, self.m_strModel);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HERO_UPGRADE);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + self.m_strModel);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HERO_UPGRADE);
         
 
         if (m_lstSelectID != null)
@@ -176,20 +176,20 @@ class GUIHeroUpgrade : GUIBase
             for (int i = 0; i < m_lstSelectID.Count; i++)
             {
                 Hero hero = Role.role.GetHeroProperty().GetHero(m_lstSelectID[i]);
-                ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, GAME_DEFINE.RES_VERSION, hero.m_strModel);
+				ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + hero.m_strModel);
             }
         }
 
 
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
     }
 
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         foreach (GfxObject gfx in m_gfxObjHeros)
         {
@@ -262,7 +262,7 @@ class GUIHeroUpgrade : GUIBase
         {
             m_gfxSelf.Destory();
         }
-        GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(self.m_strModel)) as GameObject;
+        GameObject objSelf = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(self.m_strModel)) as GameObject;
         objSelf.transform.parent = m_cHeroSelf.transform;
         objSelf.transform.localPosition = Vector3.zero;
         objSelf.transform.localScale = Vector3.one;
@@ -285,7 +285,7 @@ class GUIHeroUpgrade : GUIBase
                 HeroAttributes ha = new HeroAttributes();
                 ha.SetAttributes(m_cAttribteList[i], hero);
 
-                GameObject objHero = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(hero.m_strModel)) as GameObject;
+                GameObject objHero = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(hero.m_strModel)) as GameObject;
                 objHero.transform.parent = m_cHeroPosList[i].transform;
                 objHero.transform.localPosition = Vector3.zero;
                 objHero.transform.localScale = Vector3.one;
@@ -379,7 +379,7 @@ class GUIHeroUpgrade : GUIBase
         {
             Hiden();
             m_lstSelectID.Clear();
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_UPGRADE).Show);
             }
@@ -666,12 +666,12 @@ class GUIHeroUpgrade : GUIBase
         CameraManager.GetInstance().ShowUIHeroUpgradeCamera();
         if (m_cGUIObject == null)
         {
-            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             m_cGUIObject.transform.localScale = Vector3.one;
 
             m_cHeroMain = GUI_FINDATION.FIND_GAME_OBJECT(HERO_MAIN);
-            this.m_cHeroUpgrade = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HERO_UPGRADE)) as GameObject;
+            this.m_cHeroUpgrade = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_HERO_UPGRADE)) as GameObject;
             this.m_cHeroUpgrade.transform.parent = this.m_cHeroMain.transform;
             this.m_cHeroUpgrade.transform.localScale = Vector3.one;
             this.m_cHeroUpgrade.transform.localPosition = Vector3.zero;
@@ -765,7 +765,7 @@ class GUIHeroUpgrade : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -786,7 +786,7 @@ class GUIHeroUpgrade : GUIBase
             case LOAD_STATE.START:
                 break;
             case LOAD_STATE.LOAD:
-                int per = (int)(ResourcesManager.GetInstance().GetAsyncProcess() * 100);
+                int per = (int)(ResourceMgr.GetAsyncProcess() * 100);
 
                 if (per >= 100)
                 {

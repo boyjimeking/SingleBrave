@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Base;
 using Game.Resource;
 using Game.Gfx;
+using Game.Media;
 
 
 //  GUIBattlePVP.cs
@@ -645,44 +646,44 @@ public class GUIBattlePVP : IGUIBattle
 
         this.m_eBattleState = BATTLE_STATE.BATTLE_STATE_INIT_BEGIN;
 
-        //ResourcesManager.GetInstance().ClearAsyncLoad();
+        //ResourceMgr.ClearAsyncLoad();
 
         GUI_FUNCTION.AYSNCLOADING_SHOW();
 
         //battle font
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_BATTLE_FONT1);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_BATTLE_FONT2);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_BATTLE_FONT3);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_BATTLE_FONT4);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_BATTLE_FONT1);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_BATTLE_FONT2);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_BATTLE_FONT3);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_BATTLE_FONT4);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, this.m_strSceneName);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_HURT_NUM);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_RECOVER_NUM);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + this.m_strSceneName);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_HURT_NUM);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_RECOVER_NUM);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_SPARK_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_CRITICAL_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_SPARK_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_CRITICAL_EFFECT);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_SHUIJING_MESH);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_XIN_MESH);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_SKILL_AVATAR);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_SHUIJING_MESH);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_XIN_MESH);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_SKILL_AVATAR);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_DEBUFF_DU_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_DEBUFF_XURUO_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_DEBUFF_MA_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_DEBUFF_POJIA_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_DEBUFF_POREN_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_DEBUFF_FENGYIN_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_DEBUFF_DU_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_DEBUFF_XURUO_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_DEBUFF_MA_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_DEBUFF_POJIA_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_DEBUFF_POREN_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_DEBUFF_FENGYIN_EFFECT);
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_FIGHT_BEGIN);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_WIN_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_LOSE_EFFECT);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_TIME_OUT_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_FIGHT_BEGIN);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_WIN_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_LOSE_EFFECT);
+		ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_TIME_OUT_EFFECT);
 
         for (int i = 0; i < 6; i++)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_EFFECT_PATH, GAME_DEFINE.RES_VERSION, RES_SKILL_SHOW_BG_EFFECT + (i + 1));
+			ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_EFFECT_PATH + RES_SKILL_SHOW_BG_EFFECT + (i + 1));
         }
 
         for( int i = 0 ; i<this.m_vecSelfHero.Length ; i++ )
@@ -703,63 +704,63 @@ public class GUIBattlePVP : IGUIBattle
     /// </summary>
     private void InitShow()
     {
-        this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
-        ResourcesManager.GetInstance().UnloadResource(RES_MAIN);
+        this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
+        ResourceMgr.UnloadResource(RES_MAIN);
         this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
         this.m_cGUIObject.transform.localScale = Vector3.one;
 
-        this.m_cResBattleFont1 = ResourcesManager.GetInstance().Load(RES_BATTLE_FONT1) as UnityEngine.Object;
-        ResourcesManager.GetInstance().UnloadResource(RES_BATTLE_FONT1);
-        this.m_cResBattleFont2 = ResourcesManager.GetInstance().Load(RES_BATTLE_FONT2) as UnityEngine.Object;
-        ResourcesManager.GetInstance().UnloadResource(RES_BATTLE_FONT2);
-        this.m_cResBattleFont3 = ResourcesManager.GetInstance().Load(RES_BATTLE_FONT3) as UnityEngine.Object;
-        ResourcesManager.GetInstance().UnloadResource(RES_BATTLE_FONT3);
-        this.m_cResBattleFont4 = ResourcesManager.GetInstance().Load(RES_BATTLE_FONT4) as UnityEngine.Object;
-        ResourcesManager.GetInstance().UnloadResource(RES_BATTLE_FONT4);
+		this.m_cResBattleFont1 = ResourceMgr.LoadAsset(RES_BATTLE_FONT1) as UnityEngine.Object;
+        ResourceMgr.UnloadResource(RES_BATTLE_FONT1);
+		this.m_cResBattleFont2 = ResourceMgr.LoadAsset(RES_BATTLE_FONT2) as UnityEngine.Object;
+        ResourceMgr.UnloadResource(RES_BATTLE_FONT2);
+		this.m_cResBattleFont3 = ResourceMgr.LoadAsset(RES_BATTLE_FONT3) as UnityEngine.Object;
+        ResourceMgr.UnloadResource(RES_BATTLE_FONT3);
+		this.m_cResBattleFont4 = ResourceMgr.LoadAsset(RES_BATTLE_FONT4) as UnityEngine.Object;
+        ResourceMgr.UnloadResource(RES_BATTLE_FONT4);
 
-        this.m_cResHurtNum = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HURT_NUM);
-        ResourcesManager.GetInstance().UnloadResource(RES_HURT_NUM);
-        this.m_cResRecoverNum = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_RECOVER_NUM);
-        ResourcesManager.GetInstance().UnloadResource(RES_RECOVER_NUM);
+		this.m_cResHurtNum = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_HURT_NUM);
+        ResourceMgr.UnloadResource(RES_HURT_NUM);
+		this.m_cResRecoverNum = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_RECOVER_NUM);
+        ResourceMgr.UnloadResource(RES_RECOVER_NUM);
 
-        this.m_cResSpark = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_SPARK_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_SPARK_EFFECT);
-        this.m_cResCritical = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_CRITICAL_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_CRITICAL_EFFECT);
+		this.m_cResSpark = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_SPARK_EFFECT);
+        ResourceMgr.UnloadResource(RES_SPARK_EFFECT);
+		this.m_cResCritical = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_CRITICAL_EFFECT);
+        ResourceMgr.UnloadResource(RES_CRITICAL_EFFECT);
 
-        this.m_cResShuijing = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_SHUIJING_MESH);
-        ResourcesManager.GetInstance().UnloadResource(RES_SHUIJING_MESH);
-        this.m_cResXin = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_XIN_MESH);
-        ResourcesManager.GetInstance().UnloadResource(RES_XIN_MESH);
-        this.m_cResSkillAvatar = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_SKILL_AVATAR);
-        ResourcesManager.GetInstance().UnloadResource(RES_SKILL_AVATAR);
+		this.m_cResShuijing = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_SHUIJING_MESH);
+        ResourceMgr.UnloadResource(RES_SHUIJING_MESH);
+		this.m_cResXin = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_XIN_MESH);
+        ResourceMgr.UnloadResource(RES_XIN_MESH);
+		this.m_cResSkillAvatar = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_SKILL_AVATAR);
+        ResourceMgr.UnloadResource(RES_SKILL_AVATAR);
 
-        this.m_cResDebuffDu = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DEBUFF_DU_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_DEBUFF_DU_EFFECT);
-        this.m_cResDebuffXuruo = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DEBUFF_XURUO_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_DEBUFF_XURUO_EFFECT);
-        this.m_cResDebuffMa = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DEBUFF_MA_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_DEBUFF_MA_EFFECT);
-        this.m_cResDebuffPojia = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DEBUFF_POJIA_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_DEBUFF_POJIA_EFFECT);
-        this.m_cResDebuffPoren = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DEBUFF_POREN_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_DEBUFF_POREN_EFFECT);
-        this.m_cResDebuffFengyin = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_DEBUFF_FENGYIN_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_DEBUFF_FENGYIN_EFFECT);
+		this.m_cResDebuffDu = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DEBUFF_DU_EFFECT);
+        ResourceMgr.UnloadResource(RES_DEBUFF_DU_EFFECT);
+		this.m_cResDebuffXuruo = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DEBUFF_XURUO_EFFECT);
+        ResourceMgr.UnloadResource(RES_DEBUFF_XURUO_EFFECT);
+		this.m_cResDebuffMa = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DEBUFF_MA_EFFECT);
+        ResourceMgr.UnloadResource(RES_DEBUFF_MA_EFFECT);
+		this.m_cResDebuffPojia = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DEBUFF_POJIA_EFFECT);
+        ResourceMgr.UnloadResource(RES_DEBUFF_POJIA_EFFECT);
+		this.m_cResDebuffPoren = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DEBUFF_POREN_EFFECT);
+        ResourceMgr.UnloadResource(RES_DEBUFF_POREN_EFFECT);
+		this.m_cResDebuffFengyin = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_DEBUFF_FENGYIN_EFFECT);
+        ResourceMgr.UnloadResource(RES_DEBUFF_FENGYIN_EFFECT);
 
-        this.m_cResFightBegin = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_FIGHT_BEGIN);
-        ResourcesManager.GetInstance().UnloadResource(RES_FIGHT_BEGIN);
-        this.m_cResResultWin = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_WIN_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_WIN_EFFECT);
-        this.m_cResResultLose = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_LOSE_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_LOSE_EFFECT);
-        this.m_cResTimeOut = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_TIME_OUT_EFFECT);
-        ResourcesManager.GetInstance().UnloadResource(RES_TIME_OUT_EFFECT);
+		this.m_cResFightBegin = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_FIGHT_BEGIN);
+        ResourceMgr.UnloadResource(RES_FIGHT_BEGIN);
+		this.m_cResResultWin = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_WIN_EFFECT);
+        ResourceMgr.UnloadResource(RES_WIN_EFFECT);
+		this.m_cResResultLose = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_LOSE_EFFECT);
+        ResourceMgr.UnloadResource(RES_LOSE_EFFECT);
+		this.m_cResTimeOut = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_TIME_OUT_EFFECT);
+        ResourceMgr.UnloadResource(RES_TIME_OUT_EFFECT);
 
         for (int i = 0; i < NATURE_NUM; i++)
         {
-            this.m_vecTexSkillShowBG[i] = (Texture)ResourcesManager.GetInstance().Load(RES_SKILL_SHOW_BG_EFFECT + (i + 1));
-            ResourcesManager.GetInstance().UnloadResource(RES_SKILL_SHOW_BG_EFFECT + (i + 1));
+			this.m_vecTexSkillShowBG[i] = (Texture)ResourceMgr.LoadAsset(RES_SKILL_SHOW_BG_EFFECT + (i + 1));
+            ResourceMgr.UnloadResource(RES_SKILL_SHOW_BG_EFFECT + (i + 1));
         }
 
         this.m_cBattleParent = GUI_FINDATION.FIND_GAME_OBJECT(BATTLE_PARENT);
@@ -826,7 +827,7 @@ public class GUIBattlePVP : IGUIBattle
         this.m_cGUIMgr.SetCurGUIID(this.m_iID);
 
         //场景
-        this.m_cScene = GameObject.Instantiate(ResourcesManager.GetInstance().Load(this.m_strSceneName) as UnityEngine.Object) as GameObject;
+		this.m_cScene = GameObject.Instantiate(ResourceMgr.LoadAsset(this.m_strSceneName) as UnityEngine.Object) as GameObject;
         this.m_cScene.transform.parent = this.m_cBattleParent.transform;
         this.m_cScene.transform.localScale = Vector3.one;
         this.m_cScene.transform.localPosition = Vector3.zero;
@@ -894,7 +895,7 @@ public class GUIBattlePVP : IGUIBattle
 
         CameraManager.GetInstance().HidenBattlePVPCamera();
         this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Show();
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+		ResourceMgr.UnloadUnusedResources();
 
         //if( this.m_cGUIObject != null )
         //    GameObject.DestroyImmediate(this.m_cGUIObject);
@@ -1792,7 +1793,8 @@ public class GUIBattlePVP : IGUIBattle
                 SetUIHeroHP(this.m_cCollectItemXin.m_lstBattleHero[i]);
                 this.m_cCollectItemXin.m_lstBattleHero.RemoveAt(i);
 
-                SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_GET_XIN);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_GET_XIN);
+//                MediaMgr.PlaySound(SOUND_DEFINE.SE_BATTLE_GET_XIN);
 
                 continue;
             }
@@ -1886,7 +1888,8 @@ public class GUIBattlePVP : IGUIBattle
                 SetUIHeroBBHP(this.m_cCollectItemShuijing.m_lstBattleHero[i]);
                 this.m_cCollectItemShuijing.m_lstBattleHero.RemoveAt(i);
 
-                SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_GET_SHUIJING);
+				MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_GET_SHUIJING);
+//                MediaMgr.PlaySound(SOUND_DEFINE.SE_BATTLE_GET_SHUIJING);
 
                 continue;
             }
@@ -1922,7 +1925,8 @@ public class GUIBattlePVP : IGUIBattle
         Material mat2 = GUI_FINDATION.GET_GAME_OBJECT(this.m_cSkillAvatar, SKILL_SHOW_BG_PATH).GetComponent<MeshRenderer>().material;
         mat2.SetTexture("_MainTex", this.m_vecTexSkillShowBG[(int)hero.m_eNature - 1]);
 
-        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_SKILL_CUTIN);
+		MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_SKILL_CUTIN);
+//        MediaMgr.PlaySound(SOUND_DEFINE.SE_BATTLE_SKILL_CUTIN);
 
         //隐藏数字
         for (int i = 0; i < this.m_lstHurtTxt.Count; i++)
@@ -2112,8 +2116,8 @@ public class GUIBattlePVP : IGUIBattle
                 this.m_eBattleState++;
                 break;
             case BATTLE_STATE.BATTLE_STATE_INIT1:
-                //float per = ResourcesManager.GetInstance().GetAsyncProcess() * 100f;
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete() )
+                //float per = ResourceMgr.GetAsyncProcess() * 100f;
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete() )
                 {
                     this.m_eBattleState++;
                 }
@@ -2735,7 +2739,8 @@ public class GUIBattlePVP : IGUIBattle
                     }
                     if (battlefinish == BATTLE_WIN_SELF)
                     {
-                        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_CONGRATULATE);
+						MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_CONGRATULATE);
+//                        MediaMgr.PlaySound(SOUND_DEFINE.SE_BATTLE_CONGRATULATE);
 
                         this.m_cResultEffect = GameObject.Instantiate(this.m_cResResultWin) as GameObject;
 

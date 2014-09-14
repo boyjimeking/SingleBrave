@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Game.Resource;
+using Game.Media;
 
 /// <summary>
 /// 战斗准备GUI界面
@@ -400,7 +401,7 @@ public class GUIFightReady : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_FIGHTREADY);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_FIGHTREADY);
         }
         else
         {
@@ -419,7 +420,7 @@ public class GUIFightReady : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_FIGHTREADY)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_FIGHTREADY)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //返回按钮
@@ -697,7 +698,7 @@ public class GUIFightReady : GUIBase
     /// </summary>
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         GUI_FUNCTION.LOCKPANEL_AUTO_HIDEN();
 
@@ -714,7 +715,7 @@ public class GUIFightReady : GUIBase
     {
         base.HidenImmediately();
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //SetLocalPos(Vector3.one * 0xFFFF);
         Destory();
@@ -733,7 +734,7 @@ public class GUIFightReady : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -860,7 +861,8 @@ public class GUIFightReady : GUIBase
 
             GUIFriendFight gui = (GUIFriendFight)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_FRIENDFIGHT);
             guitop.DecStrength(cost);
-            SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_BATTLE_JOIN);
+			MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_JOIN);
+//            MediaMgr.PlaySound2(SOUND_DEFINE.SE_BATTLE_JOIN);
             GAME_FUNCTION.EXCUTE_DELAY(GAME_DEFINE.FADEOUT_GUI_TIME, BeginGateBattle);
 
             int index = (m_iSelectId + m_iTeamId) % m_vecTeams.Length + 1;

@@ -22,7 +22,7 @@ public class BBSkillTableManager : Singleton<BBSkillTableManager>
     {
 #if GAME_TEST_LOAD
         //技能表
-        LoadText((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BBSKILL_PATH));
+        LoadText((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.BBSKILL_PATH));
 #endif
     }
 

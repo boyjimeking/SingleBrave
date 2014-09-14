@@ -122,7 +122,7 @@ public class GUIHeroEquipment : GUIBase
         {
             //实例化GameObject
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
             //滑出动画panel
@@ -135,7 +135,7 @@ public class GUIHeroEquipment : GUIBase
             //table
             m_cClipPanel = GUI_FINDATION.GET_OBJ_COMPONENT<UIPanel>(this.m_cGUIObject, PAN_CLIP);
             m_cTable = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, RES_TABLE);
-            m_cItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_EquipmentItem);
+            m_cItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_EquipmentItem);
         }
 
 
@@ -200,7 +200,7 @@ public class GUIHeroEquipment : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -223,8 +223,8 @@ public class GUIHeroEquipment : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_EquipmentItem);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_EquipmentItem);
         }
         else
         {
@@ -300,13 +300,10 @@ public class GUIHeroEquipment : GUIBase
               Role.role.GetBaseProperty().m_iPlayerId, heros.ToArray<int>(), items.ToArray<int>());
         }
 
-
-        ResourcesManager.GetInstance().UnloadUnusedResources();
-
         CTween.TweenPosition(this.m_cPanSlide, GAME_DEFINE.FADEIN_GUI_TIME, Vector3.zero, new Vector3(640, 0, 0));
         CTween.TweenPosition(this.m_cPanCancel, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(0, 270, 0), new Vector3(-430, 270, 0),Destory);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         base.Hiden();
     }
 
@@ -378,7 +375,7 @@ public class GUIHeroEquipment : GUIBase
               Role.role.GetBaseProperty().m_iPlayerId, heros.ToArray<int>(), items.ToArray<int>());
         }
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         base.HidenImmediately();
         Destory();
     }
@@ -420,7 +417,7 @@ public class GUIHeroEquipment : GUIBase
             //GUIHeroEquipSelect heropre = this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HEROEQUIPSELECT) as GUIHeroEquipSelect;
             //heropre.Show();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_HERO_MENU).Show);
             }
@@ -662,7 +659,7 @@ public class GUIHeroEquipment : GUIBase
     /// </summary>
     private void HidenNotSend()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //base.Hiden();
         GUI_FUNCTION.AYSNCLOADING_HIDEN();

@@ -490,7 +490,7 @@ public class GUIHeroSelectBase : GUIBase
         if (this.m_cGUIObject == null)
         {
             //Main主资源
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -509,13 +509,13 @@ public class GUIHeroSelectBase : GUIBase
             GameObject btnsort = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, BTN_SORT);
             btnsort.AddComponent<GUIComponentEvent>().AddIntputDelegate(BtnSort_OnEvent);
 
-            this.m_cHeroAtlasItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_HEROITEM);
+            this.m_cHeroAtlasItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_HEROITEM);
         }
 
         if (m_bShowNull)
         {
             //加入置空按钮
-            m_cResNull = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(BTN_NULL)) as GameObject;
+            m_cResNull = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(BTN_NULL)) as GameObject;
             m_cBtnNull = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(m_cResNull, SP_NULL);
             m_cResNull.transform.parent = this.m_cIconParent.transform;
             m_cResNull.transform.localPosition = Vector3.zero;
@@ -589,7 +589,7 @@ public class GUIHeroSelectBase : GUIBase
         }
 
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         //base.Hiden();
         GUI_FUNCTION.AYSNCLOADING_HIDEN();

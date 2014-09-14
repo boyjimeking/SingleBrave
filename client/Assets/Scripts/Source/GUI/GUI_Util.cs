@@ -186,7 +186,7 @@ public class GUI_FUNCTION
     //{
     //    if (m_cFont1 == null)
     //    {
-    //        m_cFont1 = (ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_SHARE ,"BATTLE_Font_1") as GameObject).GetComponent<UIFont>();
+    //        m_cFont1 = (ResourceMgr.Load(GAME_DEFINE.RESOURCE_SHARE ,"BATTLE_Font_1") as GameObject).GetComponent<UIFont>();
     //    }
     //    return m_cFont1;
     //}
@@ -199,7 +199,7 @@ public class GUI_FUNCTION
     //{
     //    if (m_cFont2 == null)
     //    {
-    //        m_cFont2 = (ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_SHARE, "BATTLE_Font_2") as GameObject).GetComponent<UIFont>();
+    //        m_cFont2 = (ResourceMgr.Load(GAME_DEFINE.RESOURCE_SHARE, "BATTLE_Font_2") as GameObject).GetComponent<UIFont>();
     //    }
     //    return m_cFont2;
     //}
@@ -212,7 +212,7 @@ public class GUI_FUNCTION
     //{
     //    if (m_cFont3 == null)
     //    {
-    //        m_cFont3 = (ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_SHARE, "BATTLE_Font_3") as GameObject).GetComponent<UIFont>();
+    //        m_cFont3 = (ResourceMgr.Load(GAME_DEFINE.RESOURCE_SHARE, "BATTLE_Font_3") as GameObject).GetComponent<UIFont>();
     //    }
     //    return m_cFont3;
     //}
@@ -225,7 +225,7 @@ public class GUI_FUNCTION
     //{
     //    if (m_cFont4 == null)
     //    {
-    //        m_cFont4 = (ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_SHARE, "BATTLE_Font_4") as GameObject).GetComponent<UIFont>();
+    //        m_cFont4 = (ResourceMgr.Load(GAME_DEFINE.RESOURCE_SHARE, "BATTLE_Font_4") as GameObject).GetComponent<UIFont>();
     //    }
     //    return m_cFont4;
     //}
@@ -436,8 +436,8 @@ public class GUI_FUNCTION
         {
             if (s_vecItemM[i] == null)
             {
-                s_vecItemM[i] = ((GameObject)(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_SHARE, "GUIItemM" + (i + 1)))).GetComponent<UIAtlas>();
-                //s_vecItemM[i] = ((GameObject)(ResourcesManager.GetInstance().Load("GUIItemM" + (i + 1)))).GetComponent<UIAtlas>();
+				s_vecItemM[i] = ((GameObject)(ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_SHARE, "GUIItemM" + (i + 1)))).GetComponent<UIAtlas>();
+                //s_vecItemM[i] = ((GameObject)(ResourceMgr.Load("GUIItemM" + (i + 1)))).GetComponent<UIAtlas>();
             }
             for (int j = 0; j < s_vecItemM[i].spriteList.Count; j++)
             {
@@ -465,13 +465,13 @@ public class GUI_FUNCTION
         {
             if (s_vecAvatarM[i] == null)
             {
-                GameObject tmpObj = (GameObject)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_SHARE, "GUIAvatarM" + (i + 1));
+				GameObject tmpObj = (GameObject)ResourceMgr.LoadAsset(GAME_DEFINE.RESOURCE_SHARE, "GUIAvatarM" + (i + 1));
                 if( tmpObj == null )
                 {
                     Debug.LogError(" atlas is null.");
                 }
                 s_vecAvatarM[i] = tmpObj.GetComponent<UIAtlas>();
-                //s_vecAvatarM[i] = ((GameObject)(ResourcesManager.GetInstance().Load("GUIAvatarM" + (i + 1)))).GetComponent<UIAtlas>();
+                //s_vecAvatarM[i] = ((GameObject)(ResourceMgr.Load("GUIAvatarM" + (i + 1)))).GetComponent<UIAtlas>();
             }
             for (int j = 0; j < s_vecAvatarM[i].spriteList.Count; j++)
             {
@@ -682,7 +682,7 @@ public class GUI_FUNCTION
 
     //    if (s_vecItemM[spIndex - 1] == null)
     //    {
-    //        s_vecItemM[spIndex - 1] = ((GameObject)(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TEX_PATH, "GUIItemM" + spIndex))).GetComponent<UIAtlas>();
+    //        s_vecItemM[spIndex - 1] = ((GameObject)(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TEX_PATH, "GUIItemM" + spIndex))).GetComponent<UIAtlas>();
     //    }
     //    sp.atlas = s_vecItemM[spIndex - 1];
     //    sp.spriteName = resName;
@@ -718,7 +718,7 @@ public class GUI_FUNCTION
 
     //    if (s_vecItemM[spIndex - 1] == null)
     //    {
-    //        s_vecItemM[spIndex - 1] = ((GameObject)(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TEX_PATH, "GUIItemM" + spIndex))).GetComponent<UIAtlas>();
+    //        s_vecItemM[spIndex - 1] = ((GameObject)(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TEX_PATH, "GUIItemM" + spIndex))).GetComponent<UIAtlas>();
     //    }
     //    sp.atlas = s_vecItemM[spIndex - 1];
     //    sp.spriteName = resName;
@@ -764,7 +764,7 @@ public class GUI_FUNCTION
 
     //    if (s_vecItemM[spIndex - 1] == null)
     //    {
-    //        s_vecItemM[spIndex - 1] = ((GameObject)(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TEX_PATH, "GUIItemM" + spIndex))).GetComponent<UIAtlas>();
+    //        s_vecItemM[spIndex - 1] = ((GameObject)(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TEX_PATH, "GUIItemM" + spIndex))).GetComponent<UIAtlas>();
     //    }
     //    sp.atlas = s_vecItemM[spIndex - 1];
     //    sp.spriteName = resName;

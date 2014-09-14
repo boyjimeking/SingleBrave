@@ -27,14 +27,14 @@ public class FriendGetListHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FriendGetListPktAck ack = (FriendGetListPktAck)packet;
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         Role.role.GetFriendProperty().RemoveAllFriends();
@@ -52,6 +52,6 @@ public class FriendGetListHandle
         //GUI_FUNCTION.LOADING_HIDEN();
         //GameManager.GetInstance().GetSceneManager().ChangeGameScene();
 
-        return true;
+        
     }
 }

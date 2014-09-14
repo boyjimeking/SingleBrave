@@ -15,7 +15,7 @@ using Game.Network;
 /// </summary>
 public class BattleGateEndHandle
 {
-    private List<int> m_lstNewHero = new List<int>();//新英雄列表
+    private static List<int> m_lstNewHero = new List<int>();//新英雄列表
 
     /// <summary>
     /// 获取action
@@ -31,16 +31,16 @@ public class BattleGateEndHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         BattleGateEndPktAck ack = (BattleGateEndPktAck)packet;
         
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         AreaTable areaTable = WorldManager.GetArea(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
@@ -181,7 +181,7 @@ public class BattleGateEndHandle
             Role.role.GetBaseProperty().m_bIsNeedShowStory = true;
 
             Role.role.GetBaseProperty().m_iStoryID=areaTable.StoryID;
-            //return true;
+            //
             
         }
 
@@ -217,7 +217,7 @@ public class BattleGateEndHandle
             }
             gui.Show();
         }
-        this.m_lstNewHero.Clear();
+        m_lstNewHero.Clear();
 
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
 
@@ -234,13 +234,13 @@ public class BattleGateEndHandle
             Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriend[i]);
         }
 
-        return true;
+        
     }
 
     /// <summary>
     /// 新手引导后展示GUI
     /// </summary>
-    private void gui_main_show()
+    private static void gui_main_show()
     {
         GUIDE_FUNCTION.SHOW_STORY(GUIDE_FUNCTION.STORY_THIRD_FIGHT_END, gui_story);
     }
@@ -248,7 +248,7 @@ public class BattleGateEndHandle
     /// <summary>
     /// 第三场战斗结束剧情
     /// </summary>
-    private void gui_story()
+    private static void gui_story()
     {
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_MAIN).Show();

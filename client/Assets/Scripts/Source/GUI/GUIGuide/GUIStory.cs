@@ -75,9 +75,9 @@ public class GUIStory : GUIBase
         this.m_iIndex = 0;
         base.Show();
 
-        //ResourcesManager.GetInstance().ClearAsyncLoad();
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, this.m_cStoryTable.SceneName);
+        //ResourceMgr.ClearAsyncLoad();
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + this.m_cStoryTable.SceneName);
         this.m_eState = STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
     }
@@ -97,9 +97,9 @@ public class GUIStory : GUIBase
     {
         base.Hiden();
         CameraManager.GetInstance().HidenBattle3DCamera();
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
-        //ResourcesManager.GetInstance().ClearAsyncLoad();
+        //ResourceMgr.ClearAsyncLoad();
         if( this.m_cGUIObject != null )
             GameObject.Destroy(this.m_cGUIObject);
         this.m_cGUIObject = null;
@@ -139,7 +139,7 @@ public class GUIStory : GUIBase
                 this.m_eState++;
                 break;
             case STATE.LOADING1:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete() )
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete() )
                 {
                     GUI_FUNCTION.AYSNCLOADING_HIDEN();
                     this.m_eState++;
@@ -155,7 +155,7 @@ public class GUIStory : GUIBase
                 }
                 CameraManager.GetInstance().ShowBattle3DCamera();
                 //gui
-                this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(RES_MAIN) as UnityEngine.Object) as GameObject;
+                this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(RES_MAIN) as UnityEngine.Object) as GameObject;
                 this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
                 this.m_cGUIObject.transform.localPosition = Vector3.zero;
                 this.m_cGUIObject.transform.localScale = Vector3.one;
@@ -168,7 +168,7 @@ public class GUIStory : GUIBase
                 this.m_cFace = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(this.m_cGUIObject, GUI_FACE);
                 GameObject battle_parent = GameObject.Find(SCENE_PARENT);
                 //场景
-                this.m_cScene = GameObject.Instantiate(ResourcesManager.GetInstance().Load(this.m_cStoryTable.SceneName) as UnityEngine.Object) as GameObject;
+                this.m_cScene = GameObject.Instantiate(ResourceMgr.LoadAsset(this.m_cStoryTable.SceneName) as UnityEngine.Object) as GameObject;
                 this.m_cScene.transform.parent = battle_parent.transform;
                 this.m_cScene.transform.localPosition = Vector3.zero;
                 this.m_cScene.transform.localScale = Vector3.one;

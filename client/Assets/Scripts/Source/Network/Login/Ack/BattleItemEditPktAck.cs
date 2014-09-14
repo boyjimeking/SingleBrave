@@ -45,7 +45,7 @@ public class BattleItemEditPktAck : HTTPPacketAck
 //     {
 //         BattleItemEditPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<BattleItemEditPktAck>(json);
 
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

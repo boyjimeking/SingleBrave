@@ -8,6 +8,7 @@ using UnityEngine;
 using Game.Resource;
 using Game.Gfx;
 using Game.Base;
+using Game.Media;
 
 /// <summary>
 /// 鼠标按下状态
@@ -191,10 +192,10 @@ class GUITeamEditor : GUIBase
         this.m_eLoadingState = LOADING_STATE.START;
         GUI_FUNCTION.AYSNCLOADING_SHOW();
 
-        ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_TEAM_EDITOR);
+        ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_TEAM_EDITOR);
         if (this.m_cGUIObject == null)
         {
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
         //for (int i = 0; i < 10; i++)
         //{
@@ -207,7 +208,7 @@ class GUITeamEditor : GUIBase
 
         //            if (hero != null)
         //            {
-        //                ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_MODEL_PATH, hero.m_strModel);
+        //                ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH, hero.m_strModel);
         //            }
         //        }
         //    }
@@ -236,7 +237,7 @@ class GUITeamEditor : GUIBase
         Role.role.GetBaseProperty().m_iCurrentTeam = m_cTeamNum;
         SendAgent.SendTeamEditor(Role.role.GetBaseProperty().m_iPlayerId, GetTeamListInt(), Role.role.GetBaseProperty().m_iCurrentTeam);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         base.Hiden();
         Destory();
 
@@ -244,7 +245,7 @@ class GUITeamEditor : GUIBase
 
     public void HidenNotSend()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
         base.Hiden();
         Role.role.GetBaseProperty().m_iCurrentTeam = m_cTeamNum;
         //Debug.Log("Role.role.GetBaseProperty().m_iCurrentTeam_" + Role.role.GetBaseProperty().m_iCurrentTeam);
@@ -423,7 +424,7 @@ class GUITeamEditor : GUIBase
         //    ha.ShowAttributes(uiPos, true);
         //    ha.SetAttributes(uiPos, hero);
 
-        //    GameObject obj = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(hero.m_strModel)) as GameObject;
+        //    GameObject obj = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.Load(hero.m_strModel)) as GameObject;
         //    obj.transform.parent = heroPos.transform;
         //    obj.transform.localPosition = new Vector3(0, 0.15f, 0);
         //    obj.transform.localScale = Vector3.one;
@@ -592,7 +593,7 @@ class GUITeamEditor : GUIBase
 
             Hiden();
 
-            if (SessionManager.GetInstance().Refresh())
+            if (false)
             {
                 if (this.m_delCallBack != null)
                 {
@@ -813,7 +814,7 @@ class GUITeamEditor : GUIBase
                         CTween.TweenPosition(m_cHeroPanel, 0.4f, new Vector3(-m_iIndex * OFFSET_DIS / 85.33f, m_cHeroPanel.transform.localPosition.y, m_cHeroPanel.transform.localPosition.z));
 
                         //翻页特效
-                        SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
 
                     }
                     else
@@ -821,7 +822,7 @@ class GUITeamEditor : GUIBase
                         CTween.TweenPosition(m_cBtnBack, 0.2f, new Vector3(m_iIndex * OFFSET_DIS, m_cBtnBack.transform.localPosition.y, m_cBtnBack.transform.localPosition.z));
                         CTween.TweenPosition(m_cHeroPanel, 0.2f, new Vector3(-m_iIndex * OFFSET_DIS / 85.33f, m_cHeroPanel.transform.localPosition.y, m_cHeroPanel.transform.localPosition.z));
                         //翻页特效
-                        SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
                     }
                 }
                 m_bDrag = false;
@@ -974,14 +975,14 @@ class GUITeamEditor : GUIBase
                         CTween.TweenPosition(m_cBtnBack, 0.4f, new Vector3(m_iIndex * OFFSET_DIS, m_cBtnBack.transform.localPosition.y, m_cBtnBack.transform.localPosition.z));
                         CTween.TweenPosition(m_cHeroPanel, 0.4f, new Vector3(-m_iIndex * OFFSET_DIS / 85.33f, m_cHeroPanel.transform.localPosition.y, m_cHeroPanel.transform.localPosition.z));
                         //翻页特效
-                        SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
                     }
                     else
                     {
                         CTween.TweenPosition(m_cBtnBack, 0.2f, new Vector3(m_iIndex * OFFSET_DIS, m_cBtnBack.transform.localPosition.y, m_cBtnBack.transform.localPosition.z));
                         CTween.TweenPosition(m_cHeroPanel, 0.2f, new Vector3(-m_iIndex * OFFSET_DIS / 85.33f, m_cHeroPanel.transform.localPosition.y, m_cHeroPanel.transform.localPosition.z));
                         //翻页特效
-                        SoundManager.GetInstance().PlaySound2(SOUND_DEFINE.SE_SLIDE);
+                        MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
                     }
 
                     m_pressState = PressState.Normal;
@@ -1074,7 +1075,7 @@ class GUITeamEditor : GUIBase
             CTween.TweenPosition(m_cHeroPanel, 0.4f, new Vector3(-m_iIndex * OFFSET_DIS / 85.33f, m_cHeroPanel.transform.localPosition.y, m_cHeroPanel.transform.localPosition.z));
 
             //翻页音效
-            SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SLIDE);
+            MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
         }
     }
 
@@ -1133,7 +1134,7 @@ class GUITeamEditor : GUIBase
             CTween.TweenPosition(m_cHeroPanel, 0.4f, new Vector3(-m_iIndex * OFFSET_DIS / 85.33f, m_cHeroPanel.transform.localPosition.y, m_cHeroPanel.transform.localPosition.z));
 
             //翻页音效
-            SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_SLIDE);
+            MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_SLIDE);
         }
     }
 
@@ -1169,13 +1170,13 @@ class GUITeamEditor : GUIBase
 
         if (m_cGUIObject == null)
         {
-            m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             m_cGUIObject.transform.localScale = Vector3.one;
 
             m_cTopPanel = GUI_FINDATION.GET_GAME_OBJECT(m_cGUIObject, TOP_PANEL);
             m_cMainPanel = GUI_FINDATION.GET_GAME_OBJECT(m_cGUIObject, MAIN_PANEL);
-            m_cTeamEditor = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_TEAM_EDITOR)) as GameObject;
+			m_cTeamEditor = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_TEAM_EDITOR)) as GameObject;
             GameObject objEdit = GUI_FINDATION.FIND_GAME_OBJECT(TEAM_EDIT);
             m_cTeamEditor.transform.parent = objEdit.transform;
             m_cTeamEditor.transform.localPosition = Vector3.zero;
@@ -1285,7 +1286,7 @@ class GUITeamEditor : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                     this.m_eState = LOAD_STATE.END;
@@ -1378,7 +1379,7 @@ class GUITeamEditor : GUIBase
         Hero hero = Role.role.GetHeroProperty().GetHero(hTeam.m_vecTeam[pos]);
         HeroAttributes ha = new HeroAttributes();
 
-        //ResourcesManager.GetInstance().UnloadResource("");
+        //ResourceMgr.UnRequestAssetBundle("");
         if ((m_lstGfxObj[teamPos])[pos] != null)
         {
             (m_lstGfxObj[teamPos])[pos].Destory();
@@ -1410,41 +1411,41 @@ class GUITeamEditor : GUIBase
             ha.ShowAttributes(uiPos, true);
             ha.SetAttributes(uiPos, hero);
 
-            ResourceRequireOwner owner = ResourcesManager.GetInstance().LoadResouce(GAME_DEFINE.RESOURCE_MODEL_PATH + hero.m_strModel + ".res", 0, GAME_DEFINE.RES_VERSION, hero.m_strModel,null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
-             {
-                 //Debug.Log("load " + str);
-                 if (IsShow())
-                 {
+//            ResourceRequireOwner owner = ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_MODEL_PATH + hero.m_strModel + ".res", 0, GAME_DEFINE.RES_VERSION, hero.m_strModel,null, RESOURCE_TYPE.WEB_OBJECT, ENCRYPT_TYPE.NORMAL, new DownLoadCallBack((str, obj, arr) =>
+//             {
+//                 //Debug.Log("load " + str);
+//                 if (IsShow())
+//                 {
+//
+//                     if (obj != null)
+//                     {
+//                         GameObject gameobj = GameObject.Instantiate((UnityEngine.Object)obj) as GameObject;
+//                         gameobj.transform.parent = heroPos.transform;
+//                         gameobj.transform.localPosition = new Vector3(0, 0.15f, 0);
+//                         gameobj.transform.localScale = Vector3.one;
+//                         gameobj.name = hero.m_strModel;
+//
+//                         (m_lstGfxObj[teamPos])[pos] = new GfxObject(gameobj);
+//                         (m_lstGfxObj[teamPos])[pos].Initialize();
+//
+//                         m_lstAsncModelObj.Add(gameobj);
+//                     }
+//                     else
+//                     {
+//                         Debug.LogError("none  " + str);
+//                     }
+//                 }
+//                 else
+//                 {
+//                     if (obj != null)
+//                     {
+//                         ResourceMgr.UnRequestAssetBundle(str);
+//                     }
+//                 }
+//
+//             }));
 
-                     if (obj != null)
-                     {
-                         GameObject gameobj = GameObject.Instantiate((UnityEngine.Object)obj) as GameObject;
-                         gameobj.transform.parent = heroPos.transform;
-                         gameobj.transform.localPosition = new Vector3(0, 0.15f, 0);
-                         gameobj.transform.localScale = Vector3.one;
-                         gameobj.name = hero.m_strModel;
-
-                         (m_lstGfxObj[teamPos])[pos] = new GfxObject(gameobj);
-                         (m_lstGfxObj[teamPos])[pos].Initialize();
-
-                         m_lstAsncModelObj.Add(gameobj);
-                     }
-                     else
-                     {
-                         Debug.LogError("none  " + str);
-                     }
-                 }
-                 else
-                 {
-                     if (obj != null)
-                     {
-                         ResourcesManager.GetInstance().UnloadResource(str);
-                     }
-                 }
-
-             }));
-
-            m_lstOwners.Add(owner);
+//            m_lstOwners.Add(owner);
             m_lstTeamNums.Add(teamNum);
             m_lstResName.Add(hero.m_strModel);
         }
@@ -1463,7 +1464,7 @@ class GUITeamEditor : GUIBase
         //删除旧加载
         for (int i = 0; i < m_lstTeamNums.Count; i++)
         {
-            ResourcesManager.GetInstance().UnloadResource(m_lstResName[i], m_lstOwners[i]);
+			ResourceMgr.UnloadResource(m_lstResName[i], m_lstOwners[i]);
             m_lstOwners.RemoveAt(i);
             m_lstResName.RemoveAt(i);
             m_lstTeamNums.RemoveAt(i);

@@ -114,8 +114,8 @@ public class PACKET_DEFINE
 //    public static T PACKET_ACK_HEAD<T>(IJSonObject json) where T : HTTPPacketRequest, new()
 //    {
 //        T t = new T();
-//        t.m_iErrorCode = json["code"].Int32Value;
-//        t.m_strErrorDes = json["desc"].StringValue;
+//        t.header.code = json["code"].Int32Value;
+//        t.header.desc = json["desc"].StringValue;
 //        t.m_lServerTime = json["time"].Int32Value;
 //        GAME_DEFINE.m_lServerTime = t.m_lServerTime;
 //        //服务器时间精确到秒

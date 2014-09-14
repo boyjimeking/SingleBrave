@@ -5,7 +5,7 @@ using System.Text;
 using Game.Base;
 using Game.Resource;
 using UnityEngine;
-
+using Game.Media;
 
 //  GUIBattleLose.cs
 //  Author: Lu Zexi
@@ -92,7 +92,7 @@ public class GUIBattleLose : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
         }
         else
         {
@@ -109,7 +109,7 @@ public class GUIBattleLose : GUIBase
         GUI_FUNCTION.AYSNCLOADING_HIDEN();
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate(ResourcesManager.GetInstance().Load(RES_MAIN) as GameObject) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate(ResourceMgr.LoadAsset(RES_MAIN) as GameObject) as GameObject;
             this.m_cGUIObject.transform.parent = GUI_FINDATION.FIND_GAME_OBJECT(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -157,7 +157,7 @@ public class GUIBattleLose : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -258,8 +258,8 @@ public class GUIBattleLose : GUIBase
                 this.m_cGUIBattle.SetUIHeroBBHP(hero);
             }
         }
-
-        SoundManager.GetInstance().PlaySound(SOUND_DEFINE.SE_BATTLE_RELIVE);
+		MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_BATTLE_RELIVE);
+//        MediaMgr.PlaySound(SOUND_DEFINE.SE_BATTLE_RELIVE);
 
         this.m_cGUIBattle.SetBattleState((int)GUIBattle.BATTLE_STATE.BATTLE_STATE_SELF_ATTACK_BEGIN);
     }

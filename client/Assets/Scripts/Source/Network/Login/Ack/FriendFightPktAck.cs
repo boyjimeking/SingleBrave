@@ -39,7 +39,7 @@ public class FriendFightPktAck : HTTPPacketAck
 //     public override HTTPPacketRequest Create(IJSonObject json)
 //     {
 //         FriendFightPktAck pkt = PACKET_HEAD.PACKET_ACK_HEAD<FriendFightPktAck>(json);
-//         if (pkt.m_iErrorCode != 0)
+//         if (pkt.header.code != 0)
 //         {
 //             return pkt;
 //         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Game.Resource;
-
+using Game.Media;
 
 //  GUIGuideBattle.cs
 //  Author: Lu zexi
@@ -87,7 +87,8 @@ public class GUIGuideBattleSecond : GUIBattle
         MonsterTeamTable teamTable = MonsterTableManager.GetInstance().GetMonsterTeamTable(gateTable.ID, orderID, this.m_lstMonsterOrderID);
 
         //背景音乐
-        SoundManager.GetInstance().PlayBGM("SD_BGM15混");
+		MediaMgr.sInstance.PlayBGM("SD_BGM15混");
+//        MediaMgr.PlayBGM("SD_BGM15混");
 
         this.m_lstMonsterOrderID.Add(teamTable.OrderID);
 
@@ -265,7 +266,8 @@ public class GUIGuideBattleSecond : GUIBattle
 
         if (this.m_bBoss)
         {
-            SoundManager.GetInstance().PlayBGM(teamTable.BGSound);
+			MediaMgr.sInstance.PlayBGM(teamTable.BGSound);
+//            MediaMgr.PlayBGM(teamTable.BGSound);
         }
         Debug.Log("下一层");
         ShowTopPanel();
@@ -301,7 +303,8 @@ public class GUIGuideBattleSecond : GUIBattle
     {
         base.Hiden();
         //背景音乐
-        SoundManager.GetInstance().PlayBGM(SOUND_DEFINE.BGM_MAIN);
+		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
+//        MediaMgr.PlayBGM(SOUND_DEFINE.BGM_MAIN);
     }
 
 

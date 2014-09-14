@@ -22,7 +22,7 @@ public class DungeonTableManager : Singleton<DungeonTableManager>
     {
 #if GAME_TEST_LOAD
         //副本表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.DUNGEON_TABLE_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.DUNGEON_TABLE_PATH) as string);
 #endif
     }
 

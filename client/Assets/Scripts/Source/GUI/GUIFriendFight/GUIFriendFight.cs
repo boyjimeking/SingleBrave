@@ -76,8 +76,8 @@ public class GUIFriendFight : GUIBase
         {
             this.m_eLoadingState = LOADING_STATE.START;
             GUI_FUNCTION.AYSNCLOADING_SHOW();
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_MAIN);
-            ResourcesManager.GetInstance().LoadResource(GAME_DEFINE.RESOURCE_GUI_PATH, RES_FRIENDITEM);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_MAIN);
+            ResourceMgr.RequestAssetBundle(GAME_DEFINE.RESOURCE_GUI_PATH + RES_FRIENDITEM);
         }
         else
         {
@@ -96,7 +96,7 @@ public class GUIFriendFight : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -120,7 +120,7 @@ public class GUIFriendFight : GUIBase
 
             this.m_cGrid = GUI_FINDATION.GET_GAME_OBJECT(this.m_cGUIObject, UIGRID);
 
-            this.m_cFrienIitem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_FRIENDITEM);
+            this.m_cFrienIitem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_FRIENDITEM);
 
         }
 
@@ -224,7 +224,7 @@ public class GUIFriendFight : GUIBase
                 this.m_eLoadingState++;
                 return false;
             case LOADING_STATE.LOADING:
-                if (ResourcesManager.GetInstance().GetProgress() >= 1f && ResourcesManager.GetInstance().IsComplete())
+                if (ResourceMgr.GetProgress() >= 1f && ResourceMgr.IsComplete())
                 {
                     this.m_eLoadingState++;
                 }
@@ -247,7 +247,7 @@ public class GUIFriendFight : GUIBase
 
         //SetLocalPos(Vector3.one * 0XFFFF);
 
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         Destory();
     }

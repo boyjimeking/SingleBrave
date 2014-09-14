@@ -175,7 +175,7 @@ public class GUIItemSelectBase : GUIBase
 
         if (this.m_cGUIObject == null)
         {
-            this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_MAIN)) as GameObject;
+			this.m_cGUIObject = GameObject.Instantiate((UnityEngine.Object)ResourceMgr.LoadAsset(RES_MAIN)) as GameObject;
             this.m_cGUIObject.transform.parent = GameObject.Find(GUI_DEFINE.GUI_ANCHOR_CENTER).transform;
             this.m_cGUIObject.transform.localScale = Vector3.one;
 
@@ -189,7 +189,7 @@ public class GUIItemSelectBase : GUIBase
 
             this.m_cClipPanel=GUI_FINDATION.GET_OBJ_COMPONENT<UIPanel>(this.m_cGUIObject,LISTVIEWPANEL);
 
-            this.m_cResItem = (UnityEngine.Object)ResourcesManager.GetInstance().Load(RES_PROPSITEM);
+			this.m_cResItem = (UnityEngine.Object)ResourceMgr.LoadAsset(RES_PROPSITEM);
 
             this.m_cUITittle = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(this.m_cGUIObject, LB_TITLE);
 
@@ -243,7 +243,7 @@ public class GUIItemSelectBase : GUIBase
     /// </summary>
     public override void Hiden()
     {
-        ResourcesManager.GetInstance().UnloadUnusedResources();
+        ResourceMgr.UnloadUnusedResources();
 
         this.m_cBack.enabled = false;
 

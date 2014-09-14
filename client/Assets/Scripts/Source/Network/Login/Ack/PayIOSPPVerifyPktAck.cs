@@ -56,7 +56,7 @@ public class PayIOSPPVerifyPktAck : HTTPPacketAck
 //     {
 //         PayIOSPPVerifyPktAck ack = PACKET_HEAD.PACKET_ACK_HEAD<PayIOSPPVerifyPktAck>(json);
 
-//         if (ack.m_iErrorCode != 0)
+//         if (ack.header.code != 0)
 //             return ack;
 
 //         IJSonObject data = json["data"];

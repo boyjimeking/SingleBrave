@@ -19,7 +19,7 @@ public class WorldTableManager : Singleton<WorldTableManager>
     {
 #if GAME_TEST_LOAD
         //加载世界表
-        LoadText(ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.WORLD_TABLE_PATH) as string);
+        LoadText(ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.WORLD_TABLE_PATH) as string);
 #endif
     }
 

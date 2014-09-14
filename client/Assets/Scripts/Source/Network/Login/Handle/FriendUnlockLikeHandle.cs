@@ -27,16 +27,16 @@ public class FriendUnlockLikeHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         FriendUnlockLikePktAck ack = (FriendUnlockLikePktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            GUI_FUNCTION.MESSAGEL(null, ack.m_strErrorDes);
-            return false;
+            GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
+            
         }
 
         GUIFriendInfoLike gui_friendInfoLike = (GUIFriendInfoLike)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_FRIENDINFOLIKE);
@@ -44,6 +44,6 @@ public class FriendUnlockLikeHandle
         gui_friendInfoLike.m_cFriend.m_bLike = false;
         gui_friendInfoLike.ReflashBtn();
 
-        return true;
+        
     }
 }

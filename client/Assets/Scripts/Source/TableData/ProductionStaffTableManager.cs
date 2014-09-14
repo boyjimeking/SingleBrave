@@ -14,7 +14,7 @@ public class ProductionStaffTableManager : Singleton<ProductionStaffTableManager
     {
 #if GAME_TEST_LOAD
         //加载制作人员列表
-        LoadText((string)ResourcesManager.GetInstance().Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.PRODUCTION_STAFF));
+        LoadText((string)ResourceMgr.Load(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.PRODUCTION_STAFF));
 #endif
     }
 

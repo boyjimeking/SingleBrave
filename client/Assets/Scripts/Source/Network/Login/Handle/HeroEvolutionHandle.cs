@@ -28,15 +28,15 @@ public class HeroEvolutionHandle
     /// </summary>
     /// <param name="packet"></param>
     /// <returns></returns>
-    public static void Excute(HTTPPacketRequest packet)
+    public static void Excute(HTTPPacketAck packet)
     {
         HeroEvolutionPktAck ack = (HeroEvolutionPktAck)packet;
 
         GUI_FUNCTION.LOADING_HIDEN();
 
-        if (ack.m_iErrorCode != 0)
+        if (ack.header.code != 0)
         {
-            return false;
+            
         }
         //更新金币
         Role.role.GetBaseProperty().m_iGold = ack.m_iGold;
@@ -92,6 +92,6 @@ public class HeroEvolutionHandle
         tmp.SetHeroSelectId(ack.m_cAfterHero.m_iID, oldTableID);
         tmp.Show();
 
-        return true;
+        
     }
 }
