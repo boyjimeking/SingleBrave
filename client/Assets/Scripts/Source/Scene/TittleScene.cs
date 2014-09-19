@@ -23,7 +23,7 @@ public class TittleScene : CScene
     public override void OnEnter()
     {
         base.OnEnter();
-		GUITittle.sInstance.Show();
+		TittlePage.sInstance.Show();
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public class TittleScene : CScene
     /// </summary>
     public override void OnExit()
     {
-		GUITittle.sInstance.Hiden();
+		TittlePage.sInstance.Hiden();
 
         base.OnExit();
     }
