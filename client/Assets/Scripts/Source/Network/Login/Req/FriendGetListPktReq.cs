@@ -20,17 +20,23 @@ public class FriendGetListPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.FRIEND_GETLIST_REQ;
     }
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID;
+}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
 
-    //     return reqStr;
-    // }
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	//发送获取好友列表//
+	public static void SendFriendGetListReq(int pid)
+	{
+		FriendGetListPktReq req = new FriendGetListPktReq();
+		req.m_iPID = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
 
 }

@@ -22,15 +22,27 @@ public class PVPBattleStartPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PVP_BATTLE_START_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}&tpid={1}", m_iPid, m_iTpid);
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-    //     return req;
-    // }
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送PVP战斗开始
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="tpid"></param>
+	public static void SendPVPBattleStart(int pid, int tpid)
+	{
+		PVPBattleStartPktReq req = new PVPBattleStartPktReq();
+		req.m_iPid = pid;
+		req.m_iTpid = tpid;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+

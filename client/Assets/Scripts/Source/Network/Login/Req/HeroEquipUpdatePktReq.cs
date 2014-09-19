@@ -19,27 +19,29 @@ public class HeroEquipUpdatePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.HERO_EQUIP_UPDATE_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string data = string.Empty;
-    //     for (int i = 0; i < m_vecItems.Length; i++)
-    //     {
-    //         data += m_vecHeros[i] + ":" + m_vecItems[i] + "|";
-    //     }
-    //     if (data.EndsWith("|"))
-    //     {
-    //         data = data.Remove(data.Length - 1);
-    //     }
 
-    //     string req = string.Format("pid={0}&equip_info={1}", m_iPid.ToString(), data);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 英雄装备更新请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="heros"></param>
+	/// <param name="items"></param>
+	public static void SendHeroEquipUpdateReq(int pid, int[] heros, int[] items)
+	{
+		HeroEquipUpdatePktReq req = new HeroEquipUpdatePktReq();
+		req.m_iPid = pid;
+		req.m_vecHeros = heros;
+		req.m_vecItems = items;
+		
+		SessionManager.GetInstance().SendReady(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

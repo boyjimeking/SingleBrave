@@ -21,14 +21,28 @@ public class PayPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PAY_REQ;
     }
-
-
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + this.m_iPID + "&good_id=" + this.m_iGoodID;
-
-    //     req = PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 支付请求
+	/// </summary>
+	/// <param name="payNum"></param>
+	/// <param name="payid"></param>
+	public static void SendPay( int pid , int good_id)
+	{
+		PayPktReq req = new PayPktReq();
+		req.m_iGoodID = good_id;
+		req.m_iPID = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+
+

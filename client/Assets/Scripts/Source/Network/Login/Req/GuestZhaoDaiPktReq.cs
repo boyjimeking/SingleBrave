@@ -19,17 +19,25 @@ public class GuestZhaoDaiPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.GUEST_ZHAODAI_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}&zdid={1}", m_iPid.ToString(), m_strZhaoDaiId);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送招待ID请求数据
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="zhaodaiID"></param>
+	public static void SendGuestZhaoDaiReq(int pid, string zhaodaiID)
+	{
+		GuestZhaoDaiPktReq req = new GuestZhaoDaiPktReq();
+		req.m_iPid = pid;
+		req.m_strZhaoDaiId = zhaodaiID;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

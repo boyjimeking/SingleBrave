@@ -10,21 +10,11 @@ using Game.Network;
 //  2013-12-11
 
 
-
 /// <summary>
 /// 版本句柄
 /// </summary>
 public class VersionHandle
 {
-    /// <summary>
-    /// 获取Action
-    /// </summary>
-    /// <returns></returns>
-    public static string GetAction()
-    {
-        return PACKET_DEFINE.VERSION_REQ;
-    }
-
     /// <summary>
     /// 执行
     /// </summary>
@@ -104,4 +94,22 @@ public class VersionHandle
         PlayerPrefs.SetInt(resName + "V", version);
         PlayerPrefs.Save();
     }
+
+	//
+}
+
+
+/// <summary>
+/// Send agent.
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送版本数据请求
+	/// </summary>
+	public static void SendVersionReq()
+	{
+		VersionReqPkt packet = new VersionReqPkt();
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, packet , VersionHandle.Excute );
+	}
 }

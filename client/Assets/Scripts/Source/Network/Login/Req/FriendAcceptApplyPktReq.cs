@@ -20,19 +20,22 @@ public class FriendAcceptApplyPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.FRIEND_ACCEPTAPPLY_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + m_iPID;
-    //     req += "&fid=" + m_iFriendPID;
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	//答应好友申请
+	public static void SendFriendAcceptApply(int pid, int fPid)
+	{
+		FriendAcceptApplyPktReq req = new FriendAcceptApplyPktReq();
+		req.m_iPID = pid;
+		req.m_iFriendPID = fPid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

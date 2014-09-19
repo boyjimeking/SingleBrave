@@ -24,18 +24,26 @@ public class PayIOSVerifyPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.PAY_IOS_VERIFY;
     }
 
+}
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + this.m_iPID + "&pay_id=" + this.m_iPayID + "&verify=" + this.m_strVerify;
 
-    //     req = PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// IOS支付验证
+	/// </summary>
+	/// <param name="payid"></param>
+	/// <param name="verify"></param>
+	public static void SendPayIOSVerify(int pid ,int payid, string verify)
+	{
+		PayIOSVerifyPktReq req = new PayIOSVerifyPktReq();
+		req.m_iPID = pid;
+		req.m_iPayID = payid;
+		req.m_strVerify = verify;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

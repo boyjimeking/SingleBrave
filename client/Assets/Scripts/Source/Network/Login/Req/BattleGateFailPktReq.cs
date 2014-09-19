@@ -25,23 +25,27 @@ public class BattleGateFailPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.BATTLE_GATE_FAIL_REQ;
     }
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "";
-    //     req += "pid=" + this.m_iPID + "&battle_id=" + this.m_iBattleID;
-    //     req += "&readyitem=" + this.m_vecReadyItemNum[0];
-    //     for (int i = 1; i < this.m_vecReadyItemNum.Length; i++)
-    //     {
-    //         req += "|" + this.m_vecReadyItemNum[i];
-    //     }
+}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-    //     return req;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送战斗关卡失败
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="vecItemNum"></param>
+	public static void SendBattleGateFail(int pid , int battle_id , int[] vecItemNum)
+	{
+		BattleGateFailPktReq req = new BattleGateFailPktReq();
+		req.m_iPID = pid;
+		req.m_iBattleID = battle_id;
+		req.m_vecReadyItemNum = vecItemNum;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }
+

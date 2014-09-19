@@ -20,19 +20,22 @@ public class FriendCancelApplyPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.FRIEND_CANCELAPPLY_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID;
-    //     reqStr += "&fid=" + m_iFriendPID;
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	//好友取消//
+	public static void SendFriendCancelApply(int pid, int fPid)
+	{
+		FriendCancelApplyPktReq req = new FriendCancelApplyPktReq();
+		req.m_iPID = pid;
+		req.m_iFriendPID = fPid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

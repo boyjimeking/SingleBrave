@@ -27,30 +27,40 @@ public class ItemCollectPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.ITEM_COLLECT_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string data = string.Empty;
-    //     for (int i = 0; i < m_vecItemId.Length; i++)
-    //     {
-    //         data += m_vecItemId[i] + ":" + m_vecItemNum[i] + "|";
-    //     }
-    //     if (data.EndsWith("|"))
-    //     {
-    //         data = data.Remove(data.Length - 1);
-    //     }
 
-    //     string req = string.Format(
-    //         "pid={0}&shan_c={1}&chuan_c={2}&tian_c={3}&lin_c={4}&getitems={5}&gold={6}&farmpoint={7}", m_iPid.ToString(),
-    //         m_iShanClick.ToString(), m_iChuanClick.ToString(), m_iTianClick.ToString(), m_iLinClick.ToString(),
-    //         data, m_iGold.ToString(), m_iFarmPoint.ToString());
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送物品采集数据
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="shan_c"></param>
+	/// <param name="chuan_c"></param>
+	/// <param name="tian_c"></param>
+	/// <param name="lin_c"></param>
+	/// <param name="gold"></param>
+	/// <param name="farmpoint"></param>
+	/// <param name="itemTableId"></param>
+	/// <param name="itemNum"></param>
+	public static void SendItemCollectReq(int pid, int shan_c, int chuan_c, int tian_c, int lin_c, int gold, int farmpoint, int[] itemTableId, int[] itemNum)
+	{
+		ItemCollectPktReq req = new ItemCollectPktReq();
+		req.m_iFarmPoint = farmpoint;
+		req.m_iGold = gold;
+		req.m_iPid = pid;
+		req.m_iShanClick = shan_c;
+		req.m_iChuanClick = chuan_c;
+		req.m_iTianClick = tian_c;
+		req.m_iLinClick = lin_c;
+		req.m_vecItemId = itemTableId;
+		req.m_vecItemNum = itemNum;
+		SessionManager.GetInstance().SendReady(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }

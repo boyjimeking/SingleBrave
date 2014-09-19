@@ -20,14 +20,4 @@ public class VersionReqPkt : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.VERSION_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "" + DateTime.Now.Ticks;
-    //     return req;
-    // }
 }

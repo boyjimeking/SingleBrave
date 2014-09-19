@@ -15,18 +15,24 @@ public class PlayerGetSystemMailPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PLAYER_GET_SYSTEM_MAIL_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}", this.m_iPlayerId);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送获取邮件信息列表
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendPlayerGetSystemMail(int pid)
+	{
+		PlayerGetSystemMailPktReq req = new PlayerGetSystemMailPktReq();
+		req.m_iPlayerId = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }
 

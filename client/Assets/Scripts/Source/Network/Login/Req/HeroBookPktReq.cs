@@ -23,17 +23,25 @@ public class HeroBookPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.HERO_BOOK_REQ;
     }
 
-    // /// <summary>
-    // /// 获取需求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + this.m_iPid;
+}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-    //     return req;
-    // }
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送英雄图鉴请求
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendHeroBookReq(int pid)
+	{
+		HeroBookPktReq req = new HeroBookPktReq();
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

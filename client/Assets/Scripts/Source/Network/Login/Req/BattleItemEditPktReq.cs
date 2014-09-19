@@ -19,36 +19,28 @@ public class BattleItemEditPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.BATTLE_ITEM_EDIT_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "";
-    //     for (int i = 0; i < m_vecItems.Length; i++)
-    //     {
-    //         int tmp = m_vecItems[i];
-    //         if (tmp == -1)
-    //         {
-    //             req += "pos" + i + "=-1&pos" + i + "_n=0&";
-    //         }
-    //         else
-    //         {
-    //             req += "pos" + i + "=" + m_vecItems[i] + "&pos" + i + "_n=" + m_vecItemNums[i] + "&";
-    //         }
-    //     }
 
-    //     if (req.EndsWith("&"))
-    //     {
-    //         req = req.Remove(req.Length - 1);
-    //     }
 
-    //     req = "pid=" + m_iPid + "&" + req;
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送编辑物品数据
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="items"></param>
+	public static void SendBattleItemEdit(int pid, int[] items,int[] nums)
+	{
+		BattleItemEditPktReq req = new BattleItemEditPktReq();
+		req.m_iPid = pid;
+		req.m_vecItems = items;
+		req.m_vecItemNums = nums;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }

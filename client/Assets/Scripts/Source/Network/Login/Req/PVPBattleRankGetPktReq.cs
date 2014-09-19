@@ -18,17 +18,24 @@ public class PVPBattleRankGetPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PVP_BATTLE_RANK_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}", m_iPid.ToString());
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 获取竞技场排行信息请求
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendPVPBattleRankReq(int pid)
+	{
+		PVPBattleRankGetPktReq req = new PVPBattleRankGetPktReq();
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+

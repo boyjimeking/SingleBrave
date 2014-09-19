@@ -19,27 +19,26 @@ public class HeroUnlockPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.HERO_UNLOCK_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string data = string.Empty;
-    //     foreach (var item in m_lstHeros)
-    //     {
-    //         data += item.ToString() + "|";
-    //     }
-    //     if (data.EndsWith("|"))
-    //     {
-    //         data = data.Remove(data.Length - 1);
-    //     }
 
-    //     string req = string.Format("pid={0}&heros={1}", m_iPid.ToString(), data);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发视英雄解锁数据请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="heros"></param>
+	public static void SendHeroUnlockReq(int pid, List<int> heros)
+	{
+		HeroUnlockPktReq req = new HeroUnlockPktReq();
+		req.m_iPid = pid;
+		req.m_lstHeros = heros;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }

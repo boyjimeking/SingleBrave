@@ -19,13 +19,21 @@ public class AccountAutoRegistPacketReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.AUTO_REGIST_REQ;
     }
 
-//    /// <summary>
-//    /// 获取请求参数
-//    /// </summary>
-//    /// <returns></returns>
-//    public override string GetRequire()
-//    {
-//        return "";
-//    }
+}
 
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 角色信息请求
+	/// </summary>
+	public static void SendAccountAutoRegistReq()
+	{
+		AccountAutoRegistPacketReq req = new AccountAutoRegistPacketReq();
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 }

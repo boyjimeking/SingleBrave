@@ -20,25 +20,21 @@ class HeroEvolutionPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.HERO_EVOLUTION_REQ;
     }
+}
 
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID + "&";
-    //     reqStr += "hero_id=" + m_iHeroID;
-    //     //reqStr += "hero_id=" + m_iHeroID + "&";
-    //     //reqStr += "sacrifice=";
-    //     //for (int i = 0; i < m_iCostHeroIDs.Count; i++)
-    //     //{
-    //     //    reqStr += m_iCostHeroIDs[i].ToString();
 
-    //     //    if (0 < (m_iCostHeroIDs.Count - 1))
-    //     //    {
-    //     //        reqStr += "|";
-    //     //    }
-    //     //}
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	public static void SendHeroEvolution(int pid, int heroID)
+	{
+		HeroEvolutionPktReq req = new HeroEvolutionPktReq();
+		req.m_iPID = pid;
+		req.m_iHeroID = heroID;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
 }

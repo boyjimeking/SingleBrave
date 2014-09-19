@@ -23,16 +23,24 @@ public class AccountLoginIOSPPPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.ACCOUNT_IOS_PP_LOGIN;
     }
+}
 
-    // /// <summary>
-    // /// 获取需求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "";
-    //     req += "pp_uid=" + this.m_iPPUid + "&token=" + this.m_strToken;
-    //     return req;
-    // }
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送PP助手登录
+	/// </summary>
+	public static void SendAccountIOSPPLogin( int uid , string token )
+	{
+		AccountLoginIOSPPPktReq req = new AccountLoginIOSPPPktReq();
+		req.m_iPPUid = uid;
+		req.m_strToken = token;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }
+

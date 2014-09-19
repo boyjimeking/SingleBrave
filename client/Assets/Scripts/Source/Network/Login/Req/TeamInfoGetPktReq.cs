@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Game.Network;
 
@@ -17,17 +17,25 @@ public class TeamInfoGetPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.GET_TEAMS_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}", m_iPid);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-    //     return req;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 获取玩家队伍信息
+	/// </summary>
+	/// <param name="pid">玩家Pid</param>
+	public static void SendTeamInfoGetPktReq(int pid)
+	{
+		TeamInfoGetPktReq req = new TeamInfoGetPktReq();
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
 }

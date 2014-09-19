@@ -17,17 +17,27 @@ public class PlayerInfoGetPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.GET_PLAYINFO_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "uid=" + this.m_iUID;
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }
+
+
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 获取玩家信息请求
+	/// </summary>
+	public static void SendPlayerInfoGetPktReq(int uid )
+	{
+		PlayerInfoGetPktReq req = new PlayerInfoGetPktReq();
+		req.m_iUID = uid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+
+

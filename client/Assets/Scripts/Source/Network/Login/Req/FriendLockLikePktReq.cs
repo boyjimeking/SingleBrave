@@ -20,19 +20,22 @@ public class FriendLockLikePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.FRIEND_LOCKLIKE_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID;
-    //     reqStr += "&friends=" + m_lstFriendPID[0];
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	//发送好友标志喜欢//
+	public static void SendFriendLockLikeReq(int pid, List<int> lstFriendPID)
+	{
+		FriendLockLikePktReq req = new FriendLockLikePktReq();
+		req.m_iPID = pid;
+		req.m_lstFriendPID = lstFriendPID;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

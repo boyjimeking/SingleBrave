@@ -23,17 +23,30 @@ public class ActivityBattleStartPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.ACTIVITY_BATTLE_START_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + this.m_iPid + "&fuben_id=" + this.m_iFubenID + "&gate_index=" + this.m_iGateIndex;
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送活动战斗开始请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="fubenid"></param>
+	/// <param name="gateIndex"></param>
+	public static void SendActivityBattleStartReq(int pid, int fubenid, int gateIndex)
+	{
+		ActivityBattleStartPktReq req = new ActivityBattleStartPktReq();
+		req.m_iPid = pid;
+		req.m_iFubenID = fubenid;
+		req.m_iGateIndex = gateIndex;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+
+

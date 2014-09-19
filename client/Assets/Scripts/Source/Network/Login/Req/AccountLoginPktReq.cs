@@ -21,13 +21,29 @@ public class AccountLoginPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.ACCOUNT_LOGIN_REQ;
     }
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     return "username="+this.m_strUserName+"&password=" + this.m_strPassword;
-    // }
+}
+
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 帐号登录
+	/// </summary>
+	/// <param name="userName"></param>
+	/// <param name="password"></param>
+	public static void SendAccountLogin(string userName, string password)
+	{
+		AccountLoginPktReq req = new AccountLoginPktReq();
+		req.m_strUserName = userName;
+		req.m_strPassword = password;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }
+
+

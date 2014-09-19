@@ -62,7 +62,7 @@ public class SessionManager : Singleton<SessionManager>
     /// </summary>
     /// <param name="index"></param>
     /// <param name="packet"></param>
-    public void Send(SESSION_DEFINE index, HTTPPacketRequest packet)
+    public void Send(SESSION_DEFINE index, HTTPPacketRequest packet , Action<HTTPPacketAck> handle = null , IHttpSession.PROCESS_HANDLE process_handle = null)
     {
         if (this.m_vecSession.Length <= (int)index)
         {
@@ -73,7 +73,7 @@ public class SessionManager : Singleton<SessionManager>
         {
             GUI_FUNCTION.LOADING_SHOW();
         }
-		this.m_vecSession[(int)index].SendGET<HTTPPacketAck>(packet);
+		this.m_vecSession[(int)index].SendGET<HTTPPacketAck>(packet,handle,process_handle);
     }
 
     /// <summary>

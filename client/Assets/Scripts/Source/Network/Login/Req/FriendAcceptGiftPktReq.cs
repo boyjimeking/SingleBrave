@@ -22,33 +22,22 @@ public class FriendAcceptGiftPktReq : HTTPPacketRequest
         this.m_vecWantsGift = new int[3];
         this.m_strAction = PACKET_DEFINE.FRIEND_ACCEPTGIFT_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID;
-    //     reqStr += "&wantsGift=" + this.m_vecWantsGift[0];
-    //     for (int i = 1; i<this.m_vecWantsGift.Length ; i++  )
-    //     {
-    //         reqStr += "|" + this.m_vecWantsGift[i];
-    //     }
-    //     reqStr += "&gifts=";
-    //     for (int i = 0; i < m_lstFriendGifts.Count; i++)
-    //     {
-    //         reqStr += m_lstFriendGifts[i];
 
-    //         if (i < (m_lstFriendGifts.Count - 1))
-    //         {
-    //             reqStr += "|";
-    //         }
-    //     }
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	//接受好友礼物//
+	public static void SendFriendAcceptGift(int pid, int[] vecWants , List<int> lstGifts)
+	{
+		FriendAcceptGiftPktReq req = new FriendAcceptGiftPktReq();
+		req.m_iPID = pid;
+		req.m_vecWantsGift = vecWants;
+		req.m_lstFriendGifts = lstGifts;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

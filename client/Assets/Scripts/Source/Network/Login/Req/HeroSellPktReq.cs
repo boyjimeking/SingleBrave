@@ -18,27 +18,27 @@ public class HeroSellPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.HERO_SELL_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string data = string.Empty;
-    //     foreach (var item in m_vecHeros)
-    //     {
-    //         data += item.ToString() + "|";
-    //     }
-    //     if (data.EndsWith("|"))
-    //     {
-    //         data = data.Remove(data.Length - 1);
-    //     }
 
-    //     string req = string.Format("pid={0}&heros={1}", m_iPid.ToString(), data);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 出售英雄数据请求
+	/// </summary>
+	/// <param name="pid">玩家ID</param>
+	/// <param name="heroIds">要出售的英雄ID数组</param>
+	public static void SendHeroSellPktReq(int pid, int[] heroIds)
+	{
+		HeroSellPktReq req = new HeroSellPktReq();
+		req.m_iPid = pid;
+		req.m_vecHeros = heroIds;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

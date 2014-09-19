@@ -25,24 +25,27 @@ public class ActivityBattleFailPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.ACTIVITY_BATTLE_FAIL_REQ;
     }
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "";
-    //     req += "pid=" + this.m_iPID + "&battle_id=" + this.m_iBattleID;
-    //     req += "&readyitem=" + this.m_vecReadyItemNum[0];
-    //     for (int i = 1; i < this.m_vecReadyItemNum.Length; i++)
-    //     {
-    //         req += "|" + this.m_vecReadyItemNum[i];
-    //     }
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
-
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送活动战斗失败
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="vecItemNum"></param>
+	public static void SendActivityBattleFail(int pid , int battle_id , int[] vecItemNum)
+	{
+		ActivityBattleFailPktReq req = new ActivityBattleFailPktReq();
+		req.m_iPID = pid;
+		req.m_iBattleID = battle_id;
+		req.m_vecReadyItemNum = vecItemNum;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+}
+
 

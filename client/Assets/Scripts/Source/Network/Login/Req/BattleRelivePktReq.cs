@@ -24,17 +24,27 @@ public class BattleRelivePktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.BATTLE_RELIVE_REQ;
     }
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + this.m_iPID + "&num=" + this.m_iReliveNum;
+}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
 
-    //     return req;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送战斗复活
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="num"></param>
+	public static void SendBattleRelive(int pid, int num)
+	{
+		BattleRelivePktReq req = new BattleRelivePktReq();
+		req.m_iPID = pid;
+		req.m_iReliveNum = num;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }
+
+

@@ -18,15 +18,26 @@ public class PlayerSignatureUpdatePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.SIGN_UPDATE_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}&signature={1}", m_iPid.ToString(), m_strSign);
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-    //     return req;
-    // }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 更新签名请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="signature"></param>
+	public static void SendSignatureUpdateReq(int pid, string signature)
+	{
+		PlayerSignatureUpdatePktReq req = new PlayerSignatureUpdatePktReq();
+		req.m_strSign = signature;
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
 }

@@ -19,17 +19,23 @@ public class PVPEnemyGet5PktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PVP_ENEMY_GET_5_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}", m_iPid.ToString());
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送竞技场5位对手获取请求
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendPVPEnemyGet5Req(int pid)
+	{
+		PVPEnemyGet5PktReq req = new PVPEnemyGet5PktReq();
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

@@ -21,17 +21,26 @@ public class PlayerCreatePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.CREATE_PLAY_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("uid={0}&nickname={1}&select_hero_index={2}&deviceID={3}&channel={4}", m_strUID, m_strNickName, m_iSelectHeroIndex,this.m_strDeviceID , this.m_strChannel);
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 创建玩家请求
+	/// </summary>
+	public static void SendPlayerCreatePktReq(string nickName, int uid, int select_hero_index)
+	{
+		PlayerCreatePktReq req = new PlayerCreatePktReq();
+		req.m_strNickName = nickName;
+		req.m_strUID = uid;
+		req.m_iSelectHeroIndex = select_hero_index;
+		req.m_strChannel = PlatformManager.GetInstance().GetChannelName();
+		req.m_strDeviceID = PlatformManager.GetInstance().GetDeviceID();
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+}
+

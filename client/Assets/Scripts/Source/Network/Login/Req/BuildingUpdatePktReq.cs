@@ -22,29 +22,32 @@ public class BuildingUpdatePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.BUILDING_UPDATE_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string data = string.Empty;
 
-    //     for (int i = 0; i < m_lstBuildType.Count; i++)
-    //     {
-    //         data += m_lstBuildType[i] + ":" + m_lstBuildLevel[i] + ":" + m_lstBuildFarmPoint[i] + "|";
-    //     }
-    //     if (data.EndsWith("|"))
-    //     {
-    //         data = data.Remove(data.Length - 1);
-    //     }
 
-    //     string req = string.Format("pid={0}&build_infos={1}&farmpoint={2}",
-    //         m_iPID, data, m_iFarmPoint);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送更新建筑等级数据
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="buildType"></param>
+	/// <param name="buildLevel"></param>
+	/// <param name="buildExp"></param>
+	/// <param name="farmpoint"></param>
+	public static void SendBuildingUpdateReq(int pid, List<int> buildType, List<int> buildLevel, List<int> buildExp, int farmpoint)
+	{
+		BuildingUpdatePktReq req = new BuildingUpdatePktReq();
+		req.m_iPID = pid;
+		req.m_iFarmPoint = farmpoint;
+		req.m_lstBuildType = buildType;
+		req.m_lstBuildLevel = buildLevel;
+		req.m_lstBuildFarmPoint = buildExp;
+		SessionManager.GetInstance().SendReady(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }

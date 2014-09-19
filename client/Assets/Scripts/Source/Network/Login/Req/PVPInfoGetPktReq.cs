@@ -18,17 +18,23 @@ public class PVPInfoGetPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PVP_INFO_GET_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}", m_iPid.ToString());
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送竞技场基本信息请求
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendPVPInfoGetReq(int pid)
+	{
+		PVPInfoGetPktReq req = new PVPInfoGetPktReq();
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

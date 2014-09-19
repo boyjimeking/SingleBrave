@@ -23,17 +23,29 @@ public class PayIOSPPVerifyPktReq :HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PAY_IOS_PP_VERIFY;
     }
-
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid=" + this.m_iPID + "&pay_id=" + this.m_iPayID;
-
-    //     req = PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
 }
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// IOS PP助手验证
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="payid"></param>
+	/// <param name="verify"></param>
+	public static void SendPayIOSPPVerify(int pid, int payid)
+	{
+		PayIOSPPVerifyPktReq req = new PayIOSPPVerifyPktReq();
+		req.m_iPID = pid;
+		req.m_iPayID = payid;
+		//req.m_strVerify = verify;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+
+

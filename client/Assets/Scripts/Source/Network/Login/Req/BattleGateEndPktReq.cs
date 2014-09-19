@@ -46,51 +46,59 @@ public class BattleGateEndPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.BATTLE_GATE_END_REQ;
     }
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "";
+}
 
-    //     req = "pid="+this.m_iPid + "&battle_id=" + this.m_iBattleID +"&world_id="+this.m_iWorldID+"&area_index="+this.m_iAreaIndex+"&fuben_index="+this.m_iFubenIndex+"&gate_index="+this.m_iGateIndex;
-    //     req += "&gold=" + this.m_iGold + "&farmpoint=" + this.m_iFarm + "&friendbattle_id=" + m_iFriendBattleID;
 
-    //     //统计信息
-    //     req += "&max_shuijing=" + this.m_iRecordMaxShuijingNum + "&total_shuijing=" + this.m_iTotalShuijingNum + "&max_xin=" + this.m_iRecordMaxXinNum + "&total_xin=" + this.m_iTotalXinNum +
-    //         "&round_max_hurt=" + this.m_iRoundMaxHurt + "&round_spark_num=" + this.m_iRoundMaxSparkNum + "&total_spark_num=" + this.m_iTotalSparkNum + "&total_skill_num=" + this.m_iTotalSkillNum +
-    //         "&total_box_monster=" + this.m_iTotalBoxMonsterNum;
-
-    //     req += "&heros=";
-    //     if (this.m_lstHero != null && this.m_lstHero.Count > 0)
-    //     {
-    //         req += this.m_lstHero[0];
-    //         for (int i = 1; i < this.m_lstHero.Count; i++)
-    //         {
-    //             req += "|" + this.m_lstHero[i];
-    //         }
-    //     }
-
-    //     req += "&items=";
-    //     if ( this.m_lstItem != null && this.m_lstItem.Count > 0)
-    //     {
-    //         req += this.m_lstItem[0] + ":" + this.m_lstItemNum[0];
-    //         for (int i = 1; i < this.m_lstItem.Count; i++)
-    //         {
-    //             req += "|" + this.m_lstItem[i] + ":" + this.m_lstItemNum[i];
-    //         }
-    //     }
-
-    //     req += "&readyitem=" + this.m_vecConsume[0];
-    //     for (int i = 1; i < this.m_vecConsume.Length; i++)
-    //     {
-    //         req += "|" + this.m_vecConsume[i];
-    //     }
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
-
-    //     return req;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送战斗关卡结束请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="worldid"></param>
+	/// <param name="areaIndex"></param>
+	/// <param name="fubenIndex"></param>
+	/// <param name="gateIndex"></param>
+	/// <param name="gold"></param>
+	/// <param name="farm"></param>
+	/// <param name="heros"></param>
+	/// <param name="items"></param>
+	/// <param name="itemsNum"></param>
+	/// <param name="readyItem"></param>
+	public static void SendBattleGateEndReq(int pid , int battle_id , int worldid, int areaIndex, int fubenIndex, int gateIndex, int gold, int farm, int friendbattle_id, List<int> heros, List<int> items, List<int> itemsNum, int[] readyItem,
+	                                        int RecordMaxShuijingNum, int TotalShuijingNum, int RecordMaxXinNum, int TotalXinNum, int RoundMaxHurt, int RoundMaxSparkNum, int TotalSparkNum, int TotalSkillNum , int totalBoxMonster)
+	{
+		BattleGateEndPktReq req = new BattleGateEndPktReq();
+		req.m_iPid = pid;
+		req.m_iBattleID = battle_id;
+		req.m_iWorldID = worldid;
+		req.m_iAreaIndex = areaIndex;
+		req.m_iFubenIndex = fubenIndex;
+		req.m_iGateIndex = gateIndex;
+		req.m_iGold = gold;
+		req.m_iFarm = farm;
+		req.m_iFriendBattleID = friendbattle_id;
+		req.m_lstHero = heros;
+		req.m_lstItem = items;
+		req.m_lstItemNum = itemsNum;
+		req.m_vecConsume = readyItem;
+		
+		//统计
+		req.m_iRecordMaxShuijingNum = RecordMaxShuijingNum;
+		req.m_iTotalShuijingNum = TotalShuijingNum;
+		req.m_iRecordMaxXinNum = RecordMaxXinNum;
+		req.m_iTotalXinNum = TotalXinNum;
+		req.m_iRoundMaxHurt = RoundMaxHurt;
+		req.m_iRoundMaxSparkNum = RoundMaxSparkNum;
+		req.m_iTotalSparkNum = TotalSparkNum;
+		req.m_iTotalSkillNum = TotalSkillNum;
+		req.m_iTotalBoxMonsterNum = totalBoxMonster;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

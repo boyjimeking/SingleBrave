@@ -36,40 +36,46 @@ public class PVPBattleEndPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PVP_BATTLE_END_REQ;
     }
-
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string str = "" + string.Format("pid={0}&battle_id={1}&result={2}", this.m_iPid, this.m_iBattleID, this.m_iResult);
-
-    //     str += "&kill_hero=";
-    //     for (int i = 0; i < this.m_lstKillHeroTableID.Count; i++ )
-    //     {
-    //         if (i == 0)
-    //         {
-    //             str += this.m_lstKillHeroTableID[i];
-    //         }
-    //         else
-    //         {
-    //             str += "|" + this.m_lstKillHeroTableID[i];
-    //         }
-    //     }
-    //     str += "&tpid=" + this.m_iTpid;
-    //     str += "&skill_kill="+this.m_iTotalSkillKillNum;
-    //     str += "&super_hurt=" + this.m_iTotalSuperHurt;
-    //     str += "&round_maxhurt=" + this.m_iRoundMaxHurt;
-    //     str += "&round_maxspark=" + this.m_iRoundMaxSpark;
-    //     str += "&total_hurt=" + this.m_iTotalHurt;
-    //     str += "&total_recover=" + this.m_iTotalRecover;
-    //     str += "&total_spark=" + this.m_iTotalSpark;
-    //     str += "&total_skill=" + this.m_iTotalSkillNum;
-    //     str += "&win_type=" + this.m_iWinType;
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref str);
-
-    //     return str;
-    // }
 }
+
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送战斗结束
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="battle_id"></param>
+	/// <param name="result"></param>
+	public static void SendPVPBattleEnd(int pid , int tpid , int battle_id, int result ,
+	                                    List<int> killHeros , int totalSkillKillNum , int totalSuperHurt , int roundMaxHurt , int roundMaxSpark ,
+	                                    int totalHurt , int totalRecover , int totalSpark , int totalSkillNum , int winType
+	                                    )
+	{
+		
+		PVPBattleEndPktReq req = new PVPBattleEndPktReq();
+		req.m_iPid = pid;
+		req.m_iTpid = tpid;
+		req.m_iBattleID = battle_id;
+		req.m_iResult = result;
+		req.m_lstKillHeroTableID = killHeros;
+		req.m_iTotalSkillKillNum = totalSkillKillNum;
+		req.m_iTotalSuperHurt = totalSuperHurt;
+		req.m_iRoundMaxHurt = roundMaxHurt;
+		req.m_iRoundMaxSpark = roundMaxSpark;
+		req.m_iTotalHurt = totalHurt;
+		req.m_iTotalRecover = totalRecover;
+		req.m_iTotalSpark = totalSpark;
+		req.m_iTotalSkillNum = totalSkillNum;
+		req.m_iWinType = winType;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
+}
+
+

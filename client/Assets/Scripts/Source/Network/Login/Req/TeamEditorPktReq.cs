@@ -22,36 +22,28 @@ public class TeamEditorPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.TEAM_EDITOR_REQ;
     }
-
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + this.m_iPid + "&";
-
-    //     for (int i = 0; i < m_teams.Count; i++)
-    //     {
-    //         reqStr += "t" + i.ToString() + "=";
-
-    //         for (int j = 0; j < m_teams[i].Length; j++)
-    //         {
-    //             reqStr += m_teams[i][j].ToString();
-
-    //             if (j < (m_teams[i].Length - 1))
-    //             {
-    //                 reqStr += "|";
-    //             }
-    //         }
-
-    //         reqStr += "&";
-    //     }
-
-    //     reqStr += "select_team=" + m_selectTeam;
-
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
 }
+
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送队伍编辑数据
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendTeamEditor(int pid, List<int[]> teams, int teamID)
+	{
+		TeamEditorPktReq req = new TeamEditorPktReq();
+		req.m_iPid = pid;
+		req.m_teams = teams;
+		req.m_selectTeam = teamID;
+		
+		SessionManager.GetInstance().SendReady(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+}
+

@@ -15,18 +15,25 @@ public class PlayerStrengthRecoverPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.STRENGTH_RECOVER_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}", this.m_iPid);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送体力恢复
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendStrengthRecoverReq(int pid)
+	{
+		PlayerStrengthRecoverPktReq req = new PlayerStrengthRecoverPktReq();
+		req.m_iPid = pid;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }
 

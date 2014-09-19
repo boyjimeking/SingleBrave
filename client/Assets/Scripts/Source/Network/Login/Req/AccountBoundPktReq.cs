@@ -27,15 +27,30 @@ public class AccountBoundPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.ACCOUNT_BOUND_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string str = "username=" + this.m_strUser + "&password=" + this.m_strPassword + "&ua=" + this.m_strNewUser + "&pswd=" + this.m_strNewPassword;
-    //     return str;
-    // }
 
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送帐号绑定请求
+	/// </summary>
+	/// <param name="userName"></param>
+	/// <param name="passWord"></param>
+	/// <param name="newUsername"></param>
+	/// <param name="newPassword"></param>
+	public static void SendAccountBoundReq(string userName, string passWord, string newUsername, string newPassword)
+	{
+		AccountBoundPktReq req = new AccountBoundPktReq();
+		req.m_strUser = userName;
+		req.m_strPassword = passWord;
+		req.m_strNewUser = newUsername;
+		req.m_strNewPassword = newPassword;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 }

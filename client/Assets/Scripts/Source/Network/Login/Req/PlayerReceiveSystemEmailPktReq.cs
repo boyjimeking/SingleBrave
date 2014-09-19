@@ -16,18 +16,25 @@ public class PlayerReceiveSystemEmailPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.PLAYER_RECEIVE_SYSTEM_MAIL_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = string.Format("pid={0}&gifts={1}", this.m_iPlayerId, m_strGiftIds);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送接收系统礼物请求
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendPlayerReceiveSystemGift(int pid, string giftIds)
+	{
+		PlayerReceiveSystemEmailPktReq req = new PlayerReceiveSystemEmailPktReq();
+		req.m_iPlayerId = pid;
+		req.m_strGiftIds = giftIds;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }
 

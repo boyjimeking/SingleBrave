@@ -20,19 +20,21 @@ public class FriendUnlockLikePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.FRIEND_UNLOCKLIKE_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID;
-    //     reqStr += "&friends=" + m_lstFriendPID[0];
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	//发送好友喜欢解锁//
+	public static void SendFriendUnlockLikeReq(int pid, List<int> lstFriendPID)
+	{
+		FriendUnlockLikePktReq req = new FriendUnlockLikePktReq();
+		req.m_iPID = pid;
+		req.m_lstFriendPID = lstFriendPID;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

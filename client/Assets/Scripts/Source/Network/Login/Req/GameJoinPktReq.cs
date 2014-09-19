@@ -26,15 +26,27 @@ public class GameJoinPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.GAME_JOIN_REQ;
     }
 
-    // /// <summary>
-    // /// 后去请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "";
-    //     req = "device_id=" + this.m_strDeviceID + "&channel_id=" + this.m_strChannelName;
-    //     return req;
-    // }
+}
+
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送游戏加入数据
+	/// </summary>
+	/// <param name="deviceID"></param>
+	/// <param name="channelName"></param>
+	public static void SendGameJoin(string deviceID, string channelName)
+	{
+		GameJoinPktReq req = new GameJoinPktReq();
+		req.m_strDeviceID = deviceID;
+		req.m_strChannelName = channelName;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }
+
+

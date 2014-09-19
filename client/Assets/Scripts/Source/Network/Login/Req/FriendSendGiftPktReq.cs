@@ -21,27 +21,21 @@ public class FriendSendGiftPktReq : HTTPPacketRequest
         this.m_strAction = PACKET_DEFINE.FRIEND_SENDGIFT_REQ;
     }
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID;
-    //     reqStr += "&sendinfo=";
-    //     for (int i = 0; i < m_lstFriendSendData.Count; i++)
-    //     {
-    //         reqStr += m_lstFriendSendData[i].m_iFriendID + ":" + m_lstFriendSendData[i].m_iGiftID;
+}
 
-    //         if (i < (m_lstFriendSendData.Count - 1))
-    //         {
-    //             reqStr += "|";
-    //         }
-    //     }
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
-
-    //     return reqStr;
-    // }
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	//赠送好友礼物//
+	public static void SendFriendSendGift(int pid, List<FriendSendData> lstFriendSendData)
+	{
+		FriendSendGiftPktReq req = new FriendSendGiftPktReq();
+		req.m_iPID = pid;
+		req.m_lstFriendSendData = lstFriendSendData;
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
 }

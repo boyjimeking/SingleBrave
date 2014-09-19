@@ -26,17 +26,33 @@ public class BattleGateStartPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.BATTLE_GATE_START_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string req = "pid="+this.m_iPid+"&world_id="+this.m_iWorldID+"&area_index="+this.m_iAreaIndex+"&fuben_index="+this.m_iFubenIndex+"&gate_index="+this.m_iGateIndex;
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送战斗关卡开始请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="worldid"></param>
+	/// <param name="areaIndex"></param>
+	/// <param name="fubenIndex"></param>
+	/// <param name="gateIndex"></param>
+	public static void SendBattleGateStartReq(int pid, int worldid, int areaIndex, int fubenIndex, int gateIndex)
+	{
+		BattleGateStartPktReq req = new BattleGateStartPktReq();
+		req.m_iPid = pid;
+		req.m_iWorldID = worldid;
+		req.m_iAreaIndex = areaIndex;
+		req.m_iFubenIndex = fubenIndex;
+		req.m_iGateIndex = gateIndex;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

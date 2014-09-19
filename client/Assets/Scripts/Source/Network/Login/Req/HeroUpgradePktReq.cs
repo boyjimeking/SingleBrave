@@ -23,28 +23,28 @@ public class HeroUpgradePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.HERO_UPGRADE_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取数据
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string reqStr = "pid=" + m_iPID + "&";
-    //     reqStr += "hero_id=" + m_iHeroID + "&";
-    //     reqStr += "sacrifice=";
-    //     for (int i = 0; i < m_iCostHeroIDs.Count; i++)
-    //     {
-    //         reqStr += m_iCostHeroIDs[i].ToString();
 
-    //         if (0 < (m_iCostHeroIDs.Count - 1))
-    //         {
-    //             reqStr += "|";
-    //         }
-    //     }
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref reqStr);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 发送英雄升级数据
+	/// </summary>
+	/// <param name="pid"></param>
+	public static void SendHeroUpgrade(int pid, int heroID, List<int> costHeroIDs)
+	{
+		HeroUpgradePktReq req = new HeroUpgradePktReq();
+		req.m_iPID = pid;
+		req.m_iHeroID = heroID;
+		req.m_iCostHeroIDs = costHeroIDs;
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return reqStr;
-    // }
 }

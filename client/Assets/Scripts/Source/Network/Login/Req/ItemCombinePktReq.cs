@@ -20,27 +20,29 @@ public class ItemCombinePktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.ITEM_COMBINED_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求参数
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     string data = string.Empty;
-    //     for (int i = 0; i < m_iCombinedId.Count; i++)
-    //     {
-    //         data += m_iCombinedId[i] + ":" + m_iCombineNum[i] + "|";
-    //     }
-    //     if (data.EndsWith("|"))
-    //     {
-    //         data = data.Remove(data.Length - 1);
-    //     }
 
-    //     string req = string.Format("pid={0}&combines={1}", m_iPid.ToString(), data);
 
-    //     PACKET_HEAD.PACKET_REQ_END(ref req);
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	
+	/// <summary>
+	/// 合成物品请求
+	/// </summary>
+	/// <param name="pid"></param>
+	/// <param name="ItemIds"></param>
+	/// <param name="ItemNums"></param>
+	public static void SendItemCombinedReq(int pid, List<int> ItemIds, List<int> ItemNums)
+	{
+		ItemCombinePktReq req = new ItemCombinePktReq();
+		req.m_iPid = pid;
+		req.m_iCombinedId = ItemIds;
+		req.m_iCombineNum = ItemNums;
+		SessionManager.GetInstance().SendReady(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
 
-    //     return req;
-    // }
 }

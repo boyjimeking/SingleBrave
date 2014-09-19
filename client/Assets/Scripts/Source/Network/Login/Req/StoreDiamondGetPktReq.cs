@@ -14,14 +14,23 @@ public class StoreDiamondGetPktReq : HTTPPacketRequest
     {
         this.m_strAction = PACKET_DEFINE.STORE_DIAMOND_GET_REQ;
     }
+}
 
-    // /// <summary>
-    // /// 获取请求
-    // /// </summary>
-    // /// <returns></returns>
-    // public override string GetRequire()
-    // {
-    //     return base.GetRequire();
-    // }
+
+/// <summary>
+/// 发送代理
+/// </summary>
+public partial class SendAgent
+{
+	/// <summary>
+	/// 发送获取商场钻石价格
+	/// </summary>
+	public static void SendStoreDiamondPrice()
+	{
+		StoreDiamondGetPktReq req = new StoreDiamondGetPktReq();
+		
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+	}
+
 }
 
