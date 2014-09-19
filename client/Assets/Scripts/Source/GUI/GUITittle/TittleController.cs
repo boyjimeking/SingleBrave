@@ -12,7 +12,7 @@ using Game.Media;
 /// <summary>
 /// 标题GUI
 /// </summary>
-public class TittleController : UIControllerBase
+public class TittleController : CController
 {
 	/// <summary>
 	/// Gets the layer.
@@ -24,14 +24,26 @@ public class TittleController : UIControllerBase
 	}
 
 	/// <summary>
+	/// Gets the root path.
+	/// </summary>
+	/// <returns>The root path.</returns>
+	public override GameObject GetAnchor ()
+	{
+		return GUI_DEFINE.ANCHOR_CENTER;
+	}
+
+	/// <summary>
 	/// Init this instance.
 	/// </summary>
 	public override void Init()
 	{
 		base.Init();
+		
+		GameObject go = GameObject.Instantiate(TittlePage.s_cView.m_mapRes[TittlePage.RES_MAIN] as GameObject) as GameObject;
+		SET_PARENT(go,this,true);
+		TittlePage.s_cView.Init();
 
-		GUIComponentEvent gui_event = TittlePage.s_cView.Button.AddComponent<GUIComponentEvent>();
-		gui_event.AddIntputDelegate(OnButton);
+		RegistEvent(TittlePage.s_cView.Button , OnButton);
 		MediaMgr.sInstance.PlayBGM(SOUND_DEFINE.BGM_MAIN);
 	}
 
@@ -39,9 +51,9 @@ public class TittleController : UIControllerBase
     /// on tittle button
     /// </summary>
     /// <param name="arg"></param>
-    private void OnButton(GUI_INPUT_INFO info, object[] arg)
+	private void OnButton(INPUT_INFO info, object[] arg)
     {
-        if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
+		if (info.m_eType == INPUT_TYPE.CLICK )
         {
             MediaMgr.sInstance.PlaySE(SOUND_DEFINE.SE_TITTLE_JOIN_IN);
             PlatformManager.GetInstance().Login();

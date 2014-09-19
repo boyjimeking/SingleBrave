@@ -47,6 +47,15 @@ public class GUI_DEFINE
     public const string GUI_ANCHOR_TOP_LEFT = "ROOT/ANCHOR_TOP_LEFT";   //顶左点
     public const string GUI_ANCHOR_BOTTOM_LEFT = "ROOT/ANCHOR_BOTTOM_LEFT"; //下左点
     public const string GUI_ANCHOR_BOTTOM_RIGHT = "ROOT/ANCHOR_BOTTOM_RIGHT";   //下右点
+	public static GameObject ANCHOR_CENTER{get{return GameObject.Find(GUI_ANCHOR_CENTER);}}	//居中顶点
+	public static GameObject ANCHOR_TOP{get{return GameObject.Find(GUI_ANCHOR_TOP);}}         //上顶点
+	public static GameObject ANCHOR_BOTTOM{get{return GameObject.Find(GUI_ANCHOR_BOTTOM);}}   //下顶点
+	public static GameObject ANCHOR_LEFT{get{return GameObject.Find(GUI_ANCHOR_LEFT);}}       //左顶点
+	public static GameObject ANCHOR_RIGHT{get{return GameObject.Find(GUI_ANCHOR_RIGHT);}}     //右顶点
+	public static GameObject ANCHOR_TOP_RIGHT{get{return GameObject.Find(GUI_ANCHOR_TOP_RIGHT);}} //顶右点
+	public static GameObject ANCHOR_TOP_LEFT{get{return GameObject.Find(GUI_ANCHOR_TOP_LEFT);}}   //顶左点
+	public static GameObject ANCHOR_BOTTOM_LEFT{get{return GameObject.Find(GUI_ANCHOR_BOTTOM_LEFT);}} //下左点
+	public static GameObject ANCHOR_BOTTOM_RIGHT{get{return GameObject.Find(GUI_ANCHOR_BOTTOM_RIGHT);}}   //下右点
 
     //战斗场景特效父节点
     public const string SCENE_EFFECT_OBJECT = "Effect";   //场景特效父节点

@@ -26,14 +26,5 @@ public class TittlePage : CPage<TittlePage,TittleView,TittleController>
 		collect.m_delCompleteCallback = OnLoadComplete;
 		collect.RequestPrefab(RES_MAIN);
 	}
-
-	/// <summary>
-	/// Raises the load complete event.
-	/// </summary>
-	/// <param name="resMap">Res map.</param>
-	public void OnLoadComplete(Dictionary<string , object> resMap)
-	{
-		Init();
-	}
 }
 
