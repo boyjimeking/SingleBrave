@@ -1,4 +1,4 @@
-﻿//  GUIEvolution.cs
+//  GUIEvolution.cs
 //  Author: Cheng Xia
 //  2013-12-30
 
@@ -17,7 +17,7 @@ using Game.Base;
 public class GUIHeroEvolutionMain : GUIHeroSelectBase
 {
     public GUIHeroEvolutionMain(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_EVOLUTION, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_EVOLUTION, UILAYER.GUI_PANEL)
     {}
 
     public override void Show()

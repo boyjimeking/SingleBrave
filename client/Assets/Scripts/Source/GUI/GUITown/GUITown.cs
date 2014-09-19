@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -379,7 +379,7 @@ public class GUITown : GUIBase
     private bool m_bTownBlack = true;
 
     public GUITown(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_TOWN, GUILAYER.GUI_BACKGROUND)
+        : base(guiMgr, GUI_DEFINE.GUIID_TOWN, UILAYER.GUI_BACKGROUND)
     { }
 
     /// <summary>

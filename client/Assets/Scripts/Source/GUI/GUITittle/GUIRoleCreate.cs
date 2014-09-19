@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Collections;
@@ -31,7 +31,7 @@ public class GUIRoleCreate : GUIBase
     private int m_iSelectHeroIndex;//选择的英雄索引
 
     public GUIRoleCreate(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ROLE_CREATE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ROLE_CREATE, UILAYER.GUI_PANEL)
     { 
         //
     }

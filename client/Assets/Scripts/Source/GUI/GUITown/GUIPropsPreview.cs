@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,7 @@ public class GUIPropsPreview : GUIItemSelectBase
     private GUIPropsPreviewDetail m_cItemDetail;
 
     public GUIPropsPreview(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_PROPSPREVIEW, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_PROPSPREVIEW, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

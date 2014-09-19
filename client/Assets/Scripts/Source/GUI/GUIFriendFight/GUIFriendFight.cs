@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +61,7 @@ public class GUIFriendFight : GUIBase
     private bool m_bHasShow = false;  //加载过showobject
 
     public GUIFriendFight(GUIManager guimgr)
-        : base(guimgr, GUI_DEFINE.GUIID_FRIENDFIGHT, GUILAYER.GUI_PANEL)
+        : base(guimgr, GUI_DEFINE.GUIID_FRIENDFIGHT, UILAYER.GUI_PANEL)
     { 
         
     }

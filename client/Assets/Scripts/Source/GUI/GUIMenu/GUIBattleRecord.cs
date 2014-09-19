@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +34,7 @@ public class GUIBattleRecord : GUIBase
     private List<GameObject> m_lstRecordItems = new List<GameObject>();//滑动列表项
 
     public GUIBattleRecord(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLERECORD, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLERECORD, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

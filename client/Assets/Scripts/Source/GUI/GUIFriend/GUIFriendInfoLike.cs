@@ -1,4 +1,4 @@
-﻿//  GUIFRiendInfo.cs
+//  GUIFRiendInfo.cs
 //  Author: Cheng Xia
 //  2013-1-7
 
@@ -37,7 +37,7 @@ public class GUIFriendInfoLike : GUIBase
 
 
     public GUIFriendInfoLike(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDINFOLIKE, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDINFOLIKE, UILAYER.GUI_PANEL)
     {
     }
 

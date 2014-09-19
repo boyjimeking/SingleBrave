@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ public class GUIPropsSales : GUIItemSelectBase
     private GUIPropsSalesDetail m_cSaleDetail;
 
     public GUIPropsSales(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_PROPSSALES, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_PROPSSALES, UILAYER.GUI_PANEL)
     { }
 
     protected override void InitGUI()

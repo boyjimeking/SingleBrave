@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2014.2.11
 //sanvey.china@gmail.com
 
@@ -305,7 +305,7 @@ public class GUIArenaBattleResult : GUIBase
     }
 
     public GUIArenaBattleResult(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ANRENA_BATTLE_RESULT, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ANRENA_BATTLE_RESULT, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

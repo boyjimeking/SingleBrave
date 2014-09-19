@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +34,7 @@ public class GUIActivityBattle : GUIBattle
     private List<int> m_lstMonsterOrder = new List<int>();  //曾过去的序列
 
     public GUIActivityBattle(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ACTIVITY_BATTLE, GUILAYER.GUI_PANEL1)
+        : base(guiMgr, GUI_DEFINE.GUIID_ACTIVITY_BATTLE, UILAYER.GUI_PANEL1)
     { 
         //
     }

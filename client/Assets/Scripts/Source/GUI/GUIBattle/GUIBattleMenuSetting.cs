@@ -58,7 +58,7 @@ public class GUIBattleMenuSetting : GUIBase
     private GUIBattle m_cGUIBattle; //战斗UI
 
     public GUIBattleMenuSetting(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_SETTING, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_SETTING, UILAYER.GUI_PANEL3)
     { 
         //
     }

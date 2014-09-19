@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.27
 //sanvey.china@gmail.com
 
@@ -28,7 +28,7 @@ public class GUIBattleAddFriend : GUIBase
     private GameObject m_cBtnCancelFriend;
 
     public GUIBattleAddFriend(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_DUNGEON_BATTLE_FRIEND, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_DUNGEON_BATTLE_FRIEND, UILAYER.GUI_PANEL)
     {
     }
 

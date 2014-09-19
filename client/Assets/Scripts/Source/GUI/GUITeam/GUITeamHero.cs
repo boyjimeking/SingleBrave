@@ -1,4 +1,4 @@
-﻿//  GUITeamHero.cs
+//  GUITeamHero.cs
 //  Author: Cheng Xia
 //  2013-12-19
 
@@ -21,7 +21,7 @@ public class GUITeamHero : GUIHeroSelectBase
     private GameObject m_btnBack;
 
     public GUITeamHero(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_TEAMHERO, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_TEAMHERO, UILAYER.GUI_PANEL)
     {
     }
     /// <summary>

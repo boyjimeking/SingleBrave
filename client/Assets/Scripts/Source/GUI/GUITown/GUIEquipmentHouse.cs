@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,7 +76,7 @@ public class GUIEquipmentHouse : GUIBase
     private Vector4 m_cOldVec4 = Vector4.zero;
 
     public GUIEquipmentHouse(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_EQUIPMENTHOUSE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_EQUIPMENTHOUSE, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

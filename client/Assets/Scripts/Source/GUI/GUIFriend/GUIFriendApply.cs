@@ -1,4 +1,4 @@
-﻿//  GUIFriendApply.cs
+//  GUIFriendApply.cs
 //  Author: Cheng Xia
 //  2013-1-8
 
@@ -49,7 +49,7 @@ public class GUIFriendApply : GUIBase
     private bool m_bIsShowed;//判断是否要显示
 
     public GUIFriendApply(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDAPPLY, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDAPPLY, UILAYER.GUI_PANEL)
     {
     }
 

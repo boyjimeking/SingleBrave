@@ -366,7 +366,7 @@ public class GUIBattlePVP : IGUIBattle
     }
 
 
-    public GUIBattlePVP(GUIManager guiMgr, int guiid, GUILAYER layer)
+    public GUIBattlePVP(GUIManager guiMgr, int guiid, UILAYER layer)
         : base(guiMgr, guiid, layer)
     {
         this.m_strSceneName = "BATTLE_Scene9";

@@ -130,7 +130,7 @@ public class GUIHeroDetail : GUIBase
 
 
     public GUIHeroDetail(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HERODETAIL, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HERODETAIL, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

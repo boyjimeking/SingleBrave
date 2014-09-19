@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,7 +69,7 @@ public class GUIPropsAtlas : GUIBase
     private bool m_bHasShow = false;  //加载过showobject
 
     public GUIPropsAtlas(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_PROPSATLAS, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_PROPSATLAS, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

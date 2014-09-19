@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +37,7 @@ public class GUIAccount : GUIBase
     public BoxCollider Box; //盒子碰撞器
 
     public GUIAccount(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ACCOUNT, GUILAYER.GUI_PANEL2)
+        : base(guiMgr, GUI_DEFINE.GUIID_ACCOUNT, UILAYER.GUI_PANEL2)
     { 
         //
     }

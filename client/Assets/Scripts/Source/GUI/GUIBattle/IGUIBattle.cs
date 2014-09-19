@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +26,7 @@ public abstract class IGUIBattle : GUIBase
     public List<int> m_lstDropItem; //掉率物品
     public List<float> m_lstDropItemRate;   //掉落物品概率
 
-    public IGUIBattle(GUIManager guiMgr, int id, GUILAYER layer)
+    public IGUIBattle(GUIManager guiMgr, int id, UILAYER layer)
         : base(guiMgr, id, layer)
     { 
         //

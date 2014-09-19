@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +23,7 @@ public class GUIMessageS: GUIBase
 
 
     public GUIMessageS(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_MESSAGES, GUILAYER.GUI_MESSAGE)
+        : base(guiMgr, GUI_DEFINE.GUIID_MESSAGES, UILAYER.GUI_MESSAGE)
     {
         //
     }

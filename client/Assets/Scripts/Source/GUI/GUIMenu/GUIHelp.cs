@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +37,7 @@ public class GUIHelp : GUIBase
     private bool m_bHasShow = false;  //加载过showobject
 
     public GUIHelp(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HELP, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HELP, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

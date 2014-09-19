@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.12
 //sanvey.china@gmail.com
 
@@ -60,7 +60,7 @@ public class GUIBackFrameTop : GUIBase
 
 
     public GUIBackFrameTop(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_BACKFRAMETOP, GUILAYER.GUI_MENU)
+        : base(mgr, GUI_DEFINE.GUIID_BACKFRAMETOP, UILAYER.GUI_MENU)
     { }
 
     #endregion

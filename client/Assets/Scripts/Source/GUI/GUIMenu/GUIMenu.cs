@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.26
 //sanvey.china@gmail.com
 
@@ -38,7 +38,7 @@ public class GUIMenu : GUIBase
     private bool m_bHasShow = false;  //加载过showobject
 
     public GUIMenu(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_MENU, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_MENU, UILAYER.GUI_PANEL)
     {
     }
 

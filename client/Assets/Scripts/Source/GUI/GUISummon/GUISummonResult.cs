@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.12
 //sanvey.china@gmail.com
 
@@ -124,7 +124,7 @@ public class GUISummonResult : GUIBase
     }
 
     public GUISummonResult(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_SUMMON_RESULT, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_SUMMON_RESULT, UILAYER.GUI_PANEL)
     {
     }
 

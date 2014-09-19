@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,7 +56,7 @@ public class GUIEspDungeonGate : GUIBase
     private bool m_IsBackToEspDungeon;//是否返回
 
     public GUIEspDungeonGate(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ESPDUNGEONGATE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ESPDUNGEONGATE, UILAYER.GUI_PANEL)
     { 
     }
 

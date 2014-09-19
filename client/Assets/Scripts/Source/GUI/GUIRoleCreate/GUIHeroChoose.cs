@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,7 +53,7 @@ public class GUIHeroChoose : GUIBase
 
 
     public GUIHeroChoose(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HERO_CHOOSE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HERO_CHOOSE, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

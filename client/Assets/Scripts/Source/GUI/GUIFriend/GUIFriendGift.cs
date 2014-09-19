@@ -1,4 +1,4 @@
-﻿//  GUIFriendGift.cs
+//  GUIFriendGift.cs
 //  Author: Cheng Xia
 //  2013-1-10
 
@@ -43,7 +43,7 @@ public class GUIFriendGift : GUIBase
 
 
     public GUIFriendGift(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFT, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFT, UILAYER.GUI_PANEL)
     {
     }
 

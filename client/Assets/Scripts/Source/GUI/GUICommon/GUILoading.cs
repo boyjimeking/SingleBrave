@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
@@ -19,7 +19,7 @@ public class GUILoading : GUIBase
 
 
     public GUILoading(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_LOADING, GUILAYER.GUI_LOADING)
+        : base(guiMgr, GUI_DEFINE.GUIID_LOADING, UILAYER.GUI_LOADING)
     { 
         //
     }

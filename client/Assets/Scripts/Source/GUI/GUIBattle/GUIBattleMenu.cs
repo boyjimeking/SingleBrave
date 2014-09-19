@@ -82,7 +82,7 @@ public class GUIBattleMenu : GUIBase
     private GUIBattle m_cGUIBattle; //战斗UI
 
     public GUIBattleMenu(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLEMENU, GUILAYER.GUI_PANEL2)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLEMENU, UILAYER.GUI_PANEL2)
     { }
 
     /// <summary>

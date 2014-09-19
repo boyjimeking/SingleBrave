@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +35,7 @@ public class GUIUnitSlotExpansion : GUIBase
     private bool m_bIsSecondAlert = false;//是否是第一次提示，若钻石不足则进行第二次提示玩家购买钻石
 
     public GUIUnitSlotExpansion(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_UNITSLOTEXPANSION, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_UNITSLOTEXPANSION, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +29,7 @@ public class GUILoginReward : GUIBase
     private List<GameObject> m_lstRewardItems = new List<GameObject>();//列表
 
     public GUILoginReward(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_LOGINREWARD, GUILAYER.GUI_MESSAGE)
+        : base(guiMgr, GUI_DEFINE.GUIID_LOGINREWARD, UILAYER.GUI_MESSAGE)
     { 
     }
 

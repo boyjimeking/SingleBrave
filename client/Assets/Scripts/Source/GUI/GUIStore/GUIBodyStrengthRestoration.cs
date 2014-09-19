@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +46,7 @@ public class GUIBodyStrengthRestoration : GUIBase
 
 
     public GUIBodyStrengthRestoration(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BODYSTRENGTHRESTORATION, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_BODYSTRENGTHRESTORATION, UILAYER.GUI_PANEL)
     { }
 
 

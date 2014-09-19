@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ using System.Text;
 public class GUIBattleArena : GUIBattlePVP
 {
     public GUIBattleArena( GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ARENA_BATTLE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ARENA_BATTLE, UILAYER.GUI_PANEL)
     { 
     }
 

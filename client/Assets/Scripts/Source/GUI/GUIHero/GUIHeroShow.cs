@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -15,7 +15,7 @@ using Game.Resource;
 public class GUIHeroShow : GUIHeroSelectBase
 {
     public GUIHeroShow(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HERO_SHOW, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HERO_SHOW, UILAYER.GUI_PANEL)
     {
         //
     }

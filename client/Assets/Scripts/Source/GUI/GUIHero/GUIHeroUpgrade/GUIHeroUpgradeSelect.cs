@@ -1,4 +1,4 @@
-﻿//  GUIHeroUpgradeSelect.cs
+//  GUIHeroUpgradeSelect.cs
 //  Author: Cheng Xia
 //  2013-12-23
 
@@ -42,7 +42,7 @@ public class GUIHeroUpgradeSelect : GUIHeroSelectBase
     private List<int> m_lstSelectedHeros = new List<int>();         //被选中英雄的ID
 
     public GUIHeroUpgradeSelect(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_UPGRADEHEROSELECT, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_UPGRADEHEROSELECT, UILAYER.GUI_PANEL)
     {
         //
     }

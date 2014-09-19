@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +50,7 @@ public class GUIGuide : GUIBase
     private float m_fDelayTime; //延迟时间
 
     public GUIGuide( GUIManager guiMgr )
-        : base(guiMgr, GUI_DEFINE.GUIID_GUIDE, GUILAYER.GUI_FULL)
+        : base(guiMgr, GUI_DEFINE.GUIID_GUIDE, UILAYER.GUI_FULL)
     { 
     }
 

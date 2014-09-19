@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.12.6
 //sanvey.china@gmail.com
 
@@ -103,7 +103,7 @@ public class GUIEquipUpgrade : GUIBase
     private TDAnimation m_cEffectRight;        //特效类
 
     public GUIEquipUpgrade(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_EQUIPUPGRADE, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_EQUIPUPGRADE, UILAYER.GUI_PANEL)
     {
     }
 

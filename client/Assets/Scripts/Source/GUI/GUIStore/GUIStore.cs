@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +36,7 @@ public class GUIStore : GUIBase
     private bool m_bHasShow;  //加载过showobject
 
     public GUIStore(GUIManager guiMgr) 
-        : base(guiMgr, GUI_DEFINE.GUIID_STORE, GUILAYER.GUI_PANEL) 
+        : base(guiMgr, GUI_DEFINE.GUIID_STORE, UILAYER.GUI_PANEL) 
     {
         
     }

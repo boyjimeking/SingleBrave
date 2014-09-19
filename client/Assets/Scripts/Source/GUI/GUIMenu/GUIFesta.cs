@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,7 +67,7 @@ public class GUIFesta : GUIBase
     }
 
     public GUIFesta(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_FESTA, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_FESTA, UILAYER.GUI_PANEL)
     { }
 
 

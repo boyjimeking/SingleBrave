@@ -52,9 +52,9 @@ public class GUIResouceLoading : GUIBase
     }
 
     public GUIResouceLoading(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_RESOURCE_LOADING, GUILAYER.GUI_BACKGROUND)
+        : base(guiMgr, GUI_DEFINE.GUIID_RESOURCE_LOADING, UILAYER.GUI_BACKGROUND)
     {
-        this.m_eLayer = GUILAYER.GUI_BACKGROUND;
+        this.m_eLayer = UILAYER.GUI_BACKGROUND;
     }
 
     /// <summary>

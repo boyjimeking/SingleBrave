@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -188,7 +188,7 @@ public class GUIArenaRankings : GUIBase
     }
 
     public GUIArenaRankings(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ARENARANKINGS, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ARENARANKINGS, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

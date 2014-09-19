@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,7 +54,7 @@ public class GUIStory : GUIBase
     }
 
     public GUIStory(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_STORY, GUILAYER.GUI_FULL)
+        : base(guiMgr, GUI_DEFINE.GUIID_STORY, UILAYER.GUI_FULL)
     { 
         //
     }

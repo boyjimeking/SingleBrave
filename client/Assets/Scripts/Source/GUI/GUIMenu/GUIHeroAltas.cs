@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.28
 //sanvey.china@gmail.com
 
@@ -76,7 +76,7 @@ public class GUIHeroAltas : GUIBase
 
 
     public GUIHeroAltas(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_HEROALTAS, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_HEROALTAS, UILAYER.GUI_PANEL)
     {
     }
 

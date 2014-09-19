@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,7 +78,7 @@ public class GUIReconceliHouse : GUIBase
 
 
     public GUIReconceliHouse(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_RECONCELIHOUSE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_RECONCELIHOUSE, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

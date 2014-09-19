@@ -1,4 +1,4 @@
-﻿//  GUIFriendGiftExpectSelect.cs
+//  GUIFriendGiftExpectSelect.cs
 //  Author: Cheng Xia
 //  2013-1-15
 
@@ -26,7 +26,7 @@ public class GUIFriendGiftExpectSelect : GUIFriendGiftSelectBase
     private UITable m_cTable;             //table
 
     public GUIFriendGiftExpectSelect(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFTEXPECTSELECT, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFTEXPECTSELECT, UILAYER.GUI_PANEL)
     {
     }
 

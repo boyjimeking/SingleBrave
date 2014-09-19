@@ -35,7 +35,7 @@ public class GUIBattleMenuGetItem : GUIBase
     private bool m_bIsFirstGetItem;
 
     public GUIBattleMenuGetItem(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_GETITEM, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_GETITEM, UILAYER.GUI_PANEL3)
     { 
         //
     }

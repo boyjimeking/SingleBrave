@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,7 +72,7 @@ public class GUIPropsGroup : GUIBase
     public bool m_bBackToFightReady = false;
 
     public GUIPropsGroup(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_PROPSGROUP, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_PROPSGROUP, UILAYER.GUI_PANEL)
     { }
 
     PropsGroupItem[] m_lstProps;  //道具编成列表

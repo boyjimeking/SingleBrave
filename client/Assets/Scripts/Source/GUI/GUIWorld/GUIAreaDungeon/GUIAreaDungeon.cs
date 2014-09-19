@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,7 +65,7 @@ public class GUIAreaDungeon : GUIBase
     private UnityEngine.Object m_cItem;//列表项
 
     public GUIAreaDungeon(GUIManager guimgr)
-        : base(guimgr, GUI_DEFINE.GUIID_AREADUNGEON, GUILAYER.GUI_PANEL)
+        : base(guimgr, GUI_DEFINE.GUIID_AREADUNGEON, UILAYER.GUI_PANEL)
     { 
         
     }

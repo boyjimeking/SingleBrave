@@ -55,7 +55,7 @@ public class GUIBattleMenuHeroIntelligence : GUIBase
     private List<GameObject> m_lstHeroItems = new List<GameObject>();//英雄对象列表
 
     public GUIBattleMenuHeroIntelligence(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_HERO_INTELLIGENCE, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_HERO_INTELLIGENCE, UILAYER.GUI_PANEL3)
     { 
         //
     }

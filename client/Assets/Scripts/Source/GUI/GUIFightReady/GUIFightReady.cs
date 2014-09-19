@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.12
 //sanvey.china@gmail.com
 
@@ -387,7 +387,7 @@ public class GUIFightReady : GUIBase
     }
 
     public GUIFightReady(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FIGHTREADY, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FIGHTREADY, UILAYER.GUI_PANEL)
     {
     }
 

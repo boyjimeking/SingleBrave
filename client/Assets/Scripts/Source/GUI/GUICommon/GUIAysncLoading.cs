@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
@@ -19,7 +19,7 @@ public class GUIAysncLoading : GUIBase
 
 
     public GUIAysncLoading(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_AYSNC_LOADING, GUILAYER.GUI_LOADING)
+        : base(guiMgr, GUI_DEFINE.GUIID_AYSNC_LOADING, UILAYER.GUI_LOADING)
     {
         //
     }

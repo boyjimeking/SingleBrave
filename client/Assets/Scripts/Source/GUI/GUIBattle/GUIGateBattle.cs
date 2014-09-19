@@ -1,4 +1,4 @@
-﻿
+
 
 using System.Collections.Generic;
 using System.Collections;
@@ -31,7 +31,7 @@ public class GUIGateBattle : GUIBattle
     private List<int> m_lstMonsterOrderID = new List<int>();    //已经有过的怪物序列ID
 
     public GUIGateBattle( GUIManager guiMgr )
-        :base(guiMgr ,GUI_DEFINE.GUIID_GATE_BATTLE, GUILAYER.GUI_PANEL1)
+        :base(guiMgr ,GUI_DEFINE.GUIID_GATE_BATTLE, UILAYER.GUI_PANEL1)
     { 
         //
     }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections;
 using Game.Resource;
 using Game.Base;
@@ -38,7 +38,7 @@ public class GUIMessageL : GUIBase
     
 
     public GUIMessageL(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_MESSAGEL, GUILAYER.GUI_MESSAGE)
+        : base(guiMgr, GUI_DEFINE.GUIID_MESSAGEL, UILAYER.GUI_MESSAGE)
     {
         //
     }

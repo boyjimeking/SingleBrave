@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.12
 //sanvey.china@gmail.com
 
@@ -49,7 +49,7 @@ public class GUIBackFrameBottom : GUIBase
     public const int m_iFriendPer = 200;  //200友情点招募一次
 
     public GUIBackFrameBottom(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_BACKFRAMEBOTTOM, GUILAYER.GUI_MENU)
+        : base(mgr, GUI_DEFINE.GUIID_BACKFRAMEBOTTOM, UILAYER.GUI_MENU)
     {
     }
 

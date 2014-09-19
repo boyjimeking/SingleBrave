@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +24,7 @@ public class GUIIntelligence : GUIBase
     private GameObject m_cBtnBack;//返回按钮地址
 
     public GUIIntelligence(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_INTELLIGENCE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_INTELLIGENCE, UILAYER.GUI_PANEL)
     { }
 
 

@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.27
 //sanvey.china@gmail.com
 
@@ -41,7 +41,7 @@ public class GUIUserInfo : GUIBase
     private bool m_bPlayerInfo; //玩家情报是否正在显示
 
     public GUIUserInfo(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_USERINFO, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_USERINFO, UILAYER.GUI_PANEL)
     {
     }
 

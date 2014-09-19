@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.12.3
 //sanvey.china@gmail.com
 
@@ -39,7 +39,7 @@ public class GUIHeroSell : GUIHeroSelectBase
     private bool m_bShowNowChange = false;
 
     public GUIHeroSell(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HEROSELL, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HEROSELL, UILAYER.GUI_PANEL)
     {
         //
     }

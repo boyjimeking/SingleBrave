@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -113,7 +113,7 @@ public class GUIReconceCombineDetail : GUIBase
     private string m_strWarnMsg = "";
 
     public GUIReconceCombineDetail(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_RECONCE_COMBINE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_RECONCE_COMBINE, UILAYER.GUI_PANEL)
     { }
 
     protected override void InitGUI()

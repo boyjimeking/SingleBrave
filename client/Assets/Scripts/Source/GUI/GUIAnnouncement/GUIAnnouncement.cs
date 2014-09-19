@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,7 @@ public class GUIAnnouncement :GUIBase
     //private WebViewBehavior webView;
 
     public GUIAnnouncement(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ANNOUNCEMENT, GUILAYER.GUI_MESSAGE1)
+        : base(guiMgr, GUI_DEFINE.GUIID_ANNOUNCEMENT, UILAYER.GUI_MESSAGE1)
     { 
         //
     }

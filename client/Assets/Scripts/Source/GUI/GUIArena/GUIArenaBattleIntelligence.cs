@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,7 +42,7 @@ public class GUIArenaBattleIntelligence : GUIBase
     private List<GameObject> m_lstRecordItems = new List<GameObject>();//列表
 
     public GUIArenaBattleIntelligence(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ARENABATTLEINTELLIGENCE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ARENABATTLEINTELLIGENCE, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

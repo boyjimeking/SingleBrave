@@ -1,4 +1,4 @@
-﻿//  GUIHeroEvolutionResult.cs
+//  GUIHeroEvolutionResult.cs
 //  Author: Cheng Xia
 //  2013-12-31
 
@@ -130,7 +130,7 @@ public class GUIHeroEvolutionResult : GUIBase
     private LOAD_STATE m_eState;    //状态
 
     public GUIHeroEvolutionResult(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_EVOLUTIONRESULT, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_EVOLUTIONRESULT, UILAYER.GUI_PANEL)
     {
     }
 

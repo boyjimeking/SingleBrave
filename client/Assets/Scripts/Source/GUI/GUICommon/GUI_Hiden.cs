@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
@@ -23,7 +23,7 @@ public class GUI_Hiden : GUIBase
     private UIPanel m_cPanel;   //UI面板
 
     public GUI_Hiden(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HIDEN, GUILAYER.GUI_LOADING)
+        : base(guiMgr, GUI_DEFINE.GUIID_HIDEN, UILAYER.GUI_LOADING)
     {
     }
 

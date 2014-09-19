@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ public class GUIHelpProjectDetail : GUIBase
     private string m_strContent;//详细内容
 
     public GUIHelpProjectDetail(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HELPPROJECTDETAIL, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HELPPROJECTDETAIL, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

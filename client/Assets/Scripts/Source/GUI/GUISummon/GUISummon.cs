@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.12
 //sanvey.china@gmail.com
 
@@ -63,7 +63,7 @@ public class GUISummon : GUIBase
     //稀有召唤
 
     public GUISummon(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_SUMMON, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_SUMMON, UILAYER.GUI_PANEL)
     {
     }
 

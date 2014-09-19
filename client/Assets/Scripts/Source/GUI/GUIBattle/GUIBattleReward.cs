@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections;
 using Game.Base;
 using Game.Resource;
@@ -416,7 +416,7 @@ public class GUIBattleReward : GUIBase
     }
 
     public GUIBattleReward(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_REWARD, GUILAYER.GUI_PANEL1)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_REWARD, UILAYER.GUI_PANEL1)
     { 
         //
     }

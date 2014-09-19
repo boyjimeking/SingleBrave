@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Game.Resource;
 using UnityEngine;
@@ -37,7 +37,7 @@ public class GUIHeroMenu : GUIBase
     private UISprite m_cSpJinhuaWarn;
 
     public GUIHeroMenu(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HERO_MENU, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HERO_MENU, UILAYER.GUI_PANEL)
     { 
     }
 

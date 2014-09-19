@@ -1,4 +1,4 @@
-﻿//  GUIFriendGiftSelect.cs
+//  GUIFriendGiftSelect.cs
 //  Author: Cheng Xia
 //  2013-1-15
 
@@ -28,7 +28,7 @@ public class GUIFriendGiftSelect : GUIFriendGiftSelectBase
     private int m_cGiftNum; //当前礼物编号//
 
     public GUIFriendGiftSelect(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFTSELECT, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFTSELECT, UILAYER.GUI_PANEL)
     {
     }
 

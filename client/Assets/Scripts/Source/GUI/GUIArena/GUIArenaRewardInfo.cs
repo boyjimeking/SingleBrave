@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -129,7 +129,7 @@ public class GUIArenaRewardInfo : GUIBase
     }
 
     public GUIArenaRewardInfo(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ARENAREWORDINFO, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ARENAREWORDINFO, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

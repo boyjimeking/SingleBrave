@@ -24,7 +24,7 @@ public class GUIFestaInput : GUIBase
     private string m_strName;   //角色名字
 
     public GUIFestaInput(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_FESTA_INPUT, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_FESTA_INPUT, UILAYER.GUI_PANEL)
     {
         //
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -135,7 +135,7 @@ public class GUIItemSelectBase : GUIBase
         }
     }
 
-    public GUIItemSelectBase(GUIManager mgr, int guiid, GUILAYER layer)
+    public GUIItemSelectBase(GUIManager mgr, int guiid, UILAYER layer)
         : base(mgr, guiid, layer)
     {
     }

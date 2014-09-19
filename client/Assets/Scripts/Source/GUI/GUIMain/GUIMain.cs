@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.12
 //sanvey.china@gmail.com
 
@@ -108,7 +108,7 @@ public class GUIMain : GUIBase
     private List<string> m_lstResName = new List<string>();
 
     public GUIMain(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_MAIN, GUILAYER.GUI_MENU)
+        : base(mgr, GUI_DEFINE.GUIID_MAIN, UILAYER.GUI_MENU)
     {
     }
 

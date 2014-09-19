@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
@@ -16,9 +16,9 @@ public class GUITittle : UIControllerBase<GUITittle , TittleView>
 {
     private const string RES_MAIN = "_GUI_TITTLE";   //主资源地址
 
-	public override GUILAYER GetLayer ()
+	public override UILAYER GetLayer ()
 	{
-		return GUILAYER.GUI_PANEL;
+		return UILAYER.GUI_PANEL;
 	}
 
     /// <summary>

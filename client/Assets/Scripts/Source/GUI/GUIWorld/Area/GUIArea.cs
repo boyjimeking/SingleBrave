@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -90,7 +90,7 @@ public class GUIArea : GUIBase
     private bool m_bIsNeedToShowNew;//new出现动画是否需要展示
 
     public GUIArea(GUIManager guimgr)
-        : base(guimgr, GUI_DEFINE.GUIID_AREA, GUILAYER.GUI_PANEL)
+        : base(guimgr, GUI_DEFINE.GUIID_AREA, UILAYER.GUI_PANEL)
     { 
 
     }

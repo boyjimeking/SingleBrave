@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -114,7 +114,7 @@ public class GUIArenaFightReady : GUIBase
     public int m_iSelectId;
 
     public GUIArenaFightReady(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ARENAFIGHTREADY, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ARENAFIGHTREADY, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

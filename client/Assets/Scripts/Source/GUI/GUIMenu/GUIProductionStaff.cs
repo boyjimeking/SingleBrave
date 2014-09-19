@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
@@ -27,7 +27,7 @@ public class GUIProductionStaff : GUIBase
     private UnityEngine.Object m_cItem;//名单项
 
     public GUIProductionStaff(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_PRODUCTION_STAFF, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_PRODUCTION_STAFF, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

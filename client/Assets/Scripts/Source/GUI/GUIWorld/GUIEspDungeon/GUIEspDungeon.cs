@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +37,7 @@ public class GUIEspDungeon : GUIBase
     private int m_iLastGuiId;//上一个GUIid
 
     public GUIEspDungeon(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ESPDUNGEON, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ESPDUNGEON, UILAYER.GUI_PANEL)
     { 
         
     }

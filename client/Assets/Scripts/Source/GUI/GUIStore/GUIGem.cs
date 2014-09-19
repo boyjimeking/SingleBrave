@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,7 +41,7 @@ public class GUIGem :GUIBase
     private int m_iLastGuiId;//上一个guiid
 
     public GUIGem(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_GEM, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_GEM, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

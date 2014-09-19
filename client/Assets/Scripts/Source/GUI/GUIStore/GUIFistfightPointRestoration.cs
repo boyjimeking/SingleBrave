@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +44,7 @@ public class GUIFistfightPointRestoration : GUIBase
     private bool m_bIsSecondAlert = false;//是否是第一次提示，若钻石不足则进行第二次提示玩家购买钻石
 
     public GUIFistfightPointRestoration(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_FISTFIGHTPOINTRESTORATION, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_FISTFIGHTPOINTRESTORATION, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

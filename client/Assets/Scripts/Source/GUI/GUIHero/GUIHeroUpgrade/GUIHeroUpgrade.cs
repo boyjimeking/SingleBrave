@@ -1,4 +1,4 @@
-﻿//  GUIHeroUpgrade.cs
+//  GUIHeroUpgrade.cs
 //  Author: Sanvey
 //  2013-12-20
 
@@ -157,7 +157,7 @@ class GUIHeroUpgrade : GUIBase
     private LOAD_STATE m_eState;    //状态
 
     public GUIHeroUpgrade(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_UPGRADEHERO, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_UPGRADEHERO, UILAYER.GUI_PANEL)
     {
     }
 

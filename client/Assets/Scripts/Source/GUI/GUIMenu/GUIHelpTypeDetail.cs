@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +32,7 @@ public class GUIHelpTypeDetail : GUIBase
     private int m_iCurrentTypeId;//当前帮助类型id
 
     public GUIHelpTypeDetail(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HELPTYPEDETAIL, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HELPTYPEDETAIL, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

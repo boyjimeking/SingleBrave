@@ -1,4 +1,4 @@
-﻿//  GUIUpgrade.cs
+//  GUIUpgrade.cs
 //  Author: Cheng Xia
 //  2013-12-20
 
@@ -17,7 +17,7 @@ using Game.Base;
 public class GUIHeroUpgradeMain : GUIHeroSelectBase
 {
     public GUIHeroUpgradeMain(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_UPGRADE, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_UPGRADE, UILAYER.GUI_PANEL)
     {
     }
 

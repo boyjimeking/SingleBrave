@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,7 +52,7 @@ public class GUIBattleLose : GUIBase
     private IGUIBattle m_cGUIBattle;    //战斗GUI
 
     public GUIBattleLose(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_LOSE, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_LOSE, UILAYER.GUI_PANEL3)
     { 
         //
     }

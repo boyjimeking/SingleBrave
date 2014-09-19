@@ -33,7 +33,7 @@ public class GUIBattleMenuGetHero : GUIBase
     private bool m_bIsFirstGetHero;//是否第一次展示
 
     public GUIBattleMenuGetHero(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_GETHERO, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_GETHERO, UILAYER.GUI_PANEL3)
     { 
         //
     }

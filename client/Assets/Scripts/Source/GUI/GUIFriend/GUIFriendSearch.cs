@@ -1,4 +1,4 @@
-﻿//  GUIFriendSearch.cs
+//  GUIFriendSearch.cs
 //  Author: Cheng Xia
 //  2013-1-7
 
@@ -31,7 +31,7 @@ public class GUIFriendSearch : GUIBase
     private UIInput m_input; //输入
 
     public GUIFriendSearch(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDSEARCH, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDSEARCH, UILAYER.GUI_PANEL)
     {
     }
 

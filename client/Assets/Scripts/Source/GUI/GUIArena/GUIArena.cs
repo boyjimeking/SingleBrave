@@ -1,4 +1,4 @@
-﻿ using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,7 +78,7 @@ public class GUIArena : GUIBase
     //private UILabel m_cLbMsg;
 
     public GUIArena(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_ARENA, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_ARENA, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

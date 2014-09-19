@@ -18,7 +18,7 @@ public class GUIBattleMenuHelp : GUIBase
     private GameObject m_cHelpPanel;//帮助面板
 
     public GUIBattleMenuHelp(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_HELP, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_HELP, UILAYER.GUI_PANEL3)
     { 
         //
     }

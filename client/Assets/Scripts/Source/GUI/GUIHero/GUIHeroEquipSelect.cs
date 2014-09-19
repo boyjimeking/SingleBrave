@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.28
 //sanvey.china@gmail.com
 
@@ -25,7 +25,7 @@ public class GUIHeroEquipSelect : GUIHeroSelectBase
     //public bool m_bShowNull;  //是否显示移除
 
     public GUIHeroEquipSelect(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_HEROEQUIPSELECT, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_HEROEQUIPSELECT, UILAYER.GUI_PANEL)
     {
     }
 

@@ -1,4 +1,4 @@
-﻿//  GUIFriendGift.cs
+//  GUIFriendGift.cs
 //  Author: Cheng Xia
 //  2013-1-10
 
@@ -65,7 +65,7 @@ class GUIFriendGiftGive : GUIBase
     private bool m_bSend;   //是否需要发送
 
     public GUIFriendGiftGive(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFTGIVE, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDGIFTGIVE, UILAYER.GUI_PANEL)
     {
     }
 

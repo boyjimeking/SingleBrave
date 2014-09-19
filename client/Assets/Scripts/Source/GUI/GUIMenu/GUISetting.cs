@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +61,7 @@ public class GUISetting : GUIBase
     private bool m_bIsBattleSoundOn = false;//战斗音效开启状态
 
     public GUISetting(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_SETTING, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_SETTING, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

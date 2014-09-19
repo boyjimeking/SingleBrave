@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +39,7 @@ public class GUIMail : GUIBase
     private List<GameObject> m_lstMailItem = new List<GameObject>();//邮件列表
 
     public GUIMail(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_MAIL, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_MAIL, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

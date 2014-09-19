@@ -1,4 +1,4 @@
-﻿//  GUIFriendGiftSelectBase.cs
+//  GUIFriendGiftSelectBase.cs
 //  Author: Cheng Xia
 //  2013-1-10
 
@@ -96,7 +96,7 @@ public class GUIFriendGiftSelectBase : GUIBase
         }
     }
 
-    public GUIFriendGiftSelectBase(GUIManager mgr, int guiid, GUILAYER layer)
+    public GUIFriendGiftSelectBase(GUIManager mgr, int guiid, UILAYER layer)
         : base(mgr, guiid, layer)
     {
     }

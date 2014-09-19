@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +20,7 @@ using Game.Media;
 public class GUIGuideBattle : GUIBattle
 {
     public GUIGuideBattle(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_GUIDE_BATTLE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_GUIDE_BATTLE, UILAYER.GUI_PANEL)
     { 
         //
     }

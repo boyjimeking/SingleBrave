@@ -1,4 +1,4 @@
-﻿
+
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
@@ -19,7 +19,7 @@ public class GUIBackGround : GUIBase
     private const string RES_MAIN = "_GUI_BackGround"; //主资源
 
     public GUIBackGround(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BACKGROUND, GUILAYER.GUI_BACKGROUND)
+        : base(guiMgr, GUI_DEFINE.GUIID_BACKGROUND, UILAYER.GUI_BACKGROUND)
     { 
     }
 

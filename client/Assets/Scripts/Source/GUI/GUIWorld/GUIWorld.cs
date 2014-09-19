@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +38,7 @@ public class GUIWorld : GUIBase
     //public int CurrentAreaId;  //当前选择的区域ID
 
     public GUIWorld(GUIManager guimgr)
-        : base(guimgr, GUI_DEFINE.GUIID_WORLD, GUILAYER.GUI_PANEL)
+        : base(guimgr, GUI_DEFINE.GUIID_WORLD, UILAYER.GUI_PANEL)
     { 
 
     }

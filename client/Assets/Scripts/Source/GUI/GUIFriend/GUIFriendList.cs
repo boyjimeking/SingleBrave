@@ -1,4 +1,4 @@
-﻿//  GUIFriendList.cs
+//  GUIFriendList.cs
 //  Author: Cheng Xia
 //  2013-1-6
 
@@ -30,7 +30,7 @@ public class GUIFriendList : GUIBase
     private List<FriendListItem> m_lstFriends=new List<FriendListItem>();
 
     public GUIFriendList(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDLIST, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDLIST, UILAYER.GUI_PANEL)
     {
     }
 

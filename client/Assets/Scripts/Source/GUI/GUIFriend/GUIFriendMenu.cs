@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.12.4
 //sanvey.china@gmail.com
 
@@ -34,7 +34,7 @@ public class GUIFriendMenu : GUIBase
 
 
     public GUIFriendMenu(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDMENU, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDMENU, UILAYER.GUI_PANEL)
     {
     }
 

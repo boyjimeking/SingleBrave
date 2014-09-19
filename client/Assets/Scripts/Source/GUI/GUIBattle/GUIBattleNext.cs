@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using Game.Resource;
@@ -57,7 +57,7 @@ public class GUIBattleNext : GUIBase
     private object[] m_vecCallBackArgs;   //回调参数
 
     public GUIBattleNext(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_NEXT, GUILAYER.GUI_PANEL2)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_NEXT, UILAYER.GUI_PANEL2)
     { 
         //
     }

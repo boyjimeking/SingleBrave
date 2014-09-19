@@ -20,7 +20,7 @@ public class GUIBattleMenuGiveUp : GUIBase
     private GameObject m_cBtnCancel;//放弃战斗界面取消按钮
 
     public GUIBattleMenuGiveUp(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_GIVE_UP, GUILAYER.GUI_PANEL3)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_MENU_GIVE_UP, UILAYER.GUI_PANEL3)
     { 
         //
     }

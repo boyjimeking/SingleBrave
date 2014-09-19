@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ public class GUIFestaInvite : GUIBase
     private GameObject m_cBtnUse;
 
     public GUIFestaInvite(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_FESTAINVITE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_FESTAINVITE, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

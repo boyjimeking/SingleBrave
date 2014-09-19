@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ public class GUILockPanel : GUIBase
     private float m_fDuration = 0;//持续时间
 
     public GUILockPanel(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_LOCKPANEL, GUILAYER.GUI_LOCKPANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_LOCKPANEL, UILAYER.GUI_LOCKPANEL)
     { }
 
     /// <summary>

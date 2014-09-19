@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ public class GUIBattleItemSelect : GUIItemSelectBase
     public bool m_bBackToFightReady;
 
     public GUIBattleItemSelect(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_ITEM_SELECT, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_BATTLE_ITEM_SELECT, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

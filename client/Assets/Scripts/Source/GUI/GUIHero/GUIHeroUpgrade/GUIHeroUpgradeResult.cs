@@ -1,4 +1,4 @@
-﻿//  GUIUpgradeHeroResult.cs
+//  GUIUpgradeHeroResult.cs
 //  Author: Sanvey
 //  2013-12-25
 
@@ -18,7 +18,7 @@ using Game.Base;
 public class GUIHeroUpgradeResult : GUIBase
 {
     public GUIHeroUpgradeResult(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_UPGRADEHERORESULT, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_UPGRADEHERORESULT, UILAYER.GUI_PANEL)
     {
     }
 

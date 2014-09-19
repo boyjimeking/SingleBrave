@@ -1,4 +1,4 @@
-﻿//  GUITeamEditor.cs
+//  GUITeamEditor.cs
 //  Author: Cheng Xia
 //  2013-12-16
 
@@ -182,7 +182,7 @@ class GUITeamEditor : GUIBase
     private LOAD_STATE m_eState;    //状态
 
     public GUITeamEditor(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_TEAM_EDITOR, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_TEAM_EDITOR, UILAYER.GUI_PANEL)
     {
         this.m_lstGfxObj = new List<GfxObject[]>();
     }

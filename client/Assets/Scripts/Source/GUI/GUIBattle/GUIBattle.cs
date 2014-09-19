@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -526,7 +526,7 @@ public abstract class GUIBattle : IGUIBattle
 
     private ReconceliHouseShowItem m_cUseItemInfoShow;  //使用战斗物品的提示
 
-    public GUIBattle(GUIManager guiMgr, int guiid, GUILAYER layer)
+    public GUIBattle(GUIManager guiMgr, int guiid, UILAYER layer)
         : base(guiMgr, guiid, layer)
     {
         this.m_cCollectItem = new CollectItem();

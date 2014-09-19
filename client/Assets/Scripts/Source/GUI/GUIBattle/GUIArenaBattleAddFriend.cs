@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.11.27
 //sanvey.china@gmail.com
 
@@ -30,7 +30,7 @@ public class GUIArenaBattleAddFriend : GUIBase
     public BattleHero m_cEnemyLeader;  //敌方队长
 
     public GUIArenaBattleAddFriend(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_ANRENA_BATTLE_FRIEND, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_ANRENA_BATTLE_FRIEND, UILAYER.GUI_PANEL)
     {
     }
 

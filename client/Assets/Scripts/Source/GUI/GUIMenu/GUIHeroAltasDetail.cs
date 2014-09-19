@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2014.1.16
 //sanvey.china@gmail.com
 
@@ -56,7 +56,7 @@ public class GUIHeroAltasDetail : GUIBase
     private bool m_bHasShow = false;  //加载过showobject
 
     public GUIHeroAltasDetail(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_HERO_ALTAS_DETAIL, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_HERO_ALTAS_DETAIL, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>

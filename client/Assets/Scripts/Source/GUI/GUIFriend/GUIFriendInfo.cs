@@ -1,4 +1,4 @@
-﻿//  GUIFriendInfo.cs
+//  GUIFriendInfo.cs
 //  Author: Cheng Xia
 //  2013-1-7
 
@@ -33,7 +33,7 @@ public class GUIFriendInfo : GUIBase
     private FriendPanel m_cFriendPanel; //玩家信息面板实例
 
     public GUIFriendInfo(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_FRIENDINFO, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_FRIENDINFO, UILAYER.GUI_PANEL)
     {
     }
 

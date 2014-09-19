@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Resource;
@@ -81,7 +81,7 @@ public class GUIBattleNewHeroShow : GUIBase
     }
 
     public GUIBattleNewHeroShow(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_BATTLE_NEWHEROSHOW, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_BATTLE_NEWHEROSHOW, UILAYER.GUI_PANEL)
     {
     }
 

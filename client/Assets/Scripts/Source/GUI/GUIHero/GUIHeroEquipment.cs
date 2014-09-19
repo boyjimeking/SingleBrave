@@ -1,4 +1,4 @@
-﻿//Micro.Sanvey
+//Micro.Sanvey
 //2013.12.2
 //sanvey.china@gmail.com
 
@@ -105,7 +105,7 @@ public class GUIHeroEquipment : GUIBase
     private const string SP_NEW = "new_icon";  //最新获得
 
     public GUIHeroEquipment(GUIManager mgr)
-        : base(mgr, GUI_DEFINE.GUIID_HEROEQUIPMENT, GUILAYER.GUI_PANEL)
+        : base(mgr, GUI_DEFINE.GUIID_HEROEQUIPMENT, UILAYER.GUI_PANEL)
     {
     }
 

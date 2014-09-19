@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +29,7 @@ public class GUIPropsWareHouse : GUIBase
     private GameObject m_cBtnPropsPropsSale;//道具出售按钮
 
     public GUIPropsWareHouse(GUIManager guiMgr)
-        : base(guiMgr, GUI_DEFINE.GUIID_PROPSWAREHOUSE, GUILAYER.GUI_PANEL)
+        : base(guiMgr, GUI_DEFINE.GUIID_PROPSWAREHOUSE, UILAYER.GUI_PANEL)
     { }
 
     /// <summary>
