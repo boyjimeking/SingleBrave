@@ -175,7 +175,7 @@ public class GUIActivityBattle : GUIBattle
                 if(this.m_vecItem[i] != null )
                     vecItemTmp[i] = this.m_vecItem[i].m_iNum;
             }
-            int friendBattle_id = Role.role.GetBattleFriendProperty().GetSelectFriend().m_iID;
+            int friendBattle_id = GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID;
             SendAgent.SendActivityBattleEndReq(Role.role.GetBaseProperty().m_iPlayerId, Role.role.GetBaseProperty().m_iBattleID,
                 WorldManager.s_iCurEspDungeonId, WorldManager.s_iCurEspDungeonGateIndex, this.m_iGoldNum + this.m_cGateTable.RewardJinbi, this.m_iFarmNum + this.m_cGateTable.RewardFram, friendBattle_id, this.m_lstSoul, this.m_lstItem, this.m_lstItemNum,vecItemTmp,
                 this.m_iRecordMaxShuijingNum, this.m_iTotalShuijingNum, this.m_iRecordMaxXinNum, this.m_iTotalXinNum, this.m_iRoundMaxHurt, this.m_iRoundMaxSparkNum, this.m_iTotalSparkNum, this.m_iTotalSkillNum, this.m_iTotalBoxMonster

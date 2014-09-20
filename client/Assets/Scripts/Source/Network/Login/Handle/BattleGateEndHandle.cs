@@ -54,7 +54,7 @@ public class BattleGateEndHandle
         int tmpDiamond = ack.m_iDiamond;
 
 
-        FuBen fuben = Role.role.GetFubenProperty().GetFubenByWorldID(ack.m_iWorldID);
+        FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>().GetFubenByWorldID(ack.m_iWorldID);
         int old_areindex = fuben.m_iAreaIndex;
         int old_dungeonindex = fuben.m_iDungeonIndex;
         int old_gateindex = fuben.m_iGateIndex;
@@ -185,7 +185,7 @@ public class BattleGateEndHandle
             
         }
 
-        if (Role.role.GetBattleFriendProperty().GetSelectFriend() != null && Role.role.GetBattleFriendProperty().GetSelectFriend().m_bIsFriend)  //如果是好友，不需要在提示申请加好友
+        if (GLOBAL_DEFINE.m_cSelectBattleFriend != null && GLOBAL_DEFINE.m_cSelectBattleFriend.m_bIsFriend)  //如果是好友，不需要在提示申请加好友
         {
             //GAME_SETTING.SaveNewDungeonOfNewArea(false);
             gui.SetReward(dungeonTable.Name, gateTable.Name, ack.m_iGold, ack.m_iFarm, rewardExp, newtotalExp, tmpLevel, tmpDiamond, lstHero, guibattle.m_lstItem, guibattle.m_lstItemNum, m_lstNewHero,
@@ -222,16 +222,16 @@ public class BattleGateEndHandle
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
 
         //刷新战斗好友列表
-        Role.role.GetBattleFriendProperty().RemoveAll();
+		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
 
         for (int i = 0; i < ack.m_lstBattleFriendEx.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriendEx[i]);
+			battleFriend.Add(ack.m_lstBattleFriendEx[i]);
         }
 
         for (int i = 0; i < ack.m_lstBattleFriend.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriend[i]);
+			battleFriend.Add(ack.m_lstBattleFriend[i]);
         }
 
         

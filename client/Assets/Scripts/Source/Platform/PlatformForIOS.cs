@@ -44,21 +44,12 @@ public class PlatformForIOS : PlatformBase
     }
 
     /// <summary>
-    /// 获取设备号
-    /// </summary>
-    /// <returns></returns>
-    public override string GetDeviceID()
-    {
-        return GAME_SETTING.DEVICE_ID;
-    }
-
-    /// <summary>
     /// 获取渠道号
     /// </summary>
     /// <returns></returns>
     public override string GetChannelName()
     {
-        return "AppStore";
+		return GAME_SETTING.CHANNEL_NAME;
     }
 
     /// <summary>

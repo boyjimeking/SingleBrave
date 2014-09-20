@@ -41,10 +41,10 @@ public class PVPWeekRankGetHandle
             return;
         }
 
-        Role.role.GetBaseProperty().m_lstWeekRank = new List<RoleBaseProperty.PVPItem>();
-        for (int i = 0; i < ack.m_lstWeekRank.Count; i++)
+		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
+        for (int i = 0; i < pvpItem.Count; i++)
         {
-            RoleBaseProperty.PVPItem tmp = new RoleBaseProperty.PVPItem();
+            PVPItemInfo tmp = new PVPItemInfo();
             tmp.m_iHeroLv = ack.m_lstWeekRank[i].m_iHeroLv;
             tmp.m_iHeroTableID = ack.m_lstWeekRank[i].m_iHeroTableID;
             tmp.m_iLoseNum = ack.m_lstWeekRank[i].m_iLoseNum;
@@ -52,7 +52,7 @@ public class PVPWeekRankGetHandle
             tmp.m_iWinNum = ack.m_lstWeekRank[i].m_iWinNum;
             tmp.m_strName = ack.m_lstWeekRank[i].m_strName;
 
-            Role.role.GetBaseProperty().m_lstWeekRank.Add(tmp);
+			pvpItem.Add(tmp);
         }
 
         Role.role.GetBaseProperty().m_iMyWeekRank = ack.m_iMyWeek;

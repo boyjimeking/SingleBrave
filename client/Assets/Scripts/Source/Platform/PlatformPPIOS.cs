@@ -102,21 +102,12 @@ public class PlatformPPIOS : PlatformForIOS
     }
 
     /// <summary>
-    /// 获取设备号
-    /// </summary>
-    /// <returns></returns>
-    public override string GetDeviceID()
-    {
-        return GAME_SETTING.DEVICE_ID;
-    }
-
-    /// <summary>
     /// 获取渠道名字
     /// </summary>
     /// <returns></returns>
     public override string GetChannelName()
     {
-        return "PPIOS";
+		return GAME_SETTING.CHANNEL_NAME;
     }
 
     /// <summary>

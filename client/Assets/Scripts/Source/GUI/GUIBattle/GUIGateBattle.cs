@@ -177,7 +177,7 @@ public class GUIGateBattle : GUIBattle
             int friendBattle_id = 0;
             if( this.m_cGateTable.ID != GUIDE_FUNCTION.GATE_ID1 )
             {
-                friendBattle_id = Role.role.GetBattleFriendProperty().GetSelectFriend().m_iID;
+                friendBattle_id = GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID;
             }
             SendAgent.SendBattleGateEndReq(Role.role.GetBaseProperty().m_iPlayerId , Role.role.GetBaseProperty().m_iBattleID , WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex,
                 WorldManager.s_iCurrentDungeonIndex, WorldManager.s_iCurrentGateIndex, this.m_iGoldNum + this.m_cGateTable.RewardJinbi, this.m_iFarmNum + this.m_cGateTable.RewardFram,friendBattle_id, this.m_lstSoul, this.m_lstItem, this.m_lstItemNum , vecItemTmp,

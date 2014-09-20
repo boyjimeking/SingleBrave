@@ -145,16 +145,17 @@ public class ActivityBattleEndHandle
         ActivityGateTable gateTable = WorldManager.GetActivityGateTable(dungeonTable.ID, WorldManager.s_iCurEspDungeonGateIndex);
 
         //刷新战斗好友列表
-        Role.role.GetBattleFriendProperty().RemoveAll();
+		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
+		battleFriend.Clear();
 
         for (int i = 0; i < ack.m_lstBattleFriendEx.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriendEx[i]);
+            battleFriend.Add(ack.m_lstBattleFriendEx[i]);
         }
 
         for (int i = 0; i < ack.m_lstBattleFriend.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriend[i]);
+            battleFriend.Add(ack.m_lstBattleFriend[i]);
         }
 
         GUIBattleReward gui = (GUIBattleReward)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BATTLE_REWARD);

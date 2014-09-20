@@ -92,22 +92,23 @@ public class PVPBattleEndHandle
         top.m_bIsUpdateIng = false;
 
         //刷新战斗好友列表
-        Role.role.GetBattleFriendProperty().RemoveAll();
+		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
+		battleFriend.Clear();
 
         for (int i = 0; i < ack.m_lstBattleFriendEx.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriendEx[i]);
+            battleFriend.Add(ack.m_lstBattleFriendEx[i]);
         }
         for (int i = 0; i < ack.m_lstBattleFriend.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriend[i]);
+            battleFriend.Add(ack.m_lstBattleFriend[i]);
         }
 
-
-        Role.role.GetBaseProperty().m_lstWeekRank = new List<RoleBaseProperty.PVPItem>();
-        for (int i = 0; i < ack.m_lstWeekRank.Count; i++)
+		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
+		pvpItem.Clear();
+        for (int i = 0; i < pvpItem.Count; i++)
         {
-            RoleBaseProperty.PVPItem tmp = new RoleBaseProperty.PVPItem();
+            PVPItemInfo tmp = new PVPItemInfo();
             tmp.m_iHeroLv = ack.m_lstWeekRank[i].m_iHeroLv;
             tmp.m_iHeroTableID = ack.m_lstWeekRank[i].m_iHeroTableID;
             tmp.m_iLoseNum = ack.m_lstWeekRank[i].m_iLoseNum;
@@ -115,7 +116,7 @@ public class PVPBattleEndHandle
             tmp.m_iWinNum = ack.m_lstWeekRank[i].m_iWinNum;
             tmp.m_strName = ack.m_lstWeekRank[i].m_strName;
 
-            Role.role.GetBaseProperty().m_lstWeekRank.Add(tmp);
+            pvpItem.Add(tmp);
         }
 
         if (ack.m_bHasNewRecord)  //获得奖励

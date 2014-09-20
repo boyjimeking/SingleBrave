@@ -35,8 +35,7 @@ public class DeviceHandle
             GUI_FUNCTION.MESSAGEL(null, packet.header.desc);
             
         }
-
-        GAME_SETTING.DEVICE_ID = ack.m_strDeviceID;
+		
         GAME_SETTING.SaveGAME_JOIN();
         SendAgent.SendGameJoin(PlatformManager.GetInstance().GetDeviceID(), PlatformManager.GetInstance().GetChannelName());
 

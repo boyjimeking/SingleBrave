@@ -18,11 +18,8 @@ public class Role
     private RoleBaseProperty m_cBaseProperty;   //基本属性
     private HeroProperty m_cHeroProperty;   //英雄属性
     private TeamProperty m_cTeamProperty;   //队伍属性
-    private BattleFriendProperty m_cBattleFriendProperty;   //战友属性
     private FriendProperty m_cFriendProperty;   //好友属性
     private ItemProperty m_cItemProperty;    //物品属性
-    private MailProperty m_cMailProperty; //邮件属性
-    private FubenProperty m_cFubenProperty;//副本任务属性
     private BuildingProperty m_cBuildingProperty; //建筑属性
     private HeroBookProperty m_cHeroBookProperty;   //英雄图鉴
     private ItemBookProperty m_cItemBookProperty;   //物品推荐
@@ -38,11 +35,8 @@ public class Role
         this.m_cHeroProperty = new HeroProperty();
         this.m_cTeamProperty = new TeamProperty();
         this.m_cFriendProperty = new FriendProperty();
-        this.m_cBattleFriendProperty = new BattleFriendProperty();
         this.m_cItemProperty = new ItemProperty();
-        this.m_cMailProperty = new MailProperty();
         this.m_cBuildingProperty=new BuildingProperty();
-        this.m_cFubenProperty = new FubenProperty();
         this.m_cHeroBookProperty = new HeroBookProperty();
         this.m_cItemBookProperty = new ItemBookProperty();
         this.m_cStoreDiamondProperty = new StoreDiamondProperty();
@@ -75,10 +69,8 @@ public class Role
     {
         this.m_cHeroProperty.Destory();
         this.m_cFriendProperty.Destory();
-        this.m_cBattleFriendProperty.Destory();
         this.m_cItemProperty.Destory();
         this.m_cBuildingProperty.Destory();
-        this.m_cFubenProperty.Destory();
         this.m_cHeroBookProperty.Destory();
         this.m_cItemBookProperty.Destory();
     }
@@ -121,39 +113,12 @@ public class Role
     }
 
     /// <summary>
-    /// 获取战友属性
-    /// </summary>
-    /// <returns></returns>
-    public BattleFriendProperty GetBattleFriendProperty()
-    {
-        return this.m_cBattleFriendProperty;
-    }
-
-    /// <summary>
     /// 获取物品属性
     /// </summary>
     /// <returns></returns>
     public ItemProperty GetItemProperty()
     {
         return this.m_cItemProperty;
-    }
-
-    /// <summary>
-    /// 获取邮件属性
-    /// </summary>
-    /// <returns></returns>
-    public MailProperty GetMailProperty()
-    {
-        return this.m_cMailProperty;
-    }
-
-    /// <summary>
-    /// 获取副本任务属性
-    /// </summary>
-    /// <returns></returns>
-    public FubenProperty GetFubenProperty()
-    {
-        return this.m_cFubenProperty;
     }
 
     /// <summary>

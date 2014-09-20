@@ -183,13 +183,13 @@ public class BattleGateStartHandle
                 heros[i] = item;
             }
 
-            heros[5] = Role.role.GetBattleFriendProperty().GetSelectFriend().m_cLeaderHero;
+            heros[5] = GLOBAL_DEFINE.m_cSelectBattleFriend.m_cLeaderHero;
 
             LeaderSkillTable selfLeaderSkill = LeaderSkillTableManager.GetInstance().GetLeaderSkillTable(Role.role.GetHeroProperty().GetHero(team.m_iLeadID).m_iLeaderSkillID);
             LeaderSkillTable friendLeaderSkill = null;
-            if (Role.role.GetFriendProperty().IsMyFriend(Role.role.GetBattleFriendProperty().GetSelectFriend().m_iID))
+			if (Role.role.GetFriendProperty().IsMyFriend(GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID))
             {
-                friendLeaderSkill = LeaderSkillTableManager.GetInstance().GetLeaderSkillTable(Role.role.GetBattleFriendProperty().GetSelectFriend().m_cLeaderHero.m_iLeaderSkillID);
+				friendLeaderSkill = LeaderSkillTableManager.GetInstance().GetLeaderSkillTable(GLOBAL_DEFINE.m_cSelectBattleFriend.m_cLeaderHero.m_iLeaderSkillID);
             }
 
             //获得世界，区域，副本，关卡id

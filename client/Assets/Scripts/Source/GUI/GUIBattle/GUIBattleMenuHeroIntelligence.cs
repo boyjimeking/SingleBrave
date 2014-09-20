@@ -133,7 +133,7 @@ public class GUIBattleMenuHeroIntelligence : GUIBase
             this.m_cLabLeaderSkillDesc.text = ldSkill.Desc;
         }
 
-        if (Role.role.GetBattleFriendProperty().GetSelectFriend().m_bIsFriend)
+        if (GLOBAL_DEFINE.m_cSelectBattleFriend.m_bIsFriend)
         {
             this.m_cFriendSkillParent.SetActive(true);
             this.m_cSprUnfriend.SetActive(false);

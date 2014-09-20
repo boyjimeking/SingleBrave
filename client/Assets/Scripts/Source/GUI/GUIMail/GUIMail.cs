@@ -104,8 +104,8 @@ public class GUIMail : GUIBase
         panel.clipRange = new Vector4(panel.clipRange.x, y, panel.clipRange.z, panel.clipRange.w);
 
 
-        this.m_lstMail = Role.role.GetMailProperty().GetAll();
-        for (int i = 0; i < m_lstMail.Count; i++)
+		Mail mail = CModelMgr.sInstance.GetModel<Mail>();
+		for (int i = 0; i < mail.Count; i++)
         {
             GameObject listItem = GameObject.Instantiate(this.m_cListItem) as GameObject;
             listItem.transform.parent = this.m_cListItemParent.transform;
@@ -118,33 +118,34 @@ public class GUIMail : GUIBase
             UISprite sprBg = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(listItem, SPR_ICONBG);
 
             UILabel labTitle = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(listItem, LABEL_TITLE);
-            switch (m_lstMail[i].m_cType)
+			Mail tmpMail = mail[i] as Mail;
+			switch (tmpMail.m_cType)
             {
                 case GiftType.Diamond:
-                    labTitle.text = m_lstMail[i].m_strTittle + " x " + m_lstMail[i].m_iCount;
+					labTitle.text = tmpMail.m_strTittle + " x " + tmpMail.m_iCount;
                     sprIcon.spriteName = "gem";
                     break;
                 case GiftType.Gold:
-                    labTitle.text = m_lstMail[i].m_strTittle + " x " + m_lstMail[i].m_iCount;
+					labTitle.text = tmpMail.m_strTittle + " x " + tmpMail.m_iCount;
                     sprIcon.spriteName = "zell_thum";
                     break;
                 case GiftType.FriendPoint:
-                    labTitle.text = m_lstMail[i].m_strTittle + " x " + m_lstMail[i].m_iCount;
+					labTitle.text = tmpMail.m_strTittle + " x " + tmpMail.m_iCount;
                     sprIcon.spriteName = "friend_p_thum";
                     break;
                 case GiftType.FarmPoint:
-                    labTitle.text = m_lstMail[i].m_strTittle + " x " + m_lstMail[i].m_iCount;
+					labTitle.text = tmpMail.m_strTittle + " x " + tmpMail.m_iCount;
                     sprIcon.spriteName = "karma_thum";
                     break;
                 case GiftType.Hero:
-                    labTitle.text = m_lstMail[i].m_strTittle + " x " + m_lstMail[i].m_iCount;
-                    HeroTable hero = HeroTableManager.GetInstance().GetHeroTable(m_lstMail[i].m_iHeroTableID);
+					labTitle.text = tmpMail.m_strTittle + " x " + tmpMail.m_iCount;
+					HeroTable hero = HeroTableManager.GetInstance().GetHeroTable(tmpMail.m_iHeroTableID);
                     GUI_FUNCTION.SET_AVATORS(sprIcon, hero.AvatorMRes);
                     GUI_FUNCTION.SET_HeroBorderAndBack(sprFrame, sprBg, (Nature)hero.Property);
                     break;
                 case GiftType.Item:
-                    labTitle.text = m_lstMail[i].m_strTittle + " x " + m_lstMail[i].m_iCount;
-                    ItemTable item = ItemTableManager.GetInstance().GetItem(m_lstMail[i].m_iItemTableID);
+					labTitle.text = tmpMail.m_strTittle + " x " + tmpMail.m_iCount;
+					ItemTable item = ItemTableManager.GetInstance().GetItem(tmpMail.m_iItemTableID);
                     GUI_FUNCTION.SET_ITEMM(sprIcon, item.SpiritName);
                     GUI_FUNCTION.SET_ITEM_BORDER(sprFrame, (ITEM_TYPE)item.Type);
                     break;

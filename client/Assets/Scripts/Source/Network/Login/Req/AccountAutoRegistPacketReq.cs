@@ -34,6 +34,22 @@ public partial class SendAgent
 	public static void SendAccountAutoRegistReq()
 	{
 		AccountAutoRegistPacketReq req = new AccountAutoRegistPacketReq();
-		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION,
+		                                  req,AccountAutoRegistHandle.Excute,
+		                                  account_auto_regist_handle);
+	}
+
+	/// <summary>
+	/// Process_s the handle.
+	/// </summary>
+	/// <param name="req">Req.</param>
+	private static HTTPPacketAck account_auto_regist_handle( HTTPPacketRequest req )
+	{
+		AccountAutoRegistPktAck ack = new AccountAutoRegistPktAck();
+		ack.m_iUid = 1;
+		ack.m_strToken = "1";
+		ack.m_strUsrName = "dummy";
+		ack.m_strPassword = "dummy";
+		return ack;
 	}
 }

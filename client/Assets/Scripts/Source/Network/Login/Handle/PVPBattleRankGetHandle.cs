@@ -93,15 +93,16 @@ public class PVPBattleRankGetHandle
             tmp.m_lstRanksWeek.Add(ct);
         }
         //即使的周排行刷新 竞技场界面前3名
-        Role.role.GetBaseProperty().m_lstWeekRank = new List<RoleBaseProperty.PVPItem>();
+		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
+		pvpItem.Clear();
         for (int i = 0; i < tmp.m_lstRanksWeek.Count; i++)
         {
-            if (Role.role.GetBaseProperty().m_lstWeekRank.Count > 3)  //取前3名
+            if (pvpItem.Count > 3)  //取前3名
             {
                 break;
             }
 
-            RoleBaseProperty.PVPItem ct = new RoleBaseProperty.PVPItem();
+            PVPItemInfo ct = new PVPItemInfo();
             ct.m_iHeroLv = tmp.m_lstRanksWeek[i].m_iHeroLv;
             ct.m_iHeroTableID = tmp.m_lstRanksWeek[i].m_iHeroTableID;
             ct.m_iLoseNum = tmp.m_lstRanksWeek[i].m_iLoseNum;
@@ -109,7 +110,7 @@ public class PVPBattleRankGetHandle
             ct.m_iWinNum = tmp.m_lstRanksWeek[i].m_iWinNum;
             ct.m_strName = tmp.m_lstRanksWeek[i].m_strName;
 
-            Role.role.GetBaseProperty().m_lstWeekRank.Add(ct);
+            pvpItem.Add(ct);
         }
 
 

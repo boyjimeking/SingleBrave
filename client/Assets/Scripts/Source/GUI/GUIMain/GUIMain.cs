@@ -843,19 +843,17 @@ public class GUIMain : GUIBase
 
                 HidenImmediately();
                 this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).HidenImmediately();
-                List<FuBen> lstFuben = new List<FuBen>();
-                for (int i = 0; i < Role.role.GetFubenProperty().GetAllFuben().Count; i++)
+                
+				FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
+
+				if(fuben.Count > 1)
                 {
-                    lstFuben.Add(Role.role.GetFubenProperty().GetAllFuben()[i]);
-                }
-                if(lstFuben.Count > 1)
-                {
-                    if(!lstFuben[1].m_bActive)
+					if(!(fuben[1] as FuBen).m_bActive)
                     {
                         GUIArea area = (GUIArea)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_AREA);
                         WorldManager.s_iCurrentWorldId = 1;
-                        int newAreaIndex = Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
-                        int newDungeonIndex = Role.role.GetFubenProperty().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
+						int newAreaIndex = fuben.GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
+						int newDungeonIndex = fuben.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
                         if (newDungeonIndex >= 0)
                         {
                             WorldManager.s_iLastNewDungeonIndex = newDungeonIndex - 1;

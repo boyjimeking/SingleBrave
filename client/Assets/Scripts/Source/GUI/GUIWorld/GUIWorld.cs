@@ -102,15 +102,16 @@ public class GUIWorld : GUIBase
 
         int currentWorldId = 1;
 
-        for (int i = 0; i < Role.role.GetFubenProperty().GetAllFuben().Count; i++)
+		FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
+		for (int i = 0; i < fuben.Count; i++)
         {
 
-            FuBen fuben = Role.role.GetFubenProperty().GetAllFuben()[i];
-            if (currentWorldId < fuben.m_iWorldID)
+			FuBen fubenitem = fuben[i] as FuBen;
+			if (currentWorldId < fubenitem.m_iWorldID)
             {
-                if (fuben.m_bActive)
+				if (fubenitem.m_bActive)
                 {
-                    currentWorldId = fuben.m_iWorldID;
+					currentWorldId = fubenitem.m_iWorldID;
                 }
             }
         }
@@ -239,8 +240,9 @@ public class GUIWorld : GUIBase
             GUIArea area = (GUIArea)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_AREA);
             area.ResetCurrentAreaId();
 
-            int newAreaIndex = Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
-            int newDungeonIndex = Role.role.GetFubenProperty().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
+			FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
+			int newAreaIndex = fuben.GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
+			int newDungeonIndex = fuben.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
             if (newDungeonIndex >= 0)
             {
                 WorldManager.s_iLastNewDungeonIndex = newDungeonIndex - 1;

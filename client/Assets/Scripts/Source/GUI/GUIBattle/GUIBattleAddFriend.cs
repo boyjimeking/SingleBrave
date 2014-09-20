@@ -99,7 +99,7 @@ public class GUIBattleAddFriend : GUIBase
     /// </summary>
     private void UpdateData()
     {
-        BattleFriend leader = Role.role.GetBattleFriendProperty().GetSelectFriend();
+		BattleFriend leader = GLOBAL_DEFINE.m_cSelectBattleFriend;
         //头像
         GUI_FUNCTION.SET_HeroBorderAndBack(m_cUserInfo.m_cSpBorder, m_cUserInfo.m_cSpFrame, leader.m_cLeaderHero.m_eNature);
         GUI_FUNCTION.SET_AVATORS(m_cUserInfo.m_cSpHero, leader.m_cLeaderHero.m_strAvatarM);
@@ -204,7 +204,7 @@ public class GUIBattleAddFriend : GUIBase
                     GUI_FUNCTION.MESSAGEM(OnSure, "申请失败！");
                 }
             });
-            SendAgent.SendFriendApply(Role.role.GetBaseProperty().m_iPlayerId, Role.role.GetBattleFriendProperty().GetSelectFriend().m_iID);
+            SendAgent.SendFriendApply(Role.role.GetBaseProperty().m_iPlayerId, GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID);
         }
     }
 

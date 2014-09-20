@@ -147,7 +147,7 @@ public class GUIFightReady : GUIBase
             HeroShowItem hero6 = new HeroShowItem(m_cItem5, true);
 
             //战友是好友的 闪烁显示, 并且显示好友队长技，非好友不闪烁显示，并且提示不能使用队长技能
-            if (Role.role.GetBattleFriendProperty().GetSelectFriend().m_bIsFriend)
+            if (GLOBAL_DEFINE.m_cSelectBattleFriend.m_bIsFriend)
             {
                 //闪烁好友
                 hero6.m_cSPFriend.enabled = true;
@@ -242,7 +242,7 @@ public class GUIFightReady : GUIBase
             HeroShowItem hero6 = new HeroShowItem(m_cItem5, true);
 
             //战友是好友的 闪烁显示, 并且显示好友队长技，非好友不闪烁显示，并且提示不能使用队长技能
-            if (Role.role.GetBattleFriendProperty().GetSelectFriend().m_bIsFriend)
+            if (GLOBAL_DEFINE.m_cSelectBattleFriend.m_bIsFriend)
             {
                 //闪烁好友
                 hero6.m_cSPFriend.enabled = true;
@@ -637,7 +637,7 @@ public class GUIFightReady : GUIBase
             hrs.Add(Role.role.GetHeroProperty().GetHero(arrtmp.m_vecTeam[i]));
         }
         //友方队长
-        var friend = Role.role.GetBattleFriendProperty().GetSelectFriend();  
+        var friend = GLOBAL_DEFINE.m_cSelectBattleFriend;  
         hrs.Add(friend.m_cLeaderHero);
 
         FightReadyItem tmp = new FightReadyItem(hrs, parent);
@@ -666,7 +666,7 @@ public class GUIFightReady : GUIBase
 
         List<Hero> tes = hrs.ToList();
 
-        BattleFriend friend = Role.role.GetBattleFriendProperty().GetSelectFriend();  //友方队长
+        BattleFriend friend = GLOBAL_DEFINE.m_cSelectBattleFriend;  //友方队长
         hrs.Add(friend.m_cLeaderHero);
 
         tmp.UpdateShowItem(hrs);

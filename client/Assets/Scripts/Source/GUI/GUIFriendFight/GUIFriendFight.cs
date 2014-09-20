@@ -140,9 +140,10 @@ public class GUIFriendFight : GUIBase
 
         this.m_lstBattleFriend.Clear();
 
-        for (int i = 0; i < Role.role.GetBattleFriendProperty().GetAll().Count; i++)
+		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
+		for (int i = 0; i < battleFriend.Count; i++)
         {
-            this.m_lstBattleFriend.Add(Role.role.GetBattleFriendProperty().GetAll()[i]);
+			this.m_lstBattleFriend.Add(battleFriend.Get<BattleFriend>(i));
         }
 
         for (int i = 0; i < m_lstBattleFriend.Count; i++)
@@ -207,8 +208,7 @@ public class GUIFriendFight : GUIBase
 
         CTween.TweenPosition(this.m_cTopPanel, GAME_DEFINE.FADEOUT_GUI_TIME, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(-640, 270, 0), new Vector3(0, 270, 0));
         CTween.TweenPosition(this.m_cClipView, GAME_DEFINE.FADEOUT_GUI_TIME, GAME_DEFINE.FADEIN_GUI_TIME, new Vector3(640, 0, 0), Vector3.zero);
-
-        List<BattleFriend> lst = Role.role.GetBattleFriendProperty().GetAll();
+		
     }
 
         /// <summary>
@@ -298,15 +298,13 @@ public class GUIFriendFight : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            BattleFriendProperty battleFriend = new BattleFriendProperty();
-            List<BattleFriend> lstBattleFriend = battleFriend.GetAll();
-
-            BattleFriend tmp = m_lstBattleFriend[(int)args[0]];
+			BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
+			BattleFriend tmp =  battleFriend[(int)args[0]] as BattleFriend;
             if (tmp!=null)
             {
                 Hiden();
+				GLOBAL_DEFINE.m_cSelectBattleFriend = tmp;
 
-                Role.role.GetBattleFriendProperty().SetSelectFriendID(tmp.m_iID);
                 GUIFightReady fightready = (GUIFightReady)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_FIGHTREADY);
                 fightready.Show();
             }

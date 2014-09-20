@@ -20,6 +20,15 @@ public class GAME_SETTING
     //public const string SESSION_LOGIN_PATH = "http://test.sanguo.youqingkeji.com/sanguo/index.php?r=";  //外网测试地址
     //public const string SESSION_LOGIN_PATH = "http://pp.ios.youqingkeji.com/sanguo/index.php?r=";  //外网PP测试地址
     
+#if IOS_SINGLE
+	public const string CHANNEL_NAME = "ios_single";
+#elif IOS
+	public const string CHANNEL_NAME = "ios";
+#elif IOSPP
+	public const string CHANNEL_NAME = "ios_pp";
+#elif ANDROID
+	public const string CHANNEL_NAME = "android";
+#endif
     public const int VERSION = 7;  //版本号
     public static bool s_bSKEffectSwitch; //技能特效开关
     private const string SKEFFECT_SWITCH = "SKEFFECT_SWITCH";   //技能特效关键词
@@ -58,8 +67,6 @@ public class GAME_SETTING
     public static Dictionary<int, int> ITEM_LIST;
     public const string GAME_JOIN_STR = "GAME_JOIN";   //游戏加入字段
     public static bool GAME_JOIN;  //是否曾加入游戏
-    public const string DEVICE_ID_STR = "DEVICE_ID";    //设备ID
-    public static string DEVICE_ID = "";   //设备ID
     public const string WARN_HERO_JINHUA = "Warn_hero_Jinhua";  //有新装备，新可以进化英雄，新解锁药物和装备需要提示信息
     public const string WARN_HERO_EQUIP = "Warn_hero_equip";  //有新装备，新可以进化英雄，新解锁药物和装备需要提示信息
     public const string WARN_HOUSE_TIAOHE = "Warn_house_tiaohe";  //有新装备，新可以进化英雄，新解锁药物和装备需要提示信息
@@ -191,7 +198,6 @@ public class GAME_SETTING
         }
 
         GAME_JOIN = PlayerPrefs.GetInt(GAME_JOIN_STR) > 0 ? true : false;
-        DEVICE_ID = PlayerPrefs.GetString(DEVICE_ID_STR);
 
         //有新装备
         if (PlayerPrefs.HasKey(WARN_HERO_EQUIP))
@@ -437,7 +443,6 @@ public class GAME_SETTING
     public static void SaveGAME_JOIN( )
     {
         PlayerPrefs.SetInt(GAME_JOIN_STR, GAME_JOIN ? 1 : 0);
-        PlayerPrefs.SetString(DEVICE_ID_STR, DEVICE_ID);
         PlayerPrefs.Save();
     }
 

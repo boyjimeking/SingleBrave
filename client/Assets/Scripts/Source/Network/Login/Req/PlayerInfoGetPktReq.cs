@@ -35,7 +35,21 @@ public partial class SendAgent
 	{
 		PlayerInfoGetPktReq req = new PlayerInfoGetPktReq();
 		req.m_iUID = uid;
-		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION,
+		                                  req,
+		                                  PlayerInfoGetHandle.Excute,
+		                                  player_info_get_process);
+	}
+
+	/// <summary>
+	/// Player_info_get_process the specified req.
+	/// </summary>
+	/// <param name="req">Req.</param>
+	public static HTTPPacketAck player_info_get_process(HTTPPacketRequest req)
+	{
+		PlayerInfoGetPktAck ack = new PlayerInfoGetPktAck();
+		ack.header.code = 1;
+		return ack;
 	}
 
 }

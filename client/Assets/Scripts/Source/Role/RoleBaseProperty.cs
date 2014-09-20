@@ -14,7 +14,7 @@ using UnityEngine;
 /// <summary>
 /// 角色基础属性
 /// </summary>
-public class RoleBaseProperty
+public class RoleBaseProperty : CModel
 {
     public int m_iPlayerId;   //用户ID
     public string m_strUserName;    //用户名字//
@@ -22,36 +22,36 @@ public class RoleBaseProperty
     public int m_iCurrentExp;  //用户当前经验//
     public int strength;
     public int sportpoint;
-    public int m_iStrength  //用户当前体力//
-    {
-        get { return strength; }
-        set
-        {
-            GUIBackFrameTop top = (GUIBackFrameTop)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP);
-            top.m_bIsUpdateIng = true;
-            if (strength != value)
-            {
-                m_fStrengthNext += (strength - value) * GUIBackFrameTop.STRENGTH_PER;
-            }
-            strength = value;
-            top.m_bIsUpdateIng = false;
-        }
-    }
-    public int m_iSportPoint  //用户竞技点//
-    {
-        get { return sportpoint; }
-        set
-        {
-            GUIBackFrameTop top = (GUIBackFrameTop)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP);
-            top.m_bIsUpdateIng = true;
-            if (sportpoint != value)
-            {
-               this.m_fSportNext += (sportpoint - value) * GUIBackFrameTop.PVP_PER;
-            }
-            sportpoint = value;
-            top.m_bIsUpdateIng = false;
-        }
-    }
+	public int m_iStrength;  //用户当前体力//
+//    {
+//        get { return strength; }
+//        set
+//        {
+//            GUIBackFrameTop top = (GUIBackFrameTop)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP);
+//            top.m_bIsUpdateIng = true;
+//            if (strength != value)
+//            {
+//                m_fStrengthNext += (strength - value) * GUIBackFrameTop.STRENGTH_PER;
+//            }
+//            strength = value;
+//            top.m_bIsUpdateIng = false;
+//        }
+//    }
+	public int m_iSportPoint;  //用户竞技点//
+//    {
+//        get { return sportpoint; }
+//        set
+//        {
+//            GUIBackFrameTop top = (GUIBackFrameTop)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP);
+//            top.m_bIsUpdateIng = true;
+//            if (sportpoint != value)
+//            {
+//               this.m_fSportNext += (sportpoint - value) * GUIBackFrameTop.PVP_PER;
+//            }
+//            sportpoint = value;
+//            top.m_bIsUpdateIng = false;
+//        }
+//    }
     public int m_iDiamond;  //用户所有钻石//
     public int m_iGold;    //用户所有金币//
     public int m_iFarmPoint;   //用户农场点//
@@ -77,7 +77,6 @@ public class RoleBaseProperty
     public string m_strEnemySignture; //竞技场敌方名称
     public int m_iEnemyLevel;//竞技场敌方等级
     public int m_iEnemyPid; //竞技场敌方Pid
-    public List<PVPItem> m_lstWeekRank = new List<PVPItem>();  //所有排名
     public int m_iMyWeekRank;  //我的周积分排名
     public int m_iMyWeekPoint; //我的周积分
     public int m_iModelID;    //新手引导模块
@@ -92,20 +91,6 @@ public class RoleBaseProperty
     public float m_fSportNext;         //竞技点计数
     public bool m_bIsNeedShowStory; //是否显示下一张引导
     public int m_iStoryID;
-
-    /// <summary>
-    /// 排名显示单项
-    /// </summary>
-    public class PVPItem
-    {
-        public string m_strName;
-        public int m_iHeroTableID;
-        public int m_iHeroLv;
-        public int m_iPoint;
-        public int m_iWinNum;
-        public int m_iLoseNum;
-
-    }
 
     public RoleBaseProperty()
     {
@@ -134,3 +119,5 @@ public class RoleBaseProperty
     }
 
 }
+
+

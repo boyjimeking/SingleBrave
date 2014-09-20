@@ -57,7 +57,6 @@ public class AccountAutoRegistHandle
         GAME_SETTING.SaveSetting();
 
         SendAgent.SendVersionReq();
-        //SendAgent.SendPlayerInfoGetPktReq(GAME_SETTING.s_iUID);
 
         return;
     }

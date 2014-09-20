@@ -362,7 +362,7 @@ public class GUIFriendApply : GUIBase
     {
         if (isApply)
         {
-            BattleFriend tmp = Role.role.GetBattleFriendProperty().GetBattleFriend(m_cFirend.m_iID);
+            BattleFriend tmp = CModelMgr.sInstance.GetModel<BattleFriend>().GetByID(m_cFirend.m_iID);
             if (tmp != null)
             {
                 tmp.m_bIsFriend = false;

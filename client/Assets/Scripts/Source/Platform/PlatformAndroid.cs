@@ -26,21 +26,12 @@ public class PlatformAndroid : PlatformBase
     }
 
     /// <summary>
-    /// 获取设备号
-    /// </summary>
-    /// <returns></returns>
-    public override string GetDeviceID()
-    {
-        return "";
-    }
-
-    /// <summary>
     /// 获取渠道号
     /// </summary>
     /// <returns></returns>
     public override string GetChannelName()
     {
-        return "";
+        return GAME_SETTING.CHANNEL_NAME;
     }
 
     /// <summary>

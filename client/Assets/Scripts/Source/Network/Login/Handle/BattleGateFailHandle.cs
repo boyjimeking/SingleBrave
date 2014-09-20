@@ -101,20 +101,22 @@ public class BattleGateFailHandle
         }
 
         //刷新战斗好友列表
-        Role.role.GetBattleFriendProperty().RemoveAll();
+		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
+		battleFriend.Clear();
 
         for (int i = 0; i < ack.m_lstBattleFriendEx.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriendEx[i]);
+            battleFriend.Add(ack.m_lstBattleFriendEx[i]);
         }
 
         for (int i = 0; i < ack.m_lstBattleFriend.Count; i++)
         {
-            Role.role.GetBattleFriendProperty().AddBattleFriend(ack.m_lstBattleFriend[i]);
+            battleFriend.Add(ack.m_lstBattleFriend[i]);
         }
 
-        int newAreaIndex = Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
-        int newDungeonIndex = Role.role.GetFubenProperty().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
+		FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
+		int newAreaIndex = fuben.GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
+		int newDungeonIndex = fuben.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
         if (newDungeonIndex > 0)
         {
             WorldManager.s_iLastNewDungeonIndex = newDungeonIndex - 1;

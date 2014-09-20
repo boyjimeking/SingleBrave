@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 //  PlatformBase.cs
 //  Author: Lu Zexi
@@ -30,7 +31,16 @@ public abstract class PlatformBase
     /// 获取设备号
     /// </summary>
     /// <returns></returns>
-    public abstract string GetDeviceID();
+    public virtual string GetDeviceID()
+	{
+		string guid = PlayerPrefs.GetString("DEVICE_ID");
+		if(guid == "")
+		{
+			guid = Guid.NewGuid().ToString();
+			PlayerPrefs.SetString("DEVICE_ID",guid);
+		}
+		return guid;
+	}
 
     /// <summary>
     /// 获取渠道号

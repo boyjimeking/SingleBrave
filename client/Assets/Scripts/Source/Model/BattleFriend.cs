@@ -15,7 +15,7 @@ using System.Text;
 /// <summary>
 /// 战场好友
 /// </summary>
-public class BattleFriend
+public class BattleFriend : CModel
 {
     public int m_iID;  //战友ID
     public string m_strName;    //战友名字
@@ -26,5 +26,16 @@ public class BattleFriend
     public bool m_bIsFriend;//是否为好友
     public string m_strSign;  //签名
     public int m_PvpExp; //竞技场经验
+
+	// get battle friend by id
+	public BattleFriend GetByID( int id )
+	{
+		foreach( CModel item in this.s_lstData )
+		{
+			if( (item as BattleFriend).m_iID == id )
+				return item as BattleFriend;
+		}
+		return null;
+	}
 }
 

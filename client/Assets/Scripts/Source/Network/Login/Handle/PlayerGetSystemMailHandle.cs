@@ -40,18 +40,19 @@ public class PlayerGetSystemMailHandle
             return;
         }
 
-        Role.role.GetMailProperty().ClearMails();
+		Mail mail = CModelMgr.sInstance.GetModel<Mail>();
+		mail.Clear();
 
         for(int i = 0;i < ack.m_lstMail.Count;i++)
         {
-            Role.role.GetMailProperty().AddEmail(ack.m_lstMail[i]);
+            mail.Add(ack.m_lstMail[i]);
         }
 
         GUIMain main = (GUIMain)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_MAIN);
         main.Hiden();
 
-        GUIMail mail = (GUIMail)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_MAIL);
-        mail.Show();
+        GUIMail guimail = (GUIMail)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_MAIL);
+        guimail.Show();
 
 
         return;

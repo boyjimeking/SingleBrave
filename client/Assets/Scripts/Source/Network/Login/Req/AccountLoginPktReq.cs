@@ -41,7 +41,19 @@ public partial class SendAgent
 		AccountLoginPktReq req = new AccountLoginPktReq();
 		req.m_strUserName = userName;
 		req.m_strPassword = password;
-		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION, req);
+		SessionManager.GetInstance().Send(SESSION_DEFINE.LOGIN_SESSION,
+		                                  req ,
+		                                  AccountLoginHandle.Excute,
+		                                  account_login_handle);
+	}
+
+	private static HTTPPacketAck account_login_handle( HTTPPacketRequest req )
+	{
+		AccountLoginPktAck ack = new AccountLoginPktAck();
+		ack.m_bBound = true;
+		ack.m_iUid = 1;
+		ack.m_strToken = "1";
+		return ack;
 	}
 
 }

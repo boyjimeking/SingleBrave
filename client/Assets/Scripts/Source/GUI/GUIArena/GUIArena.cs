@@ -183,34 +183,38 @@ public class GUIArena : GUIBase
         PVPWeekRankTable silver = PVPWeekRankTableManager.GetInstance().GetWeekRankTable(2);
         PVPWeekRankTable coper = PVPWeekRankTableManager.GetInstance().GetWeekRankTable(3);
 
-        if (Role.role.GetBaseProperty().m_lstWeekRank.Count > 0)
+		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
+        if ( pvpItem.Count > 0)
         {
-            this.m_cLbGoldName.text = Role.role.GetBaseProperty().m_lstWeekRank[0].m_strName;
-            this.m_cLbGoldBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(Role.role.GetBaseProperty().m_lstWeekRank[0].m_iPoint);
+			PVPItemInfo tmpItem = pvpItem[0] as PVPItemInfo;
+			this.m_cLbGoldName.text = tmpItem.m_strName;
+			this.m_cLbGoldBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(tmpItem.m_iPoint);
             this.m_cLbGoldAward.text = gold.Num.ToString();
-            GUI_FUNCTION.SET_AVATORS(this.m_cSpGoldHero, HeroTableManager.GetInstance().GetHeroTable(Role.role.GetBaseProperty().m_lstWeekRank[0].m_iHeroTableID).AvatorMRes);
+			GUI_FUNCTION.SET_AVATORS(this.m_cSpGoldHero, HeroTableManager.GetInstance().GetHeroTable(tmpItem.m_iHeroTableID).AvatorMRes);
             SetAwardSprite(m_cSpGoldItem, gold.AwardType, gold.ID);
         }
 
-        if (Role.role.GetBaseProperty().m_lstWeekRank.Count > 1)
+		if (pvpItem.Count > 1)
         {
-            this.m_cLbSilverName.text = Role.role.GetBaseProperty().m_lstWeekRank[1].m_strName;
-            this.m_cLbSilverBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(Role.role.GetBaseProperty().m_lstWeekRank[1].m_iPoint);
+			PVPItemInfo tmpItem = pvpItem[1] as PVPItemInfo;
+			this.m_cLbSilverName.text = tmpItem.m_strName;
+			this.m_cLbSilverBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(tmpItem.m_iPoint);
             this.m_cLbSilverAward.text = silver.Num.ToString();
-            GUI_FUNCTION.SET_AVATORS(this.m_cSpSilverHero, HeroTableManager.GetInstance().GetHeroTable(Role.role.GetBaseProperty().m_lstWeekRank[1].m_iHeroTableID).AvatorMRes);
+			GUI_FUNCTION.SET_AVATORS(this.m_cSpSilverHero, HeroTableManager.GetInstance().GetHeroTable(tmpItem.m_iHeroTableID).AvatorMRes);
             SetAwardSprite(m_cSpSilverItem, silver.AwardType, silver.ID);
         }
 
-        if (Role.role.GetBaseProperty().m_lstWeekRank.Count > 2)
+		if (pvpItem.Count > 2)
         {
-            this.m_cLbCoperName.text = Role.role.GetBaseProperty().m_lstWeekRank[2].m_strName;
-            this.m_cLbCoperBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(Role.role.GetBaseProperty().m_lstWeekRank[2].m_iPoint);
+			PVPItemInfo tmpItem = pvpItem[2] as PVPItemInfo;
+			this.m_cLbCoperName.text = tmpItem.m_strName;
+			this.m_cLbCoperBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(tmpItem.m_iPoint);
             this.m_cLbCoperAward.text = coper.Num.ToString();
-            GUI_FUNCTION.SET_AVATORS(this.m_cSpCoperHero, HeroTableManager.GetInstance().GetHeroTable(Role.role.GetBaseProperty().m_lstWeekRank[2].m_iHeroTableID).AvatorMRes);
+			GUI_FUNCTION.SET_AVATORS(this.m_cSpCoperHero, HeroTableManager.GetInstance().GetHeroTable(tmpItem.m_iHeroTableID).AvatorMRes);
             SetAwardSprite(m_cSpCoperItem, coper.AwardType, coper.ID);
         }
 
-        switch (Role.role.GetBaseProperty().m_lstWeekRank.Count)
+		switch (pvpItem.Count)
         {
             case 0:
                 this.m_cGold.SetActive(false);

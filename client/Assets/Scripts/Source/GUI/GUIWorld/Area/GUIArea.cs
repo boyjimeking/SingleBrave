@@ -187,7 +187,9 @@ public class GUIArea : GUIBase
         this.m_cSprNew.transform.parent = this.m_cEffectParent.transform;
         this.m_cSprNew.transform.localScale = new Vector3(80, 80, 80);
 
-        if (WorldManager.s_iCurrentAreaIndex == Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
+		FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
+
+		if (WorldManager.s_iCurrentAreaIndex == fuben.GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
         {
             this.m_cSprNew.SetActive(true);
         }
@@ -197,9 +199,9 @@ public class GUIArea : GUIBase
         }
 
 
-        if (Role.role.GetFubenProperty().GetAllFuben().Count > 1)
+		if (fuben.Count > 1)
         {
-            if (!Role.role.GetFubenProperty().GetAllFuben()[1].m_bActive)
+			if ( !(fuben[1] as FuBen).m_bActive )
             {
                 this.m_cWorld_Button.SetActive(false);
             }
@@ -425,9 +427,10 @@ public class GUIArea : GUIBase
         //}
 
         int newDungeonIndex = 0;
+		FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
         if (this.m_iNewAreaIndex == areaIndex)
         {
-            newDungeonIndex = Role.role.GetFubenProperty().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, this.m_iNewAreaIndex);
+			newDungeonIndex = fuben.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, this.m_iNewAreaIndex);
         }
         else {
             
@@ -665,7 +668,7 @@ public class GUIArea : GUIBase
             }
 
             //是否是第一次进
-            FuBen fuben = Role.role.GetFubenProperty().GetFubenByWorldID(WorldManager.s_iCurrentWorldId);
+            FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>().GetFubenByWorldID(WorldManager.s_iCurrentWorldId);
             if ( !fuben.m_bDungeonStory && fuben.m_iGateIndex == 0 && fuben.m_iDungeonIndex == WorldManager.s_iCurrentDungeonIndex)
             {
                 //GUI_FUNCTION.SHOW_STORY(dungeonTable.StoryID, Show);
@@ -828,7 +831,7 @@ public class GUIArea : GUIBase
                 LeftDragPanel();
                 WorldManager.s_iCurrentAreaIndex += 1;
 
-                if (WorldManager.s_iCurrentAreaIndex == Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
+                if (WorldManager.s_iCurrentAreaIndex == CModelMgr.sInstance.GetModel<FuBen>().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
                 {
                     this.m_cSprNew.SetActive(true);
                 }
@@ -857,7 +860,7 @@ public class GUIArea : GUIBase
                 RightDragPanel();
                 WorldManager.s_iCurrentAreaIndex -= 1;
 
-                if (WorldManager.s_iCurrentAreaIndex == Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
+                if (WorldManager.s_iCurrentAreaIndex == CModelMgr.sInstance.GetModel<FuBen>().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
                 {
                     this.m_cSprNew.SetActive(true);
                 }
@@ -935,7 +938,7 @@ public class GUIArea : GUIBase
                         WorldManager.s_iCurrentAreaIndex -= 1;
                         this.m_bIsDrag = false;
                         
-                        if (WorldManager.s_iCurrentAreaIndex == Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
+						if (WorldManager.s_iCurrentAreaIndex == CModelMgr.sInstance.GetModel<FuBen>().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
                         {
                             this.m_cSprNew.SetActive(true);
                         }
@@ -954,7 +957,7 @@ public class GUIArea : GUIBase
                         WorldManager.s_iCurrentAreaIndex += 1;
                         this.m_bIsDrag = false;
 
-                        if (WorldManager.s_iCurrentAreaIndex == Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
+						if (WorldManager.s_iCurrentAreaIndex == CModelMgr.sInstance.GetModel<FuBen>().GetNewAreaIndex(WorldManager.s_iCurrentWorldId))
                         {
                             this.m_cSprNew.SetActive(true);
                         }
@@ -976,8 +979,8 @@ public class GUIArea : GUIBase
     /// <param name="id"></param>
     public void ResetCurrentAreaId()
     {
-       this.m_iNewAreaIndex = Role.role.GetFubenProperty().GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
-       WorldManager.s_iCurrentAreaIndex = this.m_iNewAreaIndex;
+		this.m_iNewAreaIndex = CModelMgr.sInstance.GetModel<FuBen>().GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
+       	WorldManager.s_iCurrentAreaIndex = this.m_iNewAreaIndex;
     }
 
     /// <summary>
@@ -1071,7 +1074,7 @@ public class GUIArea : GUIBase
         int newDungeonIndex = 0;
         if (this.m_iNewAreaIndex == index)
         {
-            newDungeonIndex = Role.role.GetFubenProperty().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, this.m_iNewAreaIndex);
+			newDungeonIndex = CModelMgr.sInstance.GetModel<FuBen>().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, this.m_iNewAreaIndex);
         }
         else
         {
