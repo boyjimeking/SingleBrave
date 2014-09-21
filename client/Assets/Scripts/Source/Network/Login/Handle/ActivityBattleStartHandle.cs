@@ -57,7 +57,7 @@ public class ActivityBattleStartHandle
 
         GUIActivityBattle gatebattleGui = (GUIActivityBattle)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_ACTIVITY_BATTLE);
 
-        HeroTeam team = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
+        HeroTeam team = new HeroTeam().Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam);
         Hero[] heros = new Hero[6];
         for (int i = 0; i < team.m_vecTeam.Length; i++)
         {

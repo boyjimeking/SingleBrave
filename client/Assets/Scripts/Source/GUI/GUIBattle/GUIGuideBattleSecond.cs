@@ -103,7 +103,7 @@ public class GUIGuideBattleSecond : GUIBattle
         if (gateTable.ID == GATE_ID)
         {
             //1方案
-            //HeroTeam team = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
+            //HeroTeam team = new HeroTeam().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
             Hero tmpHero = new Hero(4);
             tmpHero.m_iLevel = 80;
             tmpHero.m_iBBSkillLevel = 1;

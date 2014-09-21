@@ -833,7 +833,8 @@ public class GUIArenaBattleResult : GUIBase
                 }
 
                 //设置初始字段
-                int leaderID = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
+				HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+				int leaderID = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
                 Hero lead = Role.role.GetHeroProperty().GetHero(leaderID);
                 GUI_FUNCTION.SET_AVATORS(m_cHeroIconl, lead.m_strAvatarM);
                 GUI_FUNCTION.SET_HeroBorderAndBack(m_cHeroBorder, m_cHeroFrame, (Nature)lead.m_eNature);
@@ -1092,7 +1093,8 @@ public class GUIArenaBattleResult : GUIBase
         }
         //对我方英雄排序
         m_lstMyShowHeroDatas = new List<ShowHeroData>();
-        int leaderID = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
+		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+        int leaderID = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
         int leaderIndex = m_cSelfHeros.ToList().FindIndex(q => { return q != null && q.m_iID == leaderID; });
         ShowHeroData tmp11 = new ShowHeroData();
         tmp11.m_iHeroTableId = m_cSelfHeros[leaderIndex].m_iTableID;

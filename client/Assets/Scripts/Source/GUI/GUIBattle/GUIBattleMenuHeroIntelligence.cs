@@ -164,7 +164,7 @@ public class GUIBattleMenuHeroIntelligence : GUIBase
         this.m_lstHeroItems.Add(this.m_cHeroItem5);
         this.m_lstHeroItems.Add(this.m_cHeroItem6);
 
-        this.m_cLabTeamIndex.text = "队伍" + Role.role.GetTeamProperty().GetCurrentTeamNum();
+        this.m_cLabTeamIndex.text = "队伍" + Role.role.GetBaseProperty().m_iCurrentTeam;
 
         //英雄排序
         for (int i = 0; i < this.m_lstTeamHeroTabelId.Count; i++)

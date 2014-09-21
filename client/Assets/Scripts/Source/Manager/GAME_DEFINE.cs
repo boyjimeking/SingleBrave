@@ -22,6 +22,8 @@ public class GAME_DEFINE
     public const int U3D_OBJECT_LAYER_UI = 0;  //U3D物体UI层级
     public const int U3D_OBJECT_LAYER_MODEL = 1;   //U3D物体模型层级
 
+	public const int TEAM_MAX_NUM = 5;  //队伍成员最大数量
+
     public static string RESOURCE_POST = ".res"; //后缀扩展名
     public static string RESOURCE_SHARE = "Share"; //共享名
     public const string RESOURCE_GUI_CACHE = "gui_cache";   //GUI缓存

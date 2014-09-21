@@ -476,7 +476,7 @@ public class GUIFightReady : GUIBase
         this.m_cLbTitle.text = this.m_strTittle;
 
         m_lstSlideItem = new List<FightReadyItem>();
-        m_vecTeams = Reverse(Role.role.GetTeamProperty().GetAllTeam(), Role.role.GetBaseProperty().m_iCurrentTeam);
+		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
 
         GameObject obj0 = GUI_FINDATION.GET_GAME_OBJECT(this.m_cTable, RES_ITEM0);
         obj0.AddComponent<GUIComponentEvent>().AddIntputDelegate(Drag_OnEvent);
@@ -495,7 +495,7 @@ public class GUIFightReady : GUIBase
         m_bTweening = false;
         m_iTeamId = Role.role.GetBaseProperty().m_iCurrentTeam;
 
-        int index = (0 + m_iTeamId) % m_vecTeams.Length;
+		int index = (0 + m_iTeamId) % heroTeam.Count;
         this.m_cPiontL.transform.localPosition = new Vector3(-180 + index * 40, m_cPiontL.transform.localPosition.y, 0);
 
         SetShow(obj0, 9);
@@ -837,7 +837,8 @@ public class GUIFightReady : GUIBase
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
             //Cost超限控制
-            if (Role.role.GetTeamProperty().GetCurTeamCost() > RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            if (heroTeam.GetCurTeamCost() > RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
             {
                 GUI_FUNCTION.MESSAGEM(CostOverMax, GAME_FUNCTION.STRING(STRING_DEFINE.INFO_COST_OVER_MAX));
                 return;
@@ -865,9 +866,8 @@ public class GUIFightReady : GUIBase
 //            MediaMgr.PlaySound2(SOUND_DEFINE.SE_BATTLE_JOIN);
             GAME_FUNCTION.EXCUTE_DELAY(GAME_DEFINE.FADEOUT_GUI_TIME, BeginGateBattle);
 
-            int index = (m_iSelectId + m_iTeamId) % m_vecTeams.Length + 1;
-            Role.role.GetTeamProperty().SetCurrentTeamNum(index == 0 ? 10 : index);
-
+			int index = (m_iSelectId + m_iTeamId) % heroTeam.Count + 1;
+			Role.role.GetBaseProperty().m_iCurrentTeam = index == 0 ? 10 : index;
         }
     }
 

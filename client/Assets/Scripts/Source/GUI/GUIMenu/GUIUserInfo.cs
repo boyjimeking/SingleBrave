@@ -186,7 +186,7 @@ public class GUIUserInfo : GUIBase
     private void UpdateData()
     {
         var info = Role.role.GetBaseProperty();
-        var leaderID = Role.role.GetTeamProperty().GetTeam(info.m_iCurrentTeam).m_iLeadID;
+        var leaderID = CModelMgr.sInstance.GetModel<HeroTeam>().Get<HeroTeam>(info.m_iCurrentTeam).m_iLeadID;
         var heroLeader = Role.role.GetHeroProperty().GetHero(leaderID);
 
         GUI_FUNCTION.SET_HeroBorderAndBack(m_cUserInfo.m_cSpBorder, m_cUserInfo.m_cSpFrame, heroLeader.m_eNature);

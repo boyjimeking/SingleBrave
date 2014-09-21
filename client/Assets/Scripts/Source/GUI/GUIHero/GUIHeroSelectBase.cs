@@ -163,7 +163,8 @@ public class GUIHeroSelectBase : GUIBase
 
 
             int currentTeam = Role.role.GetBaseProperty().m_iCurrentTeam;
-            if (Role.role.GetTeamProperty().GetTeam(currentTeam).GetHeroIndex(hero) >= 0)
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+			if (heroTeam.Get<HeroTeam>(currentTeam).GetHeroIndex(hero) >= 0)
             {
                 this.m_cInTeam.enabled = true;
                 this.m_cInTeam.spriteName = SP_NAME_TEAM_USE;
@@ -173,7 +174,7 @@ public class GUIHeroSelectBase : GUIBase
             else
             {
                 bool exist = false;
-                foreach (HeroTeam item in Role.role.GetTeamProperty().GetAllTeam())
+                foreach (HeroTeam item in heroTeam)
                 {
                     if (item.GetHeroIndex(hero) >= 0)
                     {
@@ -644,8 +645,9 @@ public class GUIHeroSelectBase : GUIBase
         //其中属性按照 树--水--火--雷--光--暗 排序
         //因此当用户选择稀有度排序时， 先对稀有度排序  在对都是4星的英雄 进行属性排序，属性中相同的在对 tableID排序，在对同tableID的英雄进行等级排序
 
+		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
         //优先显示在team中的先排序
-        List<HeroShowItem> partyHeros = this.m_lstHeroShow.FindAll(new Predicate<HeroShowItem>((item) => { return CheckExistInTeams(Role.role.GetTeamProperty().GetAllTeam(), item.m_cHero.m_iID); }));
+		List<HeroShowItem> partyHeros = this.m_lstHeroShow.FindAll(new Predicate<HeroShowItem>((item) => { return CheckExistInTeams(heroTeam.ToArray<HeroTeam>(), item.m_cHero.m_iID); }));
         //剩下不在team中的再排序
         List<HeroShowItem> nextHeros = this.m_lstHeroShow.Except(partyHeros).ToList();
 

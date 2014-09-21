@@ -17,7 +17,6 @@ public class Role
 {
     private RoleBaseProperty m_cBaseProperty;   //基本属性
     private HeroProperty m_cHeroProperty;   //英雄属性
-    private TeamProperty m_cTeamProperty;   //队伍属性
     private FriendProperty m_cFriendProperty;   //好友属性
     private ItemProperty m_cItemProperty;    //物品属性
     private BuildingProperty m_cBuildingProperty; //建筑属性
@@ -33,7 +32,6 @@ public class Role
     {
         this.m_cBaseProperty = new RoleBaseProperty();
         this.m_cHeroProperty = new HeroProperty();
-        this.m_cTeamProperty = new TeamProperty();
         this.m_cFriendProperty = new FriendProperty();
         this.m_cItemProperty = new ItemProperty();
         this.m_cBuildingProperty=new BuildingProperty();
@@ -92,15 +90,6 @@ public class Role
     public HeroProperty GetHeroProperty()
     {
         return this.m_cHeroProperty;
-    }
-
-    /// <summary>
-    /// 获取团队属性
-    /// </summary>
-    /// <returns></returns>
-    public TeamProperty GetTeamProperty()
-    {
-        return this.m_cTeamProperty;
     }
 
     /// <summary>

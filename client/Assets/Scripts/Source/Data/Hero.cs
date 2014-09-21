@@ -12,7 +12,7 @@ using UnityEngine;
 /// <summary>
 /// 英雄类
 /// </summary>
-public class Hero
+public class Hero : CModel
 {
     public int m_iID;   //英雄唯一标识
     public int m_iTableID;  //配置表的对应ID

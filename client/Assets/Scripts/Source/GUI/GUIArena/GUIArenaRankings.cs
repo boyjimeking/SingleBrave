@@ -540,7 +540,8 @@ public class GUIArenaRankings : GUIBase
             tmp.m_cItem.transform.localPosition = new Vector3(m_iShowOffsetX, TOP_Y + OFFSET_Y * ShowDataList.Count, 0);
 
             //英雄
-            int leaderID = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            int leaderID = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
             Hero heroLeader = Role.role.GetHeroProperty().GetHero(leaderID);
             GUI_FUNCTION.SET_AVATORS(tmp.m_cSpHero, heroLeader.m_strAvatarM);
             GUI_FUNCTION.SET_HeroBorderAndBack(tmp.m_cSpHeroBorder, tmp.m_cSpHeroBg, heroLeader.m_eNature);

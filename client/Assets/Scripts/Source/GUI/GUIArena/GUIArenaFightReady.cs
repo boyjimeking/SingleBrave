@@ -208,7 +208,8 @@ public class GUIArenaFightReady : GUIBase
         }
 
         //我方
-        int leaderID = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
+		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+        int leaderID = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
         Hero heroLeader = Role.role.GetHeroProperty().GetHero(leaderID);
         GUI_FUNCTION.SET_HeroBorderAndBack(m_cSpHeroBorder, m_cSpHeroFrame, heroLeader.m_eNature);
         GUI_FUNCTION.SET_AVATORS(m_cSpHeroIcon, heroLeader.m_strAvatarM);
@@ -331,7 +332,7 @@ public class GUIArenaFightReady : GUIBase
 
             //GUIBattleArena gui = this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_ARENA_BATTLE) as GUIBattleArena;
 
-            //HeroTeam team = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
+            //HeroTeam team = new HeroTeam().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
             //Hero[] heros = new Hero[5];
             //for (int i = 0; i < team.m_vecTeam.Length; i++)
             //{

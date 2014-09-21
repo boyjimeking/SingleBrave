@@ -13,16 +13,15 @@ using System.Text;
 /// <summary>
 /// 卡片队伍
 /// </summary>
-public class HeroTeam
+public class HeroTeam : CModel
 {
-    public const int TEAM_MAX_NUM = 5;  //队伍成员最大数量
     public int m_iID;   //队伍ID
     public int[] m_vecTeam;    //卡片队伍
     public int m_iLeadID;   //领导者ID
 
     public HeroTeam()
     {
-        this.m_vecTeam = new int[TEAM_MAX_NUM];
+        this.m_vecTeam = new int[GAME_DEFINE.TEAM_MAX_NUM];
     }
 
     /// <summary>
@@ -65,5 +64,25 @@ public class HeroTeam
         }
         return -1;
     }
+
+	/// <summary>
+	/// 获取当前编队的cost
+	/// </summary>
+	/// <returns></returns>
+	public int GetCurTeamCost()
+	{ 
+		int cost = 0;
+		int[] heroTableId = (CModelMgr.sInstance.GetModel<HeroTeam>()[Role.role.GetBaseProperty().m_iCurrentTeam] as HeroTeam).m_vecTeam;
+		for (int i = 0; i < heroTableId.Length; i++)
+		{
+			Hero hero = Role.role.GetHeroProperty().GetHero(heroTableId[i]);
+			if (hero != null)
+			{
+				cost += hero.m_iCost;
+			}
+			
+		}
+		return cost;
+	}
 
 }

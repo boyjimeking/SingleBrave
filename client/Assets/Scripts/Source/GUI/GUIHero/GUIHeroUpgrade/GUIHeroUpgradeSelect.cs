@@ -67,8 +67,9 @@ public class GUIHeroUpgradeSelect : GUIHeroSelectBase
         //优化每次进入都读取最新所有英雄，否则，如果界面没有被销毁，进入界面选择英雄是老数据
         //所有英雄列表
         List<Hero> allheros = Role.role.GetHeroProperty().GetAllHero();
+		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
         //去除 有装备的，被强化的，在队伍中的，锁定的。
-        List<Hero> partyHeros = allheros.FindAll(new Predicate<Hero>((item) => { return (item.m_iEquipID == -1) && item.m_iID != m_iBeUpgradeHeroID && !(CheckExistInTeams(Role.role.GetTeamProperty().GetAllTeam(), item.m_iID)) && (!item.m_bLock); }));
+		List<Hero> partyHeros = allheros.FindAll(new Predicate<Hero>((item) => { return (item.m_iEquipID == -1) && item.m_iID != m_iBeUpgradeHeroID && !(CheckExistInTeams(heroTeam.ToArray<HeroTeam>(), item.m_iID)) && (!item.m_bLock); }));
         this.m_lstHero = partyHeros;
 
         //设置主资源中panel位置大小调整

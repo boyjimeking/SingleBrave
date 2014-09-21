@@ -176,7 +176,7 @@ public class BattleGateStartHandle
         //}
         //else
         {
-            HeroTeam team = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
+            HeroTeam team = new HeroTeam().Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam);
             for (int i = 0; i < team.m_vecTeam.Length; i++)
             {
                 Hero item = Role.role.GetHeroProperty().GetHero(team.m_vecTeam[i]);
@@ -295,7 +295,7 @@ public class BattleGateStartHandle
         gatebattleGui.SetFriendLeaderSkill(null);
         gatebattleGui.SetLeaderIndex(0);
 
-        HeroTeam team = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam);
+        HeroTeam team = new HeroTeam().Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam);
         for (int i = 0; i < team.m_vecTeam.Length; i++)
         {
             Hero item = Role.role.GetHeroProperty().GetHero(team.m_vecTeam[i]);

@@ -303,7 +303,7 @@ public class GUIMain : GUIBase
 
 
         //人物长头像
-        //int[] arrHeros = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
+        //int[] arrHeros = new HeroTeam().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
         //foreach (int heroid in arrHeros)
         //{
         //    if (heroid != null && heroid != -1)
@@ -340,7 +340,7 @@ public class GUIMain : GUIBase
 
 
         //人物长头像
-        //int[] arrHeros = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
+        //int[] arrHeros = new HeroTeam().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
         //foreach (int heroid in arrHeros)
         //{
         //    if (heroid != null && heroid != -1)
@@ -660,7 +660,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            if (Role.role.GetTeamProperty().GetCurTeamCost() <= RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+			if (heroTeam.GetCurTeamCost() <= RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
             {
                 HidenImmediately();
                 this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Hiden();
@@ -690,7 +691,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            if (Role.role.GetTeamProperty().GetCurTeamCost() <= RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            if (heroTeam.GetCurTeamCost() <= RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
             {
                 if (Role.role.GetHeroProperty().GetAllHero().Count >= Role.role.GetBaseProperty().m_iMaxHeroCount)
                 {
@@ -824,7 +826,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            if (Role.role.GetTeamProperty().GetCurTeamCost() <= RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            if (heroTeam.GetCurTeamCost() <= RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
             {
                 if (Role.role.GetHeroProperty().GetAllHero().Count >= Role.role.GetBaseProperty().m_iMaxHeroCount)
                 {
@@ -996,7 +999,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            Hero selectHero = Role.role.GetHeroProperty().GetHero(Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            Hero selectHero = Role.role.GetHeroProperty().GetHero(heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
             if (null != selectHero)
             {
                 Hiden();
@@ -1016,7 +1020,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            Hero selectHero = Role.role.GetHeroProperty().GetHero(Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            Hero selectHero = Role.role.GetHeroProperty().GetHero(heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
             if (null != selectHero)
             {
                 Hiden();
@@ -1035,7 +1040,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            Hero selectHero = Role.role.GetHeroProperty().GetHero(Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            Hero selectHero = Role.role.GetHeroProperty().GetHero(heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
             if (null != selectHero)
             {
                 Hiden();
@@ -1054,7 +1060,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            Hero selectHero = Role.role.GetHeroProperty().GetHero(Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            Hero selectHero = Role.role.GetHeroProperty().GetHero(heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
             if (null != selectHero)
             {
                 Hiden();
@@ -1074,7 +1081,8 @@ public class GUIMain : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            Hero selectHero = Role.role.GetHeroProperty().GetHero(Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            Hero selectHero = Role.role.GetHeroProperty().GetHero(heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam[(int)args[0]]);
             if (null != selectHero)
             {
                 Hiden();
@@ -1132,8 +1140,9 @@ public class GUIMain : GUIBase
     {
         //GAME_FUNCTION.EXCUTE_DELAY(GAME_DEFINE.FADEOUT_GUI_TIME + GAME_DEFINE.FADEIN_GUI_TIME, this.DelayToShowGUIEffect);
 
+		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
         //人物长图标1-5
-        int[] arrHeros = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
+        int[] arrHeros = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
 
 
         Hero item1 = Role.role.GetHeroProperty().GetHero(arrHeros[0]);
@@ -1395,7 +1404,7 @@ public class GUIMain : GUIBase
 
         m_cLbLeader.MakePixelPerfect();
         m_cLbLeader.gameObject.SetActive(true);
-        int leadId = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).GetLeaderIndex();
+        int leadId = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).GetLeaderIndex();
         switch (leadId)
         {
             case 0: this.m_cLbLeader.gameObject.transform.localPosition = new Vector3(-230, 145, 0); break;
@@ -1436,7 +1445,7 @@ public class GUIMain : GUIBase
 
             //m_cLbLeader.MakePixelPerfect();
             //m_cLbLeader.gameObject.SetActive(true);
-            //int leadId = Role.role.GetTeamProperty().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).GetLeaderIndex();
+            //int leadId = new HeroTeam().GetTeam(Role.role.GetBaseProperty().m_iCurrentTeam).GetLeaderIndex();
             //switch (leadId)
             //{
             //    case 0: this.m_cLbLeader.gameObject.transform.localPosition = new Vector3(-230, 145, 0); break;

@@ -380,7 +380,8 @@ public class GUIArena : GUIBase
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
             //Cost超限控制
-            if (Role.role.GetTeamProperty().GetCurTeamCost() > RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
+			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
+            if (heroTeam.GetCurTeamCost() > RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
             {
                 GUI_FUNCTION.MESSAGEM(null, GAME_FUNCTION.STRING(STRING_DEFINE.INFO_COST_OVER_MAX));
                 return;
