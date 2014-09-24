@@ -14,7 +14,7 @@ using UnityEngine;
 /// <summary>
 /// 角色基础属性
 /// </summary>
-public class RoleBaseProperty : CModel
+public class RoleBaseProperty
 {
     public int m_iPlayerId;   //用户ID
     public string m_strUserName;    //用户名字//

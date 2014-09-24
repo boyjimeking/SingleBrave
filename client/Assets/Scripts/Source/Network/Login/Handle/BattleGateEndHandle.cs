@@ -54,7 +54,7 @@ public class BattleGateEndHandle
         int tmpDiamond = ack.m_iDiamond;
 
 
-        FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>().GetFubenByWorldID(ack.m_iWorldID);
+        FuBen fuben = FuBen.GetFubenByWorldID(ack.m_iWorldID);
         int old_areindex = fuben.m_iAreaIndex;
         int old_dungeonindex = fuben.m_iDungeonIndex;
         int old_gateindex = fuben.m_iGateIndex;
@@ -222,16 +222,14 @@ public class BattleGateEndHandle
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
 
         //刷新战斗好友列表
-		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
-
         for (int i = 0; i < ack.m_lstBattleFriendEx.Count; i++)
         {
-			battleFriend.Add(ack.m_lstBattleFriendEx[i]);
+			BattleFriend.Add(ack.m_lstBattleFriendEx[i]);
         }
 
         for (int i = 0; i < ack.m_lstBattleFriend.Count; i++)
         {
-			battleFriend.Add(ack.m_lstBattleFriend[i]);
+			BattleFriend.Add(ack.m_lstBattleFriend[i]);
         }
 
         

@@ -40,9 +40,8 @@ public class PVPWeekRankGetHandle
             GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
             return;
         }
-
-		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
-        for (int i = 0; i < pvpItem.Count; i++)
+		
+		for (int i = 0; i < PVPItemInfo.Count; i++)
         {
             PVPItemInfo tmp = new PVPItemInfo();
             tmp.m_iHeroLv = ack.m_lstWeekRank[i].m_iHeroLv;
@@ -52,7 +51,7 @@ public class PVPWeekRankGetHandle
             tmp.m_iWinNum = ack.m_lstWeekRank[i].m_iWinNum;
             tmp.m_strName = ack.m_lstWeekRank[i].m_strName;
 
-			pvpItem.Add(tmp);
+			PVPItemInfo.Add(tmp);
         }
 
         Role.role.GetBaseProperty().m_iMyWeekRank = ack.m_iMyWeek;

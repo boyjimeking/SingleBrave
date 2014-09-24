@@ -168,7 +168,7 @@ public class GUITeamHero : GUIHeroSelectBase
         this.m_lstHero.Clear();
 
         //获取当前队伍
-        m_cHeroTeam = new HeroTeam().Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam);
+        m_cHeroTeam = HeroTeam.Get(Role.role.GetBaseProperty().m_iCurrentTeam);
 
         foreach (Hero hero in Role.role.GetHeroProperty().GetAllHero())
         {

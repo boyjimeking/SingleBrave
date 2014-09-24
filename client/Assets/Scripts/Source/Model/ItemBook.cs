@@ -13,7 +13,7 @@ using System.Text;
 /// <summary>
 /// 物品图鉴属性
 /// </summary>
-public class ItemBook : CModel
+public class ItemBook : CModel<ItemBook>
 {
 	public int m_iItemID;
 
@@ -40,7 +40,7 @@ public class ItemBook : CModel
     /// <returns></returns>
     public bool HadItem(int id)
     {
-        foreach (ItemBook item in this.s_lstData)
+        foreach (ItemBook item in s_lstData)
             if (item.m_iItemID == id)
                 return true;
         return false;

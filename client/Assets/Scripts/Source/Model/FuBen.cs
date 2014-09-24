@@ -16,7 +16,7 @@ using System.Text;
 /// <summary>
 /// PVE副本世界数据类
 /// </summary>
-public class FuBen : CModel
+public class FuBen : CModel<FuBen>
 {
     public bool m_bActive;  //是否被激活
     public int m_iWorldID;  //世界ID
@@ -34,9 +34,9 @@ public class FuBen : CModel
 	/// </summary>
 	/// <param name="worldID"></param>
 	/// <returns></returns>
-	public FuBen GetFubenByWorldID(int worldID)
+	public static FuBen GetFubenByWorldID(int worldID)
 	{
-		foreach (FuBen item in this.s_lstData)
+		foreach (FuBen item in s_lstData)
 		{
 			if (item.m_iWorldID == worldID)
 				return item;
@@ -49,11 +49,11 @@ public class FuBen : CModel
 	/// </summary>
 	/// <param name="SelectWorld"></param>
 	/// <returns></returns>
-	public int GetNewAreaIndex(int SelectWorld)
+	public static int GetNewAreaIndex(int SelectWorld)
 	{
 		int newAreaIndex = 0;
 		
-		foreach (FuBen fuben in this.s_lstData)
+		foreach (FuBen fuben in s_lstData)
 		{
 			if (fuben.m_iWorldID == SelectWorld)
 			{
@@ -73,11 +73,11 @@ public class FuBen : CModel
 	/// </summary>
 	/// <param name="selectWorld"></param>
 	/// <returns></returns> 
-	public int GetNewDungeonIndex(int selectWorld, int curAreaIndex)
+	public static int GetNewDungeonIndex(int selectWorld, int curAreaIndex)
 	{
 		int newDungeonIndex = -1;
 		
-		foreach (FuBen fuben in this.s_lstData)
+		foreach (FuBen fuben in s_lstData)
 		{
 			if (fuben.m_iWorldID == selectWorld)
 			{
@@ -101,11 +101,11 @@ public class FuBen : CModel
 	/// </summary>
 	/// <param name="SelectWorld"></param>
 	/// <returns></returns>
-	public int GetNewGateIndex(int SelectWorld)
+	public static int GetNewGateIndex(int SelectWorld)
 	{
 		int newGateIndex = 0;
 		
-		foreach (FuBen fuben in this.s_lstData)
+		foreach (FuBen fuben in s_lstData)
 		{
 			if (fuben.m_iWorldID == SelectWorld)
 			{

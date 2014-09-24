@@ -12,7 +12,7 @@ using System.Text;
 /// <summary>
 /// 英雄图鉴
 /// </summary>
-public class HeroBook : CModel
+public class HeroBook : CModel<HeroBook>
 {
 	public int m_iHeroID;
 
@@ -42,7 +42,7 @@ public class HeroBook : CModel
     /// <returns></returns>
     public bool HadHero(int id)
     {
-        foreach ( HeroBook item  in this.s_lstData)
+        foreach ( HeroBook item  in s_lstData)
             if (id == item.m_iHeroID)
                 return true;
         return false;

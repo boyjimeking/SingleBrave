@@ -49,7 +49,7 @@ public class PlayerTaskInfoHandle
             //剧情
             fuben.m_bDungeonStory = ack.lstTasks[i].dungeonStory;   //副本剧情
             
-			fuben.Add(fuben);
+			FuBen.Add(fuben);
 
         }
 

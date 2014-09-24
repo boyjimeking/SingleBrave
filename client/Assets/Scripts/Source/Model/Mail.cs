@@ -13,7 +13,7 @@ using System.Text;
 /// <summary>
 /// 邮件
 /// </summary>
-public class Mail : CModel
+public class Mail : CModel<Mail>
 {
     public int m_iID;   //ID
     public string m_strTittle;  //标题

@@ -276,8 +276,8 @@ public class GUIEspDungeon : GUIBase
             {
                 GUIArea area = (GUIArea)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_AREA);
                 WorldManager.s_iCurrentWorldId = 1;
-				int newAreaIndex = CModelMgr.sInstance.GetModel<FuBen>().GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
-				int newDungeonIndex = CModelMgr.sInstance.GetModel<FuBen>().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
+				int newAreaIndex = FuBen.GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
+				int newDungeonIndex = FuBen.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
                 if (newDungeonIndex >= 0)
                 {
                     WorldManager.s_iLastNewDungeonIndex = newDungeonIndex - 1;

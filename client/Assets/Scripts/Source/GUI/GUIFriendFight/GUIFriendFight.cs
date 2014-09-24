@@ -139,11 +139,10 @@ public class GUIFriendFight : GUIBase
         this.m_lstFriend.Clear();
 
         this.m_lstBattleFriend.Clear();
-
-		BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
-		for (int i = 0; i < battleFriend.Count; i++)
+		
+		for (int i = 0; i < BattleFriend.Count; i++)
         {
-			this.m_lstBattleFriend.Add(battleFriend.Get<BattleFriend>(i));
+			this.m_lstBattleFriend.Add(BattleFriend.Get(i));
         }
 
         for (int i = 0; i < m_lstBattleFriend.Count; i++)
@@ -298,8 +297,7 @@ public class GUIFriendFight : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-			BattleFriend battleFriend = CModelMgr.sInstance.GetModel<BattleFriend>();
-			BattleFriend tmp =  battleFriend[(int)args[0]] as BattleFriend;
+			BattleFriend tmp =  BattleFriend.Get((int)args[0]);
             if (tmp!=null)
             {
                 Hiden();

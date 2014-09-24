@@ -5,7 +5,7 @@ using System.Collections;
 /// <summary>
 /// 排名显示单项
 /// </summary>
-public class PVPItemInfo : CModel
+public class PVPItemInfo : CModel<PVPItemInfo>
 {
 	public string m_strName;
 	public int m_iHeroTableID;

@@ -730,7 +730,7 @@ class GUITeamEditor : GUIBase
                             {
                                 m_cTeamNum -= 10;
                             }
-                            m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+                            m_cTeam = HeroTeam.Get(m_cTeamNum);
                             int tmpIndex = (2 - m_iIndex) % 3;
                             while (tmpIndex < 0)
                             {
@@ -776,7 +776,7 @@ class GUITeamEditor : GUIBase
                             {
                                 m_cTeamNum -= 10;
                             }
-                            m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+                            m_cTeam = HeroTeam.Get(m_cTeamNum);
                             int tmpIndex = (2 - (2 + m_iIndex) % 3) % 3;
 
                             while (tmpIndex < 0)
@@ -891,7 +891,7 @@ class GUITeamEditor : GUIBase
                             {
                                 m_cTeamNum -= 10;
                             }
-                            m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+                            m_cTeam = HeroTeam.Get(m_cTeamNum);
                             int tmpIndex = (2 - m_iIndex) % 3;
                             while (tmpIndex < 0)
                             {
@@ -936,7 +936,7 @@ class GUITeamEditor : GUIBase
                             {
                                 m_cTeamNum -= 10;
                             }
-                            m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+                            m_cTeam = HeroTeam.Get(m_cTeamNum);
                             int tmpIndex = (2 - (2 + m_iIndex) % 3) % 3;
 
                             while (tmpIndex < 0)
@@ -1036,7 +1036,7 @@ class GUITeamEditor : GUIBase
             {
                 m_cTeamNum -= 10;
             }
-            m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+            m_cTeam = HeroTeam.Get(m_cTeamNum);
             int tmpIndex = (2 - m_iIndex) % 3;
             while (tmpIndex < 0)
             {
@@ -1094,7 +1094,7 @@ class GUITeamEditor : GUIBase
             {
                 m_cTeamNum -= 10;
             }
-            m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+            m_cTeam = HeroTeam.Get(m_cTeamNum);
             int tmpIndex = (2 - (2 + m_iIndex) % 3) % 3;
         
             while (tmpIndex < 0)
@@ -1143,7 +1143,7 @@ class GUITeamEditor : GUIBase
     {
         List<int[]> teams = new List<int[]>();
 
-        HeroTeam[] teamsInt = new HeroTeam().ToArray<HeroTeam>();
+        HeroTeam[] teamsInt = HeroTeam.ToArray();
 
         for (int i = 0; i < teamsInt.Length; i++)
         {
@@ -1261,7 +1261,7 @@ class GUITeamEditor : GUIBase
         }
 
         m_cTeamNum = Role.role.GetBaseProperty().m_iCurrentTeam;
-        m_cTeam = new HeroTeam().Get<HeroTeam>(m_cTeamNum);
+        m_cTeam = HeroTeam.Get(m_cTeamNum);
 
         //Refresh();
 
@@ -1374,7 +1374,7 @@ class GUITeamEditor : GUIBase
         GameObject uiPos = GUI_FINDATION.GET_GAME_OBJECT(m_vecTeamPos[teamPos], OBJ_POS + (pos + 1));
         GameObject heroPos = GUI_FINDATION.GET_GAME_OBJECT(m_heroTeamPos[teamPos], HERO_POS + (pos + 1));
 
-        HeroTeam hTeam = new HeroTeam().Get<HeroTeam>(teamNum);
+        HeroTeam hTeam = HeroTeam.Get(teamNum);
 
         Hero hero = Role.role.GetHeroProperty().GetHero(hTeam.m_vecTeam[pos]);
         HeroAttributes ha = new HeroAttributes();

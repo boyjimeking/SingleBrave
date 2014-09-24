@@ -93,11 +93,10 @@ public class PVPBattleRankGetHandle
             tmp.m_lstRanksWeek.Add(ct);
         }
         //即使的周排行刷新 竞技场界面前3名
-		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
-		pvpItem.Clear();
+		PVPItemInfo.Clear();
         for (int i = 0; i < tmp.m_lstRanksWeek.Count; i++)
         {
-            if (pvpItem.Count > 3)  //取前3名
+			if (PVPItemInfo.Count > 3)  //取前3名
             {
                 break;
             }
@@ -110,7 +109,7 @@ public class PVPBattleRankGetHandle
             ct.m_iWinNum = tmp.m_lstRanksWeek[i].m_iWinNum;
             ct.m_strName = tmp.m_lstRanksWeek[i].m_strName;
 
-            pvpItem.Add(ct);
+			PVPItemInfo.Add(ct);
         }
 
 

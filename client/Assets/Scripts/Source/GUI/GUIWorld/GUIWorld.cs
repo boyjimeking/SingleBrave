@@ -101,12 +101,11 @@ public class GUIWorld : GUIBase
         this.m_lstArea.Clear();
 
         int currentWorldId = 1;
-
-		FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
-		for (int i = 0; i < fuben.Count; i++)
+		
+		for (int i = 0; i < FuBen.Count; i++)
         {
 
-			FuBen fubenitem = fuben[i] as FuBen;
+			FuBen fubenitem = FuBen.Get(i);
 			if (currentWorldId < fubenitem.m_iWorldID)
             {
 				if (fubenitem.m_bActive)
@@ -240,9 +239,8 @@ public class GUIWorld : GUIBase
             GUIArea area = (GUIArea)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_AREA);
             area.ResetCurrentAreaId();
 
-			FuBen fuben = CModelMgr.sInstance.GetModel<FuBen>();
-			int newAreaIndex = fuben.GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
-			int newDungeonIndex = fuben.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
+			int newAreaIndex = FuBen.GetNewAreaIndex(WorldManager.s_iCurrentWorldId);
+			int newDungeonIndex = FuBen.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, newAreaIndex);
             if (newDungeonIndex >= 0)
             {
                 WorldManager.s_iLastNewDungeonIndex = newDungeonIndex - 1;

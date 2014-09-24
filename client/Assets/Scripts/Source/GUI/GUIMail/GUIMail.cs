@@ -103,9 +103,8 @@ public class GUIMail : GUIBase
         float y = -56.3f;
         panel.clipRange = new Vector4(panel.clipRange.x, y, panel.clipRange.z, panel.clipRange.w);
 
-
-		Mail mail = CModelMgr.sInstance.GetModel<Mail>();
-		for (int i = 0; i < mail.Count; i++)
+		
+		for (int i = 0; i < Mail.Count; i++)
         {
             GameObject listItem = GameObject.Instantiate(this.m_cListItem) as GameObject;
             listItem.transform.parent = this.m_cListItemParent.transform;
@@ -118,7 +117,7 @@ public class GUIMail : GUIBase
             UISprite sprBg = GUI_FINDATION.GET_OBJ_COMPONENT<UISprite>(listItem, SPR_ICONBG);
 
             UILabel labTitle = GUI_FINDATION.GET_OBJ_COMPONENT<UILabel>(listItem, LABEL_TITLE);
-			Mail tmpMail = mail[i] as Mail;
+			Mail tmpMail = Mail.Get(i);
 			switch (tmpMail.m_cType)
             {
                 case GiftType.Diamond:

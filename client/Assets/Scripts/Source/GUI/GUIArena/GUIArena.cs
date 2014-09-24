@@ -182,11 +182,10 @@ public class GUIArena : GUIBase
         PVPWeekRankTable gold = PVPWeekRankTableManager.GetInstance().GetWeekRankTable(1);
         PVPWeekRankTable silver = PVPWeekRankTableManager.GetInstance().GetWeekRankTable(2);
         PVPWeekRankTable coper = PVPWeekRankTableManager.GetInstance().GetWeekRankTable(3);
-
-		PVPItemInfo pvpItem = CModelMgr.sInstance.GetModel<PVPItemInfo>();
-        if ( pvpItem.Count > 0)
+		
+		if ( PVPItemInfo.Count > 0)
         {
-			PVPItemInfo tmpItem = pvpItem[0] as PVPItemInfo;
+			PVPItemInfo tmpItem = PVPItemInfo.Get(0);
 			this.m_cLbGoldName.text = tmpItem.m_strName;
 			this.m_cLbGoldBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(tmpItem.m_iPoint);
             this.m_cLbGoldAward.text = gold.Num.ToString();
@@ -194,9 +193,9 @@ public class GUIArena : GUIBase
             SetAwardSprite(m_cSpGoldItem, gold.AwardType, gold.ID);
         }
 
-		if (pvpItem.Count > 1)
+		if (PVPItemInfo.Count > 1)
         {
-			PVPItemInfo tmpItem = pvpItem[1] as PVPItemInfo;
+			PVPItemInfo tmpItem = PVPItemInfo.Get(1);
 			this.m_cLbSilverName.text = tmpItem.m_strName;
 			this.m_cLbSilverBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(tmpItem.m_iPoint);
             this.m_cLbSilverAward.text = silver.Num.ToString();
@@ -204,9 +203,9 @@ public class GUIArena : GUIBase
             SetAwardSprite(m_cSpSilverItem, silver.AwardType, silver.ID);
         }
 
-		if (pvpItem.Count > 2)
+		if (PVPItemInfo.Count > 2)
         {
-			PVPItemInfo tmpItem = pvpItem[2] as PVPItemInfo;
+			PVPItemInfo tmpItem = PVPItemInfo.Get(2);
 			this.m_cLbCoperName.text = tmpItem.m_strName;
 			this.m_cLbCoperBigName.text = AthleticsExpTableManager.GetInstance().GetAthleticsNameByPoint(tmpItem.m_iPoint);
             this.m_cLbCoperAward.text = coper.Num.ToString();
@@ -214,7 +213,7 @@ public class GUIArena : GUIBase
             SetAwardSprite(m_cSpCoperItem, coper.AwardType, coper.ID);
         }
 
-		switch (pvpItem.Count)
+		switch (PVPItemInfo.Count)
         {
             case 0:
                 this.m_cGold.SetActive(false);
@@ -380,8 +379,7 @@ public class GUIArena : GUIBase
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
             //Cost超限控制
-			HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
-            if (heroTeam.GetCurTeamCost() > RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
+			if (HeroTeam.GetCurTeamCost() > RoleExpTableManager.GetInstance().GetMaxCost(Role.role.GetBaseProperty().m_iLevel))
             {
                 GUI_FUNCTION.MESSAGEM(null, GAME_FUNCTION.STRING(STRING_DEFINE.INFO_COST_OVER_MAX));
                 return;

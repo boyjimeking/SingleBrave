@@ -39,13 +39,12 @@ public class PlayerGetSystemMailHandle
             GUI_FUNCTION.MESSAGEL(null, ack.header.desc);
             return;
         }
-
-		Mail mail = CModelMgr.sInstance.GetModel<Mail>();
-		mail.Clear();
+		
+		Mail.Clear();
 
         for(int i = 0;i < ack.m_lstMail.Count;i++)
         {
-            mail.Add(ack.m_lstMail[i]);
+			Mail.Add(ack.m_lstMail[i]);
         }
 
         GUIMain main = (GUIMain)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_MAIN);

@@ -267,8 +267,7 @@ class GUIHeroEvolution : GUIBase
         //所有英雄列表
         List<Hero> allheros = Role.role.GetHeroProperty().GetAllHero();
         //去除 有装备的，被强化的，在队伍中的，锁定的。
-		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
-		List<Hero> partyHeros = allheros.FindAll(new Predicate<Hero>((item) => { return (item.m_iEquipID == -1) && !(CheckExistInTeams(heroTeam.ToArray<HeroTeam>(), item.m_iID)) && (!item.m_bLock); }));
+		List<Hero> partyHeros = allheros.FindAll(new Predicate<Hero>((item) => { return (item.m_iEquipID == -1) && !(CheckExistInTeams(HeroTeam.ToArray(), item.m_iID)) && (!item.m_bLock); }));
         this.m_lstHeros = partyHeros;
 
         int[] heroNums = new int[selectHero.m_vecEvolution.Length];  //用于下标显示的英雄数据

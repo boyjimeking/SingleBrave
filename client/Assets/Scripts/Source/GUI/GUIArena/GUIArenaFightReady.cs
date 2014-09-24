@@ -208,8 +208,7 @@ public class GUIArenaFightReady : GUIBase
         }
 
         //我方
-		HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
-        int leaderID = heroTeam.Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
+        int leaderID = HeroTeam.Get(Role.role.GetBaseProperty().m_iCurrentTeam).m_iLeadID;
         Hero heroLeader = Role.role.GetHeroProperty().GetHero(leaderID);
         GUI_FUNCTION.SET_HeroBorderAndBack(m_cSpHeroBorder, m_cSpHeroFrame, heroLeader.m_eNature);
         GUI_FUNCTION.SET_AVATORS(m_cSpHeroIcon, heroLeader.m_strAvatarM);

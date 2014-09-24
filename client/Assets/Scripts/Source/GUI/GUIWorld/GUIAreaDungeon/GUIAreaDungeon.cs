@@ -163,10 +163,10 @@ public class GUIAreaDungeon : GUIBase
 
         int newGateIndex = 0;
 
-		int newDungeonIndex = CModelMgr.sInstance.GetModel<FuBen>().GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
+		int newDungeonIndex = FuBen.GetNewDungeonIndex(WorldManager.s_iCurrentWorldId, WorldManager.s_iCurrentAreaIndex);
         if (newDungeonIndex == WorldManager.s_iCurrentDungeonIndex)
         {
-			newGateIndex = CModelMgr.sInstance.GetModel<FuBen>().GetNewGateIndex(WorldManager.s_iCurrentWorldId);
+			newGateIndex = FuBen.GetNewGateIndex(WorldManager.s_iCurrentWorldId);
         }
         else
         {

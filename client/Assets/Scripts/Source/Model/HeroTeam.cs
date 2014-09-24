@@ -13,7 +13,7 @@ using System.Text;
 /// <summary>
 /// 卡片队伍
 /// </summary>
-public class HeroTeam : CModel
+public class HeroTeam : CModel<HeroTeam>
 {
     public int m_iID;   //队伍ID
     public int[] m_vecTeam;    //卡片队伍
@@ -69,10 +69,10 @@ public class HeroTeam : CModel
 	/// 获取当前编队的cost
 	/// </summary>
 	/// <returns></returns>
-	public int GetCurTeamCost()
+	public static int GetCurTeamCost()
 	{ 
 		int cost = 0;
-		int[] heroTableId = (CModelMgr.sInstance.GetModel<HeroTeam>()[Role.role.GetBaseProperty().m_iCurrentTeam] as HeroTeam).m_vecTeam;
+		int[] heroTableId = Get(Role.role.GetBaseProperty().m_iCurrentTeam).m_vecTeam;
 		for (int i = 0; i < heroTableId.Length; i++)
 		{
 			Hero hero = Role.role.GetHeroProperty().GetHero(heroTableId[i]);

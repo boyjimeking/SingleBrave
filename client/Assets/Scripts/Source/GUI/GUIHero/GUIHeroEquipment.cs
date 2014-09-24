@@ -530,8 +530,7 @@ public class GUIHeroEquipment : GUIBase
             { 
                 //当前使用队伍
                 int currentTeam = Role.role.GetBaseProperty().m_iCurrentTeam;
-				HeroTeam heroTeam = CModelMgr.sInstance.GetModel<HeroTeam>();
-				if (heroTeam.Get<HeroTeam>(currentTeam).GetHeroIndex(ehero) >= 0)
+				if (HeroTeam.Get(currentTeam).GetHeroIndex(ehero) >= 0)
                 {
                     tmpshow.m_cMonsterTop.enabled = true;
                     tmpshow.m_cMonsterTop.spriteName = SP_NAME_TEAM_USE;
@@ -541,7 +540,7 @@ public class GUIHeroEquipment : GUIBase
                 else
                 {
                     bool exist = false;
-                    foreach (HeroTeam item in heroTeam)
+					foreach (HeroTeam item in HeroTeam.ToArray())
                     {
                         if (item.GetHeroIndex(ehero) > 0)
                         {

@@ -60,7 +60,7 @@ public class PVPBattleStartHandle
         //己方设置
         gui.m_strRoleSelfName = Role.role.GetBaseProperty().m_strUserName;
         gui.m_iRoleSelfPvpPoint = Role.role.GetBaseProperty().m_iPVPExp;
-        HeroTeam team = new HeroTeam().Get<HeroTeam>(Role.role.GetBaseProperty().m_iCurrentTeam);
+        HeroTeam team = HeroTeam.Get(Role.role.GetBaseProperty().m_iCurrentTeam);
         Hero[] heros = new Hero[5];
         for (int i = 0; i < team.m_vecTeam.Length; i++)
         {

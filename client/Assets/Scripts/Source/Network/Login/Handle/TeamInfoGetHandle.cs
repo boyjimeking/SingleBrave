@@ -40,14 +40,14 @@ public class TeamInfoGetHandle
             return;
         }
 
-		new HeroTeam().Clear();
+		HeroTeam.Clear();
         for (int i = 0; i < ack.m_lstTeams.Count; i++)
         {
             HeroTeam tmp = new HeroTeam();
             tmp.m_vecTeam = ack.m_lstTeams[i].m_vecTeam;
             tmp.m_iLeadID = ack.m_lstTeams[i].m_vecTeam[ack.m_lstTeams[i].m_iLeaderIndex];
 
-            new HeroTeam().Add(tmp);
+            HeroTeam.Add(tmp);
         }
          SendAgent.SendPlayerTaskInfoGetPktReq(Role.role.GetBaseProperty().m_iPlayerId);
     
