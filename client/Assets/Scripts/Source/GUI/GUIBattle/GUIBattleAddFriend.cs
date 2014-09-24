@@ -186,25 +186,25 @@ public class GUIBattleAddFriend : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            //如果好友数量已满，弹框提示
-            if (Role.role.GetFriendProperty().GetAll().Count >= RoleExpTableManager.GetInstance().GetMaxFriend(Role.role.GetBaseProperty().m_iLevel))
-            {
-                GUI_FUNCTION.MESSAGEM(OnSure, "好友数量已满");
-                return;
-            }
-            FriendApplyHandle.CallBack = (ok =>
-            {
-                GUI_FUNCTION.LOADING_HIDEN();
-                if (ok)
-                {
-                    GUI_FUNCTION.MESSAGEM(OnSure, "好友申请已发送！");
-                }
-                else
-                {
-                    GUI_FUNCTION.MESSAGEM(OnSure, "申请失败！");
-                }
-            });
-            SendAgent.SendFriendApply(Role.role.GetBaseProperty().m_iPlayerId, GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID);
+//            //如果好友数量已满，弹框提示
+//            if (Role.role.GetFriendProperty().GetAll().Count >= RoleExpTableManager.GetInstance().GetMaxFriend(Role.role.GetBaseProperty().m_iLevel))
+//            {
+//                GUI_FUNCTION.MESSAGEM(OnSure, "好友数量已满");
+//                return;
+//            }
+//            FriendApplyHandle.CallBack = (ok =>
+//            {
+//                GUI_FUNCTION.LOADING_HIDEN();
+//                if (ok)
+//                {
+//                    GUI_FUNCTION.MESSAGEM(OnSure, "好友申请已发送！");
+//                }
+//                else
+//                {
+//                    GUI_FUNCTION.MESSAGEM(OnSure, "申请失败！");
+//                }
+//            });
+//            SendAgent.SendFriendApply(Role.role.GetBaseProperty().m_iPlayerId, GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID);
         }
     }
 

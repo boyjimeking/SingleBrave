@@ -186,19 +186,19 @@ public class GUIArenaBattleAddFriend : GUIBase
     {
         if (info.m_eType == GUI_INPUT_INFO.GUI_INPUT_TYPE.CLICK)
         {
-            FriendApplyHandle.CallBack = (ok =>
-            {
-                GUI_FUNCTION.LOADING_HIDEN();
-                if (ok)
-                {
-                    GUI_FUNCTION.MESSAGEM(OnSure, "好友申请已发送！");
-                }
-                else
-                {
-                    GUI_FUNCTION.MESSAGEM(OnSure, "申请失败！");
-                }
-            });
-            SendAgent.SendFriendApply(Role.role.GetBaseProperty().m_iPlayerId, Role.role.GetBaseProperty().m_iEnemyPid);
+//            FriendApplyHandle.CallBack = (ok =>
+//            {
+//                GUI_FUNCTION.LOADING_HIDEN();
+//                if (ok)
+//                {
+//                    GUI_FUNCTION.MESSAGEM(OnSure, "好友申请已发送！");
+//                }
+//                else
+//                {
+//                    GUI_FUNCTION.MESSAGEM(OnSure, "申请失败！");
+//                }
+//            });
+//            SendAgent.SendFriendApply(Role.role.GetBaseProperty().m_iPlayerId, Role.role.GetBaseProperty().m_iEnemyPid);
         }
     }
 

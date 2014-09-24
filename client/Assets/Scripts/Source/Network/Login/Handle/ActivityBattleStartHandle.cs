@@ -68,7 +68,7 @@ public class ActivityBattleStartHandle
 
         LeaderSkillTable selfLeaderSkill = LeaderSkillTableManager.GetInstance().GetLeaderSkillTable(Role.role.GetHeroProperty().GetHero(team.m_iLeadID).m_iLeaderSkillID);
         LeaderSkillTable friendLeaderSkill = null;
-		if (Role.role.GetFriendProperty().IsMyFriend(GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID))
+//		if (Role.role.GetFriendProperty().IsMyFriend(GLOBAL_DEFINE.m_cSelectBattleFriend.m_iID))
         {
 			friendLeaderSkill = LeaderSkillTableManager.GetInstance().GetLeaderSkillTable(GLOBAL_DEFINE.m_cSelectBattleFriend.m_cLeaderHero.m_iLeaderSkillID);
         }

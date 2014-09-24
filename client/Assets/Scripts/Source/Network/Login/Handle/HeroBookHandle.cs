@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,7 +42,7 @@ public class HeroBookHandle
 
         foreach (int item in ack.m_lstHero)
         {
-            Role.role.GetHeroBookProperty().Add(item);
+			new HeroBook().AddBook(item);
         }
 
         SendAgent.SendItemBookReq(Role.role.GetBaseProperty().m_iPlayerId);

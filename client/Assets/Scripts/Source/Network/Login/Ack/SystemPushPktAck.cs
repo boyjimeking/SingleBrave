@@ -27,8 +27,6 @@ public class SystemPushPktAck : HTTPPacketAck
     public int m_iSportTime;
     public int m_iDiamond;
 
-    public List<FriendData> m_lstFriendData = new List<FriendData>();   //好友信息
-
     // public SystemPushPktAck()
     // {
     //     this.m_strAction = PACKET_DEFINE.SYSTEM_PUSH_REQ;

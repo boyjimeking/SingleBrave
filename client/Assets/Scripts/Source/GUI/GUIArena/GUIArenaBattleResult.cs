@@ -1223,7 +1223,8 @@ public class GUIArenaBattleResult : GUIBase
                 GUI_FUNCTION.LOCKPANEL_AUTO_HIDEN();
 
                 //是否为我的好友 如果是，就不弹出好友申请提示
-                if (Role.role.GetFriendProperty().IsMyFriend(Role.role.GetBaseProperty().m_iEnemyPid))
+//                if (Role.role.GetFriendProperty().IsMyFriend(Role.role.GetBaseProperty().m_iEnemyPid))
+				if(false)
                 {
                     this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Hiden();
                     this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMEBOTTOM).Show();

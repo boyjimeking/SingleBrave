@@ -47,7 +47,7 @@ public class PVPInfoGetHandle
         Role.role.GetBaseProperty().m_iPVPRank = ack.m_iPVPRank;
         Role.role.GetBaseProperty().m_iPVPMaxExp = ack.m_iPVPMaxExp;
 
-        SendAgent.SendFriendFightReq(Role.role.GetBaseProperty().m_iPlayerId);
+//        SendAgent.SendFriendFightReq(Role.role.GetBaseProperty().m_iPlayerId);
 
         return;
     }

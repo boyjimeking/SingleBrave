@@ -133,7 +133,7 @@ public class PVPBattleEndHandle
                 tmp.m_iNum = ack.m_cRewardItem.m_iNum;
 
                 Role.role.GetItemProperty().AddItem(tmp);  //加入本地物品
-                Role.role.GetItemBookProperty().AddItem(tmp.m_iTableID);  //更新本地图鉴
+                new ItemBook().AddItem(tmp.m_iTableID);  //更新本地图鉴
             }
         }
 

@@ -117,10 +117,10 @@ public class BattleGateEndHandle
             hero.m_eGrowType = (GrowType)item.m_iGrowType;
             hero.m_bNew = true;
 
-            if (!Role.role.GetHeroBookProperty().HadHero(item.m_iTableID))
+			if (!new HeroBook().HadHero(item.m_iTableID))
                 m_lstNewHero.Add(item.m_iTableID);
             Role.role.GetHeroProperty().AddHero(hero);
-            Role.role.GetHeroBookProperty().Add(hero.m_iTableID);
+			new HeroBook().AddBook(hero.m_iTableID);
             lstHero.Add(hero);
         }
 
@@ -134,7 +134,7 @@ public class BattleGateEndHandle
             item.m_iDummyNum = item.m_iNum;
 
             Role.role.GetItemProperty().AddItem(item);  //加入客户端物品数据
-            Role.role.GetItemBookProperty().AddItem(item.m_iTableID); //物品图鉴更新
+            new ItemBook().AddItem(item.m_iTableID); //物品图鉴更新
         }
 
         //更新物品

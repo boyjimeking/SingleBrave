@@ -221,8 +221,9 @@ class GUIHeroEvolution : GUIBase
             m_gfxNext.Destory();
         }
 
+		HeroBook heroBook = new HeroBook();
         //进化后数值  如果我曾经拥有过该进化后的英雄，则显示该进化后英雄1级的基础属性
-        if (Role.role.GetHeroBookProperty().HadHero(selectHero.m_iEvolutionID))
+		if ( heroBook.HadHero(selectHero.m_iEvolutionID))
         {
             if (htNext != null)
             {
@@ -246,7 +247,7 @@ class GUIHeroEvolution : GUIBase
 
 
         //获得过的英雄 ， 模型全部展示
-        if (!Role.role.GetHeroBookProperty().HadHero(selectHero.m_iEvolutionID))
+		if (!heroBook.HadHero(selectHero.m_iEvolutionID))
         {
             foreach (Transform child in objNext.transform)
             {
@@ -326,7 +327,7 @@ class GUIHeroEvolution : GUIBase
 
                 num.text = heroNums[i].ToString() + "持有";
 
-                if (Role.role.GetHeroBookProperty().HadHero(selectHero.m_vecEvolution[i]))
+				if (heroBook.HadHero(selectHero.m_vecEvolution[i]))
                 {
                     none.SetActive(false);
                 }

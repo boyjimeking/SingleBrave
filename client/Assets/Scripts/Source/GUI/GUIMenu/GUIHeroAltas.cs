@@ -345,7 +345,7 @@ public class GUIHeroAltas : GUIBase
             tmp.m_cItem.transform.localScale = Vector3.one;
 
             //判断该图鉴的英雄，玩家是否拥有，有则显示，无则用？号图片代替
-            bool hashero = Role.role.GetHeroBookProperty().HadHero(m_lstHeroTable[i].ID);
+            bool hashero = new HeroBook().HadHero(m_lstHeroTable[i].ID);
 
             if (hashero)  //显示头像，添加相应事件
             {

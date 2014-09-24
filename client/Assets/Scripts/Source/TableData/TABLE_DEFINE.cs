@@ -48,7 +48,6 @@ public class TABLE_DEFINE
     public const string ACTIVITY_MONSTER_PATH = "TABLE_活动敌人.csv"; //活动敌人
     public const string ACTIVITY_MONSTER_TEAM_PATH = "TABLE_活动敌人队列.csv"; //活动敌人队列
     public const string AI_TABLE_PATH = "TABLE_人工智能.csv"; //人工智能
-    public const string FRIEND_GIFTITEM_PATH = "TABLE_好友礼物表.csv"; //好友礼物
     public const string HERO_GROW_PATH = "TABLE_英雄成长表.csv";  //英雄成长表
     public const string HELP_TYPE_PATH = "TABLE_帮助类型.csv";//帮助类型
     public const string HELP_PROJECT_PATH = "TABLE_帮助项目.csv";//帮助项目

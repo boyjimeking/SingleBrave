@@ -446,13 +446,13 @@ public class GUIBackFrameBottom : GUIBase
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show);
                 SessionManager.GetInstance().SetCallBack(this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Show);
             }
-            else
-            {
-                GUIFriendMenu friendmenu = (GUIFriendMenu)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_FRIENDMENU);
-                friendmenu.Show();
-                this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
-                this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Show();
-            }
+//            else
+//            {
+//                GUIFriendMenu friendmenu = (GUIFriendMenu)this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_FRIENDMENU);
+//                friendmenu.Show();
+//                this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKFRAMETOP).Show();
+//                this.m_cGUIMgr.GetGUI(GUI_DEFINE.GUIID_BACKGROUND).Show();
+//            }
         }
     }
 

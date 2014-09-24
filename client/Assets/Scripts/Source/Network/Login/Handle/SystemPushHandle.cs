@@ -82,12 +82,12 @@ public class SystemPushHandle
 
         Role.role.GetBaseProperty().m_iFriendApplyCount = ack.m_iApplyNum;
         Role.role.GetBaseProperty().m_iFriendGiftCount = ack.m_iFriendGiftNum;
-        Role.role.GetFriendProperty().RemoveAllFriends();
-        for (int i = 0; i < ack.m_lstFriendData.Count; i++ )
-        {
-            Friend friend = ack.m_lstFriendData[i].GetFriend();
-            Role.role.GetFriendProperty().AddFriend(friend);
-        }
+//        Role.role.GetFriendProperty().RemoveAllFriends();
+//        for (int i = 0; i < ack.m_lstFriendData.Count; i++ )
+//        {
+//            Friend friend = ack.m_lstFriendData[i].GetFriend();
+//            Role.role.GetFriendProperty().AddFriend(friend);
+//        }
 
         GUIBackFrameBottom bottom = (GUIBackFrameBottom)GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_BACKFRAMEBOTTOM);
         if (bottom.IsShow())

@@ -322,7 +322,7 @@ public class GUIPropsAtlas : GUIBase
             tmp.m_cItem.transform.localPosition = new Vector3(x, y, 0);
 
             //判断该图鉴的物品，玩家是否拥有，有则显示，无则用？号图片代替
-            bool hasItem = Role.role.GetItemBookProperty().HadItem(m_lstItemTable[i].ID);
+            bool hasItem = new ItemBook().HadItem(m_lstItemTable[i].ID);
 
             if (hasItem)  //显示头像，添加相应事件
             {

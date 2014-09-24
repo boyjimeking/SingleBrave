@@ -294,7 +294,7 @@ public class GUISummonDetail : GUIBase
                     return;
                 }
 
-                SendAgent.SendFriendPointSummonPktReq(Role.role.GetBaseProperty().m_iPlayerId);
+//                SendAgent.SendFriendPointSummonPktReq(Role.role.GetBaseProperty().m_iPlayerId);
             }
         }
     }

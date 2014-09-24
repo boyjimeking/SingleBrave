@@ -271,7 +271,6 @@ public class GUIResouceLoading : GUIBase
                     ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HELP_PROJECT_PATH);
                     ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HELP_TYPE_PATH);
                     ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.HERO_GROW_PATH);
-                    ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.FRIEND_GIFTITEM_PATH);
                     ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.AI_TABLE_PATH);
                     ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_MONSTER_TEAM_PATH);
                     ResourceMgr.LoadAsync(GAME_DEFINE.RESOURCE_TABLE_PATH, TABLE_DEFINE.ACTIVITY_MONSTER_PATH);
@@ -378,9 +377,6 @@ public class GUIResouceLoading : GUIBase
                     //普通副本表
                     txtAsset = ResourceMgr.GetAsyncObject(TABLE_DEFINE.DUNGEON_TABLE_PATH) as TextAsset;
                     DungeonTableManager.GetInstance().LoadText(txtAsset.text);
-                    //好友礼物表
-                    txtAsset = ResourceMgr.GetAsyncObject(TABLE_DEFINE.FRIEND_GIFTITEM_PATH) as TextAsset;
-                    FriendGiftItemTableManager.GetInstance().LoadText(txtAsset.text);
                     //全局数据表
                     txtAsset = ResourceMgr.GetAsyncObject(TABLE_DEFINE.GAME_SETTING) as TextAsset;
                     GameSettingTableManager.GetInstance().LoadText(txtAsset.text);

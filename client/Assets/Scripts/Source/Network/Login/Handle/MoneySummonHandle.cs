@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,7 +65,7 @@ public class MoneySummonHandle
         hero.m_bNew = true;
 
         Role.role.GetHeroProperty().AddHero(hero);
-        Role.role.GetHeroBookProperty().Add(hero.m_iTableID);
+		new HeroBook().AddBook(hero.m_iTableID);
 
         //GUIHeroDetail tmp = GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_HERODETAIL) as GUIHeroDetail;
         GameManager.GetInstance().GetGUIManager().GetGUI(GUI_DEFINE.GUIID_SUMMON_DETAIL).HidenImmediately();

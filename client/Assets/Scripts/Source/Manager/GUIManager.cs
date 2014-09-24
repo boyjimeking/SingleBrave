@@ -187,37 +187,8 @@ public class GUIManager
         GUIHeroSell herosell = new GUIHeroSell(this);
         AddGUI(herosell);
 
-        GUIFriendMenu frimenu = new GUIFriendMenu(this);
-        AddGUI(frimenu);
-
-        GUIFriendSearch frisearch = new GUIFriendSearch(this);
-        AddGUI(frisearch);
-
-        GUIFriendInfo friinfo = new GUIFriendInfo(this);
-        AddGUI(friinfo);
-
-        GUIFriendList firlst = new GUIFriendList(this);
-        AddGUI(firlst);
-
-        GUIFriendInfoLike friinfol = new GUIFriendInfoLike(this);
-        AddGUI(friinfol);
-
-        GUIFriendApply friapp = new GUIFriendApply(this);
-        AddGUI(friapp);
-
-
         GUITeamHero teamHero = new GUITeamHero(this);
         AddGUI(teamHero);
-
-
-        GUIFriendGift frigift = new GUIFriendGift(this);
-        AddGUI(frigift);
-
-        //GUIFriendGiftB frigiftb = new GUIFriendGiftB(this);
-        //AddGUI(frigiftb);
-
-        GUIFriendGiftSelect friselect = new GUIFriendGiftSelect(this);
-        AddGUI(friselect);
 
         GUIEquipUpgrade guiepup = new GUIEquipUpgrade(this);
         AddGUI(guiepup);
@@ -284,12 +255,7 @@ public class GUIManager
 
         GUIActivityBattle activityBattle = new GUIActivityBattle(this);
         AddGUI(activityBattle);
-
-        GUIFriendGiftExpectSelect friendGiftExpectSelect = new GUIFriendGiftExpectSelect(this);
-        AddGUI(friendGiftExpectSelect);
-
-        GUIFriendGiftGive friendGiftGive = new GUIFriendGiftGive(this);
-        AddGUI(friendGiftGive);
+		
 
         GUIHeroAltasDetail aldetail = new GUIHeroAltasDetail(this);
         AddGUI(aldetail);

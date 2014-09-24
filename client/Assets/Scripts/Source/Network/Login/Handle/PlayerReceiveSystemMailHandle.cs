@@ -48,13 +48,13 @@ public class PlayerReceiveSystemMailHandle
         for (int i = 0; i < ack.m_cGiftMail.m_lstHeros.Count; i++)
         {
             Role.role.GetHeroProperty().AddHero(ack.m_cGiftMail.m_lstHeros[i]);
-            Role.role.GetHeroBookProperty().Add(ack.m_cGiftMail.m_lstHeros[i].m_iTableID);  //接受系统礼物的英雄 加入图鉴
+			new HeroBook().AddBook(ack.m_cGiftMail.m_lstHeros[i].m_iTableID);  //接受系统礼物的英雄 加入图鉴
         }
 
         for (int i = 0; i < ack.m_cGiftMail.m_lstItems.Count; i++)
         {
             Role.role.GetItemProperty().AddItem(ack.m_cGiftMail.m_lstItems[i]);
-            Role.role.GetItemBookProperty().AddItem(ack.m_cGiftMail.m_lstItems[i].m_iTableID);  //接受系统礼物的物品 加入图鉴
+            new ItemBook().AddItem(ack.m_cGiftMail.m_lstItems[i].m_iTableID);  //接受系统礼物的物品 加入图鉴
         }
 
 

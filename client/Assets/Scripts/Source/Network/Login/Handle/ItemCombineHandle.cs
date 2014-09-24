@@ -56,7 +56,7 @@ public class ItemCombineHandle
                 addtmp.m_bNew = true;
 
                 Role.role.GetItemProperty().AddItem(addtmp);  //加入客户端物品数据
-                Role.role.GetItemBookProperty().AddItem(q.m_iItem_id); //物品图鉴更新
+                new ItemBook().AddItem(q.m_iItem_id); //物品图鉴更新
 
                 if (addtmp.m_eType== ITEM_TYPE.EQUIP)  //如果有新合成装备，英雄装备界面提示有新装备可以装备
                 {

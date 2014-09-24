@@ -17,11 +17,8 @@ public class Role
 {
     private RoleBaseProperty m_cBaseProperty;   //基本属性
     private HeroProperty m_cHeroProperty;   //英雄属性
-    private FriendProperty m_cFriendProperty;   //好友属性
     private ItemProperty m_cItemProperty;    //物品属性
     private BuildingProperty m_cBuildingProperty; //建筑属性
-    private HeroBookProperty m_cHeroBookProperty;   //英雄图鉴
-    private ItemBookProperty m_cItemBookProperty;   //物品推荐
     private StoreDiamondProperty m_cStoreDiamondProperty;//商城钻石价格属性
     private BattleRecordProperty m_cBattleRecordProperty;//战绩属性
     private PayProperty m_cPayProperty; //支付属性
@@ -32,11 +29,8 @@ public class Role
     {
         this.m_cBaseProperty = new RoleBaseProperty();
         this.m_cHeroProperty = new HeroProperty();
-        this.m_cFriendProperty = new FriendProperty();
         this.m_cItemProperty = new ItemProperty();
         this.m_cBuildingProperty=new BuildingProperty();
-        this.m_cHeroBookProperty = new HeroBookProperty();
-        this.m_cItemBookProperty = new ItemBookProperty();
         this.m_cStoreDiamondProperty = new StoreDiamondProperty();
         this.m_cBattleRecordProperty = new BattleRecordProperty();
         this.m_cPayProperty = new PayProperty();
@@ -66,11 +60,8 @@ public class Role
     public void Destory()
     {
         this.m_cHeroProperty.Destory();
-        this.m_cFriendProperty.Destory();
         this.m_cItemProperty.Destory();
         this.m_cBuildingProperty.Destory();
-        this.m_cHeroBookProperty.Destory();
-        this.m_cItemBookProperty.Destory();
     }
 
     /// <summary>
@@ -93,15 +84,6 @@ public class Role
     }
 
     /// <summary>
-    /// 获取好友属性
-    /// </summary>
-    /// <returns></returns>
-    public FriendProperty GetFriendProperty()
-    {
-        return this.m_cFriendProperty;
-    }
-
-    /// <summary>
     /// 获取物品属性
     /// </summary>
     /// <returns></returns>
@@ -117,24 +99,6 @@ public class Role
     public BuildingProperty GetBuildingProperty()
     {
         return this.m_cBuildingProperty;
-    }
-
-    /// <summary>
-    /// 获取英雄图鉴属性
-    /// </summary>
-    /// <returns></returns>
-    public HeroBookProperty GetHeroBookProperty()
-    {
-        return this.m_cHeroBookProperty;
-    }
-
-    /// <summary>
-    /// 获取物品图鉴属性
-    /// </summary>
-    /// <returns></returns>
-    public ItemBookProperty GetItemBookProperty()
-    {
-        return this.m_cItemBookProperty;
     }
 
     /// <summary>

@@ -44,7 +44,7 @@ public class ActivityFubenFavourableHandle
             ActivityTableManager.GetInstance().AddActivityDungeonFavType(ack.m_lstFavType[i]);
         }
 
-        SendAgent.SendFriendGetListReq(Role.role.GetBaseProperty().m_iPlayerId);
+//        SendAgent.SendFriendGetListReq(Role.role.GetBaseProperty().m_iPlayerId);
 
         //GUI_FUNCTION.LOADING_HIDEN();
         //GameManager.GetInstance().GetSceneManager().ChangeGameScene();

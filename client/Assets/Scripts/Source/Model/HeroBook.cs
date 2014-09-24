@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-//  HeroBookProperty.cs
+//  HeroBook.cs
 //  Author: Lu Zexi
 //  2013-12-30
 
@@ -12,31 +12,27 @@ using System.Text;
 /// <summary>
 /// 英雄图鉴
 /// </summary>
-public class HeroBookProperty
+public class HeroBook : CModel
 {
-    private List<int> m_lstItem = new List<int>();
+	public int m_iHeroID;
 
-    public HeroBookProperty()
+    public HeroBook()
     { 
         //
-    }
-
-    /// <summary>
-    /// 销毁
-    /// </summary>
-    public void Destory()
-    {
-        this.m_lstItem.Clear();
     }
 
     /// <summary>
     /// 增加ID
     /// </summary>
     /// <param name="id"></param>
-    public void Add(int id)
+    public void AddBook(int id)
     {
         if (!HadHero(id))
-            this.m_lstItem.Add(id);
+		{
+			HeroBook heroBook = new HeroBook();
+			heroBook.m_iHeroID = id;
+			Add(heroBook);
+		}
     }
 
     /// <summary>
@@ -46,8 +42,8 @@ public class HeroBookProperty
     /// <returns></returns>
     public bool HadHero(int id)
     {
-        foreach (int item in this.m_lstItem)
-            if (id == item)
+        foreach ( HeroBook item  in this.s_lstData)
+            if (id == item.m_iHeroID)
                 return true;
         return false;
     }

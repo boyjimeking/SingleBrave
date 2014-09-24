@@ -48,7 +48,7 @@ public class ItemBookHandle
 
         foreach (int item in ack.m_lstItem)
         {
-            Role.role.GetItemBookProperty().AddItem(item);
+            new ItemBook().AddItem(item);
         }
 
         SendAgent.SendActivityFubenFavourableEeq(Role.role.GetBaseProperty().m_iPlayerId);
