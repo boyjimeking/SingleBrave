@@ -16,3 +16,6 @@
 [submodule "client/Assets/Scripts/submodule/defineTool"]
 	path = client/Assets/Scripts/submodule/defineTool
 	url = https://github.com/luzexi/Unity3DDefineTool.git
+[submodule "client/Assets/Scripts/submodule/sublime"]
+	path = client/Assets/Scripts/submodule/sublime
+	url = https://github.com/luzexi/Unity3dSublime2Project.git
